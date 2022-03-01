@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% block meta %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% endblock%}
+
+  {% block extra_meta %}
+  {% endblock%}
+
+  {% block corecss %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  {% endblock%}
+
+  {% block extra_css %}
+  {% endblock%}
+
+  {% block corejs %}
+  <script src="https://kit.fontawesome.com/7a0af02583.js" crossorigin="anonymous"></script>
+  {% endblock%}
+
+  {% block extra_js %}
+  {% endblock%}
+
+  <title>CoolSchool {% block extra_title %}{% endblock %}</title>
+</head>
+
+<body>
+  <main>
+    {% block page_header %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+  </main>
+  <footer>
+
+  </footer>
+  {% block postloadjs %}
+  <script src="{% static 'js/base.js' %}"></script>
+  {% endblock %}
+</body>
+
+</html>
