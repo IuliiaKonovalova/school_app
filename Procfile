@@ -1,0 +1,1 @@
+web: gunicorn school_application.wsgi:application
