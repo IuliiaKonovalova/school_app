@@ -142,12 +142,13 @@ body {
   padding: 2em;
   position: absolute;
   top: 105%;
-  right: 2.8rem;
+  right: 2.35rem;
   z-index: 99;
   border: 1px solid var(--clr-primary-300);
   background-color: var(--clr-primary--300);
   border-radius: var(--br);
-  /* display: none; */
+  display: none;
+
 }
 
 .navbar__item--dropdown.open~.account__options {
@@ -158,7 +159,7 @@ body {
 }
 
 .account__options li {
-  margin: 0 1.2em 0.5em 1.2em;
+  margin: 0 1.45em 0.5em 1.45em;
 }
 
 .account__options li:not(:last-child) {
