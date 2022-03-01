@@ -1,0 +1,77 @@
+:root {
+  --clr-primary--100: #c6e8ff;
+  --clr-primary--300: #93d3fd;
+  --clr-primary--500: #0034ee;
+  --clr-primary--900: #001d82;
+  --clr-accent--300: #efceb0;
+  --clr-accent--500: #ff914d;
+  --clr-accent--700: #e56438;
+  --clr-accent--800: #4f2c1d;
+  --clr-accent--900: #2fcd99;
+  --clr-neutral--100: #ffffff;
+  --clr-neutral--300: #ffffffb7;
+  --clr-neutral--500: #afadad;
+  --clr-neutral--900: #34373d;
+  --fs: 1.4rem;
+  --ff-primary: 'Lato', sans-serif;
+  --br: 0.5em;
+}
+
+/*------ Global Settings------*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+h1,
+h2,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  margin-left: 0;
+  padding-left: 0;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+}
+
+/* Body */
+
+body {
+  font-family: var(--ff-primary);
+  font-size: var(--fs);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: var(--fs);
+  min-height: 100vh;
+  color: var(--clr-neutral--100);
+}
+
+/* Header */
