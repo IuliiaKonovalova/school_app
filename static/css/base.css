@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+
 :root {
   --clr-primary--100: #c6e8ff;
   --clr-primary--300: #93d3fd;
-  --clr-primary--500: #0034ee;
+  --clr-primary--500: #0230d6;
   --clr-primary--900: #001d82;
   --clr-accent--300: #efceb0;
   --clr-accent--500: #ff914d;
@@ -11,7 +13,7 @@
   --clr-neutral--100: #ffffff;
   --clr-neutral--300: #ffffffb7;
   --clr-neutral--500: #afadad;
-  --clr-neutral--900: #34373d;
+  --clr-neutral--900: #2a2b2e;
   --fs: 1.4rem;
   --ff-primary: 'Lato', sans-serif;
   --br: 0.5em;
@@ -75,3 +77,90 @@ body {
 }
 
 /* Header */
+
+.header {
+  width: 100%;
+  background-color: var(--clr-primary--300);
+  color: var(--clr-primary--900);
+}
+
+.navbar {
+  width: 100%;
+  max-width: 110rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em 2em;
+  position: relative;
+}
+
+
+.logo__container {
+  font-weight: bold;
+  font-size: 2rem;
+  letter-spacing: 0.15rem;
+  font-weight: 900;
+}
+
+.navbar__items {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__item:not(:first-child) {
+  margin-left: 7vw;
+}
+
+.navbar__item a {
+  color: var(--clr-primary--900);
+  font-weight: 700;
+}
+
+.navbar__item a:hover,
+
+.account__option a:hover {
+  color: var(--clr-neutral--100);
+}
+
+.navbar__item--dropdown {
+  position: relative;
+  background-color: var(--clr-primary--500);
+  color: var(--clr-neutral--100);
+  border-radius: var(--br);
+  padding: 0.7em 2.5em;
+  font-weight: 700;
+}
+
+.navbar__item--dropdown:hover {
+  background-color: var(--clr-primary--900);
+  color: var(--clr-neutral--100);
+}
+
+.account__options {
+  padding: 2em;
+  position: absolute;
+  top: 105%;
+  right: 2.8rem;
+  z-index: 99;
+  border: 1px solid var(--clr-primary-300);
+  background-color: var(--clr-primary--300);
+  border-radius: var(--br);
+  /* display: none; */
+}
+
+.navbar__item--dropdown.open~.account__options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.account__options li {
+  margin: 0 1.2em 0.5em 1.2em;
+}
+
+.account__options li:not(:last-child) {
+  margin: 0 1.2em 1.5em 1.2em;
+}
