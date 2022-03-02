@@ -102,6 +102,16 @@ body {
   font-size: 1.8rem;
   letter-spacing: 0.15rem;
   font-weight: 900;
+  display: flex;
+}
+
+.logo__container--image {
+  background-image: url('/static/images/logo.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 2rem;
+  width: 2rem;
 }
 
 .navbar__items {
@@ -208,7 +218,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 40rem;
+  max-width: 50rem;
 }
 
 .home__hero--title {
@@ -216,6 +226,17 @@ body {
   font-size: 5rem;
   letter-spacing: 0.2rem;
   padding-bottom: 0.2em;
+  display: flex;
+  align-items: center;
+}
+
+.logo__image {
+  background-image: url('/static/images/logo.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 5rem;
+  width: 5rem;
 }
 
 .home__hero--subtitle {
