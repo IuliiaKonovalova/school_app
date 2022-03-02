@@ -31,49 +31,45 @@
 </head>
 
 <body>
-  <header>
-    <header class="header">
-      <nav class="navbar">
-        <div class="logo__container">CoolSchool</div>
-        <ul class="navbar__items">
-          <li class="navbar__item">
-            <a href="#">Home</a>
-          </li>
-          {% if request.user.is_authenticated %}
-          <li class="navbar__item">
-            <div id="dropdown-profile" class="dropdown navbar__item--dropdown">Menu</div>
-            <ul class="account__options">
-              <li class="account__option">
-                <a href="#">Profile</a>
-              </li>
-              <li class="account__option">
-                <a href="#">Schedule</a>
-              </li>
-              <li class="account__option account__option--logout">
-                <a href="#">Logout</a>
-              </li>
-            </ul>
-          </li>
-          {% else %}
-          <li class="navbar__item ">
-            <div id="dropdown-enter" class="dropdown navbar__item--dropdown">Get started</div>
-            <ul class="account__options">
-              <li class="account__option">
-                <a href="">Login</a>
-              </li>
-              <li class="account__option">
-                <a href="">Sign Up</a>
-              </li>
-            </ul>
-          </li>
-          {% endif %}
-        </ul>
-      </nav>
-
-
-    </header>
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo__container">CoolSchool</div>
+      <ul class="navbar__items">
+        <li class="navbar__item">
+          <a href="#">Home</a>
+        </li>
+        {% if request.user.is_authenticated %}
+        <li class="navbar__item">
+          <div id="dropdown-profile" class="dropdown navbar__item--dropdown">Menu</div>
+          <ul class="account__options">
+            <li class="account__option">
+              <a href="#">Profile</a>
+            </li>
+            <li class="account__option">
+              <a href="#">Schedule</a>
+            </li>
+            <li class="account__option account__option--logout">
+              <a href="#">Logout</a>
+            </li>
+          </ul>
+        </li>
+        {% else %}
+        <li class="navbar__item ">
+          <div id="dropdown-enter" class="dropdown navbar__item--dropdown">Get started</div>
+          <ul class="account__options">
+            <li class="account__option">
+              <a href="">Login</a>
+            </li>
+            <li class="account__option">
+              <a href="">Sign Up</a>
+            </li>
+          </ul>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
   </header>
-  <main>
+  <main class="main">
     {% block page_header %}
     {% endblock %}
 
