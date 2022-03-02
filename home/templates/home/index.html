@@ -2,18 +2,29 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Welcome to CoolSchool!</h1>
-      <p>
+<div class="home">
+  <section class="home__hero">
+    <div class="home__hero--content">
+      <h2 class="home__hero--title">
+        CoolSchool
+      </h2>
+      <p class="home__hero--subtitle">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
-        Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-        mus.
-        Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.
-        Phasellus accumsan cursus velit.
       </p>
+      <a href="#" class="home__hero--button">
+        Get started
+      </a>
     </div>
-  </div>
+  </section>
+  <section class="benefits">
+    <div class="benefits__content">
+      <h3 class="benefits__content--title">benefits</h3>
+      <p class="benefits__content--text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut facere placeat
+        molestiae qui sapiente maiores eum
+        totam quia repudiandae quis aliquid similique aliquam incidunt, quibusdam architecto fuga labore veniam
+        voluptatem.</p>
+    </div>
+    <div class="benefits__image"></div>
+
+  </section>
   {% endblock %}
