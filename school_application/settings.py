@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
     'home',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -71,6 +72,10 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'users.User'
+
+
+
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -81,26 +86,18 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
-ACCOUNT_USERNAME_MIN_LENGTH = 4
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
+
 WSGI_APPLICATION = 'school_application.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
