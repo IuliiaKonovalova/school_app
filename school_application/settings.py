@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
     'home',
-    'users',
+    'profiles',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +52,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'school_application.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 TEMPLATES = [
     {
@@ -72,9 +75,20 @@ TEMPLATES = [
     },
 ]
 
-AUTH_USER_MODEL = 'users.User'
+
+# ACCOUNT_FORMS = {
+#     "login": "allauth.account.forms.LoginForm",
+#     "add_email": "allauth.account.forms.AddEmailForm",
+#     "change_password": "allauth.account.forms.ChangePasswordForm",
+#     "set_password": "allauth.account.forms.SetPasswordForm",
+#     "reset_password": "allauth.account.forms.ResetPasswordForm",
+#     "reset_password_from_key": "allauth.account.forms.ResetPasswordKeyForm",
+#     "disconnect": "allauth.socialaccount.forms.DisconnectForm",
+#     'signup': 'profiles.forms.NewSignupForm',
+# }
 
 
+ACCOUNT_SIGNUP_FORM_CLASS = 'profiles.forms.NewSignupForm'
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -85,6 +99,8 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
+
+
 
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
