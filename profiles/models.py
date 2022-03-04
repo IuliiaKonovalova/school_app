@@ -13,6 +13,7 @@ ROLES = (
 
 
 class User(models.Model):
+    username = models.CharField(max_length=30, unique=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     phone_number = models.CharField(max_length=30)
@@ -23,4 +24,4 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.first_name + ' ' + self.last_name
+        return self.first_name + ' ' + self.last_name + ' ' + self.phone_number + ' ' + self.email + ' ' + str(self.role) + ' ' + self.username

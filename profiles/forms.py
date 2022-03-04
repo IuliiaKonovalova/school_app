@@ -19,4 +19,4 @@ class NewSignupForm(forms.Form):
     
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'phone_number', 'role', 'email', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'phone_number', 'role', 'email', 'username', 'password1', 'password2')
