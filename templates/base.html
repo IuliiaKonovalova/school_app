@@ -72,11 +72,17 @@
     </nav>
   </header>
   <main class="main">
-    {% block page_header %}
-    {% endblock %}
+    <div class="content__container">
+      {% if messages %}
+      <div class="message-container"></div>
+      {% endif %}
 
-    {% block content %}
-    {% endblock %}
+      {% block page_header %}
+      {% endblock %}
+
+      {% block content %}
+      {% endblock %}
+    </div>
   </main>
   <footer>
 
