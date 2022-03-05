@@ -38,7 +38,7 @@
       </div>
       <ul class="navbar__items">
         <li class="navbar__item">
-          <a href="#">Home</a>
+          <a href="{% url 'home' %}">Home</a>
         </li>
         {% if request.user.is_authenticated %}
         <li class="navbar__item">
@@ -84,8 +84,11 @@
       {% endblock %}
     </div>
   </main>
-  <footer>
-
+  <footer class="footer">
+    <div class="footer__content">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium numquam natus id amet nostrum repellendus
+      modi repudiandae, debitis assumenda molestiae rerum quos architecto nesciunt delectus ea est. Amet, maxime illum!
+    </div>
   </footer>
   {% block postloadjs %}
   <script src="{% static 'js/base.js' %}"></script>
