@@ -51,3 +51,21 @@ class SalesManager(models.Model):
     """Sales model"""
     user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL)
     lessons_sold = models.ManyToManyField(Sales, related_name='sales_manager')
+
+
+class Parent(models.Model):
+    """
+    Parent model
+    """
+    # Gaurdian's relation to the student
+    GUARDIAN_RELATION = (
+        (1, 'father'),
+        (2, 'mother'),
+        (3, 'grandfather'),
+        (4, 'grandmother'),
+        (5, 'other'),
+    )
+    user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL)
+    relation = models.IntegerField(choices=GUARDIAN_RELATION, default=5)
+    phone_number = models.CharField(max_length=13)
+    address = models.CharField(max_length=100)
