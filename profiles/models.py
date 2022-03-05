@@ -30,3 +30,9 @@ class CustomUser(AbstractUser):
     class Meta:
         ordering = ['email']
 
+
+class Teacher(models.Model):
+    """Teacher model"""
+    user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL)
+    subjects = models.ManyToManyField(CustomUser, related_name='teachers')
+    lessons = models.ManyToManyField(CustomUser, related_name='teachers')
