@@ -322,8 +322,23 @@ body {
 
 
 
+/* ----- Forms ----- */
+.account__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: unset;
+}
+
+.account {
+  margin: 2em auto;
+  padding: 2em;
+  background-color: #001d82;
+}
 
 
+/* ----- Footer ----- */
 
 .footer {
   width: 100%;
