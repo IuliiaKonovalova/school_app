@@ -1,4 +1,7 @@
+import email
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+from sqlalchemy import null
 
 
 # Roles to assign to users
@@ -11,17 +14,21 @@ ROLES = (
         (6, 'potential user'),
 )
 
-
-class User(models.Model):
-    username = models.CharField(max_length=30, unique=True)
+class CustomUser(AbstractUser):
+    """Custom user model"""
+    username = models.CharField(max_length=50, blank=False, null=True, unique=True)
+    email = models.EmailField(max_length=50, unique=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    phone_number = models.CharField(max_length=30)
-    email = models.EmailField(max_length=254)
+    phone = models.CharField(max_length=30)
     role = models.IntegerField(choices=ROLES, default=6)
-    password = models.CharField(max_length=30)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    
 
     def __str__(self):
-        return self.first_name + ' ' + self.last_name + ' ' + self.phone_number + ' ' + self.email + ' ' + str(self.role) + ' ' + self.username
+        
+        return self.email
+
+    # Add meta class to define admin interface
+    class Meta:
+        ordering = ['email']
+

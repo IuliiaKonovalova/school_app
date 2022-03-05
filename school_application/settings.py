@@ -76,19 +76,10 @@ TEMPLATES = [
 ]
 
 
-# ACCOUNT_FORMS = {
-#     "login": "allauth.account.forms.LoginForm",
-#     "add_email": "allauth.account.forms.AddEmailForm",
-#     "change_password": "allauth.account.forms.ChangePasswordForm",
-#     "set_password": "allauth.account.forms.SetPasswordForm",
-#     "reset_password": "allauth.account.forms.ResetPasswordForm",
-#     "reset_password_from_key": "allauth.account.forms.ResetPasswordKeyForm",
-#     "disconnect": "allauth.socialaccount.forms.DisconnectForm",
-#     'signup': 'profiles.forms.NewSignupForm',
-# }
-
-
-ACCOUNT_SIGNUP_FORM_CLASS = 'profiles.forms.NewSignupForm'
+ACCOUNT_FORMS = {
+    'signup': 'profiles.forms.SimpleSignupForm',
+}
+AUTH_USER_MODEL = 'profiles.CustomUser'
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -101,23 +92,36 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 
-
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
-LOGIN_URL = '/accounts/login/'
+LOGIN_URL = '/profiles/login/'
 LOGIN_REDIRECT_URL = '/'
 
 
 WSGI_APPLICATION = 'school_application.wsgi.application'
 
+# Database
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -167,3 +171,16 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+if 'DEVELOPMENT' in os.environ:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = 'issuetracker@example.com'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
