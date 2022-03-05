@@ -41,8 +41,13 @@ class Teacher(models.Model):
 
 
 class Receptionist(models.Model):
-    """
-    Receptionist model
-    """
+    """Receptionist model"""
     user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL)
     lessons_created = models.ManyToManyField(Lesson, related_name='receptionists')
+
+
+
+class SalesManager(models.Model):
+    """Sales model"""
+    user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL)
+    lessons_sold = models.ManyToManyField(Sales, related_name='sales_manager')
