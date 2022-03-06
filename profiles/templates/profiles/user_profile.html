@@ -1,0 +1,7 @@
+<h1>Hello!</h1>
+{% if user_profile == request.user %}
+<h2 class="profile__title">Your Profile</h2>
+<h2 class="profile__title">{{ user_profile.first_name }}'s Profile</h2>
+{% else %}
+<h2 class="profile__title">{{ user_profile.first_name }}'s Profile</h2>
+{% endif %}

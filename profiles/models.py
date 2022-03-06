@@ -1,8 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from subjects.models import Subject
-from lessons.models import Lesson
-from sales.models import Sales
 
 
 # Roles to assign to users
@@ -21,7 +18,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField(max_length=50, unique=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    phone = models.CharField(max_length=30)
+    phone = models.CharField(max_length=30, unique=True)
     role = models.IntegerField(choices=ROLES, default=6)
 
     def __str__(self):
@@ -35,22 +32,16 @@ class CustomUser(AbstractUser):
 
 class Teacher(models.Model):
     """Teacher model"""
-    user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL)
-    subjects = models.ManyToManyField(Subject, related_name='teachers')
-    lessons = models.ManyToManyField(Lesson, related_name='teachers')
-
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
 class Receptionist(models.Model):
     """Receptionist model"""
-    user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL)
-    lessons_created = models.ManyToManyField(Lesson, related_name='receptionists')
-
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
 
 class SalesManager(models.Model):
     """Sales model"""
-    user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL)
-    lessons_sold = models.ManyToManyField(Sales, related_name='sales_manager')
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
 
 class Parent(models.Model):
@@ -63,7 +54,7 @@ class Parent(models.Model):
         (4, 'grandmother'),
         (5, 'other'),
     )
-    user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     relation = models.IntegerField(choices=GUARDIAN_RELATION, default=5)
     phone_number = models.CharField(max_length=13)
     address = models.CharField(max_length=100)
@@ -73,11 +64,9 @@ class Student(models.Model):
     """Student model"""
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    parent = models.ForeignKey(Parent, on_delete=models.SET_NULL)
+    parent = models.ForeignKey(Parent, on_delete=models.CASCADE)
     birthday = models.DateField()
     enrolled = models.DateTimeField(auto_now_add=True)
     classes_bought = models.IntegerField()
-    subjects = models.ManyToManyField(Subject, related_name='students')
-    lessons_attended = models.ManyToManyField(Lesson, related_name='students')
     # It's a foreign key to the sales manager for sorting kids by a manager assigned to them
-    sales_manager = models.ForeignKey(Sales, on_delete=models.SET_NULL)
+    sales_manager = models.ForeignKey(SalesManager, on_delete=models.CASCADE)

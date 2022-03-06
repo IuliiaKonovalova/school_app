@@ -1,7 +1,7 @@
-# from django.contrib import admin
-# from django.urls import path
-# from . import views
+from django.urls import path
+from .views import UserProfileView
 
-# urlpatterns = [
-#     path('', views.index, name='proflies'),
-# ]
+
+urlpatterns = [
+    path('<slug:phone>/', UserProfileView.as_view(), name='user_profile'),
+]
