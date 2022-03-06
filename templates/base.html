@@ -51,7 +51,7 @@
             {% if request.user.role != 5 or request.user.role != 6 %}
             {% if request.user.role == 0 or request.user.role == 3 %}
             <li class="account__option">
-              <a href="#">New applications</a>
+              <a href="{% url 'new_applications' phone=request.user.phone %}">New applications</a>
             </li>
             {% endif %}
             <li class="account__option">

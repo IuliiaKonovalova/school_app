@@ -1,3 +1,8 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
 {% if user_profile == request.user %}
 <h2 class="profile__title">Your Profile</h2>
 <div class="profile__title--user">{{ user_profile.first_name }} {{ user_profile.last_name }}</div>
@@ -8,3 +13,5 @@
 
 
 <a href="{% url 'user_profile_edit' phone=request.user.phone %}">Edit Profile</a>
+
+{% endblock %}

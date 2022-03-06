@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- get new applications -->
+<div class="applications" style="color: black;">
+  <h2>New application</h2>
+  <ul>
+    {% for application in new_applications %}
+    <li>{{ application }}</li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}
