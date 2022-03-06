@@ -1,7 +1,21 @@
 <h1>Hello!</h1>
 {% if user_profile == request.user %}
 <h2 class="profile__title">Your Profile</h2>
-<h2 class="profile__title">{{ user_profile.first_name }}'s Profile</h2>
+<h3 class="profile__title--user">{{ user_profile.first_name }} {{ user_profile.last_name }}</h3>
 {% else %}
-<h2 class="profile__title">{{ user_profile.first_name }}'s Profile</h2>
+<h2 class="profile__title">User Profile</h2>
+<h3 class="profile__title--user">{{ user_profile.first_name }} {{ user_profile.last_name }}</h3>
+{% endif %}
+
+
+{% if password_form %}
+<section class="password__change">
+  <h2 class="password__edit--title">Change password</h2>
+  <h3 class="password__edit--subtitle">(Fill out required fields)</h3>
+  <form method="post" class="password__change--form">
+    {{ password_form|crispy }}
+    {% csrf_token %}
+    <button type="submit">Change password</button>
+  </form>
+</section>
 {% endif %}
