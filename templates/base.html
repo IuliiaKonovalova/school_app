@@ -47,6 +47,20 @@
             <li class="account__option">
               <a href="{% url 'user_profile' phone=request.user.phone %}">Profile</a>
             </li>
+
+            {% if request.user.role != 5 or request.user.role != 6 %}
+            {% if request.user.role == 0 or request.user.role == 3 %}
+            <li class="account__option">
+              <a href="#">New applications</a>
+            </li>
+            {% endif %}
+            <li class="account__option">
+              <a href="#">Members</a>
+            </li>
+            <li class="account__option">
+              <a href="#">Students</a>
+            </li>
+            {% endif %}
             <li class="account__option">
               <a href="#">Schedule</a>
             </li>

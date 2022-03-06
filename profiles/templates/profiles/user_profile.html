@@ -1,10 +1,9 @@
-<h1>Hello!</h1>
 {% if user_profile == request.user %}
 <h2 class="profile__title">Your Profile</h2>
-<h3 class="profile__title--user">{{ user_profile.first_name }} {{ user_profile.last_name }}</h3>
+<div class="profile__title--user">{{ user_profile.first_name }} {{ user_profile.last_name }}</div>
 {% else %}
 <h2 class="profile__title">User Profile</h2>
-<h3 class="profile__title--user">{{ user_profile.first_name }} {{ user_profile.last_name }}</h3>
+<div class="profile__title--user">{{ user_profile.first_name }} {{ user_profile.last_name }}</div>
 {% endif %}
 
 
