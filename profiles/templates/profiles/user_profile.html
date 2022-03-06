@@ -7,14 +7,4 @@
 {% endif %}
 
 
-{% if password_form %}
-<section class="password__change">
-  <h2 class="password__edit--title">Change password</h2>
-  <h3 class="password__edit--subtitle">(Fill out required fields)</h3>
-  <form method="post" class="password__change--form">
-    {{ password_form|crispy }}
-    {% csrf_token %}
-    <button type="submit">Change password</button>
-  </form>
-</section>
-{% endif %}
+<a href="{% url 'user_profile_edit' phone=request.user.phone %}">Edit Profile</a>

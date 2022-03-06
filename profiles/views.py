@@ -11,23 +11,73 @@ class UserProfileView(View):
     def get(self, request, phone, *args, **kwargs):
         """Receive user profile"""
         user_profile = get_object_or_404(CustomUser, phone=phone)
-        if request.user.is_authenticated:
-            if request.user == user_profile:
-                form = PasswordChangeForm(request.user)
-                form.fields['old_password'].widget.attrs['autofocus'] = False
-                return render(
-                    request,
-                    'profiles/user_profile.html',
-                    {'user_profile': user_profile, 'password_form': form}
-                    )
+        # if request.user.is_authenticated:
+        #     if request.user == user_profile:
+        #         form = PasswordChangeForm(request.user)
+        #         form.fields['old_password'].widget.attrs['autofocus'] = False
+        #         return render(
+        #             request,
+        #             'profiles/user_profile.html',
+        #             {'user_profile': user_profile, 'password_form': form}
+        #             )
         return render(
             request,
             'profiles/user_profile.html',
             {'user_profile': user_profile}
             )
 
+    # def post(self, request, phone, *args, **kwargs):
+    #     """Updating password"""
+    #     user_profile = get_object_or_404(CustomUser, phone=phone)
+    #     if request.user.is_authenticated:
+    #         if request.user == user_profile:
+    #             form = PasswordChangeForm(request.user, request.POST)
+    #             if form.is_valid():
+    #                 user = form.save()
+    #                 update_session_auth_hash(request, user)
+    #                 return HttpResponseRedirect(
+    #                     reverse(
+    #                         'user_profile',
+    #                         kwargs={'phone': user_profile.phone})
+    #                         )
+    #             else:
+    #                 return render(
+    #                     request,
+    #                     'profiles/user_profile.html',
+    #                     {'user_profile': user_profile, 'password_form': form}
+    #                     )
+    #     return render(
+    #         request,
+    #         'profiles/user_profile.html',
+    #         {'user_profile': user_profile}
+    #         )
+
+
+# Add UserProfileEditView to change user profile phone, first_name, last_name
+class UserProfileEditView(View):
+    """
+    Edit user profile
+    """
+    def get(self, request, phone, *args, **kwargs):
+        """Receive user profile"""
+        user_profile = get_object_or_404(CustomUser, phone=phone)
+        if request.user.is_authenticated:
+            if request.user == user_profile:
+                form = PasswordChangeForm(request.user)
+                form.fields['old_password'].widget.attrs['autofocus'] = False
+                return render(
+                    request,
+                    'profiles/user_profile_edit.html',
+                    {'user_profile': user_profile, 'password_form': form}
+                    )
+        return render(
+            request,
+            'profiles/user_profile_edit.html',
+            {'user_profile': user_profile}
+            )
+
     def post(self, request, phone, *args, **kwargs):
-        """Updating password"""
+        """Update user profile"""
         user_profile = get_object_or_404(CustomUser, phone=phone)
         if request.user.is_authenticated:
             if request.user == user_profile:
@@ -43,12 +93,12 @@ class UserProfileView(View):
                 else:
                     return render(
                         request,
-                        'profiles/user_profile.html',
+                        'profiles/user_profile_edit.html',
                         {'user_profile': user_profile, 'password_form': form}
                         )
         return render(
             request,
-            'profiles/user_profile.html',
+            'profiles/user_profile_edit.html',
             {'user_profile': user_profile}
             )
 
@@ -63,4 +113,3 @@ class NewApplicationsView(View):
             'profiles/new_applications.html',
             {'new_applications': new_applications}
             )
-
