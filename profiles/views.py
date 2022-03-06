@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from .models import CustomUser
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
+from .forms import NewApplicationForm
 
 
 class UserProfileView(View):
@@ -121,8 +122,33 @@ class NewApplicationsDetailView(View):
     def get(self, request, pk, *args, **kwargs):
         """Receive new applications"""
         new_application = get_object_or_404(CustomUser, pk=pk)
+        form = NewApplicationForm(instance=new_application)
+        if request.user.is_authenticated:
+            if request.user.role == 0:
+                return render(
+                    request,
+                    'profiles/application_detail.html',
+                    {'new_application': new_application, 'form': form}
+                    )
         return render(
             request,
             'profiles/application_detail.html',
-            {'new_application': new_application}
+            {'new_application': new_application,}
+            )
+    def post(self, request, pk, *args, **kwargs):
+        """Update new applications"""
+        new_application = get_object_or_404(CustomUser, pk=pk)
+        form = NewApplicationForm(request.POST, instance=new_application)
+        if form.is_valid():
+            new_application = form.save()
+            return HttpResponseRedirect(
+                reverse(
+                    'application_detail',
+                    args=[request.user.phone, new_application.pk]
+                    )
+                )
+        return render(
+            request,
+            'profiles/application_detail.html',
+            {'new_application': new_application, 'form': form}
             )

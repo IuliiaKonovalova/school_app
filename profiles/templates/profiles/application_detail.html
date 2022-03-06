@@ -5,3 +5,16 @@
 {{ new_application.last_name }}
 {{ new_application.phone }}
 {{ new_application.email }}
+{{ new_application.role }}
+
+{% if request.user.role == 0 %}
+<div>Assign role</div>
+<!-- Change new_application role -->
+<form method="POST">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <button type="submit">Submit</button>
+
+</form>
+<a href="">Role</a>
+{% endif %}

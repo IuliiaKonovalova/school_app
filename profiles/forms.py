@@ -1,5 +1,6 @@
 from allauth.account.forms import SignupForm
 from django import forms
+from matplotlib import widgets
 from .models import *
 
 class SimpleSignupForm(SignupForm):
@@ -17,3 +18,12 @@ class SimpleSignupForm(SignupForm):
         user.role = self.cleaned_data['role']
         user.save()
         return user
+
+
+class NewApplicationForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['role']
+        widgets = {
+            'role': forms.Select(attrs={'class': 'form-control'}),
+        }
