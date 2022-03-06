@@ -7,7 +7,11 @@
   <h2>New application</h2>
   <ul>
     {% for application in new_applications %}
-    <li>{{ application }}</li>
+    <li>
+      <a href="{% url 'application_detail' phone=request.user.phone pk=application.pk %}">
+        {{ application }}
+      </a>
+    </li>
     {% endfor %}
   </ul>
 </div>

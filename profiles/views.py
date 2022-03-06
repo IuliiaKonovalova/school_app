@@ -113,3 +113,16 @@ class NewApplicationsView(View):
             'profiles/new_applications.html',
             {'new_applications': new_applications}
             )
+
+
+# Add NewApplicationsDetailView to show application detail
+class NewApplicationsDetailView(View):
+    """New Applications Detail"""
+    def get(self, request, pk, *args, **kwargs):
+        """Receive new applications"""
+        new_application = get_object_or_404(CustomUser, pk=pk)
+        return render(
+            request,
+            'profiles/application_detail.html',
+            {'new_application': new_application}
+            )
