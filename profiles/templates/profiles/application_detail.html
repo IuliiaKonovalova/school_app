@@ -16,5 +16,5 @@
   <button type="submit">Submit</button>
 
 </form>
-<a href="">Role</a>
+<a href="{% url 'application_delete' phone=request.user.phone pk=new_application.pk %}">Delete application</a>
 {% endif %}

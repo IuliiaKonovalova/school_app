@@ -1,0 +1,15 @@
+<h2>Delete application page</h2>
+
+<form method="post" style="color: black">
+  {% csrf_token %}
+  <div>
+    <div>Are you sure you want to delete project: </div>
+    <div> "{{ new_application.phone }}" ?</div>
+    <div>The application will be permanently deleted.</div>
+  </div>
+  <div>
+    <a href="{% url 'application_delete' phone=request.user.phone pk=application.pk %}">Go
+      back</a>
+    <button type="submit" name="delete">Delete</button>
+  </div>
+</form>

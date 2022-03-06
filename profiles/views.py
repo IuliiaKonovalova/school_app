@@ -152,3 +152,25 @@ class NewApplicationsDetailView(View):
             'profiles/application_detail.html',
             {'new_application': new_application, 'form': form}
             )
+
+
+# Delete NewApplicationsDetailView to delete application
+class NewApplicationsDeleteView(View):
+    """New Applications Delete"""
+    def get(self, request, pk, *args, **kwargs):
+        """Receive new applications"""
+        new_application = get_object_or_404(CustomUser, pk=pk)
+        if request.user.is_authenticated:
+            if request.user.role == 0:
+                new_application.delete()
+                return HttpResponseRedirect(
+                    reverse(
+                        'new_applications',
+                        args=[request.user.phone]
+                        )
+                    )
+        return render(
+            request,
+            'profiles/application_detail.html',
+            {'new_application': new_application}
+            )
