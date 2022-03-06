@@ -7,7 +7,9 @@ from django.contrib.auth import update_session_auth_hash
 
 
 class UserProfileView(View):
+    """User Profile"""
     def get(self, request, phone, *args, **kwargs):
+        """Receive user profile"""
         user_profile = get_object_or_404(CustomUser, phone=phone)
         if request.user.is_authenticated:
             if request.user == user_profile:
@@ -25,6 +27,7 @@ class UserProfileView(View):
             )
 
     def post(self, request, phone, *args, **kwargs):
+        """Updating password"""
         user_profile = get_object_or_404(CustomUser, phone=phone)
         if request.user.is_authenticated:
             if request.user == user_profile:
@@ -48,3 +51,16 @@ class UserProfileView(View):
             'profiles/user_profile.html',
             {'user_profile': user_profile}
             )
+
+
+class NewApplicationsView(View):
+    """New Applications"""
+    def get(self, request, *args, **kwargs):
+        """Receive new applications"""
+        new_applications = CustomUser.objects.filter(role=6)
+        return render(
+            request,
+            'profiles/new_applications.html',
+            {'new_applications': new_applications}
+            )
+
