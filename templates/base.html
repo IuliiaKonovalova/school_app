@@ -55,7 +55,7 @@
             </li>
             {% endif %}
             <li class="account__option">
-              <a href="#">Members</a>
+              <a href="{% url 'search_members' phone=request.user.phone %}">Members</a>
             </li>
             <li class="account__option">
               <a href="#">Students</a>

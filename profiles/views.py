@@ -116,7 +116,6 @@ class NewApplicationsView(View):
             )
 
 
-# Add NewApplicationsDetailView to show application detail
 class NewApplicationsDetailView(View):
     """New Applications Detail"""
     def get(self, request, pk, *args, **kwargs):
@@ -154,7 +153,6 @@ class NewApplicationsDetailView(View):
             )
 
 
-# Delete NewApplicationsDetailView to delete application
 class NewApplicationsDeleteView(View):
     """New Applications Delete"""
     def get(self, request, pk, *args, **kwargs):
@@ -185,3 +183,16 @@ class NewApplicationsDeleteView(View):
                     )
                     )
 
+# SearchMembersView to sort all members by role
+class SearchMembersView(View):
+    """Search Members"""
+    def get(self, request, *args, **kwargs):
+        """Receive members"""
+        members = CustomUser.objects.all()
+        if request.user.is_authenticated:
+            if request.user.role != 5 and request.user.role != 6:
+                return render(
+                    request,
+                    'profiles/search_members.html',
+                    {'members': members}
+                    )

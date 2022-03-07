@@ -1,0 +1,13 @@
+<h2>All members</h2>
+
+<ul>
+  {% for member in members %}
+  <br>
+  <div>Member:</div>
+  <li>First name: {{ member.first_name }}</li>
+  <li>Last name: {{ member.last_name }}</li>
+  <li>Phone: {{ member.phone }}</li>
+  <li>Email {{ member.email }}</li>
+  <li>Role: {{ member.role }}</li>
+  {% endfor %}
+</ul>
