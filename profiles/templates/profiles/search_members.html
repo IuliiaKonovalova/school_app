@@ -52,6 +52,79 @@
 
 
 <script>
+  const select = document.querySelector('.btn__group--roles');
+  // select each radio button
+  const allMember = document.getElementById('all');
+  const parents = document.getElementById('parents');
+  const teachers = document.getElementById('teachers');
+  const sales = document.getElementById('sales');
+  const receptionists = document.getElementById('receptionists');
+
+
+  teachers.addEventListener('click', () => {
+    document.querySelectorAll('.member').forEach(member => {
+      let members = document.querySelectorAll('.member')
+      members.forEach(element => {
+        element.style.display = "none"
+      });
+      let searchData = input.value
+      members.forEach(element => {
+        if (element.innerText.includes('teacher')) {
+          element.style.display = "block"
+        }
+      });
+    });
+  });
+  parents.addEventListener('click', () => {
+    document.querySelectorAll('.member').forEach(member => {
+      let members = document.querySelectorAll('.member')
+      members.forEach(element => {
+        element.style.display = "none"
+      });
+      let searchData = input.value
+      members.forEach(element => {
+        if (element.innerText.includes('parent')) {
+          element.style.display = "block"
+        }
+      });
+    });
+  });
+  sales.addEventListener('click', () => {
+    document.querySelectorAll('.member').forEach(member => {
+      let members = document.querySelectorAll('.member')
+      members.forEach(element => {
+        element.style.display = "none"
+      });
+      let searchData = input.value
+      members.forEach(element => {
+        if (element.innerText.includes('sales')) {
+          element.style.display = "block"
+        }
+      });
+    });
+  });
+  receptionists.addEventListener('click', () => {
+    document.querySelectorAll('.member').forEach(member => {
+      let members = document.querySelectorAll('.member')
+      members.forEach(element => {
+        element.style.display = "none"
+      });
+      let searchData = input.value
+      members.forEach(element => {
+        if (element.innerText.includes('receptionist')) {
+          element.style.display = "block"
+        }
+      });
+    });
+  });
+  all.addEventListener('click', () => {
+    document.querySelectorAll('.member').forEach(member => {
+      let members = document.querySelectorAll('.member')
+      members.forEach(element => {
+        element.style.display = "block"
+      });
+    });
+  });
 
 
   const input = document.getElementById('search_here')
