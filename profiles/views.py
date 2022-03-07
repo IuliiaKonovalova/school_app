@@ -162,15 +162,26 @@ class NewApplicationsDeleteView(View):
         new_application = get_object_or_404(CustomUser, pk=pk)
         if request.user.is_authenticated:
             if request.user.role == 0:
-                new_application.delete()
-                return HttpResponseRedirect(
-                    reverse(
-                        'new_applications',
-                        args=[request.user.phone]
-                        )
+                return render(
+                    request,
+                    'profiles/application_delete.html',
+                    {'new_application': new_application}
                     )
-        return render(
-            request,
-            'profiles/application_detail.html',
-            {'new_application': new_application}
-            )
+        else:
+            return HttpResponseRedirect(
+                reverse(
+                    'application_detail',
+                    args=[request.user.phone, new_application.pk]
+                    )
+                    )
+    def post(self, request, pk, *args, **kwargs):
+        """Delete new applications"""
+        new_application = get_object_or_404(CustomUser, pk=pk)
+        new_application.delete()
+        return HttpResponseRedirect(
+            reverse(
+                'new_applications',
+                args=[request.user.phone]
+                    )
+                    )
+
