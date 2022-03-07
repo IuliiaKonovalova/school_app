@@ -23,6 +23,25 @@
   <div class="member">
     <div>{{member}}</div>
     <div class="member__phone">{{member.phone}}</div>
+    {% if member.role == 0 %}
+    <div>Boss</div>
+    {% elif member.role == 1 %}
+    <div>Teacher</div>
+
+    {% elif member.role == 3 %}
+    <div>Sales</div>
+
+    {% elif member.role == 4 %}
+    <div>Receptionist</div>
+
+    {% elif member.role == 5 %}
+    <div>Parent</div>
+
+    {% elif member.role == 6 %}
+    <div>Potential Client</div>
+
+
+    {% endif %}
     <a href="{% url 'user_profile' phone=member.phone %}">Visit profile</a>
     <br>
   </div>
