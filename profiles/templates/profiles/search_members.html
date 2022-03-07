@@ -1,5 +1,6 @@
 <h2>All members</h2>
 
+{% if request.user.role != 4 or request.user.role != 5 %}
 <div class="btn__group--roles" role="group" aria-label="select by role">
   <input type="radio" class="" name="btnradio" id="all" autocomplete="off" checked>
   <label class="btn" for="all">all members 1</label>
@@ -48,6 +49,9 @@
   {% endfor %}
 </div>
 
+{% else %}
+<p>You are not authorized to view this page</p>
+{% endif %}
 
 
 

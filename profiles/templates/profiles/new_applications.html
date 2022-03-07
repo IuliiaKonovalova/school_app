@@ -2,9 +2,14 @@
 {% load static %}
 
 {% block content %}
+<h2 style="color: black;">New application</h2>
+{% if request.user.role == 0 or request.user.role == 1 %}
+{% if applications.count == 0 %}
+<p style="color: black;">Applications not found</p>
+{% else %}
 <!-- get new applications -->
 <div class="applications" style="color: black;">
-  <h2>New application</h2>
+
   <ul>
     {% for application in new_applications %}
     <li>
@@ -15,5 +20,14 @@
     {% endfor %}
   </ul>
 </div>
+
+
+
+
+
+{% endif %}
+{% else %}
+<p style="color: black;">You are not authorized to view this page</p>
+{% endif %}
 
 {% endblock %}

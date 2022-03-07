@@ -83,7 +83,7 @@ class NewApplicationsView(View):
     """New Applications"""
     def get(self, request, *args, **kwargs):
         """Receive new applications"""
-        new_applications = CustomUser.objects.filter(role=6)
+        new_applications = CustomUser.objects.filter(role=5)
         return render(
             request,
             'profiles/new_applications.html',

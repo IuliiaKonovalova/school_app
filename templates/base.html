@@ -48,8 +48,8 @@
               <a href="{% url 'user_profile' phone=request.user.phone %}">Profile</a>
             </li>
 
-            {% if request.user.role != 5 or request.user.role != 6 %}
-            {% if request.user.role == 0 or request.user.role == 3 %}
+            {% if request.user.role != 4 or request.user.role != 5 %}
+            {% if request.user.role == 0 or request.user.role == 2 %}
             <li class="account__option">
               <a href="{% url 'new_applications' phone=request.user.phone %}">New applications</a>
             </li>

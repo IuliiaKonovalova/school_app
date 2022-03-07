@@ -1,5 +1,6 @@
 <h2>Delete application page</h2>
 
+{% if request.user.role == 0 %}
 <form method="post" style="color: black">
   {% csrf_token %}
   <div>
@@ -8,8 +9,12 @@
     <div>The application will be permanently deleted.</div>
   </div>
   <div>
-    <a href="{% url 'application_detail' phone=request.user.phone pk=new_application.pk %}">Go
+    <a href="{% url 'application_delete' phone=request.user.phone pk=new_application.pk %}">Go
       back</a>
     <button type="submit" name="delete">Delete</button>
   </div>
 </form>
+
+{% else %}
+<p>You are not authorized to view this page</p>
+{% endif %}
