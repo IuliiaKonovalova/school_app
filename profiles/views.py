@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import View
+from django.views.generic import ListView
 from django.http import HttpResponseRedirect
 from .models import CustomUser
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from .forms import NewApplicationForm
+import json
 
 
 class UserProfileView(View):
@@ -27,34 +29,7 @@ class UserProfileView(View):
             {'user_profile': user_profile}
             )
 
-    # def post(self, request, phone, *args, **kwargs):
-    #     """Updating password"""
-    #     user_profile = get_object_or_404(CustomUser, phone=phone)
-    #     if request.user.is_authenticated:
-    #         if request.user == user_profile:
-    #             form = PasswordChangeForm(request.user, request.POST)
-    #             if form.is_valid():
-    #                 user = form.save()
-    #                 update_session_auth_hash(request, user)
-    #                 return HttpResponseRedirect(
-    #                     reverse(
-    #                         'user_profile',
-    #                         kwargs={'phone': user_profile.phone})
-    #                         )
-    #             else:
-    #                 return render(
-    #                     request,
-    #                     'profiles/user_profile.html',
-    #                     {'user_profile': user_profile, 'password_form': form}
-    #                     )
-    #     return render(
-    #         request,
-    #         'profiles/user_profile.html',
-    #         {'user_profile': user_profile}
-    #         )
 
-
-# Add UserProfileEditView to change user profile phone, first_name, last_name
 class UserProfileEditView(View):
     """
     Edit user profile
@@ -184,15 +159,21 @@ class NewApplicationsDeleteView(View):
                     )
 
 # SearchMembersView to sort all members by role
-class SearchMembersView(View):
+class SearchMembersView(ListView):
     """Search Members"""
-    def get(self, request, *args, **kwargs):
-        """Receive members"""
-        members = CustomUser.objects.all()
-        if request.user.is_authenticated:
-            if request.user.role != 5 and request.user.role != 6:
-                return render(
-                    request,
-                    'profiles/search_members.html',
-                    {'members': members}
-                    )
+    # def get(self, request, *args, **kwargs):
+    #     """Receive members"""
+    #     members = CustomUser.objects.all()
+    #     if request.user.is_authenticated:
+    #         if request.user.role != 5 and request.user.role != 6:
+    #             return render(
+    #                 request,
+    #                 'profiles/search_members.html',
+    #                 {'members': members}
+    #                 )
+    model = CustomUser
+    template_name = 'profiles/search_members.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['qs_json'] = json.dumps(list(CustomUser.objects.values("phone", "first_name", "last_name", "role", "email").order_by('first_name')))
+        return context
