@@ -5,8 +5,7 @@ from django.http import HttpResponseRedirect
 from .models import CustomUser
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
-from .forms import NewApplicationForm
-import json
+from .forms import NewApplicationForm, UserProfileEditForm
 
 
 class UserProfileView(View):
@@ -30,7 +29,43 @@ class UserProfileView(View):
             )
 
 
+# create UserProfileEditView to change first_name, last_name, phone
 class UserProfileEditView(View):
+    """User Profile Edit"""
+    def get(self, request, phone, *args, **kwargs):
+        """Receive user profile edit form"""
+        user_profile = get_object_or_404(CustomUser, phone=phone)
+        form = UserProfileEditForm(instance=user_profile)
+        return render(
+            request,
+            'profiles/user_profile_edit.html',
+            {'user_profile': user_profile, 'form': form}
+            )
+
+    def post(self, request, phone, *args, **kwargs):
+        """Receive user profile edit form"""
+        user_profile = get_object_or_404(CustomUser, phone=phone)
+        if request.user.is_authenticated:
+            if request.user == user_profile:
+                form = NewApplicationForm(request.POST, instance=user_profile)
+                # hide role field from the user
+                # form.fields['role'].widget.attrs['hidden'] = True
+
+                if form.is_valid():
+                    form.save()
+                    return HttpResponseRedirect(
+                        reverse(
+                            'user_profile',
+                            kwargs={'phone': user_profile.phone})
+                            )
+        return render(
+            request,
+            'profiles/user_profile_edit.html',
+            {'user_profile': user_profile, 'form': form}
+            )
+
+
+class UserProfileEditPassword(View):
     """
     Edit user profile
     """
@@ -43,12 +78,12 @@ class UserProfileEditView(View):
                 form.fields['old_password'].widget.attrs['autofocus'] = False
                 return render(
                     request,
-                    'profiles/user_profile_edit.html',
+                    'profiles/user_profile_change_password.html',
                     {'user_profile': user_profile, 'password_form': form}
                     )
         return render(
             request,
-            'profiles/user_profile_edit.html',
+            'profiles/user_profile_change_password.html',
             {'user_profile': user_profile}
             )
 

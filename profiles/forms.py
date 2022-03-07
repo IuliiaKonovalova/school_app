@@ -8,7 +8,7 @@ class SimpleSignupForm(SignupForm):
     first_name = forms.CharField(max_length=30, label='First Name', widget=forms.TextInput(attrs={'placeholder': 'First Name'}))
     last_name = forms.CharField(max_length=30, label='Last Name', widget=forms.TextInput(attrs={'placeholder': 'Last Name'}))
     phone = forms.CharField(max_length=12, label='Phone Number', widget=forms.TextInput(attrs={'placeholder': 'Phone Number'}))
-    role = forms.IntegerField(widget=forms.HiddenInput(), initial=6)
+    role = forms.IntegerField(widget=forms.HiddenInput(), initial=5)
     def save(self, request):
         user = super(SimpleSignupForm, self).save(request)
         user.username = self.cleaned_data.get('username')
@@ -26,4 +26,16 @@ class NewApplicationForm(forms.ModelForm):
         fields = ['role']
         widgets = {
             'role': forms.Select(attrs={'class': 'form-control'}),
+        }
+
+
+# create form to change user profile first_name, last_name, phone
+class UserProfileEditForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['first_name', 'last_name', 'phone']
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control'}),
         }

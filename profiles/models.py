@@ -19,7 +19,7 @@ class CustomUser(AbstractUser):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     phone = models.CharField(max_length=30, unique=True)
-    role = models.IntegerField(choices=ROLES, default=6)
+    role = models.IntegerField(choices=ROLES, default=5)
 
     def __str__(self):
         return self.email
