@@ -161,19 +161,19 @@ class NewApplicationsDeleteView(View):
 # SearchMembersView to sort all members by role
 class SearchMembersView(ListView):
     """Search Members"""
-    # def get(self, request, *args, **kwargs):
-    #     """Receive members"""
-    #     members = CustomUser.objects.all()
-    #     if request.user.is_authenticated:
-    #         if request.user.role != 5 and request.user.role != 6:
-    #             return render(
-    #                 request,
-    #                 'profiles/search_members.html',
-    #                 {'members': members}
-    #                 )
-    model = CustomUser
-    template_name = 'profiles/search_members.html'
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['qs_json'] = json.dumps(list(CustomUser.objects.values("phone", "first_name", "last_name", "role", "email").order_by('first_name')))
-        return context
+    def get(self, request, *args, **kwargs):
+        """Receive members"""
+        members = CustomUser.objects.all()
+        if request.user.is_authenticated:
+            if request.user.role != 5 and request.user.role != 6:
+                return render(
+                    request,
+                    'profiles/search_members.html',
+                    {'members': members}
+                    )
+    # model = CustomUser
+    # template_name = 'profiles/search_members.html'
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['qs_json'] = json.dumps(list(CustomUser.objects.values("phone", "first_name", "last_name", "role", "email").order_by('first_name')))
+    #     return context

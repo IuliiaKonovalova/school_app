@@ -19,48 +19,36 @@
 
 <input type="text" id="search_here" class="from-control" placeholder="type sth">
 <div id="box">
-  {% for item in object_list %}
-  <b>{{item}}<b>
-      <br>
-      {% endfor %}
+  {% for member in members %}
+  <div class="member">
+    <div>{{member}}</div>
+    <div class="member__phone">{{member.phone}}</div>
+    <a href="{% url 'user_profile' phone=member.phone %}">Visit profile</a>
+    <br>
+  </div>
+  {% endfor %}
 </div>
 
 
 
-<ul>
-  {% for member in members %}
-  <br>
-  <div>Member:</div>
-  <li>First name: {{ member.first_name }}</li>
-  <li>Last name: {{ member.last_name }}</li>
-  <li>Phone: {{ member.phone }}</li>
-  <li>Email {{ member.email }}</li>
-  <li>Role: {{ member.role }}</li>
-  {% endfor %}
-</ul>
 
 <script>
-  const data = '{{qs_json}}'
-  console.log(data)
 
-  const rdata = JSON.parse(data.replace(/&quot;/g, '"'))
-  console.log(rdata)
 
   const input = document.getElementById('search_here')
   console.log(input)
 
-  let filteredArr = []
-
-  input.addEventListener('keyup', (e) => {
-    box.innerHTML = ""
-    filteredArr = rdata.filter(info => info['phone'].includes(e.target.value) || info['first_name'].includes(e.target.value) || info['last_name'].includes(e.target.value) || info['email'].includes(e.target.value))
-    console.log(filteredArr)
-    if (filteredArr.length > 0) {
-      filteredArr.map(info => {
-        box.innerHTML += `<a href="{% url 'user_profile' phone=${info['phone']} %}">${info['first_name']}, ${info['last_name']}, ${info['email']}, ${info['phone']}</a><br>`
-      })
-    } else {
-      box.innerHTML = "<b>No results found...</b>"
-    }
-  })
+  const search = (e) => {
+    let members = document.querySelectorAll('.member')
+    members.forEach(element => {
+      element.style.display = "none"
+    });
+    let searchData = input.value
+    members.forEach(element => {
+      if (element.innerText.includes(searchData)) {
+        element.style.display = "block"
+      }
+    });
+  }
+  input.addEventListener("keyup", search)
 </script>
