@@ -12,7 +12,7 @@ const addProjectIcon = document.getElementById("add-project-icon");
 document.addEventListener("DOMContentLoaded", function () {
   // Close dropdown when the target is outside of the navbar container
   document.addEventListener("click", (e) => {
-    if (document.getElementById("dropdown-profile")) {
+    if (profileMenu) {
       if (
         e.target !== dropdown &&
         e.target !== profileMenu &&

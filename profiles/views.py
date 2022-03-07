@@ -13,15 +13,6 @@ class UserProfileView(View):
     def get(self, request, phone, *args, **kwargs):
         """Receive user profile"""
         user_profile = get_object_or_404(CustomUser, phone=phone)
-        # if request.user.is_authenticated:
-        #     if request.user == user_profile:
-        #         form = PasswordChangeForm(request.user)
-        #         form.fields['old_password'].widget.attrs['autofocus'] = False
-        #         return render(
-        #             request,
-        #             'profiles/user_profile.html',
-        #             {'user_profile': user_profile, 'password_form': form}
-        #             )
         return render(
             request,
             'profiles/user_profile.html',
@@ -29,7 +20,6 @@ class UserProfileView(View):
             )
 
 
-# create UserProfileEditView to change first_name, last_name, phone
 class UserProfileEditView(View):
     """User Profile Edit"""
     def get(self, request, phone, *args, **kwargs):
@@ -52,7 +42,8 @@ class UserProfileEditView(View):
                 # form.fields['role'].widget.attrs['hidden'] = True
 
                 if form.is_valid():
-                    form.save()
+                    user = form.save()
+                    update_session_auth_hash(request, user)
                     return HttpResponseRedirect(
                         reverse(
                             'user_profile',
@@ -65,7 +56,7 @@ class UserProfileEditView(View):
             )
 
 
-class UserProfileEditPassword(View):
+class UserProfileEditPasswordView(View):
     """
     Edit user profile
     """
@@ -193,7 +184,6 @@ class NewApplicationsDeleteView(View):
                     )
                     )
 
-# SearchMembersView to sort all members by role
 class SearchMembersView(ListView):
     """Search Members"""
     def get(self, request, *args, **kwargs):
