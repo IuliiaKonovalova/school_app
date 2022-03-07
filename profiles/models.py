@@ -6,10 +6,10 @@ from django.contrib.auth.models import AbstractUser
 ROLES = (
         (0, 'boss'),
         (1, 'teacher'),
-        (3, 'sales'),
-        (4, 'receptionist'),
-        (5, 'parent'),
-        (6, 'potential user'),
+        (2, 'sales'),
+        (3, 'receptionist'),
+        (4, 'parent'),
+        (5, 'potential user'),
 )
 
 class CustomUser(AbstractUser):

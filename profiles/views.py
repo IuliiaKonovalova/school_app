@@ -171,9 +171,3 @@ class SearchMembersView(ListView):
                     'profiles/search_members.html',
                     {'members': members}
                     )
-    # model = CustomUser
-    # template_name = 'profiles/search_members.html'
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['qs_json'] = json.dumps(list(CustomUser.objects.values("phone", "first_name", "last_name", "role", "email").order_by('first_name')))
-    #     return context
