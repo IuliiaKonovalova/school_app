@@ -1,10 +1,11 @@
-from urllib import request
+"""Forms for profiles app"""
 from allauth.account.forms import SignupForm
 from django import forms
-from .models import *
+from .models import CustomUser
 
 
 class SimpleSignupForm(SignupForm):
+    """Allauth Signup Form extended"""
     username = forms.CharField(max_length=30, label='Username')
     first_name = forms.CharField(max_length=30, label='First Name', widget=forms.TextInput(attrs={'placeholder': 'First Name'}))
     last_name = forms.CharField(max_length=30, label='Last Name', widget=forms.TextInput(attrs={'placeholder': 'Last Name'}))
@@ -22,6 +23,7 @@ class SimpleSignupForm(SignupForm):
 
 
 class NewApplicationForm(forms.ModelForm):
+    """Form for new application"""
     class Meta:
         model = CustomUser
         fields = ['role']
@@ -32,6 +34,7 @@ class NewApplicationForm(forms.ModelForm):
 
 # create form to change user profile first_name, last_name, phone
 class UserProfileEditForm(forms.ModelForm):
+    """Form to edit user profile"""
     class Meta:
         model = CustomUser
         fields = ['first_name', 'last_name', 'phone', 'role']
@@ -39,8 +42,5 @@ class UserProfileEditForm(forms.ModelForm):
             'first_name': forms.TextInput(attrs={'class': 'form-control', 'required': True}),
             'last_name': forms.TextInput(attrs={'class': 'form-control', 'required': True}),
             'phone': forms.TextInput(attrs={'class': 'form-control', 'required': True}),
-            # 'role': forms.HiddenInput(),
-            # role is hidden in the form and required false
-            # 'role': forms.Select(attrs={'class': 'form-control'}),
             'role': forms.Select(attrs={'class': 'form-control', 'hidden': True, 'required': False}),
         }
