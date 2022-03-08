@@ -33,7 +33,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'phonenumber_field',
     'django.contrib.staticfiles',
     'django_summernote',
     'crispy_forms',

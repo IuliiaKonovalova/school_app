@@ -23,8 +23,9 @@ class StudentAddView(View):
         form = AddStudentForm(request.POST)
         if form.is_valid():
             student = form.save(commit=False)
-            student.parent = request.user.parent
-            student.sales_manager .add(request.user.sales_manager)
+            student.parent.add(request.user)
+            student.sales_manager.add(request.user)
+            student.save()
             return HttpResponseRedirect(
                 reverse('student_list')
                 )
@@ -34,7 +35,7 @@ class StudentAddView(View):
             {'form': form}
             )
 
-# Create studentAddView
+
 class StudentsView(View):
     """Students View"""
     def get(self, request, *args, **kwargs):
@@ -44,4 +45,16 @@ class StudentsView(View):
             request,
             'students/students.html',
             {'students': students}
+            )
+
+
+class StudentView(View):
+    """Student View"""
+    def get(self, request, pk, *args, **kwargs):
+        """Receive student detail"""
+        student = get_object_or_404(Student, pk=pk)
+        return render(
+            request,
+            'students/student_detail.html',
+            {'student': student}
             )
