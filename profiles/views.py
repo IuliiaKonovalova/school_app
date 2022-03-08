@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import View
 from django.views.generic import ListView
 from django.http import HttpResponseRedirect
-from .models import CustomUser, Parent
+from .models import CustomUser, Parent, SalesManager
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from .forms import NewApplicationForm, UserProfileEditForm
@@ -143,6 +143,11 @@ class NewApplicationsDetailView(View):
             new_application = form.save(commit=False)
             if new_application.role == 4:
                 new_parent = Parent.objects.create(
+                    user=new_application,
+                )
+                new_parent.save()
+            if new_application.role == 2:
+                new_parent = SalesManager.objects.create(
                     user=new_application,
                 )
                 new_parent.save()
