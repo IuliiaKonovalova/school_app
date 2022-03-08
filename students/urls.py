@@ -6,7 +6,7 @@ from .views import (
 
 
 urlpatterns = [
-    path('<slug:phone>/', StudentsView.as_view(), name='students'),
-    path('<slug:phone>/search/', StudentAddView.as_view(), name='student_add'),
+    path('students/', StudentsView.as_view(), name='students'),
+    path('students/add/', StudentAddView.as_view(), name='student_add'),
 
 ]

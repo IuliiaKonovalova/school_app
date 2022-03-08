@@ -1,1 +1,17 @@
 <div>Hello!</div>
+
+<a href="{% url 'student_add' %}">Add student</a>
+
+{% if students.count == 0 %}
+
+<p>No students in database</p>
+
+{% else %}
+
+{% for student in students %}
+{{ student.first_name }}
+{{ student.last_name }}
+
+{% endfor %}
+
+{% endif %}
