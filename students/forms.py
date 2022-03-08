@@ -8,7 +8,14 @@ class AddStudentForm(forms.ModelForm):
     class Meta:
         """Meta class"""
         model = Student
-        fields = ['first_name', 'last_name', 'parent', 'birthday', 'classes_left', 'sales_manager', 'notes']
+        fields = [
+            'first_name',
+            'last_name',
+            'parent',
+            'birthday',
+            'classes_left',
+            'sales_manager','notes'
+            ]
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
@@ -17,6 +24,8 @@ class AddStudentForm(forms.ModelForm):
                 ),
             'birthday': forms.DateInput(attrs={'class': 'form-control'}),
             'classes_left': forms.NumberInput(attrs={'class': 'form-control'}),
-            'sales_manager': forms.SelectMultiple(attrs={'class': 'form-control'}),
+            'sales_manager': forms.SelectMultiple(
+                attrs={'class': 'form-control'}
+                ),
             'notes': forms.Textarea(attrs={'class': 'form-control'}),
         }
