@@ -6,10 +6,10 @@ from .models import CustomUser
 
 class SimpleSignupForm(SignupForm):
     """Allauth Signup Form extended"""
-    username = forms.CharField(max_length=30, label='Username')
+    username = forms.CharField(max_length=50, label='Username')
     first_name = forms.CharField(max_length=30, label='First Name', widget=forms.TextInput(attrs={'placeholder': 'First Name'}))
     last_name = forms.CharField(max_length=30, label='Last Name', widget=forms.TextInput(attrs={'placeholder': 'Last Name'}))
-    phone = forms.CharField(max_length=12, label='Phone Number', widget=forms.TextInput(attrs={'placeholder': 'Phone Number'}))
+    phone = forms.CharField(max_length=30,label='Phone Number', widget=forms.TextInput(attrs={'placeholder': 'Phone Number'}))
     role = forms.IntegerField(widget=forms.HiddenInput(), initial=5)
     def save(self, request):
         user = super(SimpleSignupForm, self).save(request)

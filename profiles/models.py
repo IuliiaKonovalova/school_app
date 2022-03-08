@@ -18,7 +18,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField(max_length=50, unique=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    phone = models.CharField(max_length=30, unique=True)
+    phone = models.CharField(max_length=30, unique=True, blank=False)
     role = models.IntegerField(choices=ROLES, default=5)
 
     def __str__(self):
