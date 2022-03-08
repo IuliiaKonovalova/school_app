@@ -56,7 +56,6 @@ class Parent(models.Model):
     )
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     relation = models.IntegerField(choices=GUARDIAN_RELATION, default=5)
-    phone_number = models.CharField(max_length=13)
     address = models.CharField(max_length=100)
 
 
