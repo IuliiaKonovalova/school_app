@@ -1,7 +1,7 @@
 from allauth.account.forms import SignupForm
 from django import forms
-from matplotlib import widgets
 from .models import *
+
 
 class SimpleSignupForm(SignupForm):
     username = forms.CharField(max_length=30, label='Username')

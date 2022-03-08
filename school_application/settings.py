@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'home',
     'profiles',
+    'students',
     'subjects',
     'lessons',
     'sales',

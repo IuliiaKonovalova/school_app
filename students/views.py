@@ -1,3 +1,47 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, reverse
+from django.views import View
+from .models import Student
+from .forms import AddStudentForm
+from django.http import HttpResponseRedirect
 
-# Create your views here.
+
+
+
+class StudentAddView(View):
+    """Student Add View"""
+    def get(self, request):
+        """Receive student add form"""
+        form = AddStudentForm()
+        return render(
+            request,
+            'students/student_add.html',
+            {'form': form}
+            )
+
+    def post(self, request):
+        """Receive student add form"""
+        form = AddStudentForm(request.POST)
+        if form.is_valid():
+            student = form.save(commit=False)
+            student.parent = request.user.parent
+            student.sales_manager .add(request.user.sales_manager)
+            return HttpResponseRedirect(
+                reverse('student_list')
+                )
+        return render(
+            request,
+            'students/student_add.html',
+            {'form': form}
+            )
+
+# Create studentAddView
+class StudentsView(View):
+    """Students View"""
+    def get(self, request, *args, **kwargs):
+        """Receive students list"""
+        students = Student.objects.all()
+        return render(
+            request,
+            'students/students.html',
+            {'students': students}
+            )

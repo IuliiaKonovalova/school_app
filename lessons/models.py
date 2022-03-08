@@ -1,6 +1,7 @@
 from django.db import models
 from subjects.models import Subject
-from profiles.models import Teacher, Student
+from profiles.models import Teacher
+from students.models import Student
 
 class Lesson(models.Model):
     """Lesson model"""
