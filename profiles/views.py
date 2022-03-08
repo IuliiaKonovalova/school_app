@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import View
 from django.views.generic import ListView
 from django.http import HttpResponseRedirect
-from .models import CustomUser
+from .models import CustomUser, Parent
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from .forms import NewApplicationForm, UserProfileEditForm
@@ -27,6 +27,7 @@ class UserProfileEditView(View):
         """Receive user profile edit form"""
         user_profile = get_object_or_404(CustomUser, phone=phone)
         form = UserProfileEditForm(instance=user_profile)
+        form.fields['role'].initial = request.user.role
         return render(
             request,
             'profiles/user_profile_edit.html',
@@ -38,18 +39,16 @@ class UserProfileEditView(View):
         user_profile = get_object_or_404(CustomUser, phone=phone)
         if request.user.is_authenticated:
             if request.user == user_profile:
-                form = NewApplicationForm(request.POST, instance=user_profile)
-                # hide role field from the user
-                # form.fields['role'].widget.attrs['hidden'] = True
-
+                form = UserProfileEditForm(request.POST, instance=user_profile)
                 if form.is_valid():
-                    user = form.save()
-                    update_session_auth_hash(request, user)
+                    form.save()
                     return HttpResponseRedirect(
                         reverse(
                             'user_profile',
                             kwargs={'phone': user_profile.phone})
                             )
+                else:
+                    print('form is not valid')
         return render(
             request,
             'profiles/user_profile_edit.html',
@@ -141,7 +140,13 @@ class NewApplicationsDetailView(View):
         new_application = get_object_or_404(CustomUser, pk=pk)
         form = NewApplicationForm(request.POST, instance=new_application)
         if form.is_valid():
-            new_application = form.save()
+            new_application = form.save(commit=False)
+            if new_application.role == 4:
+                new_parent = Parent.objects.create(
+                    user=new_application,
+                )
+                new_parent.save()
+            new_application.save()
             return HttpResponseRedirect(
                 reverse(
                     'application_detail',

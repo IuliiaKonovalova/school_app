@@ -1,3 +1,4 @@
+from urllib import request
 from allauth.account.forms import SignupForm
 from django import forms
 from .models import *
@@ -33,9 +34,13 @@ class NewApplicationForm(forms.ModelForm):
 class UserProfileEditForm(forms.ModelForm):
     class Meta:
         model = CustomUser
-        fields = ['first_name', 'last_name', 'phone']
+        fields = ['first_name', 'last_name', 'phone', 'role']
         widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'phone': forms.TextInput(attrs={'class': 'form-control'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control', 'required': True}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control', 'required': True}),
+            'phone': forms.TextInput(attrs={'class': 'form-control', 'required': True}),
+            # 'role': forms.HiddenInput(),
+            # role is hidden in the form and required false
+            # 'role': forms.Select(attrs={'class': 'form-control'}),
+            'role': forms.Select(attrs={'class': 'form-control', 'hidden': True, 'required': False}),
         }
