@@ -23,6 +23,7 @@ class StudentAddView(View):
         form = AddStudentForm(request.POST)
         if form.is_valid():
             student = form.save(commit=False)
+            form.save_m2m()
             student.parent.add(request.user)
             student.sales_manager.add(request.user)
             student.save()

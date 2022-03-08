@@ -6,8 +6,8 @@ from sales.models import SalesManager
 
 class Student(models.Model):
     """Student model"""
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    first_name = models.CharField(max_length=50, blank=False, null=False)
+    last_name = models.CharField(max_length=50, blank=False, null=False)
     parent = models.ForeignKey(Parent, on_delete=models.CASCADE)
     birthday = models.DateField()
     enrolled = models.DateTimeField(auto_now_add=True)
