@@ -57,15 +57,3 @@ class Parent(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     relation = models.IntegerField(choices=GUARDIAN_RELATION, default=5)
     address = models.CharField(max_length=100)
-
-
-class Student(models.Model):
-    """Student model"""
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    parent = models.ForeignKey(Parent, on_delete=models.CASCADE)
-    birthday = models.DateField()
-    enrolled = models.DateTimeField(auto_now_add=True)
-    classes_bought = models.IntegerField()
-    # It's a foreign key to the sales manager for sorting kids by a manager assigned to them
-    sales_manager = models.ForeignKey(SalesManager, on_delete=models.CASCADE)
