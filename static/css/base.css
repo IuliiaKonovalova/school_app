@@ -199,7 +199,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: green;
+  background-color: var(--clr-primary--300);
+  color: var(--clr-neutral--900);
   padding: 3em;
 }
 

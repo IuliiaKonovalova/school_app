@@ -1,7 +1,7 @@
 <h2>Delete application page</h2>
 
 {% if request.user.role == 0 %}
-<form method="post" style="color: black">
+<form method="post">
   {% csrf_token %}
   <div>
     <div>Are you sure you want to delete project: </div>

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div style="color: black;">
+<div>
   {% if user_profile == request.user %}
   <h2 class="profile__title">Your Profile</h2>
   <div class="profile__title--user">{{ user_profile.first_name }} {{ user_profile.last_name }}</div>
