@@ -45,17 +45,17 @@
           <div id="dropdown-profile" class="dropdown navbar__item--dropdown">Menu</div>
           <ul class="account__options">
             <li class="account__option">
-              <a href="{% url 'user_profile' phone=request.user.phone %}">Profile</a>
+              <a href="{% url 'user_profile' username=request.user %}">Profile</a>
             </li>
 
             {% if request.user.role != 4 or request.user.role != 5 %}
             {% if request.user.role == 0 or request.user.role == 2 %}
             <li class="account__option">
-              <a href="{% url 'new_applications' phone=request.user.phone %}">New applications</a>
+              <a href="{% url 'new_applications' username=request.user %}">New applications</a>
             </li>
             {% endif %}
             <li class="account__option">
-              <a href="{% url 'search_members' phone=request.user.phone %}">Members</a>
+              <a href="{% url 'search_members' username=request.user %}">Members</a>
             </li>
             <li class="account__option">
               <a href="{% url 'students' %}">Students</a>

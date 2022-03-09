@@ -14,7 +14,6 @@ class AddStudentForm(forms.ModelForm):
             'first_name',
             'last_name',
             'parent',
-            'parent_relation',
             'birthday',
             'classes_left',
             'sales_manager',
@@ -31,9 +30,5 @@ class AddStudentForm(forms.ModelForm):
             'sales_manager': forms.SelectMultiple(
                 attrs={'class': 'form-control'}
                 ),
-            'notes': forms.Textarea(attrs={'class': 'form-control'}),
-            'parent_relation': forms.Select(
-                attrs={'class': 'form-control'},
-                choices=Parent.GUARDIAN_RELATION
-            )
+            'notes': forms.Textarea(attrs={'class': 'form-control'})
         }

@@ -10,9 +10,9 @@ from .forms import NewApplicationForm, UserProfileEditForm
 
 class UserProfileView(View):
     """User Profile"""
-    def get(self, request, phone, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         """Receive user profile"""
-        user_profile = get_object_or_404(CustomUser, phone=phone)
+        user_profile = get_object_or_404(CustomUser,  username=kwargs['username'])
         return render(
             request,
             'profiles/user_profile.html',
@@ -23,9 +23,9 @@ class UserProfileView(View):
 # Doesn't work
 class UserProfileEditView(View):
     """User Profile Edit"""
-    def get(self, request, phone, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         """Receive user profile edit form"""
-        user_profile = get_object_or_404(CustomUser, phone=phone)
+        user_profile = get_object_or_404(CustomUser, username=kwargs['username'])
         form = UserProfileEditForm(instance=user_profile)
         form.fields['role'].initial = request.user.role
         return render(
@@ -34,9 +34,9 @@ class UserProfileEditView(View):
             {'user_profile': user_profile, 'form': form}
             )
 
-    def post(self, request, phone, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         """Receive user profile edit form"""
-        user_profile = get_object_or_404(CustomUser, phone=phone)
+        user_profile = get_object_or_404(CustomUser, username=kwargs['username'])
         if request.user.is_authenticated:
             if request.user == user_profile:
                 form = UserProfileEditForm(request.POST, instance=user_profile)
@@ -45,7 +45,7 @@ class UserProfileEditView(View):
                     return HttpResponseRedirect(
                         reverse(
                             'user_profile',
-                            kwargs={'phone': user_profile.phone})
+                            kwargs={'username': user_profile.username})
                             )
                 else:
                     print('form is not valid')
@@ -60,9 +60,9 @@ class UserProfileEditPasswordView(View):
     """
     Edit user profile
     """
-    def get(self, request, phone, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         """Receive user profile"""
-        user_profile = get_object_or_404(CustomUser, phone=phone)
+        user_profile = get_object_or_404(CustomUser, username=kwargs['username'])
         if request.user.is_authenticated:
             if request.user == user_profile:
                 form = PasswordChangeForm(request.user)
@@ -78,9 +78,9 @@ class UserProfileEditPasswordView(View):
             {'user_profile': user_profile}
             )
 
-    def post(self, request, phone, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         """Update user profile"""
-        user_profile = get_object_or_404(CustomUser, phone=phone)
+        user_profile = get_object_or_404(CustomUser, username=kwargs['username'])
         if request.user.is_authenticated:
             if request.user == user_profile:
                 form = PasswordChangeForm(request.user, request.POST)
@@ -90,7 +90,7 @@ class UserProfileEditPasswordView(View):
                     return HttpResponseRedirect(
                         reverse(
                             'user_profile',
-                            kwargs={'phone': user_profile.phone})
+                            kwargs={'username': user_profile.username})
                             )
                 else:
                     return render(
@@ -155,7 +155,7 @@ class NewApplicationsDetailView(View):
             return HttpResponseRedirect(
                 reverse(
                     'application_detail',
-                    args=[request.user.phone, new_application.pk]
+                    args=[request.user.username, new_application.pk]
                     )
                 )
         return render(
@@ -181,7 +181,7 @@ class NewApplicationsDeleteView(View):
             return HttpResponseRedirect(
                 reverse(
                     'application_detail',
-                    args=[request.user.phone, new_application.pk]
+                    args=[request.user.username, new_application.pk]
                     )
                     )
     def post(self, request, pk, *args, **kwargs):
@@ -191,7 +191,7 @@ class NewApplicationsDeleteView(View):
         return HttpResponseRedirect(
             reverse(
                 'new_applications',
-                args=[request.user.phone]
+                args=[request.user.username]
                     )
                     )
 

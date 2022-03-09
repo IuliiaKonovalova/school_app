@@ -18,11 +18,11 @@ class CustomUser(AbstractUser):
     email = models.EmailField(max_length=50, unique=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    phone = models.CharField(max_length=30, unique=True, blank=False)
+    phone = models.CharField(max_length=30)
     role = models.IntegerField(choices=ROLES, default=5)
 
     def __str__(self):
-        return self.email
+        return self.username
 
     # Add meta class to define admin interface
     class Meta:

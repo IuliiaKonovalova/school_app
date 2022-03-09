@@ -9,9 +9,9 @@
   <div>{{ user_profile.phone }}</div>
   <div>{{ user_profile.email }}</div>
 
-  <a href="{% url 'user_profile_change_password' phone=request.user.phone %}">Change Password</a>
+  <a href="{% url 'user_profile_change_password' username=request.user %}">Change Password</a>
   <br>
-  <a href="{% url 'user_profile_edit' phone=request.user.phone %}">Edit profile</a>
+  <a href="{% url 'user_profile_edit' username=request.user %}">Edit profile</a>
   {% else %}
   <h2 class="profile__title">User Profile</h2>
   <div class="profile__title--user">{{ user_profile.first_name }} {{ user_profile.last_name }}</div>

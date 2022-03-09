@@ -11,12 +11,12 @@ from .views import (
 
 
 urlpatterns = [
-    path('<slug:phone>/', UserProfileView.as_view(), name='user_profile'),
-    path('<slug:phone>/search/', SearchMembersView.as_view(), name='search_members'),
-    path('<slug:phone>/edit/', UserProfileEditView.as_view(), name='user_profile_edit'),
-    path('<slug:phone>/change/', UserProfileEditPasswordView.as_view(), name='user_profile_change_password'),
-    path('<slug:phone>/applications/', NewApplicationsView.as_view(), name='new_applications'),
-    path('<slug:phone>/applications/<int:pk>/', NewApplicationsDetailView.as_view(), name='application_detail'),
-    path('<slug:phone>/applications/<int:pk>/delete/', NewApplicationsDeleteView.as_view(), name='application_delete'),
+    path('<username>/', UserProfileView.as_view(), name='user_profile'),
+    path('<username>/search/', SearchMembersView.as_view(), name='search_members'),
+    path('<username>/edit/', UserProfileEditView.as_view(), name='user_profile_edit'),
+    path('<username>/change/', UserProfileEditPasswordView.as_view(), name='user_profile_change_password'),
+    path('<username>/applications/', NewApplicationsView.as_view(), name='new_applications'),
+    path('<username>/applications/<int:pk>/', NewApplicationsDetailView.as_view(), name='application_detail'),
+    path('<username>/applications/<int:pk>/delete/', NewApplicationsDeleteView.as_view(), name='application_delete'),
 
 ]

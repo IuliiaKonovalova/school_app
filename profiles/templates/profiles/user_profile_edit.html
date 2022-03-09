@@ -1,4 +1,4 @@
-<form method="POST" action="{% url 'user_profile_edit' phone=user_profile.phone %}">
+<form method="POST" action="{% url 'user_profile_edit' username=request.user %}">
   {% csrf_token %}
   {{ form|crispy }}
   <button type="submit">Submit</button>
