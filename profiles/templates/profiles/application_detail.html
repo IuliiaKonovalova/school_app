@@ -1,3 +1,8 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
 <h2>Application's Details</h2>
 
 {% if request.user.role == 0 or request.user.role == 1 %}
@@ -28,3 +33,5 @@
 {% else %}
 <p>You are not authorized to view this page</p>
 {% endif %}
+
+{% endblock %}

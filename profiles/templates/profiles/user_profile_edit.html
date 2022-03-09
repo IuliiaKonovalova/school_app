@@ -1,6 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
 <form method="POST" action="{% url 'user_profile_edit' username=request.user %}">
   {% csrf_token %}
   {{ form|crispy }}
   <button type="submit">Submit</button>
 
 </form>
+
+
+{% endblock %}

@@ -1,3 +1,8 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
 <h2>All members</h2>
 
 {% if request.user.role != 4 or request.user.role != 5 %}
@@ -147,3 +152,5 @@
   }
   input.addEventListener("keyup", search)
 </script>
+
+{% endblock %}

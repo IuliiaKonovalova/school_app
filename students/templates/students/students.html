@@ -1,4 +1,7 @@
-<div>Hello!</div>
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
 
 <a href="{% url 'student_add' %}">Add student</a>
 
@@ -15,3 +18,5 @@
 {% endfor %}
 
 {% endif %}
+
+{% endblock %}
