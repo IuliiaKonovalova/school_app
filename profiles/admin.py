@@ -11,10 +11,5 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(Parent)
 class TeacherAdmin(admin.ModelAdmin):
-    list_display = ('user', 'relation', 'address')
-    search_fields = ('user', 'relation', 'address')
-
-
-admin.site.register(User, UserAdmin)
-admin.site.register(User, Parent)
-# admin.site.register(CustomUser, UserAdmin)
+    list_display = ('user', 'relation')
+    search_fields = ('user', 'relation')
