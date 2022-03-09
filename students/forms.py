@@ -1,5 +1,7 @@
 """Forms for students app"""
 from django import forms
+
+from profiles.models import Parent
 from .models import Student
 
 
@@ -12,9 +14,11 @@ class AddStudentForm(forms.ModelForm):
             'first_name',
             'last_name',
             'parent',
+            'parent_relation',
             'birthday',
             'classes_left',
-            'sales_manager','notes'
+            'sales_manager',
+            'notes'
             ]
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
@@ -28,4 +32,8 @@ class AddStudentForm(forms.ModelForm):
                 attrs={'class': 'form-control'}
                 ),
             'notes': forms.Textarea(attrs={'class': 'form-control'}),
+            'parent_relation': forms.Select(
+                attrs={'class': 'form-control'},
+                choices=Parent.GUARDIAN_RELATION
+            )
         }

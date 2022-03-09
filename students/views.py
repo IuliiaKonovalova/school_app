@@ -22,9 +22,11 @@ class StudentAddView(View):
         """Receive student add form"""
         form = AddStudentForm(request.POST)
         if form.is_valid():
-            student = form.save(commit=False)
+            # when saving a student need to exclude relation field from the form
+            student = form.save(commit=False).exclude(parent_relation='')
             form.save_m2m()
             student.parent.add(request.user)
+            student.parent.relation = form['parent_relation'].value()
             student.sales_manager.add(request.user)
             student.save()
             return HttpResponseRedirect(

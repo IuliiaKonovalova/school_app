@@ -57,3 +57,6 @@ class Parent(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     relation = models.IntegerField(choices=GUARDIAN_RELATION, default=5)
     address = models.CharField(max_length=100, default='', blank=True)
+
+    def __str__(self):
+        return self.user.first_name + ' ' + self.user.last_name
