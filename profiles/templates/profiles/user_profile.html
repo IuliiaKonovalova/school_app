@@ -6,8 +6,7 @@
   {% if user_profile == request.user %}
   <h2 class="profile__title">Your Profile</h2>
   <div class="profile__title--user">{{ user_profile.first_name }} {{ user_profile.last_name }}</div>
-  <div>{{ user_profile.phone }}</div>
-  <div>{{ user_profile.email }}</div>
+
 
   <a href="{% url 'user_profile_change_password' username=request.user %}">Change Password</a>
   <br>
@@ -16,7 +15,8 @@
   <h2 class="profile__title">User Profile</h2>
   <div class="profile__title--user">{{ user_profile.first_name }} {{ user_profile.last_name }}</div>
   {% endif %}
-
+  <div>{{ user_profile.phone }}</div>
+  <div>{{ user_profile.email }}</div>
 
 </div>
 {% endblock %}
