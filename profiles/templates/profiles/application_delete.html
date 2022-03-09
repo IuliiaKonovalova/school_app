@@ -9,7 +9,7 @@
     <div>The application will be permanently deleted.</div>
   </div>
   <div>
-    <a href="{% url 'application_delete' username=request.user pk=new_application.pk %}">Go
+    <a href="{% url 'application_detail' username=request.user pk=new_application.pk %}">Go
       back</a>
     <button type="submit" name="delete">Delete</button>
   </div>

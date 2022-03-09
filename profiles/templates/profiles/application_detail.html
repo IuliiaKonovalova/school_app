@@ -17,6 +17,8 @@
   <button type="submit">Submit</button>
 
 </form>
+<a href="{% url 'new_applications' username=request.user %}">Go
+  to other application</a>
 <a href="{% url 'application_delete' username=request.user pk=new_application.pk %}">Delete application</a>
 {% endif %}
 

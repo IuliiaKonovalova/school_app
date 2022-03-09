@@ -13,7 +13,9 @@
   <ul>
     {% for application in new_applications %}
     <li>
-      {{ application.username }}
+      <a href="{% url 'application_detail' username=request.user pk=application.pk %}">
+        {{ application }}
+      </a>
     </li>
     {% endfor %}
   </ul>
