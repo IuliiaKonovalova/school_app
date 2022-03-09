@@ -22,7 +22,7 @@ class CustomUser(AbstractUser):
     role = models.IntegerField(choices=ROLES, default=5)
 
     def __str__(self):
-        return self.username
+        return str(self.username)
 
     # Add meta class to define admin interface
     class Meta:
