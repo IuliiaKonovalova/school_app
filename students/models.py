@@ -8,7 +8,7 @@ class Student(models.Model):
     """Student model"""
     first_name = models.CharField(max_length=50, blank=False, null=False)
     last_name = models.CharField(max_length=50, blank=False, null=False)
-    parent = models.ForeignKey(Parent, on_delete=models.CASCADE, related_name='child')
+    parent = models.ManyToManyField(Parent, on_delete=models.CASCADE, related_name='child')
     birthday = models.DateField()
     enrolled = models.DateTimeField(auto_now_add=True)
     classes_left = models.IntegerField()

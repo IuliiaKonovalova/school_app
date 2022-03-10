@@ -1,4 +1,3 @@
-# add form to sales/forms.py which takes in the sales model and returns a form with fields
 from django import forms
 from .models import Sales
 
