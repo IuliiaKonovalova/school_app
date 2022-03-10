@@ -20,7 +20,6 @@ class UserProfileView(View):
             )
 
 
-# Doesn't work
 class UserProfileEditView(View):
     """User Profile Edit"""
     def get(self, request, *args, **kwargs):
