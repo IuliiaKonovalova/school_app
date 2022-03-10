@@ -2,14 +2,15 @@ from django import forms
 from .models import Sales
 
 
-class SalesForm(forms.ModelForm):
+class SalesForm(forms.Form):
+    classes_bought = forms.IntegerField(label='Classes bought', min_value=1, max_value=100)
     """Form for sales"""
     class Meta:
         model = Sales
-        fields = ['sold_by', 'sold_to', 'amount', 'date']
-        widgets = {
-            'sold_by': forms.Select(attrs={'class': 'form-control'}),
-            'sold_to': forms.Select(attrs={'class': 'form-control'}),
-            'amount': forms.NumberInput(attrs={'class': 'form-control'}),
-            'date': forms.DateInput(attrs={'class': 'form-control'})
-        }
+
+    def save(self, request):
+        """Save form"""
+        sales = super(SalesForm, self).save(commit=False)
+        sales.sold_by = request.user
+        sales.sold_to = request.user.parent
+        sales.classes_bought = self.cleaned_data.get('classes_bought')
