@@ -3,7 +3,7 @@
 
 {% block content %}
 <h2 style="color: black;">New application</h2>
-{% if request.user.role == 0 or request.user.role == 1 %}
+{% if request.user.role == 0 or request.user.role == 2 %}
 {% if applications.count == 0 %}
 <p style="color: black;">Applications not found</p>
 {% else %}

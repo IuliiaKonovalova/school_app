@@ -30,15 +30,15 @@ class SalesView(View):
 def sales_form(request):
     """Sales form"""
     if request.method == 'GET':
-      if request.user.is_authenticated and (request.user.role == 0 or request.user.role == 2):
-        form = SalesForm()
-        form.fields['sold_to'].queryset = Parent.objects.all()
-        form.fields['sold_to_child'].queryset = Student.objects.all()
-        return render(
-            request,
-            'sales/sales_form.html',
-            {'form': form}
-            )
+        if request.user.is_authenticated and (request.user.role == 0 or request.user.role == 2):
+            form = SalesForm()
+            form.fields['sold_to'].queryset = Parent.objects.all()
+            form.fields['student'].queryset = Student.objects.all()
+            return render(
+                request,
+                'sales/sales_form.html',
+                {'form': form}
+                )
     if request.method == "POST":
         form = SalesForm(request.POST)
         if form.is_valid():

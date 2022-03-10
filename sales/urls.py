@@ -5,5 +5,6 @@ from .views import SalesView, sales_form
 
 urlpatterns = [
     path('sales/', SalesView.as_view(), name='sales_list'),
+    path('sales/add/', sales_form, name='sales_form'),
 
 ]

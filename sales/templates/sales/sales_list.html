@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h2>All sales made</h2>
+{% if request.user.role == 0 or request.user.role == 2 %}
+{% if sales.count == 0 %}
+<p>Sales not found</p>
+{% else %}
+
+<div class="sales">
+
+  <ul>
+    {% for sale in sales %}
+    <li>
+      {{ sale }}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+
+
+
+{% endif %}
+
+<div>
+  <a href="{% url 'sales_form' %}">Add sale</a>
+</div>
+{% else %}
+<p>You are not authorized to view this page</p>
+{% endif %}
+
+{% endblock %}
