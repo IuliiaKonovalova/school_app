@@ -25,4 +25,5 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('profiles/', include('profiles.urls')),
     path('students/', include('students.urls')),
+    path('sales/', include('sales.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

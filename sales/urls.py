@@ -4,6 +4,6 @@ from .views import SalesView, sales_form
 
 
 urlpatterns = [
-    path('<username>/', SalesView.as_view(), name='sales_list'),
-    path('<username>/form/', sales_form, name='sales_form'),
+    path('sales/', SalesView.as_view(), name='sales_list'),
+
 ]

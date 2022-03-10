@@ -12,7 +12,7 @@ class SalesView(View):
     def get(self, request, *args, **kwargs):
         """Receive sales"""
         if request.user.is_authenticated and (request.user.role == 0 or request.user.role == 2):
-            sales = Sales.objects.filter(sold_by=request.user)
+            sales = Sales.objects.all()
             return render(
                 request,
                 'sales/sales_list.html',

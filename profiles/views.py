@@ -107,7 +107,6 @@ class UserProfileEditPasswordView(View):
 class NewApplicationsView(View):
     """New Applications"""
     def get(self, request, *args, **kwargs):
-        user_profile = get_object_or_404(CustomUser, username=kwargs['username'])
         """Receive new applications"""
         new_applications = CustomUser.objects.filter(role=5)
         return render(request, 'profiles/new_applications.html', {'new_applications': new_applications})

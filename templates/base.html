@@ -53,6 +53,9 @@
             <li class="account__option">
               <a href="{% url 'new_applications' username=request.user %}">New applications</a>
             </li>
+            <li class="account__option">
+              <a href="{% url 'sales_list' %}">Add sale</a>
+            </li>
             {% endif %}
             <li class="account__option">
               <a href="{% url 'search_members' username=request.user %}">Members</a>
