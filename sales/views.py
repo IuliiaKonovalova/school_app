@@ -1,9 +1,23 @@
 from django.shortcuts import render
-
+from django.views import View
 from profiles.models import Parent
 from .forms import SalesForm
 from students.models import Student
 from .models import Sales
+
+
+# Add class to view all sales for a user with role 0 or 2
+class SalesView(View):
+    """Sales view"""
+    def get(self, request, *args, **kwargs):
+        """Receive sales"""
+        if request.user.is_authenticated and (request.user.role == 0 or request.user.role == 2):
+            sales = Sales.objects.filter(sold_by=request.user)
+            return render(
+                request,
+                'sales/sales_list.html',
+                {'sales': sales}
+                )
 
 
 def sales_form(request):
