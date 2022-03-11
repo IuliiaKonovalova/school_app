@@ -13,10 +13,15 @@ class Student(models.Model):
     address = models.CharField(max_length=100, blank=True, null=True)
     enrolled = models.DateTimeField(auto_now_add=True)
     classes_left = models.IntegerField()
-    # It's a foreign key to the sales manager for sorting kids by a manager assigned to them
     sales_manager = models.ManyToManyField(SalesManager, related_name='student')
     notes = models.TextField(blank=True)
 
-    # add method to check weather the student has less than 10 classes left
+
     def has_classes_left(self):
         return self.classes_left < 10
+
+    def get_parents(self):
+        return self.parent.all()
+
+    def get_sales_managers(self):
+        return self.sales_manager.all()

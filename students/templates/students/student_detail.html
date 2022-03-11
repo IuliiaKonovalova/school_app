@@ -2,10 +2,58 @@
 {% load static %}
 
 {% block content %}
+<div>
+  First name: {{ student.first_name}}
+</div>
+<div>
+  Last name: {{ student.last_name}}
+</div>
+<div>
+  Birthday: {{ student.birthday}}
+</div>
+<div>
+  Address: {{ student.address}}
+</div>
 
 
+{% for parent in student.get_parents %}
+<div>
+  Parents: {{ parent }}
+  <a href="{% url 'user_profile' username=parent.user.username %}">Visit profile</a>
+</div>
+{% endfor %}
 
 
+{% for parent in student.get_parents %}
+<div>
+  Parents: {{ parent }}
+  <a href="{% url 'user_profile' username=parent.user.username %}">Visit profile</a>
+</div>
+{% endfor %}
+<div>
+  Notes: {{ student.notes}}
+</div>
+
+<div>
+  Classes left: {{ student.classes_left}}
+</div>
+
+<div>
+  {% if student.has_classes_left %}
+  Urgent call
+  {% endif %}
+</div>
+
+{% for sales_manager in student.get_sales_managers %}
+<div>
+  Sales Manager: {{ sales_manager }}
+  <a href="{% url 'user_profile' username=sales_manager.user.username %}">Visit profile</a>
+</div>
+{% endfor %}
+
+<div>
+  Enrolled since: {{ student.enrolled}}
+</div>
 
 
 {% endblock %}
