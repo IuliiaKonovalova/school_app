@@ -42,6 +42,10 @@ class Receptionist(models.Model):
 class SalesManager(models.Model):
     """Sales model"""
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    total_sold = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.user.first_name + ' ' + self.user.last_name
 
 
 class Parent(models.Model):

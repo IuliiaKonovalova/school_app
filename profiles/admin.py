@@ -13,3 +13,9 @@ class UserAdmin(admin.ModelAdmin):
 class TeacherAdmin(admin.ModelAdmin):
     list_display = ('user', 'relation')
     search_fields = ('user', 'relation')
+
+
+@admin.register(SalesManager)
+class SalesManagerAdmin(admin.ModelAdmin):
+    list_display = ('user', 'total_sold')
+    search_fields = ('user', 'total_sold')
