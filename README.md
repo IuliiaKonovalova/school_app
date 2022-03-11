@@ -5,7 +5,22 @@
 This is [Cool School app](https://school-application-konovalova.herokuapp.com/), which is a school management application. The main goal Ff this app is to help the school to manage the students, teachers, classes, subjects, etc. Moreover, the app is aimed at increasing the efficiency of the school management. The app is developed by [Iuliia Konovalova](https://github.com/IuliiaKonovalova).
 Repository: [GitHub Repo](https://github.com/IuliiaKonovalova/school_app)
 
+# User Experience Design
 
+## Strategy
+
+Developed for a real early childhood school, the app is designed to be easy to use and intuitive. The main goal of the app is to help the school to manage the students, teachers, classes, subjects, etc. This is achieved by the use of a simple and intuitive interface. As a final goal, the app is aimed at increasing the efficiency of the school management.
+
+## Target Audience
+
+The app was developed for all members of the early childhood school. 
+  * Bosses: to control the flow of the school, to manage the students, teachers, classes, subjects, sales, etc.;
+  * Parents: to control their children attendance, to manage their children's payments, to manage their children's schedules, etc.;
+  * Teachers: to control their classes, to manage their classes' schedules, to access students' personal information on time, to manage their classes' attendance, etc.;
+  * Sales Managers: to control sales, to manage the sales, to manage the payments, to manage the schedules, to access students' personal information on time, to manage the attendance, etc.;
+  * Receptionists: to control the schedule of the school, to manage the schedule, to access students' personal information on time, to manage the attendance, etc.;
+
+[#]
 ## Gitpod Reminders
 
 To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
