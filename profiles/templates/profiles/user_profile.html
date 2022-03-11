@@ -18,9 +18,12 @@
   <div>{{ user_profile.phone }}</div>
   <div>{{ user_profile.email }}</div>
 
+  {% if user_profile.role == 4 %}
+  <h3>Children:</h3>
   <div>
-    {{ user_profile.child }}
+    {{ user_profile.get_children }}
   </div>
+  {% endif %}
 
 </div>
 {% endblock %}

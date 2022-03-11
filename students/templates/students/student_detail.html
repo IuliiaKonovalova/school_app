@@ -24,12 +24,6 @@
 {% endfor %}
 
 
-{% for parent in student.get_parents %}
-<div>
-  Parents: {{ parent }}
-  <a href="{% url 'user_profile' username=parent.user.username %}">Visit profile</a>
-</div>
-{% endfor %}
 <div>
   Notes: {{ student.notes}}
 </div>
