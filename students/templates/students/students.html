@@ -17,7 +17,15 @@
 <input type="text" id="search_here" class="from-control" placeholder="type sth">
 <div id="box">
   {% for student in students %}
-  <div class="student">{{ student.first_name }} {{ student.last_name }}</div>
+  <div class="student">
+    <div>
+      {{ student.first_name }} {{ student.last_name }}
+    </div>
+    {% if student.has_classes_left %}
+    <div>Urgent</div>
+    {% endif %}
+  </div>
+
 
   {% endfor %}
 </div>

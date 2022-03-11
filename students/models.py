@@ -15,3 +15,7 @@ class Student(models.Model):
     # It's a foreign key to the sales manager for sorting kids by a manager assigned to them
     sales_manager = models.ManyToManyField(SalesManager, related_name='student')
     notes = models.TextField(blank=True)
+
+    # add method to check weather the student has less than 10 classes left
+    def has_classes_left(self):
+        return self.classes_left < 10
