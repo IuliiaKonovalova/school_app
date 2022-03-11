@@ -21,7 +21,9 @@
   {% if user_profile.role == 4 %}
   <h3>Children:</h3>
   <div>
-    {{ user_profile.get_children }}
+    {% for child in children %}
+    {{ child.first_name }}{{ child.last_name }}
+    {% endfor %}
   </div>
   {% endif %}
 

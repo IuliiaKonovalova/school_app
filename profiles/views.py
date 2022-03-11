@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import View
 from django.views.generic import ListView
 from django.http import HttpResponseRedirect
+
+from students.models import Student
 from .models import CustomUser, Parent, SalesManager
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
@@ -13,6 +15,13 @@ class UserProfileView(View):
     def get(self, request, *args, **kwargs):
         """Receive user profile"""
         user_profile = get_object_or_404(CustomUser,  username=kwargs['username'])
+        if user_profile.role == 4:
+            children = Student.objects.filter(parent__user=user_profile)
+            return render(
+                request,
+                'profiles/user_profile.html',
+                {'user_profile': user_profile, 'children': children}
+                )
         return render(
             request,
             'profiles/user_profile.html',
