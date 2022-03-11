@@ -10,6 +10,7 @@ class Student(models.Model):
     last_name = models.CharField(max_length=50, blank=False, null=False)
     parent = models.ManyToManyField(Parent, related_name='child')
     birthday = models.DateField()
+    address = models.CharField(max_length=100, blank=True, null=True)
     enrolled = models.DateTimeField(auto_now_add=True)
     classes_left = models.IntegerField()
     # It's a foreign key to the sales manager for sorting kids by a manager assigned to them

@@ -21,6 +21,7 @@
     <div>
       {{ student.first_name }} {{ student.last_name }}
     </div>
+    <a href="{% url 'student_detail' pk=student.pk %}">Open student data</a>
     {% if student.has_classes_left %}
     <div>Urgent</div>
     {% endif %}

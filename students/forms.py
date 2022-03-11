@@ -15,6 +15,7 @@ class AddStudentForm(forms.ModelForm):
             'last_name',
             'parent',
             'birthday',
+            'address',
             'classes_left',
             'sales_manager',
             'notes'
@@ -26,6 +27,7 @@ class AddStudentForm(forms.ModelForm):
                 attrs={'class': 'form-control'}
                 ),
             'birthday': forms.DateInput(attrs={'class': 'form-control'}),
+            'address': forms.TextInput(attrs={'class': 'form-control'}),
             'classes_left': forms.NumberInput(attrs={'class': 'form-control'}),
             'sales_manager': forms.SelectMultiple(
                 attrs={'class': 'form-control'}
