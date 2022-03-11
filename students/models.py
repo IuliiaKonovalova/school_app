@@ -13,5 +13,5 @@ class Student(models.Model):
     enrolled = models.DateTimeField(auto_now_add=True)
     classes_left = models.IntegerField()
     # It's a foreign key to the sales manager for sorting kids by a manager assigned to them
-    sales_manager = models.ForeignKey(SalesManager, on_delete=models.CASCADE, related_name='student')
+    sales_manager = models.ManyToManyField(SalesManager, related_name='student')
     notes = models.TextField(blank=True)

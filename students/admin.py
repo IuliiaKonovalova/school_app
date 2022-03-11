@@ -5,5 +5,5 @@ from .models import Student
 
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'birthday', 'enrolled', 'classes_left', 'sales_manager', 'notes')
+    list_display = ('first_name', 'last_name', 'birthday', 'enrolled', 'classes_left', 'notes')
     search_fields = ('first_name', 'last_name', 'parent', 'sales_manager', 'notes')

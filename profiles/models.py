@@ -41,6 +41,7 @@ class Receptionist(models.Model):
 
 class SalesManager(models.Model):
     """Sales model"""
+    id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     total_sold = models.IntegerField(default=0)
 
