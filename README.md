@@ -20,7 +20,28 @@ The app was developed for all members of the early childhood school.
   * Sales Managers: to control sales, to manage the sales, to manage the payments, to manage the schedules, to access students' personal information on time, to manage the attendance, etc.;
   * Receptionists: to control the schedule of the school, to manage the schedule, to access students' personal information on time, to manage the attendance, etc.;
 
-[#]
+## User Stories
+
+### First Time Visitor Goals:
+
+- [#1](https://github.com/IuliiaKonovalova/school_app/issues/1):
+
+As a First Time Visitor, I want to be able to easily understand the main purpose of the app, so that I can learn more about this app.
+- [#2](https://github.com/IuliiaKonovalova/school_app/issues/2):
+
+As a First Time Visitor, I want to be able to easily navigate through the app, so that I can find the content.
+- [#3](https://github.com/IuliiaKonovalova/school_app/issues/3):
+
+As a First Time Visitor, I want to be able to register my account, so that I can learn the benefits of the app as a user.
+
+- [#4](https://github.com/IuliiaKonovalova/school_app/issues/4):
+
+As a First Time Visitor, I want to be able to find the app useful, so that I can use it according to my needs.
+
+- [#5](https://github.com/IuliiaKonovalova/school_app/issues/5):
+
+
+
 ## Gitpod Reminders
 
 To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
