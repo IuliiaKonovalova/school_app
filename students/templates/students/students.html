@@ -2,8 +2,11 @@
 {% load static %}
 
 {% block content %}
-
+<h2>All students</h2>
+{% if request.user.role != 4 or request.user.role != 5 %}
+{% if request.user.role == 0 or request.user.role == 2 %}
 <a href="{% url 'student_add' %}">Add student</a>
+{% endif %}
 
 {% if students.count == 0 %}
 
@@ -11,12 +14,37 @@
 
 {% else %}
 
-{% for student in students %}
-{{ student.first_name }}
-{{ student.last_name }}
+<input type="text" id="search_here" class="from-control" placeholder="type sth">
+<div id="box">
+  {% for student in students %}
+  <div class="student">{{ student.first_name }} {{ student.last_name }}</div>
 
-{% endfor %}
+  {% endfor %}
+</div>
 
 {% endif %}
+
+{% else %}
+<p>You are not authorized to view this page</p>
+{% endif %}
+
+<script>
+  const input = document.getElementById('search_here')
+  console.log(input)
+
+  const search = (e) => {
+    let members = document.querySelectorAll('.student')
+    members.forEach(element => {
+      element.style.display = "none"
+    });
+    let searchData = input.value
+    members.forEach(element => {
+      if (element.innerText.includes(searchData)) {
+        element.style.display = "block"
+      }
+    });
+  }
+  input.addEventListener("keyup", search)
+</script>
 
 {% endblock %}
