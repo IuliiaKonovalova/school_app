@@ -16,6 +16,9 @@
   <input type="submit" value="search">
   <div class="sales">
 
+    <div>
+      {{ sales|length }} sales found
+    </div>
     <ul>
       {% for sale in sales %}
       <li>
@@ -26,14 +29,11 @@
       </li>
       {% endfor %}
     </ul>
+
   </div>
 
-
-
-
-
-  {% endif %}
 </form>
+{% endif %}
 
 <div>
   <a href="{% url 'sales_form' %}">Add sale</a>
