@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 
 from students.models import Student
 from .models import CustomUser, Parent, SalesManager
+from sales.models import Sales
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from .forms import NewApplicationForm, UserProfileEditForm
@@ -21,6 +22,20 @@ class UserProfileView(View):
                 request,
                 'profiles/user_profile.html',
                 {'user_profile': user_profile, 'children': children}
+                )
+        if user_profile.role == 2:
+            sales_manager = SalesManager.objects.get(user=user_profile)
+            children = Student.objects.filter(sales_manager__user=user_profile)
+            # sales = Sales.objects.filter(sold_by=sales_manager)
+            sales = Sales.objects.all()
+            return render(
+                request,
+                'profiles/user_profile.html',
+                {
+                    'user_profile': user_profile,
+                    'sales': sales,
+                    'children': children
+                }
                 )
         return render(
             request,

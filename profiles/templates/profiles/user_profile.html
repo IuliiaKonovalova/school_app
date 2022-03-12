@@ -19,6 +19,7 @@
   <div>{{ user_profile.email }}</div>
 
   {% if user_profile.role == 4 %}
+  <h2>Parent</h2>
   <h3>Children:</h3>
   <div>
     {% for child in children %}
@@ -27,6 +28,18 @@
     {% endfor %}
   </div>
   {% endif %}
+  {% if user_profile.role == 2 %}
+  <h3>Sales Manager</h3>
+  <div>
+    {% for child in children %}
+    <a href="{% url 'student_detail' pk=child.pk%}">{{ child.first_name }}{{ child.last_name }}</a>
+    {% endfor %}
 
+    {% for sale in sales %}
+    {{ sale }}
+    {% endfor %}
+
+  </div>
+  {% endif %}
 </div>
 {% endblock %}
