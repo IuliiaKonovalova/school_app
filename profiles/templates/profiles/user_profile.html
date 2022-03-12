@@ -28,17 +28,31 @@
     {% endfor %}
   </div>
   {% endif %}
-  {% if user_profile.role == 2 %}
+
+
+  {% if user_profile.role == 2 or user_profile.role == 0 %}
   <h3>Sales Manager</h3>
   <div>
+    <h4>Kids assigned:</h4>
     {% for child in children %}
-    <a href="{% url 'student_detail' pk=child.pk%}">{{ child.first_name }}{{ child.last_name }}</a>
+    <li>
+      <a href="{% url 'student_detail' pk=child.pk%}">{{ child.first_name }}{{ child.last_name }}</a>
+    </li>
     {% endfor %}
 
+
+
+  </div>
+
+  <div>
+    <h4>Sales made:</h4>
     {% for sale in sales %}
-    {{ sale }}
+    <li>
+      Sold {{ sale.amount }} classes
+      to:<a href="{% url 'user_profile' username=sale.sold_to.user.username %}">{{ sale.sold_to }}</a>
+      on {{ sale.date }}
+    </li>
     {% endfor %}
-
   </div>
   {% endif %}
 </div>
