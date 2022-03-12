@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
+from django.http import HttpResponseRedirect
 from django.views import View
 from profiles.models import Parent
-from .forms import SalesForm
 from students.models import Student
+from .forms import SalesForm
 from .models import Sales
 
 
@@ -55,6 +56,7 @@ def sales_form(request):
                 amount=amount,
             )
             new_sale.save()
-            return HttpResponseRedirect()
-
+            return HttpResponseRedirect(
+                reverse('sales_list')
+            )
 
