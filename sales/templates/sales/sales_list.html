@@ -14,8 +14,8 @@
     {% for sale in sales %}
     <li>
       Sold {{ sale.amount }} classes
-      to: {{ sale.sold_to }}
-      by: {{ sale.sold_by }}
+      to:<a href="{% url 'user_profile' username=sale.sold_to.user.username %}">{{ sale.sold_to }}</a>
+      by: <a href="{% url 'user_profile' username=sale.sold_by.user.username %}">{{ sale.sold_by }}</a>
       on {{ sale.date }}
     </li>
     {% endfor %}
