@@ -29,3 +29,6 @@ class Student(models.Model):
     def get_sales_managers(self):
         """Get all sales managers of the student"""
         return self.sales_manager.all()
+
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name

@@ -5,7 +5,7 @@ from students.models import Student
 
 class SalesForm(forms.ModelForm):
 
-    student = forms.ModelChoiceField(queryset=Student.objects.all(), empty_label=None)
+    student = forms.ModelChoiceField(queryset=Student.objects.all())
     class Meta:
         model = Sales
         fields = ['sold_to', 'amount'] + ['student']

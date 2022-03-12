@@ -11,6 +11,7 @@ class StudentAddView(View):
     def get(self, request):
         """Receive student add form"""
         form = AddStudentForm()
+        # form.fields['student'].queryset = Student.objects.all()
         return render(
             request,
             'students/student_add.html',
