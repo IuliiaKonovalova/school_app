@@ -50,7 +50,7 @@
     <li>
       Sold {{ sale.amount }} classes
       to:<a href="{% url 'user_profile' username=sale.sold_to.user.username %}">{{ sale.sold_to }}</a>
-      on {{ sale.date }}
+      on {{ sale.date|date:'m/d/Y' }}
     </li>
     {% endfor %}
   </div>
