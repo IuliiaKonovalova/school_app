@@ -13,7 +13,10 @@
   <ul>
     {% for sale in sales %}
     <li>
-      {{ sale }}
+      Sold {{ sale.amount }} classes
+      to: {{ sale.sold_to }}
+      by: {{ sale.sold_by }}
+      on {{ sale.date }}
     </li>
     {% endfor %}
   </ul>
