@@ -201,7 +201,7 @@ body {
   align-items: center;
   background-color: var(--clr-primary--300);
   color: var(--clr-neutral--900);
-  padding: 3em;
+  /* padding: 3em; */
 }
 
 .home {
@@ -333,6 +333,7 @@ body {
   justify-content: center;
   align-items: center;
   height: unset;
+  color: white;
 }
 
 .account {

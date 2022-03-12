@@ -1,7 +1,7 @@
 from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
 from django.views import View
-from profiles.models import Parent
+from profiles.models import Parent, SalesManager
 from students.models import Student
 from .forms import SalesForm
 from .models import Sales
@@ -20,7 +20,8 @@ class SalesView(View):
                 {'sales': sales}
                 )
         if request.user.is_authenticated and request.user.role == 2:
-            sales = Sales.objects.filter(user=request.user)
+            sales_manager = SalesManager.objects.get(user=request.user)
+            sales = Sales.objects.filter(sold_by=sales_manager)
             return render(
                 request,
                 'sales/sales_list.html',
@@ -43,10 +44,10 @@ def sales_form(request):
     if request.method == "POST":
         form = SalesForm(request.POST)
         if form.is_valid():
-            seller = request.user
+            seller = SalesManager.objects.get(user=request.user)
             buyer = form.cleaned_data['sold_to']
-            amount = form.cleaned_data['classes_sold']
-            child = form.cleaned_data['sold_to_child']
+            amount = form.cleaned_data['amount']
+            child = form.cleaned_data['student']
             student = Student.objects.get(id=child.id)
             student.classes_left += amount
             student.save()
