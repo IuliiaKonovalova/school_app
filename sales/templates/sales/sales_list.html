@@ -8,25 +8,32 @@
 <p>Sales not found</p>
 {% else %}
 
-<div class="sales">
+<h3>Search by date</h3>
+<form method="POST">
+  {% csrf_token %}
+  From: <input type="date" name="from_date">
+  To: <input type="date" name="to_date">
+  <input type="submit" value="search">
+  <div class="sales">
 
-  <ul>
-    {% for sale in sales %}
-    <li>
-      Sold {{ sale.amount }} classes
-      to:<a href="{% url 'user_profile' username=sale.sold_to.user.username %}">{{ sale.sold_to }}</a>
-      by: <a href="{% url 'user_profile' username=sale.sold_by.user.username %}">{{ sale.sold_by }}</a>
-      on {{ sale.date|date:'m/d/Y' }}
-    </li>
-    {% endfor %}
-  </ul>
-</div>
+    <ul>
+      {% for sale in sales %}
+      <li>
+        Sold {{ sale.amount }} classes
+        to:<a href="{% url 'user_profile' username=sale.sold_to.user.username %}">{{ sale.sold_to }}</a>
+        by: <a href="{% url 'user_profile' username=sale.sold_by.user.username %}">{{ sale.sold_by }}</a>
+        on {{ sale.date|date:'m/d/Y' }}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
 
 
 
 
 
-{% endif %}
+  {% endif %}
+</form>
 
 <div>
   <a href="{% url 'sales_form' %}">Add sale</a>

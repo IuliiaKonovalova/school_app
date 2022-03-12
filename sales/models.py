@@ -1,4 +1,5 @@
 from django.db import models
+from secretstorage import dbus_init
 from profiles.models import SalesManager, Parent
 
 
@@ -14,4 +15,5 @@ class Sales(models.Model):
 
     class Meta:
         """Meta class"""
+        db_table = 'sales'
         ordering = ['date']

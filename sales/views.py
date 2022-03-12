@@ -1,6 +1,7 @@
 from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
 from django.views import View
+from secretstorage import search_items
 from profiles.models import Parent, SalesManager
 from students.models import Student
 from .forms import SalesForm
@@ -27,6 +28,19 @@ class SalesView(View):
                 'sales/sales_list.html',
                 {'sales': sales}
                 )
+
+    def post(self, request, *args, **kwargs):
+        """Search by date"""
+        if request.user.is_authenticated and (request.user.role == 0 or request.user.role == 2):
+            fromdate=request.POST.get('from_date')
+            todate=request.POST.get('to_date')
+            search_items=Sales.objects.raw("SELECT * FROM sales WHERE date BETWEEN %s AND %s",[fromdate,todate])
+            return render(
+                request,
+                'sales/sales_list.html',
+                {'sales': search_items}
+                )
+
 
 
 def sales_form(request):
