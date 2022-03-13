@@ -32,3 +32,8 @@ class Student(models.Model):
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
+
+    # Add ordering by date of last enrolment
+    class Meta:
+        db_table = 'students'
+        ordering = ['-enrolled']
