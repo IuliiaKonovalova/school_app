@@ -92,7 +92,7 @@ class StudentEditView(View):
             student.parent.add(parent)
             student.save()
             return HttpResponseRedirect(
-                reverse('students')
+                reverse('student_detail', args=[student.pk])
                 )
         return render(
             request,
