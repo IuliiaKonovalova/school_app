@@ -38,7 +38,25 @@ As a First Time Visitor, I want to be able to register my account, so that I can
 
 As a First Time Visitor, I want to be able to find the app useful, so that I can use it according to my needs.
 
+### Frequent Visitor Goals:
+
 - [#5](https://github.com/IuliiaKonovalova/school_app/issues/5):
+
+As a Frequent User, I want to be able to log in to my account, so that I can have a personal account.
+
+- [#6](https://github.com/IuliiaKonovalova/school_app/issues/6):
+
+As a Frequent User, I want to be able to easily log in and log out, so that I can access my personal account information.
+
+- [#7](https://github.com/IuliiaKonovalova/school_app/issues/7):
+
+As a Frequent User, I want to be able to easily recover my password in case I forget it, so that I can recover access to my account.
+
+- [#8](https://github.com/IuliiaKonovalova/school_app/issues/8):
+
+As a Frequent User, I can be able to change my password, so that I can be sure that nobody else can access my account.
+
+
 
 
 
