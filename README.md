@@ -56,7 +56,69 @@ As a Frequent User, I want to be able to easily recover my password in case I fo
 
 As a Frequent User, I can be able to change my password, so that I can be sure that nobody else can access my account.
 
+### Potential Client Goals:
 
+- [#9](https://github.com/IuliiaKonovalova/school_app/issues/9):
+
+As a Potential client, I want to be contacted by sales managers, so that I can make a prudent decision about being a member.
+
+### Boss Goals:
+
+- [#11](https://github.com/IuliiaKonovalova/school_app/issues/11):
+
+As a Boss, I want to be able to view new applications, so that I can control the flow of potential clients.
+
+- [#13](https://github.com/IuliiaKonovalova/school_app/issues/13):
+
+As a Boss, I want to be able to delete or approve membership, assign a role to a new member, so that I can keep data up to date.
+
+- [#14](https://github.com/IuliiaKonovalova/school_app/issues/14):
+
+As a Boss, I want to be able to add, edit data on a kid, so that I can have a profile for each student.
+
+- [#15](https://github.com/IuliiaKonovalova/school_app/issues/15):
+
+As a Boss, I want to be able to delete a member, so that I can control the access to the application.
+
+- [#16](https://github.com/IuliiaKonovalova/school_app/issues/16):
+
+As a Boss I can see the info about kids provided by the company: name, contact info, classes visited, how many classes left, so that refresh the information about a client.
+
+- [#17](https://github.com/IuliiaKonovalova/school_app/issues/17):
+
+As a Boss, I want to be able to search for a particular member, so that I can easily access information on this member.
+
+- [#18](https://github.com/IuliiaKonovalova/school_app/issues/18):
+
+As a Boss, I want to be able to sort members according to a role, so that I can easily access particular group of members.
+
+- [#19](https://github.com/IuliiaKonovalova/school_app/issues/19):
+
+As a Boss, I want to be able to search for a particular student, so that I can easily access information on this student.
+
+- [#20](https://github.com/IuliiaKonovalova/school_app/issues/20):
+
+As a Boss, I want to be able to sort students by subject, teacher, so that I can find students and parents preferences.
+
+- [#21](https://github.com/IuliiaKonovalova/school_app/issues/21):
+
+As a Boss, I want to be able to sort students by the sales manager, urgent sale, so that I can control the sales in the company.
+
+- [#22](https://github.com/IuliiaKonovalova/school_app/issues/22):
+
+As a Boss, I want to be able to **see lessons schedule **, so that I can schedule time to talk to a teacher or a parent.
+
+- [#23](https://github.com/IuliiaKonovalova/school_app/issues/23):
+
+As a Boss, I want to see see information on students for each lesson, so that I can control students’ attendance, learn clients preferences.
+
+- [#24](https://github.com/IuliiaKonovalova/school_app/issues/24):
+
+As a Boss, I want to be able to see sales' details, so that I can check which sales manager and which parent was involved in a deal.
+
+
+
+- [#25](https://github.com/IuliiaKonovalova/school_app/issues/25):
 
 
 
