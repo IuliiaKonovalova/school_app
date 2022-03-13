@@ -6,53 +6,59 @@
 <h2>All members</h2>
 
 {% if request.user.role != 4 or request.user.role != 5 %}
-<div class="btn__group--roles" role="group" aria-label="select by role">
-  <input type="radio" class="" name="btnradio" id="all" autocomplete="off" checked>
-  <label class="btn" for="all">all members 1</label>
 
-  <input type="radio" class="" name="btnradio" id="parents" autocomplete="off">
-  <label class="btn" for="parents">Parents</label>
+<form method="POST">
+  {% csrf_token %}
 
-  <input type="radio" class="" name="btnradio" id="teachers" autocomplete="off">
-  <label class="btn" for="teachers">Teachers</label>
+  <div>
+    <input type="radio" class="" name="role" value="all" id="all">
+    <label class="btn" for="all">all members</label>
 
-  <input type="radio" class="" name="btnradio" id="sales" autocomplete="off">
-  <label class="btn" for="sales">Sales</label>
+    <input type="radio" class="" name="role" value="4" id="parents">
+    <label class="btn" for="parents">Parents</label>
 
-  <input type="radio" class="" name="btnradio" id="receptionists" autocomplete="off">
-  <label class="btn" for="receptionists">Receptionists</label>
-</div>
+    <input type="radio" class="" name="role" value="1" id="teachers">
+    <label class="btn" for="teachers">Teachers</label>
 
-<input type="text" id="search_here" class="from-control" placeholder="type sth">
-<div id="box">
-  {% for member in members %}
-  <div class="member">
-    <div>{{member}}</div>
-    <div class="member__phone">{{member.phone}}</div>
-    {% if member.role == 0 %}
-    <div>Boss</div>
-    {% elif member.role == 1 %}
-    <div>Teacher</div>
+    <input type="radio" class="" name="role" value="2" id="sales">
+    <label class="btn" for="sales">Sales</label>
 
-    {% elif member.role == 2 %}
-    <div>Sales</div>
+    <input type="radio" class="" name="role" value="3" id="receptionists">
+    <label class="btn" for="receptionists">Receptionists</label>
 
-    {% elif member.role == 3 %}
-    <div>Receptionist</div>
-
-    {% elif member.role == 4 %}
-    <div>Parent</div>
-
-    {% elif member.role == 5 %}
-    <div>Potential Client</div>
-
-    {% endif %}
-    <a href="{% url 'user_profile' username=member.username %}">Visit profile</a>
-    <br>
+    <input type="submit" value="Search">
   </div>
-  {% endfor %}
-</div>
 
+  <input type="text" id="search_here" class="from-control" placeholder="type sth">
+  <div id="box">
+    {% for member in members %}
+    <div class="member">
+      <div>{{member}}</div>
+      <div class="member__phone">{{member.phone}}</div>
+      {% if member.role == 0 %}
+      <div>Boss</div>
+      {% elif member.role == 1 %}
+      <div>Teacher</div>
+
+      {% elif member.role == 2 %}
+      <div>Sales</div>
+
+      {% elif member.role == 3 %}
+      <div>Receptionist</div>
+
+      {% elif member.role == 4 %}
+      <div>Parent</div>
+
+      {% elif member.role == 5 %}
+      <div>Potential Client</div>
+
+      {% endif %}
+      <a href="{% url 'user_profile' username=member.username %}">Visit profile</a>
+      <br>
+    </div>
+    {% endfor %}
+  </div>
+</form>
 {% else %}
 <p>You are not authorized to view this page</p>
 {% endif %}
@@ -60,81 +66,6 @@
 
 
 <script>
-  const select = document.querySelector('.btn__group--roles');
-  // select each radio button
-  const allMember = document.getElementById('all');
-  const parents = document.getElementById('parents');
-  const teachers = document.getElementById('teachers');
-  const sales = document.getElementById('sales');
-  const receptionists = document.getElementById('receptionists');
-
-
-  teachers.addEventListener('click', () => {
-    document.querySelectorAll('.member').forEach(member => {
-      let members = document.querySelectorAll('.member')
-      members.forEach(element => {
-        element.style.display = "none"
-      });
-      let searchData = input.value
-      members.forEach(element => {
-        if (element.innerText.includes('teacher')) {
-          element.style.display = "block"
-        }
-      });
-    });
-  });
-  parents.addEventListener('click', () => {
-    document.querySelectorAll('.member').forEach(member => {
-      let members = document.querySelectorAll('.member')
-      members.forEach(element => {
-        element.style.display = "none"
-      });
-      let searchData = input.value
-      members.forEach(element => {
-        if (element.innerText.includes('Parent')) {
-          element.style.display = "block"
-        }
-      });
-    });
-  });
-  sales.addEventListener('click', () => {
-    document.querySelectorAll('.member').forEach(member => {
-      let members = document.querySelectorAll('.member')
-      members.forEach(element => {
-        element.style.display = "none"
-      });
-      let searchData = input.value
-      members.forEach(element => {
-        if (element.innerText.includes('sales')) {
-          element.style.display = "block"
-        }
-      });
-    });
-  });
-  receptionists.addEventListener('click', () => {
-    document.querySelectorAll('.member').forEach(member => {
-      let members = document.querySelectorAll('.member')
-      members.forEach(element => {
-        element.style.display = "none"
-      });
-      let searchData = input.value
-      members.forEach(element => {
-        if (element.innerText.includes('receptionist')) {
-          element.style.display = "block"
-        }
-      });
-    });
-  });
-  all.addEventListener('click', () => {
-    document.querySelectorAll('.member').forEach(member => {
-      let members = document.querySelectorAll('.member')
-      members.forEach(element => {
-        element.style.display = "block"
-      });
-    });
-  });
-
-
   const input = document.getElementById('search_here')
   console.log(input)
 

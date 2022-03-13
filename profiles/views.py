@@ -1,10 +1,11 @@
+from types import MemberDescriptorType
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import View
 from django.views.generic import ListView
 from django.http import HttpResponseRedirect
 
 from students.models import Student
-from .models import CustomUser, Parent, SalesManager
+from .models import ROLES, CustomUser, Parent, SalesManager
 from sales.models import Sales
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
@@ -221,6 +222,20 @@ class SearchMembersView(ListView):
         members = CustomUser.objects.all()
         if request.user.is_authenticated:
             if request.user.role != 5 and request.user.role != 6:
+                return render(
+                    request,
+                    'profiles/search_members.html',
+                    {'members': members}
+                    )
+    def post(self, request, *args, **kwargs):
+        """Search members"""
+        if request.user.is_authenticated:
+            if request.user.role != 5 and request.user.role != 6:
+                role = request.POST.get('role')
+                if role == 'all':
+                    members = CustomUser.objects.all()
+                else:
+                    members = CustomUser.objects.filter(role=role)
                 return render(
                     request,
                     'profiles/search_members.html',
