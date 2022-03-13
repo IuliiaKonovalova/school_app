@@ -7,6 +7,12 @@
 
 <h2>Student's data</h2>
 
+{% if request.user.role == 0 or request.user.role == 2 %}
+
+<a href="{% url 'student_edit' pk=student.pk %}">Edit student's data</a>
+
+{% endif %}
+
 <div>
   First name: {{ student.first_name}}
 </div>
