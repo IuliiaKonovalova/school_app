@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block content %}
+
+{% if request.user.role != 4 or request.user.role != 5 %}
+
+<h2>Student's data</h2>
+
 <div>
   First name: {{ student.first_name}}
 </div>
@@ -49,5 +54,8 @@
   Enrolled since: {{ student.enrolled|date:'m/d/Y'}}
 </div>
 
+{% else %}
+<p>You are not authorized to view this page</p>
+{% endif %}
 
 {% endblock %}
