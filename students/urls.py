@@ -2,7 +2,8 @@ from django.urls import path
 from .views import (
     StudentsView,
     StudentAddView,
-    StudentView
+    StudentView,
+    StudentEditView,
     )
 
 

@@ -106,7 +106,7 @@ As a Boss, I want to be able to sort students by the sales manager, urgent sale,
 
 - [#22](https://github.com/IuliiaKonovalova/school_app/issues/22):
 
-As a Boss, I want to be able to **see lessons schedule **, so that I can schedule time to talk to a teacher or a parent.
+As a Boss, I want to be able to see lessons schedule, so that I can schedule time to talk to a teacher or a parent.
 
 - [#23](https://github.com/IuliiaKonovalova/school_app/issues/23):
 
