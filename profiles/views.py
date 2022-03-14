@@ -214,6 +214,7 @@ class NewApplicationsDeleteView(View):
                     args=[request.user.username, new_application.pk]
                     )
                     )
+
     def post(self, request, pk, *args, **kwargs):
         """Delete new applications"""
         new_application = get_object_or_404(CustomUser, pk=pk)
@@ -237,6 +238,7 @@ class SearchMembersView(ListView):
                     'profiles/search_members.html',
                     {'members': members}
                     )
+
     def post(self, request, *args, **kwargs):
         """Search members"""
         if request.user.is_authenticated:
@@ -267,6 +269,7 @@ class DeleteMemberView(View):
                     'profiles/delete_member.html',
                     {'member': member}
                     )
+
     def post(self, request, *args, **kwargs):
         """Delete member"""
         member = get_object_or_404(
