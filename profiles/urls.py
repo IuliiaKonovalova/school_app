@@ -6,7 +6,8 @@ from .views import (
     NewApplicationsView,
     NewApplicationsDetailView,
     NewApplicationsDeleteView,
-    SearchMembersView
+    SearchMembersView,
+    DeleteMemberView,
     )
 
 
@@ -18,5 +19,5 @@ urlpatterns = [
     path('<username>/applications/', NewApplicationsView.as_view(), name='new_applications'),
     path('<username>/applications/<int:pk>/', NewApplicationsDetailView.as_view(), name='application_detail'),
     path('<username>/applications/<int:pk>/delete/', NewApplicationsDeleteView.as_view(), name='application_delete'),
-
+    path('<username>/delete/', DeleteMemberView.as_view(), name='delete_member'),
 ]
