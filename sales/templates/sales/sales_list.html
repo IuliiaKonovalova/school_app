@@ -34,6 +34,7 @@
         on {{ sale.date|date:'m/d/Y' }}
         {% if request.user.role == 2 %}
         <a href="{% url 'edit_sales' pk=sale.pk %}">Edit sale</a>
+        <a href="{% url 'delete_sales' pk=sale.pk %}">Delete sale</a>
         {% endif %}
       </li>
       {% endfor %}

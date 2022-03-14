@@ -1,3 +1,4 @@
+"""Models for profiles app."""
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -23,8 +24,6 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return str(self.username)
-
-    # Add meta class to define admin interface
     class Meta:
         """Meta class"""
         ordering = ['email']

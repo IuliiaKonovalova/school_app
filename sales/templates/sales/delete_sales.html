@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h2>
+  Delete Sale
+</h2>
+
+<form method="POST">
+  {% csrf_token %}
+
+  <div>Are you sure you want to delete the sale: </div>
+  <div>
+    Sold {{ sales.amount }} classes
+    to:<a href="{% url 'user_profile' username=sales.sold_to.user.username %}">{{ sales.sold_to }}</a>
+    by: <a href="{% url 'user_profile' username=sales.sold_by.user.username %}">{{ sales.sold_by }}</a>
+    on {{ sales.date|date:'m/d/Y' }}
+    ?</div>
+  <div>This student will permanently deleted from database.</div>
+  </div>
+  <div>
+    <a href="{% url 'sales_list' %}">Go
+      back</a>
+    <button type="submit" name="delete">Delete</button>
+  </div>
+</form>
+
+{% endblock %}
