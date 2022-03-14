@@ -99,3 +99,23 @@ class StudentEditView(View):
             'students/student_edit.html',
             {'form': form, 'student': student}
             )
+
+
+class StudentDeleteView(View):
+    """Student Delete View"""
+    def get(self, request, pk, *args, **kwargs):
+        """Receive student delete form"""
+        student = get_object_or_404(Student, pk=pk)
+        return render(
+            request,
+            'students/student_delete.html',
+            {'student': student}
+            )
+
+    def post(self, request, pk, *args, **kwargs):
+        """Receive student delete form"""
+        student = get_object_or_404(Student, pk=pk)
+        student.delete()
+        return HttpResponseRedirect(
+            reverse('students')
+            )
