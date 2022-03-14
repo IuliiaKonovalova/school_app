@@ -1,5 +1,4 @@
 from django.db import models
-from secretstorage import dbus_init
 from profiles.models import SalesManager, Parent
 
 
@@ -9,6 +8,7 @@ class Sales(models.Model):
     sold_to = models.ForeignKey(Parent, on_delete=models.CASCADE, related_name='bought')
     amount = models.IntegerField()
     date = models.DateTimeField(auto_now_add=True)
+    student_id = models.IntegerField(default=0)
 
     def __str__(self):
         return str(self.sold_by) + ' sold ' + str(self.amount) + ' classes to ' + str(self.sold_to)
@@ -16,4 +16,4 @@ class Sales(models.Model):
     class Meta:
         """Meta class"""
         db_table = 'sales'
-        ordering = ['date']
+        ordering = ['-date']

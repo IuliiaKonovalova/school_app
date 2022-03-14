@@ -3,7 +3,7 @@
 
 {% block content %}
 <h2>All sales made</h2>
-{% if request.user.role == 0 or request.user.role == 2 %}
+{% if request.user.role == 2 %}
 {% if sales.count == 0 %}
 <p>Sales not found</p>
 {% else %}

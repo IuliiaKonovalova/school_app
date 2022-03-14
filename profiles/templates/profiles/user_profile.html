@@ -17,7 +17,7 @@
 
   {% endif %}
   {% if request.user.role == 0 %}
-  <!-- link to delete user profile -->
+
   <a href="{% url 'delete_member' username=user_profile.username %}">Delete profile</a>
   {% endif %}
   <div>{{ user_profile.phone }}</div>
