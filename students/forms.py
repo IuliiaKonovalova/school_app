@@ -1,7 +1,5 @@
 """Forms for students app"""
 from django import forms
-
-from profiles.models import Parent
 from .models import Student
 
 

@@ -7,9 +7,21 @@ from .models import CustomUser
 class SimpleSignupForm(SignupForm):
     """Allauth Signup Form extended"""
     username = forms.CharField(max_length=50, label='Username')
-    first_name = forms.CharField(max_length=30, label='First Name', widget=forms.TextInput(attrs={'placeholder': 'First Name'}))
-    last_name = forms.CharField(max_length=30, label='Last Name', widget=forms.TextInput(attrs={'placeholder': 'Last Name'}))
-    phone = forms.CharField(max_length=30, label='Phone Number', widget=forms.TextInput(attrs={'placeholder': 'Phone Number'})) 
+    first_name = forms.CharField(
+        max_length=30,
+        label='First Name',
+        widget=forms.TextInput(attrs={'placeholder': 'First Name'})
+    )
+    last_name = forms.CharField(
+        max_length=30,
+        label='Last Name',
+        widget=forms.TextInput(attrs={'placeholder': 'Last Name'})
+    )
+    phone = forms.CharField(
+        max_length=30,
+        label='Phone Number',
+        widget=forms.TextInput(attrs={'placeholder': 'Phone Number'})
+    ) 
     role = forms.IntegerField(widget=forms.HiddenInput(), initial=5)
     def save(self, request):
         print(self.cleaned_data)
@@ -27,6 +39,7 @@ class SimpleSignupForm(SignupForm):
 class NewApplicationForm(forms.ModelForm):
     """Form for new application"""
     class Meta:
+        """Meta class"""
         model = CustomUser
         fields = ['role']
         widgets = {
@@ -38,11 +51,22 @@ class NewApplicationForm(forms.ModelForm):
 class UserProfileEditForm(forms.ModelForm):
     """Form to edit user profile"""
     class Meta:
+        """Meta class"""
         model = CustomUser
         fields = ['first_name', 'last_name', 'phone', 'role']
         widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-control', 'required': True}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control', 'required': True}),
-            'phone': forms.TextInput(attrs={'class': 'form-control', 'required': True}),
-            'role': forms.Select(attrs={'class': 'form-control', 'hidden': True, 'required': False}),
+            'first_name': forms.TextInput(
+                attrs={'class': 'form-control', 'required': True}
+            ),
+            'last_name': forms.TextInput(
+                attrs={'class': 'form-control', 'required': True}
+            ),
+            'phone': forms.TextInput(
+                attrs={'class': 'form-control', 'required': True}
+            ),
+            'role': forms.Select(
+                attrs={
+                    'class': 'form-control', 'hidden': True, 'required': False
+                }
+            ),
         }

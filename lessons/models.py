@@ -1,3 +1,4 @@
+"""Models for the lessons app"""
 from django.db import models
 from subjects.models import Subject
 from profiles.models import Teacher

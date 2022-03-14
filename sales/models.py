@@ -1,3 +1,4 @@
+"""Models for the sales app"""
 from django.db import models
 from profiles.models import SalesManager, Parent
 
@@ -19,7 +20,13 @@ class Sales(models.Model):
     student_id = models.IntegerField(default=0)
 
     def __str__(self):
-        return str(self.sold_by) + ' sold ' + str(self.amount) + ' classes to ' + str(self.sold_to)
+        return (
+          str(self.sold_by) +
+          ' sold ' +
+          str(self.amount) +
+          ' classes to ' +
+          str(self.sold_to)
+        )
 
     class Meta:
         """Meta class"""

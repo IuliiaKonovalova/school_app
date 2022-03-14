@@ -14,9 +14,11 @@ class Student(models.Model):
     address = models.CharField(max_length=100, blank=True, null=True)
     enrolled = models.DateTimeField(auto_now_add=True)
     classes_left = models.IntegerField()
-    sales_manager = models.ManyToManyField(SalesManager, related_name='student')
+    sales_manager = models.ManyToManyField(
+        SalesManager,
+        related_name='student'
+    )
     notes = models.TextField(blank=True)
-
 
     def has_classes_left(self):
         """Check if student has classes left"""
@@ -33,7 +35,6 @@ class Student(models.Model):
     def __str__(self):
         return self.first_name + ' ' + self.last_name
 
-    # Add ordering by date of last enrolment
     class Meta:
         db_table = 'students'
         ordering = ['-enrolled']
