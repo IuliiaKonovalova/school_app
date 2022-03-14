@@ -1,7 +1,6 @@
 from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
 from django.views import View
-from secretstorage import search_items
 from profiles.models import Parent, SalesManager
 from students.models import Student
 from .forms import SalesForm
