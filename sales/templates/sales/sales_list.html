@@ -3,7 +3,13 @@
 
 {% block content %}
 <h2>All sales made</h2>
+{% if request.user.role == 0 or request.user.role == 2 %}
 {% if request.user.role == 2 %}
+<div>
+  <a href="{% url 'sales_form' %}">Add sale</a>
+
+</div>
+{% endif %}
 {% if sales.count == 0 %}
 <p>Sales not found</p>
 {% else %}
@@ -26,6 +32,9 @@
         to:<a href="{% url 'user_profile' username=sale.sold_to.user.username %}">{{ sale.sold_to }}</a>
         by: <a href="{% url 'user_profile' username=sale.sold_by.user.username %}">{{ sale.sold_by }}</a>
         on {{ sale.date|date:'m/d/Y' }}
+        {% if request.user.role == 2 %}
+        <a href="{% url 'edit_sales' pk=sale.pk %}">Edit sale</a>
+        {% endif %}
       </li>
       {% endfor %}
     </ul>
@@ -35,9 +44,7 @@
 </form>
 {% endif %}
 
-<div>
-  <a href="{% url 'sales_form' %}">Add sale</a>
-</div>
+
 {% else %}
 <p>You are not authorized to view this page</p>
 {% endif %}
