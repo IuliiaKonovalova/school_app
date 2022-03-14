@@ -229,9 +229,9 @@ class SearchMembersView(ListView):
     """Search Members"""
     def get(self, request, *args, **kwargs):
         """Receive members"""
-        members = CustomUser.objects.all()
+        members = CustomUser.objects.all().exclude(role=5)
         if request.user.is_authenticated:
-            if request.user.role != 5 and request.user.role != 6:
+            if request.user.role != 4 and request.user.role != 5:
                 return render(
                     request,
                     'profiles/search_members.html',
@@ -240,10 +240,10 @@ class SearchMembersView(ListView):
     def post(self, request, *args, **kwargs):
         """Search members"""
         if request.user.is_authenticated:
-            if request.user.role != 5 and request.user.role != 6:
+            if request.user.role != 4 and request.user.role != 5:
                 role = request.POST.get('role')
                 if role == 'all':
-                    members = CustomUser.objects.all()
+                    members = CustomUser.objects.all().exclude(role=5)
                 else:
                     members = CustomUser.objects.filter(role=role)
                 return render(

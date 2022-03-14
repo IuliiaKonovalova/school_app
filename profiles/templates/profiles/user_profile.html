@@ -14,6 +14,11 @@
   {% else %}
   <h2 class="profile__title">User Profile</h2>
   <div class="profile__title--user">{{ user_profile.first_name }} {{ user_profile.last_name }}</div>
+
+  {% endif %}
+  {% if request.user.role == 0 %}
+  <!-- link to delete user profile -->
+  <a href="{% url 'delete_member' username=user_profile.user %}">Delete profile</a>
   {% endif %}
   <div>{{ user_profile.phone }}</div>
   <div>{{ user_profile.email }}</div>
