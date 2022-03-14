@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+{% if request.user.role == 0 or request.user.role == 2 %}
+{% if request.user.role == 2 %}
+
 <h2>
   Delete Student
 </h2>
@@ -18,5 +22,9 @@
     <button type="submit" name="delete">Delete</button>
   </div>
 </form>
+
+{% else %}
+<p>You are not authorized to view this page</p>
+{% endif %}
 
 {% endblock %}
