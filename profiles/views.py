@@ -255,9 +255,11 @@ class SearchMembersView(ListView):
 
 class DeleteMemberView(View):
     """Delete Member"""
-    def get(self, request, pk, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         """Receive member"""
-        member = get_object_or_404(CustomUser, pk=pk)
+        member = get_object_or_404(
+            CustomUser, username=kwargs['username']
+        )
         if request.user.is_authenticated:
             if request.user.role == 0:
                 return render(
@@ -265,15 +267,11 @@ class DeleteMemberView(View):
                     'profiles/delete_member.html',
                     {'member': member}
                     )
-        return HttpResponseRedirect(
-            reverse(
-                'search_members',
-                args=[request.user.username]
-                )
-            )
-    def post(self, request, pk, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         """Delete member"""
-        member = get_object_or_404(CustomUser, pk=pk)
+        member = get_object_or_404(
+            CustomUser, username=kwargs['username']
+        )
         member.delete()
         return HttpResponseRedirect(
             reverse(
