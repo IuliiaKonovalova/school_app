@@ -15,7 +15,7 @@ TIME_PERIODS = (
         (7, '18:00-18:45'),
 )
 
-SUBJECT = (
+SUBJECTS = (
         (1, 'art'),
         (2, 'math'),
         (3, 'casa'),
@@ -30,8 +30,8 @@ SUBJECT = (
 
 class Lesson(models.Model):
     """Lesson model"""
-    date = models.DateTimeField()
-    time_period = models.IntegerField(choices=TIME_PERIODS, default=0)
-    subject = models.IntegerField(choices=SUBJECT, default=0)
+    date = models.DateField()
+    time = models.IntegerField(choices=TIME_PERIODS, default=0)
+    subject = models.IntegerField(choices=SUBJECTS, default=1)
     teachers = models.ManyToManyField(Teacher, related_name='lessons')
     students = models.ManyToManyField(Student, related_name='lessons')

@@ -66,22 +66,22 @@
 
 
 <script>
-  const input = document.getElementById('search_here')
-  console.log(input)
+  const input = document.getElementById('search_here');
+
 
   const search = (e) => {
-    let members = document.querySelectorAll('.member')
+    let members = document.querySelectorAll('.member');
     members.forEach(element => {
-      element.style.display = "none"
+      element.style.display = "none";
     });
-    let searchData = input.value
+    let searchData = input.value;
     members.forEach(element => {
       if (element.innerText.includes(searchData)) {
-        element.style.display = "block"
+        element.style.display = "block";
       }
     });
-  }
-  input.addEventListener("keyup", search)
+  };
+  input.addEventListener("keyup", search);
 </script>
 
 {% endblock %}

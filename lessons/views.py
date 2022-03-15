@@ -14,8 +14,7 @@ class LessonAddView(View):
         if request.user.is_authenticated and request.user.role == 3:
             form = LessonForm()
 
-            # form.fields['teachers'].queryset = Teacher.objects.exclude(lessons__date=form.fields['date'].initial).exclude(lessons__time_period=form.fields['time_period'].initial)
-            # form.fields['students'].queryset = Student.objects.exclude(lessons__date=form.fields['date'].initial).exclude(lessons__time_period=form.fields['time_period'].initial)
+
             return render(
                 request,
                 'lessons/lesson_add.html',
@@ -30,12 +29,12 @@ class LessonAddView(View):
             if form.is_valid():
                 print(form.cleaned_data)
                 lesson = form.save(commit=False)
-                teacher = form.cleaned_data['teacher'][0]
-                student = form.cleaned_data['student'][0]
+                teacher = form.cleaned_data['teachers'][0]
+                student = form.cleaned_data['students'][0]
                 lesson.save()
                 form.save_m2m()
-                lesson.teacher.add(teacher)
-                lesson.student.add(student)
+                lesson.teachers.add(teacher)
+                lesson.students.add(student)
                 lesson.save()
                 return HttpResponseRedirect(
                     reverse('lessons')

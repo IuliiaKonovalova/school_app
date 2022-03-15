@@ -4,5 +4,6 @@ from .views import LessonAddView
 
 
 urlpatterns = [
+    path('', LessonAddView.as_view(), name='lesson'),
     path('add/', LessonAddView.as_view(), name='lesson_add'),
 ]

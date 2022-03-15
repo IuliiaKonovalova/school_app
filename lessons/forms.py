@@ -8,10 +8,10 @@ class LessonForm(forms.ModelForm):
     class Meta:
         """Meta class."""
         model = Lesson
-        fields = ['date', 'time_period', 'subject', 'teachers', 'students']
+        fields = ['date', 'time', 'subject', 'teachers', 'students']
         widgets = {
             'date': forms.DateInput(attrs={'class': 'form-control'}),
-            'time_period': forms.Select(attrs={'class': 'form-control'}),
+            'time': forms.Select(attrs={'class': 'form-control'}),
             'subject': forms.Select(attrs={'class': 'form-control'}),
             'teachers': forms.SelectMultiple(attrs={'class': 'form-control'}),
             'students': forms.SelectMultiple(attrs={'class': 'form-control'}),
