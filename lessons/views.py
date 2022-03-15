@@ -37,7 +37,7 @@ class LessonAddView(View):
                 lesson.students.add(student)
                 lesson.save()
                 return HttpResponseRedirect(
-                    reverse('lessons')
+                    reverse('lessons_list')
                     )
             return render(
                 request,
