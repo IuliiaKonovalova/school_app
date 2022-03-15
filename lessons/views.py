@@ -4,7 +4,31 @@ from django.http import HttpResponseRedirect
 from django.views import View
 from profiles.models import Teacher
 from students.models import Student
+from .models import Lesson
 from .forms import LessonForm
+
+
+
+class LessonsView(View):
+    """Lessons View"""
+    def get(self, request, *args, **kwargs):
+        """Receive lessons list"""
+        if request.user.is_authenticated and request.user.role != 5:
+            lessons = Lesson.objects.all()
+            # lessons = Teacher.objects.get(user=request.user).lessons.all()
+            return render(
+                request,
+                'lessons/lessons_list.html',
+                {'lessons': lessons}
+                )
+        # if request.user.is_authenticated and request.user.role == 1:
+        #     lessons = Student.objects.get(user=request.user).lessons.all()
+        #     return render(
+        #         request,
+        #         'lessons/lessons.html',
+        #         {'lessons': lessons}
+        #         )
+        return HttpResponseRedirect(reverse('home'))
 
 
 class LessonAddView(View):
