@@ -7,7 +7,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from students.models import Student
 from sales.models import Sales
-from .models import CustomUser, Parent, SalesManager
+from .models import CustomUser, Parent, SalesManager, Teacher
 from .forms import NewApplicationForm, UserProfileEditForm
 
 
@@ -171,13 +171,18 @@ class NewApplicationsDetailView(View):
         form = NewApplicationForm(request.POST, instance=new_application)
         if form.is_valid():
             new_application = form.save(commit=False)
-            if new_application.role == 4:
-                new_parent = Parent.objects.create(
+            if new_application.role == 1:
+                new_teacher = Teacher.objects.create(
+                  user=new_application,
+                  )
+                new_teacher.save()
+            if new_application.role == 2:
+                new_manager = SalesManager.objects.create(
                     user=new_application,
                 )
-                new_parent.save()
-            if new_application.role == 2:
-                new_parent = SalesManager.objects.create(
+                new_manager.save()
+            if new_application.role == 4:
+                new_parent = Parent.objects.create(
                     user=new_application,
                 )
                 new_parent.save()

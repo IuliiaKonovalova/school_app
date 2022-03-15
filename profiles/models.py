@@ -37,6 +37,9 @@ class Teacher(models.Model):
     """Teacher model"""
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.user.first_name + ' ' + self.user.last_name
+
 class Receptionist(models.Model):
     """Receptionist model"""
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)

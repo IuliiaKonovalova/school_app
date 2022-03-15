@@ -47,7 +47,6 @@ class NewApplicationForm(forms.ModelForm):
         }
 
 
-# create form to change user profile first_name, last_name, phone
 class UserProfileEditForm(forms.ModelForm):
     """Form to edit user profile"""
     class Meta:

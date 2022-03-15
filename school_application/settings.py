@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'home',
     'profiles',
     'students',
-    'subjects',
     'lessons',
     'sales',
 ]

@@ -1,6 +1,6 @@
 """Admin for the profiles app."""
 from django.contrib import admin
-from .models import CustomUser, SalesManager, Parent
+from .models import CustomUser, SalesManager, Teacher, Parent
 
 
 @admin.register(CustomUser)
@@ -10,15 +10,22 @@ class UserAdmin(admin.ModelAdmin):
     search_fields = ('phone', 'first_name', 'last_name')
 
 
-@admin.register(Parent)
-class TeacherAdmin(admin.ModelAdmin):
-    """Teacher admin."""
-    list_display = ('user', 'relation')
-    search_fields = ('user', 'relation')
-
-
 @admin.register(SalesManager)
 class SalesManagerAdmin(admin.ModelAdmin):
     """Sales manager admin."""
     list_display = ('user', 'total_sold')
     search_fields = ('user', 'total_sold')
+
+
+@admin.register(Teacher)
+class TeacherAdmin(admin.ModelAdmin):
+    """Teacher admin."""
+    list_display = ('user',)
+    search_fields = ('user',)
+
+
+@admin.register(Parent)
+class ParentAdmin(admin.ModelAdmin):
+    """Parent admin."""
+    list_display = ('user', 'relation')
+    search_fields = ('user', 'relation')

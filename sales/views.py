@@ -1,3 +1,4 @@
+"""Views for the sales app."""
 from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
 from django.views import View
@@ -7,7 +8,6 @@ from .forms import SalesForm
 from .models import Sales
 
 
-# Add class to view all sales for a user with role 0 or 2
 class SalesView(View):
     """Sales view"""
     def get(self, request, *args, **kwargs):
