@@ -4,7 +4,7 @@
 {% block content %}
 
 {% if request.user.role == 0 or request.user.role == 2 %}
-{% if request.user.role == 2 %}
+
 
 <form method="POST">
   {% csrf_token %}
