@@ -15,7 +15,12 @@ class LessonsView(View):
         """Receive lessons list"""
         if request.user.is_authenticated and request.user.role != 5:
             lessons = Lesson.objects.all()
-            # lessons = Teacher.objects.get(user=request.user).lessons.all()
+            # display all students and teachers in each lesson
+            for lesson in lessons:
+                students = lesson.students.all()
+                teachers = lesson.teachers.all()
+                lesson.students_list = students
+                lesson.teachers_list = teachers
             return render(
                 request,
                 'lessons/lessons_list.html',

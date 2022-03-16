@@ -35,3 +35,28 @@ class Lesson(models.Model):
     subject = models.IntegerField(choices=SUBJECTS, default=1)
     teachers = models.ManyToManyField(Teacher, related_name='lessons')
     students = models.ManyToManyField(Student, related_name='lessons')
+
+    # get time period name for a lesson
+    def get_time(self):
+        """Get time period name of the lesson"""
+        return dict(TIME_PERIODS)[self.time]
+        
+    def get_subject(self):
+        """Get subject name of the lesson"""
+        return dict(SUBJECTS)[self.subject]
+
+    def get_subjects(self):
+        """Get all subjects choices of the lesson"""
+        return dict(SUBJECTS)
+
+    def get_time_periods(self):
+        """Get all time periods choices of the lesson"""
+        return dict(TIME_PERIODS)
+
+    def get_teachers(self):
+        """Get all teachers of the lesson"""
+        return self.teachers.all()
+
+    def get_students(self):
+        """Get all students of the lesson"""
+        return self.students.all()
