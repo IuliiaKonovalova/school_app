@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.http import HttpResponseRedirect
 from django.views import View
 from .models import Student
+from lessons.models import Lesson
 from .forms import AddStudentForm
 
 
@@ -58,10 +59,11 @@ class StudentView(View):
     def get(self, request, pk, *args, **kwargs):
         """Receive student detail"""
         student = get_object_or_404(Student, pk=pk)
+        lessons = Lesson.objects.filter(students__in=[student])
         return render(
             request,
             'students/student_detail.html',
-            {'student': student}
+            {'student': student, 'lessons': lessons}
             )
 
 

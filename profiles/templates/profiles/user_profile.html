@@ -37,48 +37,49 @@
       {{ student.last_name }}
     </a>
     {% endfor %}
-    {% endfor %}
-    {% endif %}
+  </div>
+  {% endfor %}
+  {% endif %}
 
-    {% if user_profile.role == 2 or user_profile.role == 0 %}
-    <h3>Sales Manager</h3>
-    <div>
-      <h4>Kids assigned:</h4>
-      {% for child in children %}
-      <li>
-        <a href="{% url 'student_detail' pk=child.pk%}">{{ child.first_name }}{{ child.last_name }}</a>
-      </li>
-      {% endfor %}
-
-
-
-    </div>
-
-    <div>
-      <h4>Sales made:</h4>
-      {% for sale in sales %}
-      <li>
-        Sold {{ sale.amount }} classes
-        to:<a href="{% url 'user_profile' username=sale.sold_to.user.username %}">{{ sale.sold_to }}</a>
-        on {{ sale.date|date:'m/d/Y' }}
-      </li>
-      {% endfor %}
-    </div>
-    {% endif %}
-
-
-    {% if user_profile.role == 4 %}
-    <h2>Parent</h2>
-    <h3>Children:</h3>
-    <div>
-      {% for child in children %}
-
+  {% if user_profile.role == 2 or user_profile.role == 0 %}
+  <h3>Sales Manager</h3>
+  <div>
+    <h4>Kids assigned:</h4>
+    {% for child in children %}
+    <li>
       <a href="{% url 'student_detail' pk=child.pk%}">{{ child.first_name }}{{ child.last_name }}</a>
-      {% endfor %}
-    </div>
-    {% endif %}
+    </li>
+    {% endfor %}
 
 
 
   </div>
-  {% endblock %}
+
+  <div>
+    <h4>Sales made:</h4>
+    {% for sale in sales %}
+    <li>
+      Sold {{ sale.amount }} classes
+      to:<a href="{% url 'user_profile' username=sale.sold_to.user.username %}">{{ sale.sold_to }}</a>
+      on {{ sale.date|date:'m/d/Y' }}
+    </li>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+
+  {% if user_profile.role == 4 %}
+  <h2>Parent</h2>
+  <h3>Children:</h3>
+  <div>
+    {% for child in children %}
+
+    <a href="{% url 'student_detail' pk=child.pk%}">{{ child.first_name }}{{ child.last_name }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+
+
+</div>
+{% endblock %}
