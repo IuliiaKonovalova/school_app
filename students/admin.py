@@ -7,6 +7,7 @@ from .models import Student
 class StudentAdmin(admin.ModelAdmin):
     """Student admin."""
     list_display = (
+        'id',
         'first_name',
         'last_name',
         'birthday',
