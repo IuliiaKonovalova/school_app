@@ -1,5 +1,5 @@
 """Views for the lessons app."""
-from django.shortcuts import render, reverse
+from django.shortcuts import render, reverse, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.views import View
 from profiles.models import Teacher
