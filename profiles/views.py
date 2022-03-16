@@ -187,12 +187,19 @@ class NewApplicationsDetailView(View):
                 )
                 new_parent.save()
             new_application.save()
+            # redirect to a user_profile of a new applicant
             return HttpResponseRedirect(
                 reverse(
-                    'application_detail',
-                    args=[request.user.username, new_application.pk]
+                    'user_profile',
+                    kwargs={'username': new_application.username}
                     )
                 )
+            # return HttpResponseRedirect(
+            #     reverse(
+            #         'application_detail',
+            #         args=[request.user.username, new_application.pk]
+            #         )
+            #     )
         return render(
             request,
             'profiles/application_detail.html',
