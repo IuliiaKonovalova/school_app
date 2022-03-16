@@ -5,6 +5,7 @@ from django.views.generic import ListView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
+from lessons.models import Lesson
 from students.models import Student
 from sales.models import Sales
 from .models import CustomUser, Parent, SalesManager, Teacher
@@ -18,13 +19,15 @@ class UserProfileView(View):
         user_profile = get_object_or_404(
             CustomUser,  username=kwargs['username']
         )
-        if user_profile.role == 4:
-            children = Student.objects.filter(parent__user=user_profile)
+        if user_profile.role == 1:
+            teacher = Teacher.objects.get(user=user_profile)
+            lessons = Lesson.objects.filter(teachers__in=[teacher])
             return render(
                 request,
                 'profiles/user_profile.html',
-                {'user_profile': user_profile, 'children': children}
+                {'user_profile': user_profile, 'lessons': lessons}
                 )
+
         if user_profile.role == 2:
             children = Student.objects.filter(sales_manager__user=user_profile)
             sales = Sales.objects.all()
@@ -37,6 +40,15 @@ class UserProfileView(View):
                     'children': children
                 }
                 )
+
+        if user_profile.role == 4:
+            children = Student.objects.filter(parent__user=user_profile)
+            return render(
+                request,
+                'profiles/user_profile.html',
+                {'user_profile': user_profile, 'children': children}
+                )
+
         return render(
             request,
             'profiles/user_profile.html',

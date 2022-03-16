@@ -17,48 +17,68 @@
 
   {% endif %}
   {% if request.user.role == 0 %}
-
   <a href="{% url 'delete_member' username=user_profile.username %}">Delete profile</a>
   {% endif %}
+
   <div>{{ user_profile.phone }}</div>
   <div>{{ user_profile.email }}</div>
 
-  {% if user_profile.role == 4 %}
-  <h2>Parent</h2>
-  <h3>Children:</h3>
+  {% if user_profile.role == 1 or user_profile.role == 0 %}
+  <h4>Lessons:</h4>
+  Classes Provided: {{ lessons.count }}
+  {% for lesson in lessons %}
   <div>
-    {% for child in children %}
-
-    <a href="{% url 'student_detail' pk=child.pk%}">{{ child.first_name }}{{ child.last_name }}</a>
+    {{ lesson.date|date:'m/d/Y' }}
+    {{ lesson.get_time }}
+    {{ lesson.get_subject }}
+    {% for student in lesson.get_students %}
+    <a href="{% url 'student_detail' pk=student.pk %}">
+      {{ student.first_name }}
+      {{ student.last_name }}
+    </a>
     {% endfor %}
-  </div>
-  {% endif %}
+    {% endfor %}
+    {% endif %}
+
+    {% if user_profile.role == 2 or user_profile.role == 0 %}
+    <h3>Sales Manager</h3>
+    <div>
+      <h4>Kids assigned:</h4>
+      {% for child in children %}
+      <li>
+        <a href="{% url 'student_detail' pk=child.pk%}">{{ child.first_name }}{{ child.last_name }}</a>
+      </li>
+      {% endfor %}
 
 
-  {% if user_profile.role == 2 or user_profile.role == 0 %}
-  <h3>Sales Manager</h3>
-  <div>
-    <h4>Kids assigned:</h4>
-    {% for child in children %}
-    <li>
+
+    </div>
+
+    <div>
+      <h4>Sales made:</h4>
+      {% for sale in sales %}
+      <li>
+        Sold {{ sale.amount }} classes
+        to:<a href="{% url 'user_profile' username=sale.sold_to.user.username %}">{{ sale.sold_to }}</a>
+        on {{ sale.date|date:'m/d/Y' }}
+      </li>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+
+    {% if user_profile.role == 4 %}
+    <h2>Parent</h2>
+    <h3>Children:</h3>
+    <div>
+      {% for child in children %}
+
       <a href="{% url 'student_detail' pk=child.pk%}">{{ child.first_name }}{{ child.last_name }}</a>
-    </li>
-    {% endfor %}
+      {% endfor %}
+    </div>
+    {% endif %}
 
 
 
   </div>
-
-  <div>
-    <h4>Sales made:</h4>
-    {% for sale in sales %}
-    <li>
-      Sold {{ sale.amount }} classes
-      to:<a href="{% url 'user_profile' username=sale.sold_to.user.username %}">{{ sale.sold_to }}</a>
-      on {{ sale.date|date:'m/d/Y' }}
-    </li>
-    {% endfor %}
-  </div>
-  {% endif %}
-</div>
-{% endblock %}
+  {% endblock %}
