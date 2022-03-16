@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if request.user.role == 3 %}
+<h2>
+  Delete Lesson
+</h2>
+
+<form method="POST">
+  {% csrf_token %}
+
+  <div>
+    {{ lesson.date|date:'m/d/Y' }}
+    {{ lesson.get_time }}
+    {{ lesson.get_subject }}
+
+
+    {% for teacher in lesson.get_teachers %}
+
+    {{ teacher.user.first_name }}
+    {{ teacher.user.last_name }}
+
+
+    {% endfor %}
+
+
+    {% for student in lesson.get_students %}
+
+    {{ student.first_name }}
+    {{ student.last_name }}
+
+
+    {% endfor %}
+
+  </div>
+
+
+  <a href="{% url 'lessons_list' %}">Go
+    back</a>
+  <button type="submit" name="delete">Delete</button>
+  </div>
+</form>
+
+{% else %}
+<p>You are not authorized to view this page</p>
+{% endif %}
+
+{% endblock %}
