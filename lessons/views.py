@@ -29,8 +29,6 @@ class LessonAddView(View):
         """Receive lesson add form"""
         if request.user.is_authenticated and request.user.role == 3:
             form = LessonForm()
-
-
             return render(
                 request,
                 'lessons/lesson_add.html',
@@ -45,14 +43,12 @@ class LessonAddView(View):
             if form.is_valid():
                 print(form.cleaned_data)
                 lesson = form.save(commit=False)
-                teacher = form.cleaned_data['teachers'][0]
-                student = form.cleaned_data['students'][0]
-                student.classes_left -= 1
-                student.save()
+                students = form.cleaned_data['students']
+                for student in students:
+                    student.classes_left -= 1
+                    student.save()
                 lesson.save()
                 form.save_m2m()
-                lesson.teachers.add(teacher)
-                lesson.students.add(student)
                 lesson.save()
                 return HttpResponseRedirect(
                     reverse('lessons_list')
@@ -61,4 +57,47 @@ class LessonAddView(View):
                 request,
                 'lessons/lesson_add.html',
                 {'form': form}
+                )
+
+
+class LessonEditView(View):
+    """Lesson Edit View"""
+    def get(self, request, pk):
+        """Receive lesson edit form"""
+        if request.user.is_authenticated and request.user.role == 3:
+            lesson = get_object_or_404(Lesson, pk=pk)
+            form = LessonForm(instance=lesson)
+            return render(
+                request,
+                'lessons/lesson_edit.html',
+                {'form': form, 'lesson': lesson}
+                )
+
+
+    def post(self, request, pk):
+        """Receive lesson edit form"""
+        if request.user.is_authenticated and request.user.role == 3:
+            lesson = get_object_or_404(Lesson, pk=pk)
+            students = lesson.students.all()
+            for student in students:
+                student.classes_left += 1
+                student.save()
+            form = LessonForm(request.POST, instance=lesson)
+            if form.is_valid():
+                print(form.cleaned_data)
+                lesson = form.save(commit=False)
+                students = form.cleaned_data['students']
+                for student in students:
+                    student.classes_left -= 1
+                    student.save()
+                lesson.save()
+                form.save_m2m()
+                lesson.save()
+                return HttpResponseRedirect(
+                    reverse('lessons_list')
+                    )
+            return render(
+                request,
+                'lessons/lesson_edit.html',
+                {'form': form, 'lesson': lesson}
                 )
