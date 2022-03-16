@@ -15,24 +15,11 @@ class LessonsView(View):
         """Receive lessons list"""
         if request.user.is_authenticated and request.user.role != 5:
             lessons = Lesson.objects.all()
-            # display all students and teachers in each lesson
-            for lesson in lessons:
-                students = lesson.students.all()
-                teachers = lesson.teachers.all()
-                lesson.students_list = students
-                lesson.teachers_list = teachers
             return render(
                 request,
                 'lessons/lessons_list.html',
                 {'lessons': lessons}
                 )
-        # if request.user.is_authenticated and request.user.role == 1:
-        #     lessons = Student.objects.get(user=request.user).lessons.all()
-        #     return render(
-        #         request,
-        #         'lessons/lessons.html',
-        #         {'lessons': lessons}
-        #         )
         return HttpResponseRedirect(reverse('home'))
 
 
@@ -60,6 +47,8 @@ class LessonAddView(View):
                 lesson = form.save(commit=False)
                 teacher = form.cleaned_data['teachers'][0]
                 student = form.cleaned_data['students'][0]
+                student.classes_left -= 1
+                student.save()
                 lesson.save()
                 form.save_m2m()
                 lesson.teachers.add(teacher)
