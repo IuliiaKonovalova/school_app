@@ -146,14 +146,27 @@
   lessons.forEach(function (lesson) {
     lesson.style.display = 'none';
   });
+  // show data for today lessons
+  const date = document.querySelector('#schedule-by-date');
+  $(document).ready(function () {
+    let lessonsToday = document.querySelectorAll('[data-date="' + date + '"]');
+    for (let lesson of lessons) {
+      if (lesson.getAttribute('data-date') === date.value) {
+        lesson.style.display = 'block';
+      } else {
+        lesson.style.display = 'none';
+      }
+    }
+    for (let lesson of lessonsToday) {
+      lesson.style.display = 'block';
+    }
+  });
 
+  // Function to add data according to date chosen
   $(function () {
     $('#schedule-by-date').datepicker({
       dateFormat: 'mm/dd/yy',
       // add data on page load  from the value of the input
-      onLoad: function (date) {
-        $('#schedule-by-date').datepicker('setDate', date);
-      },
       onSelect: function (dateText, inst) {
         let lessonsToday = document.querySelectorAll('[data-date="' + dateText + '"]');
         for (let lesson of lessons) {
@@ -164,11 +177,7 @@
         }
       }
     });
-
   });
-
-
-
 </script>
 
 {% endblock %}
