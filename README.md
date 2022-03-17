@@ -384,6 +384,43 @@ Create a local copy of the GitHub repository by following one of the two process
     - You will be redirected to the admin page.
 
 
+### Heroku Deployment
+
+1. Set up a local workspace on your computer for Heroku:
+    - Create a list of requirements that the project needs to run:
+      - type in this in the terminal: `pip3 freeze > requirements.txt`
+    - Commit and push the changes to GitHub
+    
+1. Go to [www.heroku.com](www.heroku.com) 
+1. Login or create a Heroku account.
+1. Create a new app with any unique name <name app>.
+1. Create a Procfile in your local workplace, which will contain the following:
+    ```python
+        web: gunicorn <name app>.wsgi:application
+    ```
+    - Commit and push the changes to GitHub.
+
+1. Go to resources in Heroku and search for postgresql. Select Hobby dev - Free and click on the provision button to add it to the project.
+
+1. Go to the settings app in Heroku and go to Config Vars. Click on Reveal Config Vars and add the following config variables:
+
+| Key      | Value          |
+|-------------|-------------|
+| DATABASE_URL | ... | 
+| DISABLE_COLLECTSTATIC | 1 |
+| EMAIL_HOST_PASS | ... |
+| EMAIL_HOST_USER | ... |
+| HEROKU_HOSTNAME | ... |
+| SECRET_KEY | ... |
+
+
+1. Copy the value of DATABASE_URL and input it into the .env file.
+1. Create EMAIL_HOST_PASS and EMAIL_HOST_USER with gmail account and add values to these keys.
+1. Migrate changes.
+1. Set debug to False in settings.py
+1. Commit and push the changes to GitHub.
+
+---
 
 
 

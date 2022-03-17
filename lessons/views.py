@@ -17,10 +17,11 @@ class LessonsView(View):
         if request.user.is_authenticated and request.user.role != 5:
             lessons = Lesson.objects.all()
             today_lessons = lessons.filter(date=datetime.now().date())
+            dates = lessons.values_list('date', flat=True).distinct()
             return render(
                 request,
                 'lessons/lessons_list.html',
-                {'lessons': lessons, 'today_lessons': today_lessons}
+                {'lessons': lessons, 'today_lessons': today_lessons, 'dates': dates}
                 )
         return HttpResponseRedirect(reverse('home'))
 
