@@ -129,3 +129,16 @@ class LessonDeleteView(View):
             return HttpResponseRedirect(
                 reverse('lessons_list')
                 )
+
+
+class LessonDetailView(View):
+    """Lesson Detail View"""
+    def get(self, request, pk):
+        """Receive lesson detail"""
+        if request.user.is_authenticated and request.user.role != 5:
+            lesson = get_object_or_404(Lesson, pk=pk)
+            return render(
+                request,
+                'lessons/lesson_detail.html',
+                {'lesson': lesson}
+                )
