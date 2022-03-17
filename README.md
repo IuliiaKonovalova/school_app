@@ -116,6 +116,10 @@ As a Boss, I want to see see information on students for each lesson, so that I 
 
 As a Boss, I want to be able to see sales' details, so that I can check which sales manager and which parent was involved in a deal.
 
+- [#51](https://github.com/IuliiaKonovalova/school_app/issues/51):
+
+As a Boss, I want to be able to delete students from the application, so that I can control the flow of the present students.
+
 ### **Teachers' Goals**:
 
 - [#25](https://github.com/IuliiaKonovalova/school_app/issues/25):
@@ -201,6 +205,19 @@ As a Sales Manager, I want to be able to review my sales, so that I can control 
 - [#45](https://github.com/IuliiaKonovalova/school_app/issues/45):
 
 As a Sales Manager, I want to be able to add new classes to a child when parents buy classes, so that I can maintain relationships with clients.
+
+- [#52](https://github.com/IuliiaKonovalova/school_app/issues/52):
+
+As a Sales Manager, I want to be able to delete students from the application, so that I can control the flow of the present students.
+
+- [#53](https://github.com/IuliiaKonovalova/school_app/issues/53):
+
+As a Sales Manager I can edit information on about a sale so that change the data on a sale if a mistake was made or a parent changed his or her mind
+
+- [#54](https://github.com/IuliiaKonovalova/school_app/issues/54):
+
+As a Sales Manager I can delete information on about a sale so that render sales data if a mistake was made or a parent changed his or her mind
+
 
 ### **Parents' Goals**:
 
