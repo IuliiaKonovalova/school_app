@@ -22,7 +22,7 @@ The app was developed for all members of the early childhood school.
 
 ## User Stories
 
-### First Time Visitor Goals:
+### **First Time Visitor Goals**:
 
 - [#1](https://github.com/IuliiaKonovalova/school_app/issues/1):
 
@@ -38,7 +38,7 @@ As a First Time Visitor, I want to be able to register my account, so that I can
 
 As a First Time Visitor, I want to be able to find the app useful, so that I can use it according to my needs.
 
-### Frequent Visitor Goals:
+### **Frequent Visitor Goals**:
 
 - [#5](https://github.com/IuliiaKonovalova/school_app/issues/5):
 
@@ -56,13 +56,13 @@ As a Frequent User, I want to be able to easily recover my password in case I fo
 
 As a Frequent User, I can be able to change my password, so that I can be sure that nobody else can access my account.
 
-### Potential Client Goals:
+### **Potential Client Goals**:
 
 - [#9](https://github.com/IuliiaKonovalova/school_app/issues/9):
 
 As a Potential client, I want to be contacted by sales managers, so that I can make a prudent decision about being a member.
 
-### Boss Goals:
+### **Boss Goals**:
 
 - [#11](https://github.com/IuliiaKonovalova/school_app/issues/11):
 
@@ -116,11 +116,18 @@ As a Boss, I want to see see information on students for each lesson, so that I 
 
 As a Boss, I want to be able to see sales' details, so that I can check which sales manager and which parent was involved in a deal.
 
-
+### **Teachers' Goals**:
 
 - [#25](https://github.com/IuliiaKonovalova/school_app/issues/25):
 
+As a Teacher, I want to be able to search for a particular student, so that I can easily access information on this student.
 
+- [#26](https://github.com/IuliiaKonovalova/school_app/issues/26):
+- [#27](https://github.com/IuliiaKonovalova/school_app/issues/27):
+- [#28](https://github.com/IuliiaKonovalova/school_app/issues/28):
+- [#29](https://github.com/IuliiaKonovalova/school_app/issues/29):
+- [#30](https://github.com/IuliiaKonovalova/school_app/issues/30):
+- [#31](https://github.com/IuliiaKonovalova/school_app/issues/31):
 
 ## Gitpod Reminders
 
