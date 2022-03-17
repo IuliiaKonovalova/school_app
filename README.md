@@ -312,7 +312,76 @@ As a Parent, I want to be able to see names of teachers for each lesson, so that
     + [PEP8](https://pep8.org/): was used to validate Python code for the website.
 
 ---
+## Design
 
+
+
+
+---
+## Testing
+
+Please refer to the [TESTING.md](TESTING.md) file for all test related documentation.
+
+---
+
+## Deployment
+
+- The program was deployed to [Heroku](https://dashboard.heroku.com).
+- The program can be reached by the [link](https://issue-tracker-by-konovalovs.herokuapp.com/)
+### Local deployment:
+
+*Note:*
+  - This project requires install all the requirements:
+  - Open the terminal window and type:
+  - `pip3 install -r requirements.txt`
+
+Create a local copy of the GitHub repository by following one of the two processes below:
+
+- Download ZIP file:
+  1. Go to the [GitHub Repo page](https://github.com/IuliiaKonovalova/issue_tracker).
+  1. Click the Code button and download the ZIP file containing the project.
+  1. Extract the ZIP file to a location on your PC.
+
+- Clone the repository:
+  1. Open a folder on your computer with the terminal.
+  1. Run the following command
+  - `git clone https://github.com/IuliiaKonovalova/issue_tracker.git`
+
+- Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+
+  [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/IuliiaKonovalova/issue_tracker)
+
+---
+
+1. Install the dependencies:
+  - Open the terminal window and type:
+  - `pip3 install -r requirements.txt`
+
+1. Create a .gitignore file in the root directory of the project where you should add env.py and __pycache__ files to prevent the privacy of your secret data.
+
+1. Create a .env file. This will contain the following environment variables:
+
+    ```python
+    import os
+
+      os.environ("SECRET_KEY", "Add a secret key")
+      os.environ("DATABASE_URL", "will be used to connect to the database")
+    ```
+
+1. Run following commands in a terminal to make migrations: 
+    - `python3 manage.py makemigrations`
+    - `python3 manage.py migrate`
+1. Create a superuser to get access to the admin environment.
+    - `python3 manage.py createsuperuser`
+    - Enter required information (your username, email and password).
+1. Run the app with the following command in the terminal:
+    - `python3 manage.py runserver`
+1. Open the link provided in a browser to see the app.
+
+1. If you need to access admin page:
+    - Add /admin/ to the link provided.
+    - Enter your username and password (for the superuser that you have created before).
+    - You will be redirected to the admin page.
 
 
 
