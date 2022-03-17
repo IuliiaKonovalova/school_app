@@ -123,11 +123,53 @@ As a Boss, I want to be able to see sales' details, so that I can check which sa
 As a Teacher, I want to be able to search for a particular student, so that I can easily access information on this student.
 
 - [#26](https://github.com/IuliiaKonovalova/school_app/issues/26):
+
+As a Teacher, I want to be able to see personal information on a kid, so that I can know student’s personal data.
+
 - [#27](https://github.com/IuliiaKonovalova/school_app/issues/27):
+
+As a Teacher, I want to be able to sort students by subject, so that I can know students and parents' preferences, contact another teacher if needed.
+
 - [#28](https://github.com/IuliiaKonovalova/school_app/issues/28):
+
+As a Teacher, I want to be able to see lessons schedule, so that I can manage my time.
+
 - [#29](https://github.com/IuliiaKonovalova/school_app/issues/29):
+
+As a Teacher, I want to be able to see information on students for each lesson, so that I can be prepared for each student.
+
+### **Receptionists' Goals**:
+
 - [#30](https://github.com/IuliiaKonovalova/school_app/issues/30):
+
+As a Receptionist, I want to be able to search for a particular student, so that I can easily access information on this student.
+
 - [#31](https://github.com/IuliiaKonovalova/school_app/issues/31):
+
+As a Receptionist, I want to be able to see personal information on a kid, so that I can know student’s personal data.
+
+- [#32](https://github.com/IuliiaKonovalova/school_app/issues/32):
+
+As a Receptionist, I want to be able to sort students by subject, teacher, so that I can know students and parents' preferences, contact school personnel if needed.
+
+- [#33](https://github.com/IuliiaKonovalova/school_app/issues/33):
+
+As a Receptionist, I want to be able to see lessons schedule and student attending lessons, so that I can arrange the flow of the students.
+
+- [#34](https://github.com/IuliiaKonovalova/school_app/issues/34):
+
+As a Receptionist, I want to be able to create lessons for a day (day, time, subject, teachers, students), so that I can provide a precise schedule for school members.
+
+- [#35](https://github.com/IuliiaKonovalova/school_app/issues/35):
+
+As a Receptionist, I want to be able to render lessons for a day (day, time, subject, teachers, students), so that I can provide up to date schedule.
+
+- [#36](https://github.com/IuliiaKonovalova/school_app/issues/36):
+
+
+
+- [#37](https://github.com/IuliiaKonovalova/school_app/issues/37):
+
 
 ## Gitpod Reminders
 
