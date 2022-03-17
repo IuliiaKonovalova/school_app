@@ -164,11 +164,51 @@ As a Receptionist, I want to be able to create lessons for a day (day, time, sub
 
 As a Receptionist, I want to be able to render lessons for a day (day, time, subject, teachers, students), so that I can provide up to date schedule.
 
+### **Sales Managers' Goals**:
+
 - [#36](https://github.com/IuliiaKonovalova/school_app/issues/36):
 
-
+As a Sales Manager, I want to be able to search for a particular student, so that I can easily access information on this student.
 
 - [#37](https://github.com/IuliiaKonovalova/school_app/issues/37):
+
+As a Sales Manager, I want to be able to see personal information on a kid, so that I can know student’s personal data.
+
+- [#38](https://github.com/IuliiaKonovalova/school_app/issues/38):
+
+As a Sales Manager, I want to be able to sort students by sales manager, urgent sale, so that I can control the sales in the company.
+
+- [#39](https://github.com/IuliiaKonovalova/school_app/issues/39):
+
+As a Sales Manager, I want to be able to sort students by subject, teacher, so that I can find students' and parents' preferences.
+
+- [#40](https://github.com/IuliiaKonovalova/school_app/issues/40):
+
+As a Sales Manager, I want to be able to view new applications, so that I can contact a potential client and make profits for a company.
+
+- [#42](https://github.com/IuliiaKonovalova/school_app/issues/42):
+
+As a Sales Manager, I want to be able to add personal notes on each student that I’m in charge of, so that I can increase the company’s sales.
+
+- [#43](https://github.com/IuliiaKonovalova/school_app/issues/43):
+
+As a Sales Manager, I want to be able to add or edit information on students, so that I can keep up to date students’ profiles.
+
+- [#44](https://github.com/IuliiaKonovalova/school_app/issues/44):
+
+As a Sales Manager, I want to be able to review my sales, so that I can control my performance.
+
+- [#45](https://github.com/IuliiaKonovalova/school_app/issues/45):
+
+As a Sales Manager, I want to be able to add new classes to a child when parents buy classes, so that I can maintain relationships with clients.
+
+- [#46](https://github.com/IuliiaKonovalova/school_app/issues/46):
+
+
+
+
+
+
 
 
 ## Gitpod Reminders
