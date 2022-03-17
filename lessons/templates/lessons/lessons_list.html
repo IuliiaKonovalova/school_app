@@ -19,21 +19,40 @@
 <input id="schedule-by-date" value="schedule_date"></input>
 <input type="submit" value="search">
 
+<div>
+  <h3>'9:00-9:45'</h3>
+  <div>
+    {% for lesson in lessons_time_0 %}
+    <div data-date="{{ lesson.date|date:'m/d/Y' }}">
+      <a href="{% url 'lesson_detail' pk=lesson.pk %}">
+        {{ lesson.date|date:'m/d/Y' }}
+        {{ lesson.get_time }}
+        {{ lesson.get_subject }}
+      </a>
+    </div>
 
-
+    {% endfor %}
+  </div>
+</div>
 
 
 {% for lesson in lessons %}
 
 <div data-date="{{ lesson.date|date:'m/d/Y' }}">
-  {% if lesson.time == 0 %}
-  <h3>'9:00-9:45'</h3>
-  <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-    {{ lesson.date|date:'m/d/Y' }}
-    {{ lesson.get_time }}
-    {{ lesson.get_subject }}
-  </a>
-  {% elif lesson.time == 1 %}
+  <div>
+    <h3>'9:00-9:45'</h3>
+    <div>
+      {% if lesson.time == 0 %}
+
+      <a href="{% url 'lesson_detail' pk=lesson.pk %}">
+        {{ lesson.date|date:'m/d/Y' }}
+        {{ lesson.get_time }}
+        {{ lesson.get_subject }}
+      </a>
+      {% endif %}
+    </div>
+  </div>
+  {% if lesson.time == 1 %}
   <h3>'10:00-10:45'</h3>
   <a href="{% url 'lesson_detail' pk=lesson.pk %}">
     {{ lesson.date|date:'m/d/Y' }}

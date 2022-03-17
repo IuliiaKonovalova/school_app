@@ -18,10 +18,33 @@ class LessonsView(View):
             lessons = Lesson.objects.all()
             today_lessons = lessons.filter(date=datetime.now().date())
             dates = lessons.values_list('date', flat=True).distinct()
+            # get lessons by time:
+            lessons_time_0 = lessons.filter(time=0)
+            lessons_time_1 = lessons.filter(time=1)
+            lessons_time_2 = lessons.filter(time=2)
+            lessons_time_3 = lessons.filter(time=3)
+            lessons_time_4 = lessons.filter(time=4)
+            lessons_time_5 = lessons.filter(time=5)
+            lessons_time_6 = lessons.filter(time=6)
+            lessons_time_7 = lessons.filter(time=7)
+            context = {
+                'lessons_time_0': lessons_time_0,
+                'lessons_time_1': lessons_time_1,
+                'lessons_time_2': lessons_time_2,
+                'lessons_time_3': lessons_time_3,
+                'lessons_time_4': lessons_time_4,
+                'lessons_time_5': lessons_time_5,
+                'lessons_time_6': lessons_time_6,
+                'lessons_time_7': lessons_time_7,
+                'lessons': lessons,
+                'today_lessons': today_lessons,
+                'dates': dates
+            }
+
             return render(
                 request,
                 'lessons/lessons_list.html',
-                {'lessons': lessons, 'today_lessons': today_lessons, 'dates': dates}
+                context
                 )
         return HttpResponseRedirect(reverse('home'))
 
