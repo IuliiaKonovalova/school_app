@@ -7,16 +7,9 @@
 <div>Today is: {% now 'm/d/Y' %}</div>
 
 
-<ul>
-  {% for date in dates %}
-  <li>
-    <button data-target-date="{{ date|date:'m/d/Y' }}">{{ date|date:'m/d/Y'}}</button>
-  </li>
-  {% endfor %}
-</ul>
 <h3>Search by date</h3>
 
-<input id="schedule-by-date" value="schedule_date"></input>
+<input id="schedule-by-date" value="{% now 'm/d/Y' %}"></input>
 <input type="submit" value="search">
 
 <div>
@@ -35,79 +28,112 @@
   </div>
 </div>
 
-
-{% for lesson in lessons %}
-
-<div data-date="{{ lesson.date|date:'m/d/Y' }}">
+<div>
+  <h3>'10:00-10:45'</h3>
   <div>
-    <h3>'9:00-9:45'</h3>
-    <div>
-      {% if lesson.time == 0 %}
-
+    {% for lesson in lessons_time_1 %}
+    <div data-date="{{ lesson.date|date:'m/d/Y' }}">
       <a href="{% url 'lesson_detail' pk=lesson.pk %}">
         {{ lesson.date|date:'m/d/Y' }}
         {{ lesson.get_time }}
         {{ lesson.get_subject }}
       </a>
-      {% endif %}
     </div>
+
+    {% endfor %}
   </div>
-  {% if lesson.time == 1 %}
-  <h3>'10:00-10:45'</h3>
-  <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-    {{ lesson.date|date:'m/d/Y' }}
-    {{ lesson.get_time }}
-    {{ lesson.get_subject }}
-  </a>
-  {% elif lesson.time == 2 %}
+</div>
+<div>
   <h3>'11:00-11:45'</h3>
-  <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-    {{ lesson.date|date:'m/d/Y' }}
-    {{ lesson.get_time }}
-    {{ lesson.get_subject }}
-  </a>
-  {% elif lesson.time == 3 %}
+  <div>
+    {% for lesson in lessons_time_2 %}
+    <div data-date="{{ lesson.date|date:'m/d/Y' }}">
+      <a href="{% url 'lesson_detail' pk=lesson.pk %}">
+        {{ lesson.date|date:'m/d/Y' }}
+        {{ lesson.get_time }}
+        {{ lesson.get_subject }}
+      </a>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+<div>
   <h3>'14:00-14:45'</h3>
-  <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-    {{ lesson.date|date:'m/d/Y' }}
-    {{ lesson.get_time }}
-    {{ lesson.get_subject }}
-  </a>
-  {% elif lesson.time == 4 %}
+  <div>
+    {% for lesson in lessons_time_3 %}
+    <div data-date="{{ lesson.date|date:'m/d/Y' }}">
+      <a href="{% url 'lesson_detail' pk=lesson.pk %}">
+        {{ lesson.date|date:'m/d/Y' }}
+        {{ lesson.get_time }}
+        {{ lesson.get_subject }}
+      </a>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+<div>
   <h3>'15:00-15:45'</h3>
-  <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-    {{ lesson.date|date:'m/d/Y' }}
-    {{ lesson.get_time }}
-    {{ lesson.get_subject }}
-  </a>
-  {% elif lesson.time == 5 %}
+  <div>
+    {% for lesson in lessons_time_4 %}
+    <div data-date="{{ lesson.date|date:'m/d/Y' }}">
+      <a href="{% url 'lesson_detail' pk=lesson.pk %}">
+        {{ lesson.date|date:'m/d/Y' }}
+        {{ lesson.get_time }}
+        {{ lesson.get_subject }}
+      </a>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+<div>
   <h3>'16:00-16:45'</h3>
-  <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-    {{ lesson.date|date:'m/d/Y' }}
-    {{ lesson.get_time }}
-    {{ lesson.get_subject }}
-  </a>
-  {% elif lesson.time == 6 %}
+  <div>
+    {% for lesson in lessons_time_5 %}
+    <div data-date="{{ lesson.date|date:'m/d/Y' }}">
+      <a href="{% url 'lesson_detail' pk=lesson.pk %}">
+        {{ lesson.date|date:'m/d/Y' }}
+        {{ lesson.get_time }}
+        {{ lesson.get_subject }}
+      </a>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+<div>
   <h3>'17:00-17:45'</h3>
-  <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-    {{ lesson.date|date:'m/d/Y' }}
-    {{ lesson.get_time }}
-    {{ lesson.get_subject }}
-  </a>
-  {% elif lesson.time == 7 %}
+  <div>
+    {% for lesson in lessons_time_6 %}
+    <div data-date="{{ lesson.date|date:'m/d/Y' }}">
+      <a href="{% url 'lesson_detail' pk=lesson.pk %}">
+        {{ lesson.date|date:'m/d/Y' }}
+        {{ lesson.get_time }}
+        {{ lesson.get_subject }}
+      </a>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+<div>
   <h3>'18:00-18:45'</h3>
-  <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-    {{ lesson.date|date:'m/d/Y' }}
-    {{ lesson.get_time }}
-    {{ lesson.get_subject }}
-  </a>
-  {% endif %}
+  <div>
+    {% for lesson in lessons_time_7 %}
+    <div data-date="{{ lesson.date|date:'m/d/Y' }}">
+      <a href="{% url 'lesson_detail' pk=lesson.pk %}">
+        {{ lesson.date|date:'m/d/Y' }}
+        {{ lesson.get_time }}
+        {{ lesson.get_subject }}
+      </a>
+    </div>
 
-
+    {% endfor %}
+  </div>
 </div>
 
-
-{% endfor %}
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -124,6 +150,10 @@
   $(function () {
     $('#schedule-by-date').datepicker({
       dateFormat: 'mm/dd/yy',
+      // add data on page load  from the value of the input
+      onLoad: function (date) {
+        $('#schedule-by-date').datepicker('setDate', date);
+      },
       onSelect: function (dateText, inst) {
         let lessonsToday = document.querySelectorAll('[data-date="' + dateText + '"]');
         for (let lesson of lessons) {
