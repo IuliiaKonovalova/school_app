@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{{ lesson.date|date:'m/d/Y' }}
+{{ lesson.get_time }}
+{{ lesson.get_subject }}
+
+
+{% for teacher in lesson.get_teachers %}
+<a href="{% url 'user_profile' username=teacher.user.username %}">
+  {{ teacher.user.first_name }}
+  {{ teacher.user.last_name }}
+</a>
+
+{% endfor %}
+
+
+{% for student in lesson.get_students %}
+<a href="{% url 'student_detail' pk=student.pk %}">
+  {{ student.first_name }}
+  {{ student.last_name }}
+</a>
+
+{% endfor %}
+<a href="{% url 'lesson_edit' pk=lesson.pk %}">Edit lesson</a>
+<a href="{% url 'lesson_delete' pk=lesson.pk %}">Delete lesson</a>
+
+
+
+{% endblock %}

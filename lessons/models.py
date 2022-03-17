@@ -40,7 +40,7 @@ class Lesson(models.Model):
     def get_time(self):
         """Get time period name of the lesson"""
         return dict(TIME_PERIODS)[self.time]
-        
+
     def get_subject(self):
         """Get subject name of the lesson"""
         return dict(SUBJECTS)[self.subject]
