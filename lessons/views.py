@@ -2,6 +2,7 @@
 from django.shortcuts import render, reverse, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.views import View
+from datetime import datetime
 from profiles.models import Teacher
 from students.models import Student
 from .models import Lesson
@@ -15,10 +16,11 @@ class LessonsView(View):
         """Receive lessons list"""
         if request.user.is_authenticated and request.user.role != 5:
             lessons = Lesson.objects.all()
+            today_lessons = lessons.filter(date=datetime.now().date())
             return render(
                 request,
                 'lessons/lessons_list.html',
-                {'lessons': lessons}
+                {'lessons': lessons, 'today_lessons': today_lessons}
                 )
         return HttpResponseRedirect(reverse('home'))
 

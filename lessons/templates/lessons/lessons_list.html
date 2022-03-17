@@ -6,7 +6,17 @@
 
 <div>Today is: {% now 'm/d/Y' %}</div>
 
+{% for lesson in today_lessons %}
+This classes for today
+{{ lesson.date|date:'m/d/Y' }}
+{{ lesson.get_time }}
+{{ lesson.get_subject }}
+Here are the end of them
+{% endfor %}
+
+
 {% for lesson in lessons %}
+
 <div>
   {{ lesson.date|date:'m/d/Y' }}
   {{ lesson.get_time }}
@@ -36,6 +46,9 @@
 
 </div>
 
+
 {% endfor %}
+
+
 
 {% endblock %}
