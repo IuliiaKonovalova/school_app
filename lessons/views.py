@@ -16,8 +16,6 @@ class LessonsView(View):
         """Receive lessons list"""
         if request.user.is_authenticated and request.user.role != 5:
             lessons = Lesson.objects.all()
-            today_lessons = lessons.filter(date=datetime.now().date())
-            dates = lessons.values_list('date', flat=True).distinct()
             # get lessons by time:
             lessons_time_0 = lessons.filter(time=0)
             lessons_time_1 = lessons.filter(time=1)
@@ -36,11 +34,7 @@ class LessonsView(View):
                 'lessons_time_5': lessons_time_5,
                 'lessons_time_6': lessons_time_6,
                 'lessons_time_7': lessons_time_7,
-                'lessons': lessons,
-                'today_lessons': today_lessons,
-                'dates': dates
             }
-
             return render(
                 request,
                 'lessons/lessons_list.html',

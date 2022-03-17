@@ -2,15 +2,15 @@
 
 {% block content %}
 
+{% if request.user.role == 3 %}
 <a href="{% url 'lesson_add' %}">Add lesson</a>
-
+{% endif %}
 <div>Today is: {% now 'm/d/Y' %}</div>
 
 
 <h3>Search by date</h3>
 
 <input id="schedule-by-date" value="{% now 'm/d/Y' %}"></input>
-<input type="submit" value="search">
 
 <div>
   <h3>'9:00-9:45'</h3>
@@ -34,8 +34,6 @@
     {% for lesson in lessons_time_1 %}
     <div data-date="{{ lesson.date|date:'m/d/Y' }}">
       <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-        {{ lesson.date|date:'m/d/Y' }}
-        {{ lesson.get_time }}
         {{ lesson.get_subject }}
       </a>
     </div>
@@ -49,8 +47,6 @@
     {% for lesson in lessons_time_2 %}
     <div data-date="{{ lesson.date|date:'m/d/Y' }}">
       <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-        {{ lesson.date|date:'m/d/Y' }}
-        {{ lesson.get_time }}
         {{ lesson.get_subject }}
       </a>
     </div>
@@ -64,8 +60,6 @@
     {% for lesson in lessons_time_3 %}
     <div data-date="{{ lesson.date|date:'m/d/Y' }}">
       <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-        {{ lesson.date|date:'m/d/Y' }}
-        {{ lesson.get_time }}
         {{ lesson.get_subject }}
       </a>
     </div>
@@ -79,8 +73,6 @@
     {% for lesson in lessons_time_4 %}
     <div data-date="{{ lesson.date|date:'m/d/Y' }}">
       <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-        {{ lesson.date|date:'m/d/Y' }}
-        {{ lesson.get_time }}
         {{ lesson.get_subject }}
       </a>
     </div>
@@ -94,8 +86,6 @@
     {% for lesson in lessons_time_5 %}
     <div data-date="{{ lesson.date|date:'m/d/Y' }}">
       <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-        {{ lesson.date|date:'m/d/Y' }}
-        {{ lesson.get_time }}
         {{ lesson.get_subject }}
       </a>
     </div>
@@ -109,8 +99,6 @@
     {% for lesson in lessons_time_6 %}
     <div data-date="{{ lesson.date|date:'m/d/Y' }}">
       <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-        {{ lesson.date|date:'m/d/Y' }}
-        {{ lesson.get_time }}
         {{ lesson.get_subject }}
       </a>
     </div>
@@ -124,8 +112,6 @@
     {% for lesson in lessons_time_7 %}
     <div data-date="{{ lesson.date|date:'m/d/Y' }}">
       <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-        {{ lesson.date|date:'m/d/Y' }}
-        {{ lesson.get_time }}
         {{ lesson.get_subject }}
       </a>
     </div>
