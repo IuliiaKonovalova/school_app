@@ -202,7 +202,31 @@ As a Sales Manager, I want to be able to review my sales, so that I can control 
 
 As a Sales Manager, I want to be able to add new classes to a child when parents buy classes, so that I can maintain relationships with clients.
 
+### **Parents' Goals**:
+
 - [#46](https://github.com/IuliiaKonovalova/school_app/issues/46):
+
+As a Parent, I want to be able to see personal information on my child/children, so that I can check the personal data.
+
+- [#47](https://github.com/IuliiaKonovalova/school_app/issues/47):
+
+As a Parent, I want to be able to see my child’s attendance (subject, teacher, date), so that I can control my child’s education and my spending.
+
+- [#48](https://github.com/IuliiaKonovalova/school_app/issues/48):
+
+As a Parent, I want to be able to see lessons schedule, so that I can manage my time and control child’s attendance.
+
+- [#49](https://github.com/IuliiaKonovalova/school_app/issues/49):
+
+As a Parent, I want to be able to see information on students for each lesson, so that I can prepare my child for a lesson.
+
+- [#50](https://github.com/IuliiaKonovalova/school_app/issues/50):
+
+As a Parent, I want to be able to see names of teachers for each lesson, so that I can know who is/are teaching a lesson.
+
+
+
+
 
 
 
