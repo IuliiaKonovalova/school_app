@@ -46,15 +46,6 @@ class StudentsView(View):
     def get(self, request, *args, **kwargs):
         """Receive students list"""
         students = Student.objects.all()
-        # sales_managers = SalesManager.objects.all()
-        # teachers = Teacher.objects.all()
-        # subjects = Lesson.objects.all().values_list('subject', flat=True).distinct()
-
-        # students_urgent = []
-        # for student in students:
-        #     if student.has_classes_left():
-        #         students_urgent.append(student)
-
         context = {
           'students': students,
         }
