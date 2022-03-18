@@ -107,13 +107,9 @@ As a Boss, I want to be able to sort members according to a role, so that I can 
 
 As a Boss, I want to be able to search for a particular student, so that I can easily access information on this student.
 
-- [#20](https://github.com/IuliiaKonovalova/school_app/issues/20):
-
-As a Boss, I want to be able to sort students by subject, teacher, so that I can find students and parents preferences.
-
 - [#21](https://github.com/IuliiaKonovalova/school_app/issues/21):
 
-As a Boss, I want to be able to sort students by the sales manager, urgent sale, so that I can control the sales in the company.
+As a Boss, I want to be able to sort students by the urgent sale, so that I can control the sales in the company and preserve clients.
 
 - [#22](https://github.com/IuliiaKonovalova/school_app/issues/22):
 
@@ -145,10 +141,6 @@ As a Teacher, I want to be able to search for a particular student, so that I ca
 
 As a Teacher, I want to be able to see personal information on a kid, so that I can know student’s personal data.
 
-- [#27](https://github.com/IuliiaKonovalova/school_app/issues/27):
-
-As a Teacher, I want to be able to sort students by subject, so that I can know students and parents' preferences, contact another teacher if needed.
-
 - [#28](https://github.com/IuliiaKonovalova/school_app/issues/28):
 
 As a Teacher, I want to be able to see lessons schedule, so that I can manage my time.
@@ -169,10 +161,6 @@ As a Receptionist, I want to be able to search for a particular student, so that
 - [#31](https://github.com/IuliiaKonovalova/school_app/issues/31):
 
 As a Receptionist, I want to be able to see personal information on a kid, so that I can know student’s personal data.
-
-- [#32](https://github.com/IuliiaKonovalova/school_app/issues/32):
-
-As a Receptionist, I want to be able to sort students by subject, teacher, so that I can know students and parents' preferences, contact school personnel if needed.
 
 - [#33](https://github.com/IuliiaKonovalova/school_app/issues/33):
 
@@ -202,11 +190,7 @@ As a Sales Manager, I want to be able to see personal information on a kid, so t
 
 - [#38](https://github.com/IuliiaKonovalova/school_app/issues/38):
 
-As a Sales Manager, I want to be able to sort students by sales manager, urgent sale, so that I can control the sales in the company.
-
-- [#39](https://github.com/IuliiaKonovalova/school_app/issues/39):
-
-As a Sales Manager, I want to be able to sort students by subject, teacher, so that I can find students' and parents' preferences.
+As a Sales Manager, I want to be able to sort students by the urgent sale, so that I can control the sales in the company and preserve clients.
 
 - [#40](https://github.com/IuliiaKonovalova/school_app/issues/40):
 

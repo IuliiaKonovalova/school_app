@@ -55,7 +55,6 @@ class LessonAddView(View):
                 {'form': form}
                 )
 
-
     def post(self, request):
         """Receive lesson add form"""
         if request.user.is_authenticated and request.user.role == 3:

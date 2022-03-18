@@ -2,8 +2,8 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.http import HttpResponseRedirect
 from django.views import View
-from .models import Student
 from lessons.models import Lesson
+from .models import Student
 from .forms import AddStudentForm
 
 
@@ -12,7 +12,6 @@ class StudentAddView(View):
     def get(self, request):
         """Receive student add form"""
         form = AddStudentForm()
-        # form.fields['student'].queryset = Student.objects.all()
         return render(
             request,
             'students/student_add.html',
@@ -47,11 +46,41 @@ class StudentsView(View):
     def get(self, request, *args, **kwargs):
         """Receive students list"""
         students = Student.objects.all()
+        # sales_managers = SalesManager.objects.all()
+        # teachers = Teacher.objects.all()
+        # subjects = Lesson.objects.all().values_list('subject', flat=True).distinct()
+
+        # students_urgent = []
+        # for student in students:
+        #     if student.has_classes_left():
+        #         students_urgent.append(student)
+
+        context = {
+          'students': students,
+        }
         return render(
             request,
             'students/students.html',
-            {'students': students}
+            context
             )
+    def post(self, request, *args, **kwargs):
+        """Receive students list"""
+        if request.user.is_authenticated:
+            classes = request.POST.get('classes')
+            if classes == 'all':
+                students = Student.objects.all()
+            else:
+                students_urgent = []
+                students = Student.objects.all()
+                for student in students:
+                    if student.has_classes_left():
+                        students_urgent.append(student)
+                students = students_urgent
+            return render(
+                request,
+                'students/students.html',
+                {'students': students}
+                )
 
 
 class StudentView(View):

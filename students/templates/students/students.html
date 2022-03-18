@@ -13,24 +13,36 @@
 <p>No students in database</p>
 
 {% else %}
+<form method="POST">
+  {% csrf_token %}
 
-<input type="text" id="search_here" class="from-control" placeholder="type sth">
-<div id="box">
-  {% for student in students %}
-  <div class="student">
-    <div>
-      {{ student.first_name }} {{ student.last_name }}
-    </div>
-    <a href="{% url 'student_detail' pk=student.pk %}">Open student data</a>
-    {% if student.has_classes_left %}
-    <div>Urgent</div>
-    {% endif %}
+  <div>
+    <input type="radio" class="" name="classes" value="all" id="all">
+    <label class="btn" for="all">all students</label>
+
+    <input type="radio" class="" name="classes" value="urgent" id="urgent">
+    <label class="btn" for="parents">Urgent Call</label>
+
+    <input type="submit" value="Search">
   </div>
+  <input type="text" id="search_here" class="from-control" placeholder="type sth">
+  <div id="box">
+    {% for student in students %}
+    <div class="student">
+      <div>
+        {{ student.first_name }} {{ student.last_name }}
+      </div>
+      <a href="{% url 'student_detail' pk=student.pk %}">Open student data</a>
+      {% if student.has_classes_left %}
+      <div>Urgent</div>
+      {% endif %}
+    </div>
 
 
-  {% endfor %}
-</div>
-
+    {% endfor %}
+  </div>
+</form>
+{{ students_urgent }}
 {% endif %}
 
 {% else %}
