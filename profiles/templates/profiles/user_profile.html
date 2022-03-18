@@ -23,7 +23,7 @@
   <div>{{ user_profile.phone }}</div>
   <div>{{ user_profile.email }}</div>
 
-  {% if user_profile.role == 1 or user_profile.role == 0 %}
+  {% if user_profile.role == 1 %}
   <h4>Lessons:</h4>
 
   <h3>Search by date</h3>
@@ -51,7 +51,7 @@
   </form>
   {% endif %}
 
-  {% if user_profile.role == 2 or user_profile.role == 0 %}
+  {% if user_profile.role == 2 %}
   <h3>Sales Manager</h3>
   <div>
     <h4>Kids assigned:</h4>
@@ -85,6 +85,13 @@
     {% for child in children %}
 
     <a href="{% url 'student_detail' pk=child.pk%}">{{ child.first_name }}{{ child.last_name }}</a>
+    <div class="add__status">
+      <form class="add__status--container" method="post">
+        {{ form|crispy }}
+        {% csrf_token %}
+        <button class="btn__status--add" type="submit">Add Status +</button>
+      </form>
+    </div>
     {% endfor %}
   </div>
   {% endif %}
@@ -92,4 +99,18 @@
 
 
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.btn__status--edit').click(function () {
+      $('.btn__status--edit').hide();
+
+
+
+    });
+  });
+</script>
 {% endblock %}

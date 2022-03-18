@@ -1,7 +1,7 @@
 """Forms for profiles app"""
 from allauth.account.forms import SignupForm
 from django import forms
-from .models import CustomUser
+from .models import CustomUser, Parent
 
 
 class SimpleSignupForm(SignupForm):
@@ -71,5 +71,18 @@ class UserProfileEditForm(forms.ModelForm):
                 attrs={
                     'class': 'form-control', 'hidden': True, 'required': False
                 }
+            ),
+        }
+
+
+class ParentRelationForm(forms.ModelForm):
+    """Form for parent status"""
+    class Meta:
+        """Meta class"""
+        model = Parent
+        fields = ['relation']
+        widgets = {
+            'relation': forms.Select(
+                attrs={'class': 'form-control', 'required': True}
             ),
         }

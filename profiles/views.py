@@ -315,3 +315,22 @@ class DeleteMemberView(View):
                 args=[request.user.username]
                 )
             )
+
+
+class AddReletionToParent(View):
+    def post(self, request, *args, **kwargs):
+        """Add relation to parent"""
+        parent = get_object_or_404(
+            Parent, user__username=kwargs['username']
+        )
+        relation = request.POST.get('relation')
+        if relation == 'other':
+            relation = request.POST.get('other_relation')
+        parent.relation = relation
+        parent.save()
+        return HttpResponseRedirect(
+            reverse(
+                'user_profile',
+                kwargs={'username': parent.user.username}
+                )
+            )

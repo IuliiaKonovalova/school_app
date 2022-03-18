@@ -191,12 +191,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* padding: 3em; */
   background-image: url('/static/images/bg991.svg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  /* min */
 }
 
 .content__container {
@@ -205,7 +203,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: var(--clr-primary--300); */
   color: var(--clr-neutral--900);
 
 }
