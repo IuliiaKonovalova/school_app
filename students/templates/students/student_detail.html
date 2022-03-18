@@ -60,20 +60,30 @@
 <div>
   Enrolled since: {{ student.enrolled|date:'m/d/Y'}}
 </div>
-<div>
-  {{ lessons.count }} lessons
-</div>
-<div>
-  {% for lesson in lessons %}
-  <div>
-    <a href="
+<h3>Search by date</h3>
+<form method="POST">
+  {% csrf_token %}
+  From: <input type="date" name="from_date">
+  To: <input type="date" name="to_date">
+  <input type="submit" value="search">
+  <div class="lessons">
+
+    <div>
+      {{ lessons|length }} sales found
+    </div>
+    <div>
+      {% for lesson in lessons %}
+      <div>
+        <a href="
     {% url 'lesson_detail' pk=lesson.pk %}">
-      {{ lesson.date|date:'m/d/Y' }}
-      {{ lesson.get_subject }}
-    </a>
+          {{ lesson.date|date:'m/d/Y' }}
+          {{ lesson.get_subject }}
+        </a>
+      </div>
+      {% endfor %}
+    </div>
   </div>
-  {% endfor %}
-</div>
+</form>
 
 {% else %}
 <p>You are not authorized to view this page</p>
