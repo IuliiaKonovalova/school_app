@@ -199,7 +199,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--clr-primary--300);
+  /* background-color: var(--clr-primary--300); */
   color: var(--clr-neutral--900);
   /* padding: 3em; */
 }
@@ -337,21 +337,40 @@ body {
 }
 
 .account {
-  margin: 2em auto;
+  margin: 5em auto;
   padding: 2em;
-  background-color: #001d82;
+  background-color: var(--clr-primary--900);
   border-radius: var(--br);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 1.9rem;
+  max-width: 50rem;
+  text-align: center;
 }
 
 .account__title {
   font-size: 2.5rem;
-  padding-bottom: 0.7em;
+  letter-spacing: 0.15rem;
   font-weight: 900;
+}
+
+.account p {
+  margin: 1em auto;
+  max-width: 30rem;
+  color: #ffffffe1;
+  font-weight: 100;
+  font-size: 1.5rem;
+}
+
+.account__link {
+  font-size: 1.7rem;
+  color: var(--clr-primary--300);
+}
+
+.account__link:hover {
+  color: var(--clr-accent--900)
 }
 
 .btn {
@@ -359,10 +378,10 @@ body {
   color: var(--clr-neutral--100);
   border-radius: var(--br);
   border: none;
-  padding: 0.4em 2.5em 0.45em 2.5em;
+  padding: 0.4em 2.5em 0.43em 2.5em;
   font-size: 1.7rem;
   font-weight: 900;
-  margin: 1.3em 0 0.3em 0;
+  margin: 1.3em 0 0.5em 0;
   cursor: pointer;
   transform: background-color 500ms ease-in-out, color 500ms ease-in-out;
   -webkit-box-shadow: 0px 2px 13px 2px rgba(34, 60, 80, 0.2);
@@ -372,6 +391,49 @@ body {
 
 .btn:hover {
   background-color: var(--clr-accent--800);
+}
+
+/* Forms Inputs */
+.account input {
+  border: 1px solid #ffffff8c;
+  border-radius: var(--br);
+  padding: 1em 2em 0.8em 2em;
+  min-width: 25rem;
+  margin: 1em 0;
+  background-color: #dcf7ff;
+}
+
+.account input:focus {
+  outline: none;
+  border: 1.5px solid #3f3f3f8c;
+  border-radius: var(--br);
+  padding: 1em 2em 0.8em 2em;
+  min-width: 25rem;
+  margin: 1em 0;
+  background-color: #c7f2ff;
+}
+
+.account label:not([for='id_remember']) {
+  display: none;
+}
+
+.account input::placeholder {
+  color: #001c828f;
+  font-size: 1rem;
+  letter-spacing: 0.13rem;
+  font-weight: 600;
+}
+
+.account input:placeholder-shown {
+  color: #65e2d9;
+  font-weight: 600;
+}
+
+.account input:not(:placeholder-shown) {
+  olor: var(--clr-primary--900);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.13rem;
 }
 
 
