@@ -340,7 +340,40 @@ body {
   margin: 2em auto;
   padding: 2em;
   background-color: #001d82;
+  border-radius: var(--br);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.9rem;
 }
+
+.account__title {
+  font-size: 2.5rem;
+  padding-bottom: 0.7em;
+  font-weight: 900;
+}
+
+.btn {
+  background-color: var(--clr-accent--900);
+  color: var(--clr-neutral--100);
+  border-radius: var(--br);
+  border: none;
+  padding: 0.4em 2.5em 0.45em 2.5em;
+  font-size: 1.7rem;
+  font-weight: 900;
+  margin: 1.3em 0 0.3em 0;
+  cursor: pointer;
+  transform: background-color 500ms ease-in-out, color 500ms ease-in-out;
+  -webkit-box-shadow: 0px 2px 13px 2px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 2px 13px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 2px 13px 2px rgba(34, 60, 80, 0.2);
+}
+
+.btn:hover {
+  background-color: var(--clr-accent--800);
+}
+
 
 
 /* ----- Footer ----- */
