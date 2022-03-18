@@ -21,7 +21,7 @@ class UserProfileView(View):
         )
         if user_profile.role == 1:
             teacher = Teacher.objects.get(user=user_profile)
-            lessons = Lesson.objects.filter(teachers__in=[teacher])
+            lessons = Lesson.objects.filter(teachers__in=[teacher]).distinct()
             return render(
                 request,
                 'profiles/user_profile.html',
@@ -54,6 +54,22 @@ class UserProfileView(View):
             'profiles/user_profile.html',
             {'user_profile': user_profile}
             )
+    def post(self, request, *args, **kwargs):
+        """Receive user profile"""
+        user_profile = get_object_or_404(
+            CustomUser,  username=kwargs['username']
+        )
+        if request.user.is_authenticated and user_profile.role == 1:
+            fromdate=request.POST.get('from_date')
+            todate=request.POST.get('to_date')
+            teacher = Teacher.objects.get(user=user_profile)
+            lessons = Lesson.objects.filter(teachers__in=[teacher]).distinct()
+            search_items = lessons.filter(date__range=[fromdate, todate])
+            return render(
+                request,
+                'profiles/user_profile.html',
+                {'user_profile': user_profile, 'lessons': search_items}
+                )
 
 
 class UserProfileEditView(View):

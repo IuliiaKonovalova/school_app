@@ -25,20 +25,30 @@
 
   {% if user_profile.role == 1 or user_profile.role == 0 %}
   <h4>Lessons:</h4>
-  Classes Provided: {{ lessons.count }}
-  {% for lesson in lessons %}
-  <div>
-    {{ lesson.date|date:'m/d/Y' }}
-    {{ lesson.get_time }}
-    {{ lesson.get_subject }}
-    {% for student in lesson.get_students %}
-    <a href="{% url 'student_detail' pk=student.pk %}">
-      {{ student.first_name }}
-      {{ student.last_name }}
-    </a>
-    {% endfor %}
-  </div>
-  {% endfor %}
+
+  <h3>Search by date</h3>
+  <form method="POST">
+    {% csrf_token %}
+    From: <input type="date" name="from_date">
+    To: <input type="date" name="to_date">
+    <input type="submit" value="search">
+    <div class="lessons">
+
+      <div>
+        {{ lessons|length }} sales found
+      </div>
+
+      {% for lesson in lessons %}
+      <div>
+        <a href="
+    {% url 'lesson_detail' pk=lesson.pk %}">
+          {{ lesson.date|date:'m/d/Y' }}
+          {{ lesson.get_subject }}
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </form>
   {% endif %}
 
   {% if user_profile.role == 2 or user_profile.role == 0 %}

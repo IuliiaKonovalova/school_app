@@ -33,7 +33,6 @@ class SalesView(View):
         if request.user.is_authenticated and (request.user.role == 0 or request.user.role == 2):
             fromdate=request.POST.get('from_date')
             todate=request.POST.get('to_date')
-            # search_items=Sales.objects.raw("SELECT * FROM sales WHERE date BETWEEN %s AND %s",[fromdate,todate])
             search_items = Sales.objects.filter(date__range=[fromdate, todate])
             return render(
                 request,
