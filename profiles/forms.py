@@ -6,7 +6,11 @@ from .models import CustomUser
 
 class SimpleSignupForm(SignupForm):
     """Allauth Signup Form extended"""
-    username = forms.CharField(max_length=50, label='Username')
+    username = forms.CharField(
+        max_length=50,
+        label='Username',
+        widget=forms.TextInput(attrs={'placeholder': 'Username'})
+    )
     first_name = forms.CharField(
         max_length=30,
         label='First Name',

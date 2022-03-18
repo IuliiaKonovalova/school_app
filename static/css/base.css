@@ -359,7 +359,7 @@ body {
 .account p {
   margin: 1em auto;
   max-width: 30rem;
-  color: #ffffffe1;
+  color: #ffffffec;
   font-weight: 100;
   font-size: 1.5rem;
 }
@@ -378,20 +378,15 @@ body {
 .account input {
   border: 1px solid #ffffff8c;
   border-radius: var(--br);
-  padding: 1em 2em 0.8em 2em;
+  padding: 1em 2em 0.6em 2em;
   min-width: 25rem;
   margin: 1em 0;
-  background-color: #dcf7ff;
+  background-color: #ffffff;
+  font-size: 1.2rem;
 }
 
 .account input:focus {
   outline: none;
-  border: 1.5px solid #3f3f3f8c;
-  border-radius: var(--br);
-  padding: 1em 2em 0.8em 2em;
-  min-width: 25rem;
-  margin: 1em 0;
-  background-color: #c7f2ff;
 }
 
 .account label:not([for='id_remember']) {
@@ -400,27 +395,27 @@ body {
 
 .account input::placeholder {
   color: #001c828f;
-  font-size: 1rem;
+  font-size: 1.2rem;
   letter-spacing: 0.13rem;
   font-weight: 600;
 }
 
 .account input:placeholder-shown {
-  color: #65e2d9;
+  color: #022c29;
   font-weight: 600;
 }
 
 .account input:not(:placeholder-shown) {
   color: var(--clr-primary--900);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   letter-spacing: 0.13rem;
 }
 
 
 
 
-
+/* Forms buttons */
 .btn,
 .account input[type="submit"] {
   background-color: var(--clr-accent--900);
