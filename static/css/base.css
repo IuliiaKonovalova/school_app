@@ -191,6 +191,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* padding: 3em; */
+  background-image: url('/static/images/bg991.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* min */
 }
 
 .content__container {
@@ -201,7 +207,7 @@ body {
   align-items: center;
   /* background-color: var(--clr-primary--300); */
   color: var(--clr-neutral--900);
-  /* padding: 3em; */
+
 }
 
 .home {
@@ -337,7 +343,7 @@ body {
 }
 
 .account {
-  margin: 5em auto;
+  margin: 2em auto;
   padding: 2em;
   background-color: var(--clr-primary--900);
   border-radius: var(--br);
