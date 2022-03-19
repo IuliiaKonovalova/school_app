@@ -321,7 +321,8 @@ body {
 
 
 /* ----- Profile ----- */
-.profile {
+.profile,
+.student {
   background-color: var(--clr-primary--300);
   min-width: 50rem;
   padding: 2em;
@@ -332,6 +333,7 @@ body {
   align-items: center;
   font-size: 2rem;
   position: relative;
+  margin: 2em auto;
 }
 
 /* Profile buttons */
@@ -341,14 +343,16 @@ body {
   left: 0.5em;
 }
 
-.profile__edit {
+.profile__edit,
+.student__edit {
   position: absolute;
   top: 0.5em;
   right: 0.5em;
   display: flex;
 }
 
-.profile__btn {
+.profile__btn,
+.student__btn {
   padding: 0.4em 1em 0.4em 1em;
   border-radius: var(--br);
   font-weight: 900;
@@ -365,55 +369,65 @@ body {
 }
 
 .profile__delete--btn,
-.profile__password--btn {
+.profile__password--btn,
+.student__delete--btn {
   background-color: var(--clr-accent--700);
   border: 1px solid var(--clr-accent--700);
 }
 
-.profile__edit--btn {
+.profile__edit--btn,
+.student__edit--btn {
   background-color: var(--clr-accent--900);
   border: 1px solid var(--clr-accent--900);
   margin-right: 0.5em;
 }
 
 .profile__delete--btn:hover,
-.profile__password--btn:hover {
+.profile__password--btn:hover,
+.student__delete--btn:hover {
   background-color: var(--clr-accent--500);
 }
 
-.profile__edit--btn:hover {
+.profile__edit--btn:hover,
+.student__edit--btn:hover {
   background-color: var(--clr-accent--800);
 }
 
 /* Profile Data */
-.profile__title {
+.profile__title,
+.student__title {
   font-size: 2.5rem;
   font-weight: 900;
   margin-top: 0.5em;
   margin-bottom: 0.2em;
 }
 
-.profile__role {
+.profile__role,
+.student__title {
   margin-bottom: 1em;
 }
 
-.profile__info {
+.profile__info,
+.student__info {
   display: flex;
   flex-direction: column;
   align-items: start;
 }
 
-.profile__data {
+.profile__data,
+.student__data {
   display: flex;
   margin-bottom: 0.5em;
 }
 
-.profile__data--heading {
+.profile__data--heading,
+.student__data--heading {
   font-weight: 900;
   margin-right: 0.8em;
 }
 
-.profile__data--info {
+.profile__data--info,
+.student__data--info {
   letter-spacing: 0.2rem;
 }
 

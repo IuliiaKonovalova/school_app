@@ -9,6 +9,7 @@ from .views import (
     NewApplicationsDeleteView,
     SearchMembersView,
     DeleteMemberView,
+    AddRelationToParentView,
     )
 
 
@@ -52,5 +53,10 @@ urlpatterns = [
         '<username>/delete/',
         DeleteMemberView.as_view(),
         name='delete_member'
+    ),
+    path(
+        'add_relation/',
+        AddRelationToParentView.as_view(),
+        name='add_relation'
     ),
 ]

@@ -130,12 +130,21 @@
     {% for child in children %}
 
     <a href="{% url 'student_detail' pk=child.pk%}">{{ child.first_name }}{{ child.last_name }}</a>
-    <div class="add__status">
-      <form class="add__status--container" method="post">
+    <div class="add__relation">
+      {% comment %} <form class="add__relation--container" method="post">
         {{ form|crispy }}
         {% csrf_token %}
-        <button class="btn__status--add" type="submit">Add Status +</button>
-      </form>
+        <button class="btn__relation--add" type="submit">Add Status +</button>
+      </form> {% endcomment %}
+      <button id="add_relation">Add relation</button>
+      <select id="relation_select" style="display: none;">
+        <option value="1">Father</option>
+        <option value="2">Mother</option>
+        <option value="3">Grandfather</option>
+        <option value="4">Grandmother</option>
+        <option value="5">Other</option>
+      </select>
+      <button id="add_relation_btn" style="display: none;">Add</button>
     </div>
     {% endfor %}
   </div>
@@ -150,10 +159,32 @@
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script>
   $(document).ready(function () {
-    $('.btn__status--edit').click(function () {
-      $('.btn__status--edit').hide();
 
-
+    $('#add_relation').click(function () {
+      $('#add_relation').hide();
+      $('#relation_select').show();
+      $('#add_relation_btn').show();
+      $('#add_relation_btn').click(() => {
+        let relation = $('#relation_select').val();
+        let url = "{% url 'add_relation' %}";
+        let data = {
+          user_id: "{{ request.user.id }}",
+          relation: relation,
+          csrfmiddlewaretoken: "{{ csrf_token }}"
+        }
+        $.ajax({
+          url: "{% url 'add_relation' %}",
+          type: 'POST',
+          data: data,
+          success: function (data) {
+            console.log(data);
+          },
+          error: function (data) {
+            console.log(data);
+            console.log(url);
+          }
+        });
+      })
 
     });
   });

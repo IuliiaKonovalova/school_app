@@ -2,63 +2,92 @@
 {% load static %}
 
 {% block content %}
-
-{% if request.user.role != 4 or request.user.role != 5 %}
-
-<h2>Student's data</h2>
-
-{% if request.user.role == 0 or request.user.role == 2 %}
-
-<a href="{% url 'student_edit' pk=student.pk %}">Edit student's data</a>
-<a href="{% url 'student_delete' pk=student.pk %}">Delete student's data</a>
-
-{% endif %}
-
-<div>
-  First name: {{ student.first_name}}
-</div>
-<div>
-  Last name: {{ student.last_name}}
-</div>
-<div>
-  Birthday: {{ student.birthday}}
-</div>
-<div>
-  Address: {{ student.address}}
-</div>
+<div class="student">
+  {% if request.user.role != 4 or request.user.role != 5 %}
 
 
-{% for parent in student.get_parents %}
-<div>
-  Parents: {{ parent }}
-  <a href="{% url 'user_profile' username=parent.user.username %}">Visit profile</a>
-</div>
-{% endfor %}
 
-
-<div>
-  Notes: {{ student.notes}}
-</div>
-
-<div>
-  Classes left: {{ student.classes_left}}
-</div>
-
-<div>
-  {% if student.has_classes_left %}
-  Urgent call
+  {% if request.user.role == 0 or request.user.role == 2 %}
+  <div class="student__edit">
+    <a href="{% url 'student_edit' pk=student.pk %}" class="student__btn student__edit--btn">
+      <div class=" profile__btn--text">Edit
+      </div>
+      <i class="fas fa-edit  profile__btn--icon"></i>
+    </a>
+    <a href="{% url 'student_delete' pk=student.pk %}" class="student__btn student__delete--btn">
+      <div class="profile__btn--text">Delete</div>
+      <i class="fas fa-trash-alt profile__btn--icon"></i>
+    </a>
+  </div>
   {% endif %}
-</div>
 
-{% for sales_manager in student.get_sales_managers %}
-<div>
-  Sales Manager: {{ sales_manager }}
-  <a href="{% url 'user_profile' username=sales_manager.user.username %}">Visit profile</a>
-</div>
-{% endfor %}
+  <h2 class="student__title">Student's data</h2>
 
-<div>
-  Enrolled since: {{ student.enrolled|date:'m/d/Y'}}
+  <div class="student__info">
+    <div class="student__data">
+      <div class="student__data--heading">Full name:</div>
+      <div class="student__data--info">
+        {{ student.first_name }} {{ student.last_name }}
+      </div>
+    </div>
+    <div class="student__data">
+      <div class="student__data--heading">Birthday:</div>
+      <div class="student__data--info">
+        {{ student.birthday }}
+      </div>
+    </div>
+    <div class="student__data">
+      <div class="student__data--heading">Address:</div>
+      <div class="student__data--info">
+        {{ student.address }}
+      </div>
+    </div>
+    <div class="student__data">
+      <div class="student__data--heading">Parents:</div>
+      <div class="student__data--info">
+        {% for parent in student.get_parents %}
+        <div>
+          {{ parent }}
+          <a href="{% url 'user_profile' username=parent.user.username %}">Visit profile</a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="student__data">
+      <div class="student__data--heading">Notes:</div>
+      <div class="student__data--info">
+        {{ student.notes }}
+      </div>
+    </div>
+    <div class="student__data">
+      <div class="student__data--heading">Classes left:</div>
+      <div class="student__data--info">
+        {{ student.classes_left }}
+      </div>
+      <div>
+        {% if student.has_classes_left %}
+        Urgent call
+        {% endif %}
+      </div>
+    </div>
+    <div class="student__data">
+      <div class="student__data--heading">Sales Managers:</div>
+      <div class="student__data--info">
+        {% for sales_manager in student.get_sales_managers %}
+        <div>
+          {{ sales_manager }}
+          <a href="{% url 'user_profile' username=sales_manager.user.username %}">Visit profile</a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="student__data">
+      <div class="student__data--heading">Enrolled date:</div>
+      <div class="student__data--info">
+        {{ student.enrolled|date:'m/d/Y' }}
+      </div>
+    </div>
+  </div>
 </div>
 <h3>Search by date</h3>
 <form method="POST">

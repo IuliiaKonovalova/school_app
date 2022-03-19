@@ -2,7 +2,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import View
 from django.views.generic import ListView
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from lessons.models import Lesson
@@ -316,21 +316,6 @@ class DeleteMemberView(View):
                 )
             )
 
-
-class AddReletionToParent(View):
-    def post(self, request, *args, **kwargs):
-        """Add relation to parent"""
-        parent = get_object_or_404(
-            Parent, user__username=kwargs['username']
-        )
-        relation = request.POST.get('relation')
-        if relation == 'other':
-            relation = request.POST.get('other_relation')
-        parent.relation = relation
-        parent.save()
-        return HttpResponseRedirect(
-            reverse(
-                'user_profile',
-                kwargs={'username': parent.user.username}
-                )
-            )
+class AddRelationToParentView(View):
+    def post(self, request):
+        print(request.POST)
