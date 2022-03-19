@@ -125,26 +125,41 @@
 
 
   {% if user_profile.role == 4 %}
-  <h3>Children:</h3>
-  <div>
+  <h3 class="profile__children">Children:</h3>
+  <div class="profile__children--data">
     {% for child in children %}
-
-    <a href="{% url 'student_detail' pk=child.pk%}">{{ child.first_name }}{{ child.last_name }}</a>
-    <div class="add__relation">
-      {% comment %} <form class="add__relation--container" method="post">
-        {{ form|crispy }}
-        {% csrf_token %}
-        <button class="btn__relation--add" type="submit">Add Status +</button>
-      </form> {% endcomment %}
-      <button id="add_relation">Add relation</button>
-      <select id="relation_select" style="display: none;">
-        <option value="1">Father</option>
-        <option value="2">Mother</option>
-        <option value="3">Grandfather</option>
-        <option value="4">Grandmother</option>
-        <option value="5">Other</option>
-      </select>
-      <button id="add_relation_btn" style="display: none;">Add</button>
+    <div class="links">
+      <a href="{% url 'student_detail' pk=child.pk%}" class="links__btn links__btn--name">
+        <div class="student__btn--text">
+          {{ child.first_name }} {{ child.last_name }}
+        </div>
+        <i class="fas fa-external-link-alt student__btn--icon"></i>
+      </a>
+    </div>
+    <div class="profile__relation">
+      <div class="profile__relation--status" id="profile__relation--status">
+        ( {{ relation|title }} )
+      </div>
+      <div class="add__relation">
+        {% comment %} <form class="add__relation--container" method="post">
+          {{ form|crispy }}
+          {% csrf_token %}
+          <button class="btn__relation--add" type="submit">Add Status +</button>
+        </form> {% endcomment %}
+        <button id="add_relation" class="student__btn student__edit--btn">
+          <div class=" student__btn--text">Edit
+          </div>
+          <i class="fas fa-edit  student__btn--icon"></i>
+        </button>
+        <select id="relation_select" style="display: none;">
+          <option value="1">Father</option>
+          <option value="2">Mother</option>
+          <option value="3">Grandfather</option>
+          <option value="4">Grandmother</option>
+          <option value="5">Other</option>
+        </select>
+        <button id="add_relation_btn" style="display: none;">Edit</button>
+      </div>
     </div>
     {% endfor %}
   </div>
@@ -159,6 +174,15 @@
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script>
   $(document).ready(function () {
+
+    const relations = {
+      1: 'Father',
+      2: 'Mother',
+      3: 'Grandfather',
+      4: 'Grandmother',
+      5: 'Other'
+    };
+
 
     $('#add_relation').click(function () {
       $('#add_relation').hide();
@@ -178,6 +202,11 @@
           data: data,
           success: function (data) {
             console.log(data);
+            let relation = data.relation;
+            $('#relation_select').hide();
+            $('#add_relation_btn').hide();
+            $('#add_relation').show();
+            $('#profile__relation--status').text(`( ${relations[relation]} )`);
           },
 
         });

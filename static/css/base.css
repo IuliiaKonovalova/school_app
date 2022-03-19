@@ -453,6 +453,37 @@ body {
   letter-spacing: 0.2rem;
 }
 
+/* Profile Addition Data */
+.profile__children {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-top: 0.7em;
+  margin-bottom: 0.6em;
+}
+
+.profile__children--data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile__relation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* position: relative; */
+}
+
+.profile__relation--status {
+  margin: 0 1em;
+}
+
+.add__relation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* ----- Forms ----- */
 .account__container {
   display: flex;

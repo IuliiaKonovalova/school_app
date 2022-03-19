@@ -117,8 +117,7 @@
     <div>
       {% for lesson in lessons %}
       <div>
-        <a href="
-    {% url 'lesson_detail' pk=lesson.pk %}">
+        <a href="{% url 'lesson_detail' pk=lesson.pk %}">
           {{ lesson.date|date:'m/d/Y' }}
           {{ lesson.get_subject }}
         </a>

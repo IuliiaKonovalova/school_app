@@ -5,11 +5,13 @@ from django.views.generic import ListView
 from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
+from matplotlib.style import context
 from lessons.models import Lesson
 from students.models import Student
 from sales.models import Sales
 from .models import CustomUser, Parent, SalesManager, Teacher
 from .forms import NewApplicationForm, UserProfileEditForm
+from django.core import serializers
 
 
 class UserProfileView(View):
@@ -43,10 +45,17 @@ class UserProfileView(View):
 
         if user_profile.role == 4:
             children = Student.objects.filter(parent__user=user_profile)
+            relation = Parent.objects.filter(user=user_profile)
+            relation = relation[0].get_relation()
+            context = {
+                'user_profile': user_profile,
+                'children': children,
+                'relation': relation
+            }
             return render(
                 request,
                 'profiles/user_profile.html',
-                {'user_profile': user_profile, 'children': children}
+                context
                 )
 
         return render(
@@ -329,5 +338,5 @@ class AddRelationToParentView(View):
             parent = get_object_or_404(Parent, user=user)
             parent.relation = relation
             parent.save()
-            return JsonResponse({'status': 'ok'})
+            return JsonResponse({'status': 'ok', 'relation': parent.relation})
         return JsonResponse({'status': 'error'})
