@@ -340,6 +340,13 @@ body {
   left: 0.5em;
 }
 
+.profile__edit {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  display: flex;
+}
+
 .profile__btn {
   padding: 0.4em 1em 0.4em 1em;
   border-radius: var(--br);
@@ -356,16 +363,26 @@ body {
   margin-right: 0.5em;
 }
 
-.profile__delete--btn {
+.profile__delete--btn,
+.profile__password--btn {
   background-color: var(--clr-accent--700);
   border: 1px solid var(--clr-accent--700);
-
 }
 
-.profile__delete--btn:hover {
+.profile__edit--btn {
+  background-color: var(--clr-accent--900);
+  border: 1px solid var(--clr-accent--900);
+  margin-right: 0.5em;
+}
+
+.profile__delete--btn:hover,
+.profile__password--btn:hover {
   background-color: var(--clr-accent--500);
 }
 
+.profile__edit--btn:hover {
+  background-color: var(--clr-accent--800);
+}
 
 
 
