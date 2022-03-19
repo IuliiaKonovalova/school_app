@@ -334,6 +334,7 @@ body {
   position: relative;
 }
 
+/* Profile buttons */
 .profile__delete {
   position: absolute;
   top: 0.5em;
@@ -384,7 +385,37 @@ body {
   background-color: var(--clr-accent--800);
 }
 
+/* Profile Data */
+.profile__title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
+}
 
+.profile__role {
+  margin-bottom: 1em;
+}
+
+.profile__info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.profile__data {
+  display: flex;
+  margin-bottom: 0.5em;
+}
+
+.profile__data--heading {
+  font-weight: 900;
+  margin-right: 0.8em;
+}
+
+.profile__data--info {
+  letter-spacing: 0.2rem;
+}
 
 /* ----- Forms ----- */
 .account__container {

@@ -26,22 +26,48 @@
       </div>
       <i class="fas fa-unlock-alt profile__btn--icon"></i>
     </a>
-
-
   </div>
-  <h2 class="profile__title">Your Profile</h2>
-  <div class="profile__title--user">{{ user_profile.first_name }} {{ user_profile.last_name }}</div>
+
+  <h2 class="profile__title">Your Profile:</h2>
 
   {% else %}
-  <h2 class="profile__title">User Profile</h2>
-  <div class="profile__title--user">{{ user_profile.first_name }} {{ user_profile.last_name }}</div>
-
+  <h2 class="profile__title">User's Profile:</h2>
   {% endif %}
 
+  {% if user_profile.role == 0 %}
+  <div class="profile__role">(Admin)</div>
+  {% elif user_profile.role == 1 %}
+  <div class="profile__role">(Teacher)</div>
+  {% elif user_profile.role == 2 %}
+  <div class="profile__role">(Sales Manager)</div>
+  {% elif user_profile.role == 3 %}
+  <div class="profile__role">(Receptionist)</div>
+  {% elif user_profile.role == 4 %}
+  <div class="profile__role">(Parent)</div>
+  {% endif %}
 
+  <div class="profile__info">
+    <div class="profile__data">
+      <div class="profile__data--heading">Full name:</div>
+      <div class="profile__data--info">
+        {{ user_profile.first_name }} {{ user_profile.last_name }}
+      </div>
+    </div>
 
-  <div>{{ user_profile.phone }}</div>
-  <div>{{ user_profile.email }}</div>
+    <div class="profile__data">
+      <div class="profile__data--heading">Phone number:</div>
+      <div class="profile__data--info">
+        {{ user_profile.phone }}
+      </div>
+    </div>
+
+    <div class="profile__data">
+      <div class="profile__data--heading">Email:</div>
+      <div class="profile__data--info">
+        {{ user_profile.email }}
+      </div>
+    </div>
+  </div>
 
   {% if user_profile.role == 1 %}
   <h4>Lessons:</h4>
@@ -99,7 +125,6 @@
 
 
   {% if user_profile.role == 4 %}
-  <h2>Parent</h2>
   <h3>Children:</h3>
   <div>
     {% for child in children %}
