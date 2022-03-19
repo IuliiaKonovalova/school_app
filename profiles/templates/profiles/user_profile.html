@@ -98,7 +98,8 @@
   {% endif %}
 
   {% if user_profile.role == 2 %}
-  <h3 class="profile__children">Students:</h3>
+  <h3 class="profile__students">Students:</h3>
+  <div class="profile__students--amount">In charge of {{ children|length }} students</div>
   <div class="profile__students--data">
     {% for child in children %}
     <div class="profile__student--data">
@@ -111,15 +112,12 @@
         </a>
       </div>
     </div>
-
     {% endfor %}
-
-
-
   </div>
 
+
+  <h3 class="profile__sales">Sales made:</h3>
   <div>
-    <h4>Sales made:</h4>
     {% for sale in sales %}
     <li>
       Sold {{ sale.amount }} classes

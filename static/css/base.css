@@ -455,10 +455,20 @@ body {
 
 /* Profile Addition Data */
 .profile__children,
+.profile__students,
 .profile__sales {
   font-size: 2rem;
   font-weight: 900;
   margin-top: 0.7em;
+  margin-bottom: 0.6em;
+}
+
+.profile__students {
+  margin-bottom: 0.2em;
+}
+
+.profile__students--amount {
+  font-style: italic;
   margin-bottom: 0.6em;
 }
 
