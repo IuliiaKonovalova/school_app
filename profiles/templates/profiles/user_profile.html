@@ -141,6 +141,7 @@
         <div class="profile__relation--status" id="profile__relation--status">
           ( {{ relation|title }} )
         </div>
+        {% if user_profile == request.user %}
         <div class="add__relation">
           {% comment %} <form class="add__relation--container" method="post">
             {{ form|crispy }}
@@ -165,6 +166,7 @@
             <i class="far fa-save  profile__btn--icon"></i>
           </button>
         </div>
+        {% endif %}
       </div>
     </div>
     {% endfor %}
