@@ -352,7 +352,8 @@ body {
 }
 
 .profile__btn,
-.student__btn {
+.student__btn,
+.links__btn {
   padding: 0.4em 1em 0.4em 1em;
   border-radius: var(--br);
   font-weight: 900;
@@ -364,7 +365,18 @@ body {
   transition: background-color 150ms ease-in-out;
 }
 
-.profile__btn--text {
+.links__btn--name {
+  background-color: var(--clr-primary--900);
+  border: 1px solid var(--clr-primary--900);
+  text-transform: capitalize;
+}
+
+.links__btn--name:hover {
+  background-color: #001c82bb;
+}
+
+.profile__btn--text,
+.student__btn--text {
   margin-right: 0.5em;
 }
 
@@ -412,12 +424,15 @@ body {
   display: flex;
   flex-direction: column;
   align-items: start;
+  justify-content: center;
 }
 
 .profile__data,
 .student__data {
   display: flex;
   margin-bottom: 0.5em;
+  align-items: center;
+  justify-content: center;
 }
 
 .profile__data--heading,

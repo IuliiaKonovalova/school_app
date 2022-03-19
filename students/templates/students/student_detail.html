@@ -10,13 +10,13 @@
   {% if request.user.role == 0 or request.user.role == 2 %}
   <div class="student__edit">
     <a href="{% url 'student_edit' pk=student.pk %}" class="student__btn student__edit--btn">
-      <div class=" profile__btn--text">Edit
+      <div class=" student__btn--text">Edit
       </div>
-      <i class="fas fa-edit  profile__btn--icon"></i>
+      <i class="fas fa-edit  student__btn--icon"></i>
     </a>
     <a href="{% url 'student_delete' pk=student.pk %}" class="student__btn student__delete--btn">
-      <div class="profile__btn--text">Delete</div>
-      <i class="fas fa-trash-alt profile__btn--icon"></i>
+      <div class="student__btn--text">Delete</div>
+      <i class="fas fa-trash-alt student__btn--icon"></i>
     </a>
   </div>
   {% endif %}
@@ -27,7 +27,7 @@
     <div class="student__data">
       <div class="student__data--heading">Full name:</div>
       <div class="student__data--info">
-        {{ student.first_name }} {{ student.last_name }}
+        {{ student.first_name|title }} {{ student.last_name|title }}
       </div>
     </div>
     <div class="student__data">
@@ -46,9 +46,13 @@
       <div class="student__data--heading">Parents:</div>
       <div class="student__data--info">
         {% for parent in student.get_parents %}
-        <div>
-          {{ parent }}
-          <a href="{% url 'user_profile' username=parent.user.username %}">Visit profile</a>
+        <div class="links">
+          <a href="{% url 'user_profile' username=parent.user.username %}" class="links__btn links__btn--name">
+            <div class="student__btn--text">
+              {{ parent|title }}
+            </div>
+            <i class="fas fa-external-link-alt student__btn--icon"></i>
+          </a>
         </div>
         {% endfor %}
       </div>
@@ -74,9 +78,14 @@
       <div class="student__data--heading">Sales Managers:</div>
       <div class="student__data--info">
         {% for sales_manager in student.get_sales_managers %}
-        <div>
-          {{ sales_manager }}
-          <a href="{% url 'user_profile' username=sales_manager.user.username %}">Visit profile</a>
+        <div class="links">
+
+          <a href="{% url 'user_profile' username=sales_manager.user.username %}" class="links__btn links__btn--name">
+            <div class="student__btn--text">
+              {{ sales_manager|title }}
+            </div>
+            <i class="fas fa-external-link-alt student__btn--icon"></i>
+          </a>
         </div>
         {% endfor %}
       </div>
