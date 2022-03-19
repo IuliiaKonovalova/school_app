@@ -324,7 +324,7 @@ body {
 .profile,
 .student {
   background-color: var(--clr-primary--300);
-  min-width: 50rem;
+  max-width: 50rem;
   padding: 2em;
   border-radius: var(--br);
   display: flex;
@@ -454,11 +454,25 @@ body {
 }
 
 /* Profile Addition Data */
-.profile__children {
+.profile__children,
+.profile__sales {
   font-size: 2rem;
   font-weight: 900;
   margin-top: 0.7em;
   margin-bottom: 0.6em;
+}
+
+.profile__students--data {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 0.5em;
+}
+
+.profile__student--data {
+  align-self: center;
+  justify-self: center;
 }
 
 .profile__children--data {
@@ -466,6 +480,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 0.3em;
 }
 
 .profile__child--data {

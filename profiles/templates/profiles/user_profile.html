@@ -98,13 +98,20 @@
   {% endif %}
 
   {% if user_profile.role == 2 %}
-  <h3>Sales Manager</h3>
-  <div>
-    <h4>Kids assigned:</h4>
+  <h3 class="profile__children">Students:</h3>
+  <div class="profile__students--data">
     {% for child in children %}
-    <li>
-      <a href="{% url 'student_detail' pk=child.pk%}">{{ child.first_name }}{{ child.last_name }}</a>
-    </li>
+    <div class="profile__student--data">
+      <div class="links">
+        <a href="{% url 'student_detail' pk=child.pk%}" class="links__btn links__btn--name">
+          <div class="profile__btn--text">
+            {{ child.first_name }} {{ child.last_name }}
+          </div>
+          <i class="fas fa-external-link-alt profile__btn--icon"></i>
+        </a>
+      </div>
+    </div>
+
     {% endfor %}
 
 
