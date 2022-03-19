@@ -55,7 +55,7 @@ urlpatterns = [
         name='delete_member'
     ),
     path(
-        'add_relation/',
+        '',
         AddRelationToParentView.as_view(),
         name='add_relation'
     ),

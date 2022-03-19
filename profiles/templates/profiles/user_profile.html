@@ -168,7 +168,7 @@
         let relation = $('#relation_select').val();
         let url = "{% url 'add_relation' %}";
         let data = {
-          user_id: "{{ request.user.id }}",
+          username: "{{ user_profile.username }}",
           relation: relation,
           csrfmiddlewaretoken: "{{ csrf_token }}"
         }
@@ -179,10 +179,7 @@
           success: function (data) {
             console.log(data);
           },
-          error: function (data) {
-            console.log(data);
-            console.log(url);
-          }
+
         });
       })
 

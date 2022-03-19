@@ -316,6 +316,18 @@ class DeleteMemberView(View):
                 )
             )
 
+
 class AddRelationToParentView(View):
-    def post(self, request):
+    """Add relation to parent"""
+    def post(self, request, *args, **kwargs):
+        """Add relation to parent using AJAX"""
         print(request.POST)
+        if request.is_ajax():
+            username = request.POST.get('username')
+            user = get_object_or_404(CustomUser, username=username)
+            relation = request.POST.get('relation')
+            parent = get_object_or_404(Parent, user=user)
+            parent.relation = relation
+            parent.save()
+            return JsonResponse({'status': 'ok'})
+        return JsonResponse({'status': 'error'})
