@@ -68,9 +68,14 @@
       <div class="student__data--info">
         {{ student.classes_left }}
       </div>
-      <div>
+      <div class="student__label">
         {% if student.has_classes_left %}
-        Urgent call
+        <a href="{% url 'sales_list' %}" class="label__btn label__btn--name">
+          <div class="student__btn--text">
+            Urgent call
+          </div>
+          <i class="fas fa-exclamation-circle student__btn--icon"></i>
+        </a>
         {% endif %}
       </div>
     </div>

@@ -353,7 +353,8 @@ body {
 
 .profile__btn,
 .student__btn,
-.links__btn {
+.links__btn,
+.label__btn {
   padding: 0.4em 1em 0.4em 1em;
   border-radius: var(--br);
   font-weight: 900;
@@ -375,6 +376,10 @@ body {
   background-color: #001c82bb;
 }
 
+.student__label {
+  margin-left: 0.5em;
+}
+
 .profile__btn--text,
 .student__btn--text {
   margin-right: 0.5em;
@@ -382,7 +387,8 @@ body {
 
 .profile__delete--btn,
 .profile__password--btn,
-.student__delete--btn {
+.student__delete--btn,
+.label__btn--name {
   background-color: var(--clr-accent--700);
   border: 1px solid var(--clr-accent--700);
 }
@@ -396,7 +402,8 @@ body {
 
 .profile__delete--btn:hover,
 .profile__password--btn:hover,
-.student__delete--btn:hover {
+.student__delete--btn:hover,
+.label__btn--name:hover {
   background-color: var(--clr-accent--500);
 }
 
