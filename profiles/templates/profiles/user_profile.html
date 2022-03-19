@@ -2,23 +2,41 @@
 {% load static %}
 
 {% block content %}
-<div>
+<div class="profile">
+
+  {% if request.user.role == 0 %}
+  <div class="profile__delete">
+    <a href="{% url 'delete_member' username=user_profile.username %}" class="profile__btn profile__delete--btn">
+      <div class="profile__btn--text">Delete</div>
+      <i class="fas fa-trash-alt profile__btn--icon"></i>
+    </a>
+  </div>
+  {% endif %}
+
   {% if user_profile == request.user %}
+  <div class="profile__edit">
+    <a href="{% url 'user_profile_change_password' username=request.user %}" class="profile__btn profile__delete--btn">
+      <div class=" profile__btn--text">Change Password
+      </div>
+      <i class="fas fa-edit profile__btn--icon"></i>
+    </a>
+
+    <a href="{% url 'user_profile_edit' username=request.user %}" class="profile__btn profile__delete--btn">
+      <div class=" profile__btn--text">Edit
+      </div>
+      <i class="fas fa-edit  profile__btn--icon"></i>
+    </a>
+  </div>
   <h2 class="profile__title">Your Profile</h2>
   <div class="profile__title--user">{{ user_profile.first_name }} {{ user_profile.last_name }}</div>
 
-
-  <a href="{% url 'user_profile_change_password' username=request.user %}">Change Password</a>
-  <br>
-  <a href="{% url 'user_profile_edit' username=request.user %}">Edit profile</a>
   {% else %}
   <h2 class="profile__title">User Profile</h2>
   <div class="profile__title--user">{{ user_profile.first_name }} {{ user_profile.last_name }}</div>
 
   {% endif %}
-  {% if request.user.role == 0 %}
-  <a href="{% url 'delete_member' username=user_profile.username %}">Delete profile</a>
-  {% endif %}
+
+
 
   <div>{{ user_profile.phone }}</div>
   <div>{{ user_profile.email }}</div>

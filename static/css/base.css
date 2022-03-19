@@ -309,7 +309,6 @@ body {
 }
 
 .benefits__image {
-
   width: 50%;
   transform: scaleX(-1);
   margin: auto 0;
@@ -321,10 +320,51 @@ body {
 
 
 
+/* ----- Profile ----- */
+.profile {
+  background-color: var(--clr-primary--300);
+  min-width: 50rem;
+  padding: 2em;
+  border-radius: var(--br);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  position: relative;
+}
 
+.profile__delete {
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+}
 
+.profile__btn {
+  padding: 0.4em 1em 0.4em 1em;
+  border-radius: var(--br);
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-transform: lowercase;
+  font-size: 1.1rem;
+  transition: background-color 150ms ease-in-out;
+}
 
+.profile__btn--text {
+  margin-right: 0.5em;
+}
 
+.profile__delete--btn {
+  background-color: var(--clr-accent--700);
+  border: 1px solid var(--clr-accent--700);
+
+}
+
+.profile__delete--btn:hover {
+  background-color: var(--clr-accent--500);
+}
 
 
 
