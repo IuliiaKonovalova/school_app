@@ -128,37 +128,43 @@
   <h3 class="profile__children">Children:</h3>
   <div class="profile__children--data">
     {% for child in children %}
-    <div class="links">
-      <a href="{% url 'student_detail' pk=child.pk%}" class="links__btn links__btn--name">
-        <div class="student__btn--text">
-          {{ child.first_name }} {{ child.last_name }}
-        </div>
-        <i class="fas fa-external-link-alt student__btn--icon"></i>
-      </a>
-    </div>
-    <div class="profile__relation">
-      <div class="profile__relation--status" id="profile__relation--status">
-        ( {{ relation|title }} )
-      </div>
-      <div class="add__relation">
-        {% comment %} <form class="add__relation--container" method="post">
-          {{ form|crispy }}
-          {% csrf_token %}
-          <button class="btn__relation--add" type="submit">Add Status +</button>
-        </form> {% endcomment %}
-        <button id="add_relation" class="student__btn student__edit--btn">
-          <div class=" student__btn--text">Edit
+    <div class="profile__child--data">
+      <div class="links">
+        <a href="{% url 'student_detail' pk=child.pk%}" class="links__btn links__btn--name">
+          <div class="profile__btn--text">
+            {{ child.first_name }} {{ child.last_name }}
           </div>
-          <i class="fas fa-edit  student__btn--icon"></i>
-        </button>
-        <select id="relation_select" style="display: none;">
-          <option value="1">Father</option>
-          <option value="2">Mother</option>
-          <option value="3">Grandfather</option>
-          <option value="4">Grandmother</option>
-          <option value="5">Other</option>
-        </select>
-        <button id="add_relation_btn" style="display: none;">Edit</button>
+          <i class="fas fa-external-link-alt profile__btn--icon"></i>
+        </a>
+      </div>
+      <div class="profile__relation">
+        <div class="profile__relation--status" id="profile__relation--status">
+          ( {{ relation|title }} )
+        </div>
+        <div class="add__relation">
+          {% comment %} <form class="add__relation--container" method="post">
+            {{ form|crispy }}
+            {% csrf_token %}
+            <button class="btn__relation--add" type="submit">Add Status +</button>
+          </form> {% endcomment %}
+          <button id="add_relation" class="profile__btn profile__edit--btn">
+            <div class=" profile__btn--text">Edit
+            </div>
+            <i class="fas fa-edit  profile__btn--icon"></i>
+          </button>
+          <select id="relation_select" style="display: none;" class="profile__select">
+            <option value="1">Father</option>
+            <option value="2">Mother</option>
+            <option value="3">Grandfather</option>
+            <option value="4">Grandmother</option>
+            <option value="5">Other</option>
+          </select>
+          <button id="add_relation_btn" style="display: none;" class="profile__btn profile__delete--btn">
+            <div class=" profile__btn--text">Save
+            </div>
+            <i class="far fa-save  profile__btn--icon"></i>
+          </button>
+        </div>
       </div>
     </div>
     {% endfor %}

@@ -465,13 +465,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.profile__child--data {
+  display: flex;
+  align-items: center;
 }
 
 .profile__relation {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* position: relative; */
 }
 
 .profile__relation--status {
@@ -483,6 +488,19 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.profile__select {
+  margin-right: 0.3em;
+  font-size: 1.1rem;
+  padding: 0.4em 1em 0.4em 1em;
+  border-radius: var(--br);
+  border: 1px solid var(--clr-accent--700);
+  background-color: white;
+}
+
+
+
+
 
 /* ----- Forms ----- */
 .account__container {
