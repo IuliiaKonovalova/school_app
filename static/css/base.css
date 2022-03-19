@@ -463,11 +463,13 @@ body {
   margin-bottom: 0.6em;
 }
 
-.profile__students {
+.profile__students,
+.profile__sales {
   margin-bottom: 0.2em;
 }
 
-.profile__students--amount {
+.profile__students--amount,
+.profile__sales--amount {
   font-style: italic;
   margin-bottom: 0.6em;
 }
