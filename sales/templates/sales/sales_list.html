@@ -1,6 +1,24 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_js %}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script>
+  $(function () {
+
+    $("#datepicker1").datepicker({
+      dateFormat: 'yy-mm-dd',
+    });
+    $("#datepicker2").datepicker({
+      dateFormat: 'yy-mm-dd',
+    });
+  });
+</script>
+{% endblock%}
+
 {% block content %}
 <h2>All sales made</h2>
 {% if request.user.role == 0 or request.user.role == 2 %}
@@ -49,21 +67,4 @@
 {% else %}
 <p>You are not authorized to view this page</p>
 {% endif %}
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-<script>
-  $(function () {
-
-    $("#datepicker1").datepicker({
-      dateFormat: 'yy-mm-dd',
-    });
-    $("#datepicker2").datepicker({
-      dateFormat: 'yy-mm-dd',
-    });
-  });
-</script>
-
-
 {% endblock %}
