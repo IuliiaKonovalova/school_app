@@ -20,151 +20,151 @@
 {% endblock%}
 
 {% block content %}
-<div class="student">
-  {% if request.user.username in student.get_parent_usernames %}
-    Your child's profile
-  {% endif %}
-  {% comment %} Access limitation for potentail clients and other parents {% endcomment %}
-  {% if request.user.role == 4 and request.user.username not in student.get_parent_usernames or request.user.role == 5 %}
-  <div class="access__error">
-    
-    <div class="access__error--image">
-      <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
-    </div>
-    <p class="access__error--text">You are not authorized to view this page</p>
-    <div class="links">
-      <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
-        <div class="profile__btn--text">
-          Back to your profile
-        </div>
-        <i class="fas fa-external-link-alt profile__btn--icon"></i>
-      </a>
-    </div>
-  </div>
-  {% else %}
-    {% if request.user.role == 0 or request.user.role == 2 %}
-    <div class="student__edit">
-      <a href="{% url 'student_edit' pk=student.pk %}" class="student__btn student__edit--btn">
-        <div class=" student__btn--text">Edit
-        </div>
-        <i class="fas fa-edit  student__btn--icon"></i>
-      </a>
-      <a href="{% url 'student_delete' pk=student.pk %}" class="student__btn student__delete--btn">
-        <div class="student__btn--text">Delete</div>
-        <i class="fas fa-trash-alt student__btn--icon"></i>
-      </a>
-    </div>
+  <div class="student">
+    {% if request.user.username in student.get_parent_usernames %}
+      <p class="student__message">Your child's profile</p>
     {% endif %}
-
-  <h2 class="student__title">Student's data</h2>
-
-  <div class="student__info">
-    <div class="student__data">
-      <div class="student__data--heading">Full name:</div>
-      <div class="student__data--info">
-        {{ student.first_name|title }} {{ student.last_name|title }}
-      </div>
-    </div>
-    <div class="student__data">
-      <div class="student__data--heading">Birthday:</div>
-      <div class="student__data--info">
-        {{ student.birthday }}
-      </div>
-    </div>
-    <div class="student__data">
-      <div class="student__data--heading">Address:</div>
-      <div class="student__data--info">
-        {{ student.address }}
-      </div>
-    </div>
-    <div class="student__data">
-      <div class="student__data--heading">Parents:</div>
-      <div class="student__data--info">
-        {% for parent in student.get_parents %}
+    {% comment %} Access limitation for potentail clients and other parents {% endcomment %}
+    {% if request.user.role == 4 and request.user.username not in student.get_parent_usernames or request.user.role == 5 %}
+      <div class="access__error">
+        
+        <div class="access__error--image">
+          <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
+        </div>
+        <p class="access__error--text">You are not authorized to view this page!</p>
         <div class="links">
-          <a href="{% url 'user_profile' username=parent.user.username %}" class="links__btn links__btn--name">
-            <div class="student__btn--text">
-              {{ parent|title }} ({{parent.get_relation }})
+          <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
+            <div class="profile__btn--text">
+              Back to your profile
             </div>
-            <i class="fas fa-external-link-alt student__btn--icon"></i>
+            <i class="fas fa-external-link-alt profile__btn--icon"></i>
           </a>
         </div>
-        {% endfor %}
       </div>
-    </div>
-    <div class="student__data">
-      <div class="student__data--heading">Notes:</div>
-      <div class="student__data--info">
-        {{ student.notes }}
-      </div>
-    </div>
-    <div class="student__data">
-      <div class="student__data--heading">Classes left:</div>
-      <div class="student__data--info">
-        {{ student.classes_left }}
-      </div>
-      <div class="student__label">
-        {% if student.has_classes_left %}
-        <a href="{% url 'sales_list' %}" class="label__btn label__btn--name">
-          <div class="student__btn--text">
-            Urgent call
+    {% else %}
+      {% comment %} Rendering or deleting data if the user is Admin or Sales Manager {% endcomment %}
+      {% if request.user.role == 0 or request.user.role == 2 %}
+        <div class="student__edit">
+          <a href="{% url 'student_edit' pk=student.pk %}" class="student__btn student__edit--btn">
+            <div class=" student__btn--text">Edit
+            </div>
+            <i class="fas fa-edit  student__btn--icon"></i>
+          </a>
+          <a href="{% url 'student_delete' pk=student.pk %}" class="student__btn student__delete--btn">
+            <div class="student__btn--text">Delete</div>
+            <i class="fas fa-trash-alt student__btn--icon"></i>
+          </a>
+        </div>
+      {% endif %}
+      {% comment %} Student's Data {% endcomment %}
+      <h2 class="student__title">{{ student.first_name|title }} {{ student.last_name|title }}</h2>
+      <div class="profile__role">(Student)</div>
+      <div class="student__info">
+        <div class="student__data">
+          <div class="student__data--heading">Full name:</div>
+          <div class="student__data--info">
+            {{ student.first_name|title }} {{ student.last_name|title }}
           </div>
-          <i class="fas fa-exclamation-circle student__btn--icon"></i>
-        </a>
-        {% endif %}
-      </div>
-    </div>
-    <div class="student__data">
-      <div class="student__data--heading">Sales Managers:</div>
-      <div class="student__data--info">
-        {% for sales_manager in student.get_sales_managers %}
-        <div class="links">
-
-          <a href="{% url 'user_profile' username=sales_manager.user.username %}" class="links__btn links__btn--name">
-            <div class="student__btn--text">
-              {{ sales_manager|title }}
+        </div>
+        <div class="student__data">
+          <div class="student__data--heading">Birthday:</div>
+          <div class="student__data--info">
+            {{ student.birthday }}
+          </div>
+        </div>
+        <div class="student__data">
+          <div class="student__data--heading">Address:</div>
+          <div class="student__data--info">
+            {{ student.address|title }}
+          </div>
+        </div>
+        <div class="student__data">
+          <div class="student__data--heading">Parents:</div>
+          <div class="student__data--info">
+            {% for parent in student.get_parents %}
+            <div class="links">
+              <a href="{% url 'user_profile' username=parent.user.username %}" class="links__btn links__btn--name">
+                <div class="student__btn--text">
+                  {{ parent|title }} ({{parent.get_relation }})
+                </div>
+                <i class="fas fa-external-link-alt student__btn--icon"></i>
+              </a>
             </div>
-            <i class="fas fa-external-link-alt student__btn--icon"></i>
-          </a>
+            {% endfor %}
+          </div>
         </div>
-        {% endfor %}
-      </div>
-    </div>
-    <div class="student__data">
-      <div class="student__data--heading">Enrolled date:</div>
-      <div class="student__data--info">
-        {{ student.enrolled|date:'m/d/Y' }}
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="classes">
-  <h3>Search by date</h3>
-  <form method="POST">
-    {% csrf_token %}
-    From: <input type="text" id="datepicker1" name="from_date">
-    To: <input type="text" id="datepicker2" name="to_date">
-    <input type="submit" value="search">
-    <div class="lessons">
-
-      <div>
-        {{ lessons|length }} sales found
-      </div>
-      <div>
-        {% for lesson in lessons %}
-        <div>
-          <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-            {{ lesson.date|date:'m/d/Y' }}
-            {{ lesson.get_subject }}
-          </a>
+        <div class="student__data">
+          <div class="student__data--heading">Notes:</div>
+          <div class="student__data--info">
+            {{ student.notes }}
+          </div>
         </div>
-        {% endfor %}
+        <div class="student__data">
+          <div class="student__data--heading">Classes left:</div>
+          <div class="student__data--info">
+            {{ student.classes_left }}
+          </div>
+          <div class="student__label">
+            {% if student.has_classes_left %}
+            <a href="{% url 'sales_list' %}" class="label__btn label__btn--name">
+              <div class="student__btn--text">
+                Urgent call
+              </div>
+              <i class="fas fa-exclamation-circle student__btn--icon"></i>
+            </a>
+            {% endif %}
+          </div>
+        </div>
+        <div class="student__data">
+          <div class="student__data--heading">Sales Managers:</div>
+          <div class="student__data--info">
+            {% for sales_manager in student.get_sales_managers %}
+            <div class="links">
+
+              <a href="{% url 'user_profile' username=sales_manager.user.username %}" class="links__btn links__btn--name">
+                <div class="student__btn--text">
+                  {{ sales_manager|title }}
+                </div>
+                <i class="fas fa-external-link-alt student__btn--icon"></i>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="student__data">
+          <div class="student__data--heading">Enrolled date:</div>
+          <div class="student__data--info">
+            {{ student.enrolled|date:'m/d/Y' }}
+          </div>
+        </div>
       </div>
     </div>
-  </form>
-</div>
+    {% comment %} Student's Attendence data {% endcomment %}
+    <div class="classes">
+      <h3>Search by date</h3>
+      <form method="POST">
+        {% csrf_token %}
+        From: <input type="text" id="datepicker1" name="from_date">
+        To: <input type="text" id="datepicker2" name="to_date">
+        <input type="submit" value="search">
+        <div class="lessons">
 
-{% endif %}
+          <div>
+            {{ lessons|length }} sales found
+          </div>
+          <div>
+            {% for lesson in lessons %}
+            <div>
+              <a href="{% url 'lesson_detail' pk=lesson.pk %}">
+                {{ lesson.date|date:'m/d/Y' }}
+                {{ lesson.get_subject }}
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </form>
+    </div>
+  {% endif %}
 
 {% endblock %}

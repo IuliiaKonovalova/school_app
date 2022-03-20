@@ -444,8 +444,7 @@ body {
   margin-bottom: 0.2em;
 }
 
-.profile__role,
-.student__title {
+.profile__role {
   margin-bottom: 1em;
 }
 
@@ -473,7 +472,7 @@ body {
 
 .profile__data--info,
 .student__data--info {
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1rem;
 }
 
 /* Profile Addition Data */
@@ -909,4 +908,9 @@ input[type=date]:focus {
 
 .access__error--text {
   margin: 1em 0;
+}
+
+.student__message {
+  color: var(--clr-primary--900);
+  font-style: italic;
 }
