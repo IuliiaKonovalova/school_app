@@ -325,6 +325,7 @@ body {
 .student {
   background-color: var(--clr-primary--300);
   max-width: 50rem;
+  width: 100%;
   padding: 2em;
   border-radius: var(--br);
   display: flex;
@@ -394,10 +395,16 @@ body {
 }
 
 .profile__edit--btn,
-.student__edit--btn {
+.student__edit--btn,
+.links__btn--page {
   background-color: var(--clr-accent--900);
   border: 1px solid var(--clr-accent--900);
   margin-right: 0.5em;
+}
+
+.links__btn--page {
+  margin-right: 0;
+  margin-bottom: 0.8em;
 }
 
 .profile__delete--btn:hover,
@@ -408,7 +415,8 @@ body {
 }
 
 .profile__edit--btn:hover,
-.student__edit--btn:hover {
+.student__edit--btn:hover,
+.links__btn--page:hover {
   background-color: var(--clr-accent--800);
 }
 
@@ -471,10 +479,12 @@ body {
 .profile__students--amount,
 .profile__sales--amount {
   font-style: italic;
+  font-size: 1.5rem;
   margin-bottom: 0.6em;
 }
 
-.profile__students--data {
+.profile__students--data,
+.profile__sales--data {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
@@ -483,8 +493,13 @@ body {
 }
 
 .profile__student--data {
-  align-self: center;
-  justify-self: center;
+  /* align-self: center; */
+  /* justify-self: center; */
+}
+
+.profile__data--text {
+  width: 100%;
+  text-align: center;
 }
 
 .profile__children--data {

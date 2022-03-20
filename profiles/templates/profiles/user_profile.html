@@ -99,7 +99,7 @@
 
   {% if user_profile.role == 2 %}
   <h3 class="profile__students">Students:</h3>
-  <div class="profile__students--amount">In charge of {{ children|length }} students</div>
+  <div class="profile__students--amount">In charge of <strong>{{ children|length }}</strong> students</div>
   <div class="profile__students--data">
     {% for child in children %}
     <div class="profile__student--data">
@@ -117,14 +117,29 @@
 
 
   <h3 class="profile__sales">Sales made:</h3>
-  <div class="profile__sales--amount">In charge of {{ sales|length }} students</div>
-  <div>
+  <div class="profile__sales--amount">In charge of <strong>{{ sales|length }}</strong> students</div>
+  <div class="links">
+    <a href="{% url 'sales_list' %}" class="links__btn links__btn--page">
+      <div class="profile__btn--text">
+        Open sales
+      </div>
+      <i class="fas fa-external-link-alt profile__btn--icon"></i>
+    </a>
+  </div>
+  <div class="profile__sales--data">
     {% for sale in sales %}
-    <li>
-      Sold {{ sale.amount }} classes
-      to:<a href="{% url 'user_profile' username=sale.sold_to.user.username %}">{{ sale.sold_to }}</a>
-      on {{ sale.date|date:'m/d/Y' }}
-    </li>
+    <div class="profile__student--data">
+      <div class="links">
+        <div class="links__btn links__btn--name">
+          <div class="profile__data--text">
+            {{ sale.date|date:'m/d/Y' }}
+            <br>
+            ({{ sale.amount }} classes)
+          </div>
+        </div>
+
+      </div>
+    </div>
     {% endfor %}
   </div>
   {% endif %}
