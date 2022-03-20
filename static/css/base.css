@@ -377,6 +377,10 @@ body {
   background-color: #001c82bb;
 }
 
+.links__btn--content {
+  width: fit-content;
+}
+
 .student__label {
   margin-left: 0.5em;
 }
@@ -596,6 +600,24 @@ body {
 .profile__form--subtitle {
   font-size: 1.5rem;
   margin-top: 0.5em;
+}
+
+.profile__form--suggestions {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile__form--suggestions .links {
+  width: 100%;
+  margin: 0.7em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .account p {
