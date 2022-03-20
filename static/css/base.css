@@ -564,7 +564,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 1.9rem;
-  max-width: 50rem;
+  width: 30rem;
   text-align: center;
 }
 
@@ -621,7 +621,7 @@ body {
 .profile__form input {
   border: 1px solid #ffffff8c;
   border-radius: var(--br);
-  padding: 1em 2em 0.8em 2em;
+  padding: 0.8em 1em 0.6em 1em;
   min-width: 25rem;
   margin: 1em 0;
   background-color: #ffffff;
@@ -715,6 +715,8 @@ body {
 .profile__buttons {
   display: flex;
   justify-content: space-between;
+  width: 25rem;
+  margin: 0;
 }
 
 .profile__form--btn {
@@ -724,7 +726,7 @@ body {
   color: white;
   font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.0.5rem;
   cursor: pointer;
   display: flex;
   justify-content: center;

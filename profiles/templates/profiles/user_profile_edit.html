@@ -4,10 +4,9 @@
 {% block content %}
 <div class="profile">
   <div class="profile__form--container">
-    <section class="profile__form">
       <h2 class="profile__form--title">Edit profile</h2>
       {% comment %} Edit profile form {% endcomment %}
-      <form method="POST" action="{% url 'user_profile_edit' username=request.user %}">
+      <form method="POST" action="{% url 'user_profile_edit' username=request.user %}"  class="profile__form">
         {% csrf_token %}
         {{ form|crispy }}
         <div class="profile__buttons">
@@ -25,7 +24,6 @@
           </button>
         </div>
       </form>
-    </section>
   </div>
 </div>
 {% endblock %}
