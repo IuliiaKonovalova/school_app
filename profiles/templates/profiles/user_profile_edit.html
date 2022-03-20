@@ -3,9 +3,9 @@
 
 {% block content %}
 <div class="profile">
-  <div class="form__container">
-    <div class="form">
-      <h2 class="form__title">Edit profile</h2>
+  <div class="profile__form--container">
+    <div class="profile__form">
+      <h2 class="profile__form--title">Edit profile</h2>
       <form method="POST" action="{% url 'user_profile_edit' username=request.user %}">
         {% csrf_token %}
         {{ form|crispy }}

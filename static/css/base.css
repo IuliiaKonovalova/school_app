@@ -546,7 +546,7 @@ body {
 
 /* ----- Forms ----- */
 .account__container,
-.form__container {
+.profile__form--container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -555,11 +555,11 @@ body {
   color: white;
 }
 
-.form__container {
+.profile__form--container {
   color: var(--clr-neutral--900);
 }
 
-.form {
+.profile__form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -584,13 +584,13 @@ body {
 }
 
 .account__title,
-.form__title {
+.profile__form--title {
   font-size: 2.5rem;
   letter-spacing: 0.15rem;
   font-weight: 900;
 }
 
-.form__title {
+.profile__form--title {
   margin-bottom: 0.5em;
 }
 
@@ -614,7 +614,7 @@ body {
 
 /* Forms Inputs */
 .account input,
-.form input {
+.profile__form input {
   border: 1px solid #ffffff8c;
   border-radius: var(--br);
   padding: 1em 2em 0.8em 2em;
@@ -624,22 +624,22 @@ body {
   font-size: 1.2rem;
 }
 
-/* .form input {
-  width: 100%;
-  padding: 1em 2em 0.6em 2em;
-} */
+.profile__form input {
+  margin-bottom: 0.5em;
+}
 
 .account input:focus,
-.form input:focus {
+.profile__form input:focus {
   outline: none;
 }
 
-.account label:not([for='id_remember']) {
+.account label:not([for='id_remember']),
+.profile__form label:not([for='id_remember']) {
   display: none;
 }
 
 .account input::placeholder,
-.form input::placeholder {
+.profile__form input::placeholder {
   color: #001c828f;
   font-size: 1.2rem;
   letter-spacing: 0.13rem;
@@ -647,18 +647,48 @@ body {
 }
 
 .account input:placeholder-shown,
-.form input:placeholder-shown {
+.profile__form input:placeholder-shown {
   color: #022c29;
   font-weight: 600;
 }
 
 .account input:not(:placeholder-shown),
-.form input:not(:placeholder-shown) {
+.profile__form input:not(:placeholder-shown) {
   color: var(--clr-primary--900);
   font-weight: 600;
   font-size: 1.2rem;
   letter-spacing: 0.13rem;
 }
+
+.form-group {
+  position: relative;
+  padding-top: 0.8em;
+}
+
+.profile__form label[for='id_first_name']~div::before,
+.profile__form label[for='id_last_name']~div::before,
+.profile__form label[for='id_phone']~div::before {
+  position: absolute;
+  top: 0.2rem;
+  left: 0.4rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.profile__form label[for='id_first_name']~div::before {
+  content: 'First Name:';
+}
+
+
+.profile__form label[for='id_last_name']~div::before {
+  content: 'Last Name:';
+}
+
+
+.profile__form label[for='id_phone']~div::before {
+  content: 'Phone Number:';
+}
+
 
 input[type=date] {
   background-color: white;
