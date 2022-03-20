@@ -49,7 +49,7 @@
         <div class="links">
           <a href="{% url 'user_profile' username=parent.user.username %}" class="links__btn links__btn--name">
             <div class="student__btn--text">
-              {{ parent|title }}
+              {{ parent|title }} ({{parent.get_relation }})
             </div>
             <i class="fas fa-external-link-alt student__btn--icon"></i>
           </a>
