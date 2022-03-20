@@ -26,8 +26,15 @@
   {% endif %}
 
   {% if request.user.role == 4 and request.user.username not in student.get_parent_usernames or request.user.role == 5 %}
-
-<p>You are not authorized to view this page</p>
+    <p class="access__error">You are not authorized to view this page</p>
+    <div class="links">
+        <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name">
+          <div class="profile__btn--text">
+            Back to your profile
+          </div>
+          <i class="fas fa-external-link-alt profile__btn--icon"></i>
+        </a>
+      </div>
   {% else %}
     {% if request.user.role == 0 or request.user.role == 2 %}
     <div class="student__edit">

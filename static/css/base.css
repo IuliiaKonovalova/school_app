@@ -880,3 +880,10 @@ input[type=date]:focus {
   padding: 6em 2em;
   color: var(--clr-neutral--100);
 }
+
+/* Access Error */
+
+.access__error {
+  margin-bottom: 1em;
+  font-weight: 900;
+}
