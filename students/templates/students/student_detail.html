@@ -21,20 +21,27 @@
 
 {% block content %}
 <div class="student">
-  {% if request.user.role != 4 or request.user.role != 5 %}
-  {% if request.user.role == 0 or request.user.role == 2 %}
-  <div class="student__edit">
-    <a href="{% url 'student_edit' pk=student.pk %}" class="student__btn student__edit--btn">
-      <div class=" student__btn--text">Edit
-      </div>
-      <i class="fas fa-edit  student__btn--icon"></i>
-    </a>
-    <a href="{% url 'student_delete' pk=student.pk %}" class="student__btn student__delete--btn">
-      <div class="student__btn--text">Delete</div>
-      <i class="fas fa-trash-alt student__btn--icon"></i>
-    </a>
-  </div>
+  {% if request.user.username in student.get_parent_usernames %}
+    Your child's profile
   {% endif %}
+
+  {% if request.user.role == 4 or request.user.role == 5 %}
+
+<p>You are not authorized to view this page</p>
+  {% else %}
+    {% if request.user.role == 0 or request.user.role == 2 %}
+    <div class="student__edit">
+      <a href="{% url 'student_edit' pk=student.pk %}" class="student__btn student__edit--btn">
+        <div class=" student__btn--text">Edit
+        </div>
+        <i class="fas fa-edit  student__btn--icon"></i>
+      </a>
+      <a href="{% url 'student_delete' pk=student.pk %}" class="student__btn student__delete--btn">
+        <div class="student__btn--text">Delete</div>
+        <i class="fas fa-trash-alt student__btn--icon"></i>
+      </a>
+    </div>
+    {% endif %}
 
   <h2 class="student__title">Student's data</h2>
 
@@ -144,9 +151,7 @@
     </div>
   </form>
 </div>
-{% else %}
-<p>You are not authorized to view this page</p>
-{% endif %}
 
+{% endif %}
 
 {% endblock %}

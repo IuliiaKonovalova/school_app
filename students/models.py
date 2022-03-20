@@ -32,6 +32,10 @@ class Student(models.Model):
         """Get all sales managers of the student"""
         return self.sales_manager.all()
 
+    def get_parent_usernames(self):
+        """Get all parents of the student"""
+        return [parent.user.username for parent in self.get_parents()]
+
     def __str__(self):
         return self.first_name + ' ' + self.last_name
 

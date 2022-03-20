@@ -68,9 +68,9 @@ class Parent(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     relation = models.IntegerField(choices=GUARDIAN_RELATION, default=5)
 
-    # get the guardian relation choices
     def get_relation(self):
         return dict(self.GUARDIAN_RELATION)[self.relation]
         
     def __str__(self):
         return self.user.first_name + ' ' + self.user.last_name
+
