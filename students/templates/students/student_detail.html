@@ -1,12 +1,27 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_js %}
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <script>
+    $(function () {
+
+      $("#datepicker1").datepicker({
+        dateFormat: 'yy-mm-dd',
+      });
+      $("#datepicker2").datepicker({
+        dateFormat: 'yy-mm-dd',
+      });
+    });
+  </script>
+{% endblock%}
+
 {% block content %}
 <div class="student">
   {% if request.user.role != 4 or request.user.role != 5 %}
-
-
-
   {% if request.user.role == 0 or request.user.role == 2 %}
   <div class="student__edit">
     <a href="{% url 'student_edit' pk=student.pk %}" class="student__btn student__edit--btn">
@@ -103,30 +118,32 @@
     </div>
   </div>
 </div>
-<h3>Search by date</h3>
-<form method="POST">
-  {% csrf_token %}
-  From: <input type="date" name="from_date">
-  To: <input type="date" name="to_date">
-  <input type="submit" value="search">
-  <div class="lessons">
 
-    <div>
-      {{ lessons|length }} sales found
-    </div>
-    <div>
-      {% for lesson in lessons %}
+<div class="classes">
+  <h3>Search by date</h3>
+  <form method="POST">
+    {% csrf_token %}
+    From: <input type="text" id="datepicker1" name="from_date">
+    To: <input type="text" id="datepicker2" name="to_date">
+    <input type="submit" value="search">
+    <div class="lessons">
+
       <div>
-        <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-          {{ lesson.date|date:'m/d/Y' }}
-          {{ lesson.get_subject }}
-        </a>
+        {{ lessons|length }} sales found
       </div>
-      {% endfor %}
+      <div>
+        {% for lesson in lessons %}
+        <div>
+          <a href="{% url 'lesson_detail' pk=lesson.pk %}">
+            {{ lesson.date|date:'m/d/Y' }}
+            {{ lesson.get_subject }}
+          </a>
+        </div>
+        {% endfor %}
+      </div>
     </div>
-  </div>
-</form>
-
+  </form>
+</div>
 {% else %}
 <p>You are not authorized to view this page</p>
 {% endif %}
