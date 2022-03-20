@@ -6,6 +6,7 @@ from profiles.models import Parent, SalesManager
 from students.models import Student
 from .forms import SalesForm
 from .models import Sales
+from datetime import datetime
 
 
 class SalesView(View):
@@ -33,6 +34,8 @@ class SalesView(View):
         if request.user.is_authenticated and (request.user.role == 0 or request.user.role == 2):
             fromdate=request.POST.get('from_date')
             todate=request.POST.get('to_date')
+            print(fromdate, todate)
+            print(fromdate, todate)
             search_items = Sales.objects.filter(date__range=[fromdate, todate])
             return render(
                 request,

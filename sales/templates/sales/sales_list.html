@@ -17,8 +17,8 @@
 <h3>Search by date</h3>
 <form method="POST">
   {% csrf_token %}
-  From: <input type="date" name="from_date">
-  To: <input type="date" name="to_date">
+  From: <input type="text" id="datepicker1" name="from_date">
+  To: <input type="text" id="datepicker2" name="to_date">
   <input type="submit" value="search">
   <div class="sales">
 
@@ -49,7 +49,21 @@
 {% else %}
 <p>You are not authorized to view this page</p>
 {% endif %}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script>
+  $(function () {
 
+    $("#datepicker1").datepicker({
+      dateFormat: 'yy-mm-dd',
+    });
+    $("#datepicker2").datepicker({
+      dateFormat: 'yy-mm-dd',
+    });
+  });
+</script>
 
 
 {% endblock %}
