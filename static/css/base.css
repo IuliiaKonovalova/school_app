@@ -595,7 +595,7 @@ body {
 }
 
 .profile__form--title {
-  margin-bottom: 0.5em;
+  margin: 0.9em 0;
 }
 
 .account p {
@@ -673,9 +673,9 @@ body {
 .profile__form label[for='id_last_name']~div::before,
 .profile__form label[for='id_phone']~div::before {
   position: absolute;
-  top: 0.2rem;
+  top: 0.55rem;
   left: 0.4rem;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
