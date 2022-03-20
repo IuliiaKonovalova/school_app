@@ -371,6 +371,7 @@ body {
   text-transform: lowercase;
   font-size: 1.1rem;
   transition: background-color 150ms ease-in-out;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .links__btn--name {
@@ -884,6 +885,28 @@ input[type=date]:focus {
 /* Access Error */
 
 .access__error {
-  margin-bottom: 1em;
+
   font-weight: 900;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.access__error--image {
+  background-color: var(--clr-accent--800);
+  padding: 0.5em;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.access__error--image img {
+  width: 4rem;
+}
+
+.access__error--text {
+  margin: 1em 0;
 }
