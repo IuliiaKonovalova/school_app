@@ -204,7 +204,7 @@ body {
   flex-direction: column;
   align-items: center;
   color: var(--clr-neutral--900);
-
+  padding: 2em;
 }
 
 .home {
@@ -334,7 +334,6 @@ body {
   align-items: center;
   font-size: 2rem;
   position: relative;
-  margin: 2em auto;
 }
 
 /* Profile buttons */
@@ -361,6 +360,7 @@ body {
   font-weight: 900;
   display: flex;
   align-items: center;
+  justify-content: center;
   color: white;
   text-transform: lowercase;
   font-size: 1.1rem;
@@ -496,11 +496,6 @@ body {
   margin-bottom: 0.5em;
 }
 
-.profile__student--data {
-  /* align-self: center; */
-  /* justify-self: center; */
-}
-
 .profile__data--text {
   width: 100%;
   text-align: center;
@@ -598,6 +593,11 @@ body {
   margin: 0.9em 0;
 }
 
+.profile__form--subtitle {
+  font-size: 1.5rem;
+  margin-top: 0.5em;
+}
+
 .account p {
   margin: 1em auto;
   max-width: 30rem;
@@ -671,7 +671,10 @@ body {
 
 .profile__form label[for='id_first_name']~div::before,
 .profile__form label[for='id_last_name']~div::before,
-.profile__form label[for='id_phone']~div::before {
+.profile__form label[for='id_phone']~div::before,
+.profile__form label[for='id_old_password']~div::before,
+.profile__form label[for='id_new_password1']~div::before,
+.profile__form label[for='id_new_password2']~div::before {
   position: absolute;
   top: 0.55rem;
   left: 0.4rem;
@@ -693,6 +696,22 @@ body {
   content: 'Phone Number:';
 }
 
+.profile__form label[for='id_old_password']~div::before {
+  content: 'Old Password:';
+}
+
+.profile__form label[for='id_new_password1']~div::before {
+  content: 'New Password:';
+}
+
+.profile__form label[for='id_new_password2']~div::before {
+  content: 'Confirm Password:';
+}
+
+#hint_id_new_password1 ul li {
+  display: none;
+}
+
 .profile__buttons {
   display: flex;
   justify-content: space-between;
@@ -700,13 +719,16 @@ body {
 
 .profile__form--btn {
   margin: 1em 0;
-  padding: 1em 1.8em;
+  padding: 0.5em 1.2em;
   border-radius: var(--br);
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 0.1rem;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  text-transform: unset;
 }
 
 
