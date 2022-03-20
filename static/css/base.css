@@ -579,8 +579,8 @@ body {
 }
 
 .account {
-  margin: 2em auto;
-  padding: 2em;
+  margin: 0 auto;
+  padding: 1.5em;
   background-color: var(--clr-primary--900);
   border-radius: var(--br);
   display: flex;
@@ -594,7 +594,7 @@ body {
 
 .account__title,
 .profile__form--title {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   letter-spacing: 0.15rem;
   font-weight: 900;
 }
@@ -632,6 +632,10 @@ body {
   color: #ffffffec;
   font-weight: 100;
   font-size: 1.5rem;
+}
+
+.account p.account__notice {
+  margin-bottom: 0.2em;
 }
 
 .account__link {
@@ -695,6 +699,10 @@ body {
 .form-group {
   position: relative;
   padding-top: 0.8em;
+}
+
+.account .form-group {
+  padding-top: 0;
 }
 
 .profile__form label[for='id_first_name']~div::before,

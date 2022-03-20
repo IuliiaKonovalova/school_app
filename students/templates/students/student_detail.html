@@ -25,7 +25,7 @@
     Your child's profile
   {% endif %}
 
-  {% if request.user.role == 4 or request.user.role == 5 %}
+  {% if request.user.role == 4 and request.user.username not in student.get_parent_usernames or request.user.role == 5 %}
 
 <p>You are not authorized to view this page</p>
   {% else %}
