@@ -389,14 +389,16 @@ body {
 .profile__delete--btn,
 .profile__password--btn,
 .student__delete--btn,
-.label__btn--name {
+.label__btn--name,
+.profile__confirm--btn {
   background-color: var(--clr-accent--700);
   border: 1px solid var(--clr-accent--700);
 }
 
 .profile__edit--btn,
 .student__edit--btn,
-.links__btn--page {
+.links__btn--page,
+.profile__back--btn {
   background-color: var(--clr-accent--900);
   border: 1px solid var(--clr-accent--900);
   margin-right: 0.5em;
@@ -410,13 +412,15 @@ body {
 .profile__delete--btn:hover,
 .profile__password--btn:hover,
 .student__delete--btn:hover,
-.label__btn--name:hover {
+.label__btn--name:hover,
+.profile__confirm--btn:hover {
   background-color: var(--clr-accent--500);
 }
 
 .profile__edit--btn:hover,
 .student__edit--btn:hover,
-.links__btn--page:hover {
+.links__btn--page:hover,
+.profile__back--btn:hover {
   background-color: var(--clr-accent--800);
 }
 
@@ -687,6 +691,22 @@ body {
 
 .profile__form label[for='id_phone']~div::before {
   content: 'Phone Number:';
+}
+
+.profile__buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile__form--btn {
+  margin: 1em 0;
+  padding: 1em 1.8em;
+  border-radius: var(--br);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
 }
 
 

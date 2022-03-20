@@ -9,10 +9,18 @@
       <form method="POST" action="{% url 'user_profile_edit' username=request.user %}">
         {% csrf_token %}
         {{ form|crispy }}
-        <a href="{% url 'user_profile' username=request.user %}">Go
-          back</a>
-        <button type="submit">Submit</button>
-
+        <div class="profile__buttons">
+          <a href="{% url 'user_profile' username=request.user %}"
+            class="profile__form--btn profile__btn profile__back--btn">
+            <div class=" profile__btn--text">Go back
+            </div>
+            <i class="far fa-window-close  profile__btn--icon"></i>
+          </a>
+          <button type="submit" class="profile__form--btn profile__btn profile__confirm--btn">
+            <div class="profile__btn--text">Submit</div>
+            <i class="fas fa-trash-alt profile__btn--icon"></i>
+          </button>
+        </div>
       </form>
     </div>
   </div>
