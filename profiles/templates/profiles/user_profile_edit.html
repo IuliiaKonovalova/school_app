@@ -2,13 +2,20 @@
 {% load static %}
 
 {% block content %}
+<div class="profile">
+  <div class="form__container">
+    <div class="form">
+      <h2 class="form__title">Edit profile</h2>
+      <form method="POST" action="{% url 'user_profile_edit' username=request.user %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <a href="{% url 'user_profile' username=request.user %}">Go
+          back</a>
+        <button type="submit">Submit</button>
 
-<form method="POST" action="{% url 'user_profile_edit' username=request.user %}">
-  {% csrf_token %}
-  {{ form|crispy }}
-  <button type="submit">Submit</button>
-
-</form>
-
+      </form>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

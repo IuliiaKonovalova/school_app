@@ -545,13 +545,28 @@ body {
 
 
 /* ----- Forms ----- */
-.account__container {
+.account__container,
+.form__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: unset;
   color: white;
+}
+
+.form__container {
+  color: var(--clr-neutral--900);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.9rem;
+  max-width: 50rem;
+  text-align: center;
 }
 
 .account {
@@ -568,10 +583,15 @@ body {
   text-align: center;
 }
 
-.account__title {
+.account__title,
+.form__title {
   font-size: 2.5rem;
   letter-spacing: 0.15rem;
   font-weight: 900;
+}
+
+.form__title {
+  margin-bottom: 0.5em;
 }
 
 .account p {
@@ -593,17 +613,24 @@ body {
 
 
 /* Forms Inputs */
-.account input {
+.account input,
+.form input {
   border: 1px solid #ffffff8c;
   border-radius: var(--br);
-  padding: 1em 2em 0.6em 2em;
+  padding: 1em 2em 0.8em 2em;
   min-width: 25rem;
   margin: 1em 0;
   background-color: #ffffff;
   font-size: 1.2rem;
 }
 
-.account input:focus {
+/* .form input {
+  width: 100%;
+  padding: 1em 2em 0.6em 2em;
+} */
+
+.account input:focus,
+.form input:focus {
   outline: none;
 }
 
@@ -611,19 +638,22 @@ body {
   display: none;
 }
 
-.account input::placeholder {
+.account input::placeholder,
+.form input::placeholder {
   color: #001c828f;
   font-size: 1.2rem;
   letter-spacing: 0.13rem;
   font-weight: 600;
 }
 
-.account input:placeholder-shown {
+.account input:placeholder-shown,
+.form input:placeholder-shown {
   color: #022c29;
   font-weight: 600;
 }
 
-.account input:not(:placeholder-shown) {
+.account input:not(:placeholder-shown),
+.form input:not(:placeholder-shown) {
   color: var(--clr-primary--900);
   font-weight: 600;
   font-size: 1.2rem;
