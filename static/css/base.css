@@ -401,7 +401,8 @@ body {
 .profile__password--btn,
 .student__delete--btn,
 .label__btn--name,
-.profile__confirm--btn {
+.profile__confirm--btn,
+.student__confirm--btn {
   background-color: var(--clr-accent--700);
   border: 1px solid var(--clr-accent--700);
 }
@@ -410,7 +411,8 @@ body {
 .student__edit--btn,
 .links__btn--page,
 .profile__back--btn,
-.classes__form--btn {
+.classes__form--btn,
+.student__back--btn {
   background-color: var(--clr-accent--900);
   border: 1px solid var(--clr-accent--900);
   margin-right: 0.5em;
@@ -425,7 +427,8 @@ body {
 .profile__password--btn:hover,
 .student__delete--btn:hover,
 .label__btn--name:hover,
-.profile__confirm--btn:hover {
+.profile__confirm--btn:hover,
+.student__confirm--btn:hover {
   background-color: var(--clr-accent--500);
 }
 
@@ -433,7 +436,8 @@ body {
 .student__edit--btn:hover,
 .links__btn--page:hover,
 .profile__back--btn:hover,
-.classes__form--btn:hover {
+.classes__form--btn:hover,
+.student__back--btn:hover {
   background-color: var(--clr-accent--800);
 }
 
@@ -853,14 +857,16 @@ student__form input:placeholder-shown {
   display: none;
 }
 
-.profile__buttons {
+.profile__buttons,
+.student__buttons {
   display: flex;
   justify-content: space-between;
   width: 25rem;
   margin: 0;
 }
 
-.profile__form--btn {
+.profile__form--btn,
+.student__buttons--btn {
   margin: 1em 0;
   padding: 0.5em 1.2em;
   border-radius: var(--br);

@@ -12,7 +12,20 @@
     <form method="POST" class="student__form">
       {{ form|crispy }}
       {% csrf_token %}
-      <button type="submit">Submit</button>
+      <div class="student__buttons">
+        {% comment %} Go back to user profile page {% endcomment %}
+        <a href="{% url 'student_detail' pk=student.pk %}"
+          class="student__buttons--btn student__btn student__back--btn">
+          <div class="student__btn--text">Go back
+          </div>
+          <i class="far fa-window-close  student__btn--icon"></i>
+        </a>
+        {% comment %} Submit profile changes button {% endcomment %}
+        <button type="submit" class="student__buttons--btn student__btn student__confirm--btn">
+          <div class="student__btn--text">Submit</div>
+          <i class="fas fa-trash-alt student__btn--icon"></i>
+        </button>
+      </div>
     </form>
   </div>
 </div>
