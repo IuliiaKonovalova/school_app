@@ -644,7 +644,8 @@ body {
 
 /* ----- Forms ----- */
 .account__container,
-.profile__form--container {
+.profile__form--container,
+.student__form--container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -653,11 +654,13 @@ body {
   color: white;
 }
 
-.profile__form--container {
+.profile__form--container,
+.student__form--container {
   color: var(--clr-neutral--900);
 }
 
-.profile__form {
+.profile__form,
+.student__form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -682,13 +685,15 @@ body {
 }
 
 .account__title,
-.profile__form--title {
+.profile__form--title,
+.student__form--title {
   font-size: 2.2rem;
   letter-spacing: 0.15rem;
   font-weight: 900;
 }
 
-.profile__form--title {
+.profile__form--title,
+.student__form--title {
   margin: 0.9em 0;
 }
 
@@ -739,7 +744,8 @@ body {
 
 /* Forms Inputs */
 .account input,
-.profile__form input {
+.profile__form input,
+.student__form input {
   border: 1px solid #ffffff8c;
   border-radius: var(--br);
   padding: 0.8em 1em 0.6em 1em;
@@ -749,22 +755,26 @@ body {
   font-size: 1.2rem;
 }
 
-.profile__form input {
+.profile__form input,
+.student__form input {
   margin-bottom: 0.5em;
 }
 
 .account input:focus,
-.profile__form input:focus {
+.profile__form input:focus,
+student__form input:focus {
   outline: none;
 }
 
 .account label:not([for='id_remember']),
-.profile__form label:not([for='id_remember']) {
+.profile__form label:not([for='id_remember']),
+.student__form label:not([for='id_remember']) {
   display: none;
 }
 
 .account input::placeholder,
-.profile__form input::placeholder {
+.profile__form input::placeholder,
+student__form input::placeholder {
   color: #001c828f;
   font-size: 1.2rem;
   letter-spacing: 0.13rem;
@@ -772,13 +782,15 @@ body {
 }
 
 .account input:placeholder-shown,
-.profile__form input:placeholder-shown {
+.profile__form input:placeholder-shown,
+student__form input:placeholder-shown {
   color: #022c29;
   font-weight: 600;
 }
 
 .account input:not(:placeholder-shown),
-.profile__form input:not(:placeholder-shown) {
+.profile__form input:not(:placeholder-shown),
+.student__form input:not(:placeholder-shown) {
   color: var(--clr-primary--900);
   font-weight: 600;
   font-size: 1.2rem;
@@ -799,7 +811,9 @@ body {
 .profile__form label[for='id_phone']~div::before,
 .profile__form label[for='id_old_password']~div::before,
 .profile__form label[for='id_new_password1']~div::before,
-.profile__form label[for='id_new_password2']~div::before {
+.profile__form label[for='id_new_password2']~div::before,
+.student__form label[for='id_first_name']~div::before,
+.student__form label[for='id_last_name']~div::before {
   position: absolute;
   top: 0.55rem;
   left: 0.4rem;
@@ -807,12 +821,14 @@ body {
   font-weight: 700;
 }
 
-.profile__form label[for='id_first_name']~div::before {
+.profile__form label[for='id_first_name']~div::before,
+.student__form label[for='id_first_name']~div::before {
   content: 'First Name:';
 }
 
 
-.profile__form label[for='id_last_name']~div::before {
+.profile__form label[for='id_last_name']~div::before,
+.student__form label[for='id_last_name']~div::before {
   content: 'Last Name:';
 }
 

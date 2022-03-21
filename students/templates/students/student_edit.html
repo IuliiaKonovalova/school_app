@@ -5,15 +5,17 @@
 
 {% if request.user.role == 0 or request.user.role == 2 %}
 
+<div class="student">
+  <div class="student__form--container">
+    <h2 class="student__form--title">Editing Student's data</h2>
 
-<h2>Editing Student's data</h2>
-
-<form method="POST">
-  {{ form|crispy }}
-  {% csrf_token %}
-  <button type="submit">Submit</button>
-</form>
-
+    <form method="POST" class="student__form">
+      {{ form|crispy }}
+      {% csrf_token %}
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
 {% else %}
 {% comment %} Access limitation for potentail clients and other parents {% endcomment %}
 <div class="access">
