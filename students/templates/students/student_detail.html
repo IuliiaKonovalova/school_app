@@ -20,14 +20,11 @@
 {% endblock%}
 
 {% block content %}
-  <div class="student">
-    {% if request.user.username in student.get_parent_usernames %}
-      <p class="student__message">Your child's profile</p>
-    {% endif %}
-    {% comment %} Access limitation for potentail clients and other parents {% endcomment %}
-    {% if request.user.role == 4 and request.user.username not in student.get_parent_usernames or request.user.role == 5 %}
+  {% comment %} Access limitation for potentail clients and other parents {% endcomment %}
+  {% if request.user.role == 4 and request.user.username not in student.get_parent_usernames or request.user.role == 5 %}
+    <div class="access">
       <div class="access__error">
-        
+
         <div class="access__error--image">
           <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
         </div>
@@ -41,7 +38,9 @@
           </a>
         </div>
       </div>
-    {% else %}
+    </div>
+  {% else %}
+    <div class="student">
       {% comment %} Rendering or deleting data if the user is Admin or Sales Manager {% endcomment %}
       {% if request.user.role == 0 or request.user.role == 2 %}
         <div class="student__edit">
@@ -55,6 +54,9 @@
             <i class="fas fa-trash-alt student__btn--icon"></i>
           </a>
         </div>
+      {% endif %}
+      {% if request.user.username in student.get_parent_usernames %}
+        <p class="student__message">Your child's profile</p>
       {% endif %}
       {% comment %} Student's Data {% endcomment %}
       <h2 class="student__title">{{ student.first_name|title }} {{ student.last_name|title }}</h2>
@@ -141,11 +143,11 @@
     </div>
     {% comment %} Student's Attendence data {% endcomment %}
     <div class="classes">
-      <h3>Search by date</h3>
+      <h3 class="classes__title">Search by date</h3>
       <form method="POST">
         {% csrf_token %}
-        From: <input type="text" id="datepicker1" name="from_date">
-        To: <input type="text" id="datepicker2" name="to_date">
+        From: <input type="text" id="datepicker1" name="from_date" placeholder="mm-dd-yyyy">
+        To: <input type="text" id="datepicker2" name="to_date" placeholder="mm-dd-yyyy">
         <input type="submit" value="search">
         <div class="lessons">
 
@@ -166,5 +168,4 @@
       </form>
     </div>
   {% endif %}
-
 {% endblock %}

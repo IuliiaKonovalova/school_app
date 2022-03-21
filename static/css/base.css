@@ -437,7 +437,8 @@ body {
 
 /* Profile Data */
 .profile__title,
-.student__title {
+.student__title,
+.classes__title {
   font-size: 2.5rem;
   font-weight: 900;
   margin-top: 0.5em;
@@ -769,26 +770,14 @@ body {
   text-transform: unset;
 }
 
-
-input[type=date] {
+/* Styling datepicker input */
+.hasDatepicker {
   background-color: white;
   font-size: 1.5rem;
   padding: 0.4em 0.35em;
-  border: 3px solid var(--clr-primary--900);
+  border: 1px solid var(--clr-primary--900);
   border-radius: var(--br);
   color: var(--clr-primary--900);
-
-  /*
-  color: #222;
-  font: 16px Helvetica, Arial, sans-serif;
-  left: 50%;
-  line-height: 20px;
-  margin: -15px 0 0 -100px;
-  outline: 0;
-  padding: 5px 10px;
-  position: absolute;
-  top: 50%;
-  width: 200px; */
 }
 
 input[type=date]::-webkit-calendar-picker-indicator {
@@ -799,18 +788,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 input[type=date]::-webkit-calendar-picker-indicator:before {
   background-color: orange;
-  /* background: #eee;
-  background: linear-gradient(90deg, #eee, #fff);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 24px;
-  content: '';
-  display: block;
-  height: 22px;
-  left: -2px;
-  position: absolute;
-  top: -5px;
-  width: 22px;
-  z-index: -1; */
+
 }
 
 input[type="date"]:hover::-webkit-calendar-picker-indicator {
