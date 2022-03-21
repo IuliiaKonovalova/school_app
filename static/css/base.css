@@ -359,7 +359,8 @@ body {
 .profile__btn,
 .student__btn,
 .links__btn,
-.label__btn {
+.label__btn,
+.search__btn {
   padding: 0.4em 1em 0.4em 1em;
   border-radius: var(--br);
   font-weight: 900;
@@ -408,7 +409,8 @@ body {
 .profile__edit--btn,
 .student__edit--btn,
 .links__btn--page,
-.profile__back--btn {
+.profile__back--btn,
+.classes__form--btn {
   background-color: var(--clr-accent--900);
   border: 1px solid var(--clr-accent--900);
   margin-right: 0.5em;
@@ -430,7 +432,8 @@ body {
 .profile__edit--btn:hover,
 .student__edit--btn:hover,
 .links__btn--page:hover,
-.profile__back--btn:hover {
+.profile__back--btn:hover,
+.classes__form--btn {
   background-color: var(--clr-accent--800);
 }
 
@@ -549,12 +552,64 @@ body {
   background-color: white;
 }
 
-/* Styling Student Classes Section */
+/* Styling Classes Section */
 .classes {
   margin-top: 2em;
   max-width: 100%;
 }
 
+.classes__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.classes__form--heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  color: var(--clr-primary--900);
+}
+
+.classes__form--settings {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 50rem;
+}
+
+.datepicker__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.datepicker__container--title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--clr-primary--900);
+  margin-right: 0.5em;
+}
+
+.classes__form--btn {
+  font-size: 1.6rem;
+  border-radius: 0.2em;
+  padding: 0.2em 0.35em;
+}
+
+/* Styling datepicker input */
+.hasDatepicker {
+  background-color: white;
+  max-width: 10rem;
+  font-size: 1.5rem;
+  padding: 0.2em 0.35em;
+  border: 1px solid var(--clr-primary--900);
+  border-radius: 0.2em;
+  color: var(--clr-primary--900);
+}
 
 
 
@@ -774,15 +829,6 @@ body {
   text-transform: unset;
 }
 
-/* Styling datepicker input */
-.hasDatepicker {
-  background-color: white;
-  font-size: 1.5rem;
-  padding: 0.4em 0.35em;
-  border: 1px solid var(--clr-primary--900);
-  border-radius: var(--br);
-  color: var(--clr-primary--900);
-}
 
 input[type=date]::-webkit-calendar-picker-indicator {
   cursor: pointer;

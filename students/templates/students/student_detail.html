@@ -143,8 +143,9 @@
     </div>
     {% comment %} Student's Attendence data {% endcomment %}
     <div class="classes">
-      <h3 class="classes__title">Search by date</h3>
+      <h3 class="classes__title">Attendence:</h3>
       <form method="POST" class="classes__form">
+        <h4 class="classes__form--heading">Search classes by date</h4>
         {% csrf_token %}
         <div class="classes__form--settings">
           <div class="datepicker__container">
@@ -155,7 +156,7 @@
             <div class="datepicker__container--title">To:</div>
             <input type="text" id="datepicker2" name="to_date" placeholder="mm-dd-yyyy">
           </div>
-          <input type="submit" value="search" class="classes__form--btn btn">
+          <input type="submit" value="search" class="search__btn classes__form--btn">
         </div>
         <div class="classes__results">
           <div class="classes__results--summary">
