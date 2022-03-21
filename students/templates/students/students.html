@@ -43,8 +43,6 @@
         </div>
       </div>
   {% else %}
-
-
     {% if request.user.role == 0 or request.user.role == 2 %}
     <a href="{% url 'student_add' %}">Add student</a>
     {% endif %}
@@ -57,13 +55,29 @@
     <form method="POST">
       {% csrf_token %}
 
-      <div>
-        <input type="radio" class="" name="classes" value="all" id="all">
-        <label class="btn" for="all">all students</label>
+      <div class="students__sort">
+        <div class="students__sort--item">
 
-        <input type="radio" class="" name="classes" value="urgent" id="urgent">
-        <label class="btn" for="parents">Urgent Call</label>
+          <label class="" for="all">
+          
+            <input type="radio" class="" name="classes" value="all" id="all">
+            <span class="sort__check">
+              <i class="fas fa-user-friends"></i>
+            </span>
 
+          </label>
+          <div>all students</div>
+        </div>
+        <div class="students__sort--item">
+          <label class="" for="urgent">
+        
+            <input type="radio" class="" name="classes" value="urgent" id="urgent">
+              <span class="sort__check">
+                <i class="fas fa-exclamation-circle"></i>
+              </span>
+          </label>
+          <div>urgent call</div>
+        </div>
         <input type="submit" value="Search">
       </div>
       <input type="text" id="search_here" class="from-control" placeholder="type sth">
@@ -75,7 +89,12 @@
           </div>
           <a href="{% url 'student_detail' pk=student.pk %}">Open student data</a>
           {% if student.has_classes_left %}
-          <div>Urgent</div>
+          <div class="label__btn label__btn--name">
+              <div class="student__btn--text">
+                Urgent call
+              </div>
+              <i class="fas fa-exclamation-circle student__btn--icon"></i>
+          </div>
           {% endif %}
         </div>
 
@@ -86,7 +105,4 @@
     {{ students_urgent }}
     {% endif %}
   {% endif %}
-
-
-
 {% endblock %}

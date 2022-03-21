@@ -644,6 +644,47 @@ body {
 }
 
 
+/* Styling students page */
+
+.students__sort label {
+  position: relative;
+}
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+input[type="radio"]+span.sort__check {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.4em;
+}
+
+
+input+span.sort__check {
+  cursor: pointer;
+}
+
+.sort__check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+  background-color: var(--clr-accent--500);
+  color: white;
+}
+
+input[type="radio"]:hover+span.sort__check,
+input[type="radio"]:checked+span.sort__check,
+input[type="radio"]:focus+span.sort__check {
+  transform: scale(1.05);
+  background-color: var(--clr-accent--700);
+
+}
+
 
 
 /* ----- Forms ----- */
