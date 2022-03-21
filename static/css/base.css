@@ -817,7 +817,13 @@ student__form input:placeholder-shown {
 .profile__form label[for='id_new_password1']~div::before,
 .profile__form label[for='id_new_password2']~div::before,
 .student__form label[for='id_first_name']~div::before,
-.student__form label[for='id_last_name']~div::before {
+.student__form label[for='id_last_name']~div::before,
+.student__form label[for='id_parent']~div::before,
+.student__form label[for='id_birthday']~div::before,
+.student__form label[for='id_address']~div::before,
+.student__form label[for='id_classes_left']~div::before,
+.student__form label[for='id_sales_manager']~div::before,
+.student__form label[for='id_notes']~div::before {
   position: absolute;
   top: 0.55rem;
   left: 0.4rem;
@@ -851,6 +857,30 @@ student__form input:placeholder-shown {
 
 .profile__form label[for='id_new_password2']~div::before {
   content: 'Confirm Password:';
+}
+
+.student__form label[for='id_parent']~div::before {
+  content: 'Parents:';
+}
+
+.student__form label[for='id_birthday']~div::before {
+  content: 'Birthday:';
+}
+
+.student__form label[for='id_address']~div::before {
+  content: 'Address:';
+}
+
+.student__form label[for='id_classes_left']~div::before {
+  content: 'Classes Left:';
+}
+
+.student__form label[for='id_sales_manager']~div::before {
+  content: 'Sales Manager:';
+}
+
+.student__form label[for='id_notes']~div::before {
+  content: 'Notes:';
 }
 
 #hint_id_new_password1 ul li {
