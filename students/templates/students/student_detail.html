@@ -156,18 +156,24 @@
             <div class="datepicker__container--title">To:</div>
             <input type="text" id="datepicker2" name="to_date" placeholder="mm-dd-yyyy">
           </div>
-          <input type="submit" value="search" class="search__btn classes__form--btn">
+          <button type="submit" value="search" class="search__btn classes__form--btn">
+            <div class=" profile__btn--text">Search</div>
+            <i class="fas fa-search  profile__btn--icon"></i>
+          </button>
         </div>
         <div class="classes__results">
           <div class="classes__results--summary">
-            {{ lessons|length }} sales found
+            <strong>{{ lessons|length }}</strong> sales found
           </div>
           <div class="classes__results--container">
             {% for lesson in lessons %}
               <div class="classes__results--item">
-                <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-                  <div>{{ lesson.date|date:'m/d/Y' }}</div>
-                  <div>{{ lesson.get_subject }}</div>
+                <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="links__btn links__btn--name links__btn--classes">
+                  <div class="profile__btn--text">
+                    <div >{{ lesson.date|date:'m/d/Y' }}</div>
+                    <div>{{ lesson.get_subject }}</div>
+                  </div>
+                  <i class="fas fa-external-link-alt profile__btn--icon"></i>
                 </a>
               </div>
             {% endfor %}

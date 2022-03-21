@@ -433,7 +433,7 @@ body {
 .student__edit--btn:hover,
 .links__btn--page:hover,
 .profile__back--btn:hover,
-.classes__form--btn {
+.classes__form--btn:hover {
   background-color: var(--clr-accent--800);
 }
 
@@ -576,15 +576,16 @@ body {
 .classes__form--settings {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
   width: 100%;
-  max-width: 50rem;
+  max-width: 42rem;
+  margin-bottom: 0.5em;
 }
 
 .datepicker__container {
   width: 100%;
   display: flex;
   align-items: center;
+  margin-right: 1em;
 }
 
 .datepicker__container--title {
@@ -595,12 +596,10 @@ body {
 }
 
 .classes__form--btn {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   border-radius: 0.2em;
-  padding: 0.2em 0.35em;
 }
 
-/* Styling datepicker input */
 .hasDatepicker {
   background-color: white;
   max-width: 10rem;
@@ -610,6 +609,36 @@ body {
   border-radius: 0.2em;
   color: var(--clr-primary--900);
 }
+
+.classes__results {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.classes__results--summary {
+  margin-bottom: 0.5em;
+}
+
+.classes__results--container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.5rem;
+}
+
+.classes__results--item {
+  justify-self: stretch;
+}
+
+.links__btn--classes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 
 
 
