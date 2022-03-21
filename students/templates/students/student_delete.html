@@ -24,14 +24,14 @@
             <div>This student will permanently deleted from database.</div>
           </div>
           <div class="student__buttons">
-            {% comment %} Go back to user profile page {% endcomment %}
+            {% comment %} Go back to student profile page {% endcomment %}
             <a href="{% url 'student_detail' pk=student.pk %}"
               class="student__buttons--btn student__btn student__back--btn">
               <div class="student__btn--text">Go back
               </div>
               <i class="far fa-window-close  student__btn--icon"></i>
             </a>
-            {% comment %} Submit profile changes button {% endcomment %}
+            {% comment %} Submit student changes button {% endcomment %}
             <button type="submit" class="student__buttons--btn student__btn student__confirm--btn">
               <div class="student__btn--text">Submit</div>
               <i class="fas fa-trash-alt student__btn--icon"></i>

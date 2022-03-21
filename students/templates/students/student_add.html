@@ -1,46 +1,74 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block content %}
+{% block extra_js %}
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('select').addClass('js-example-basic-single');
 
-{% if request.user.role == 0 or request.user.role == 2 %}
-
-
-<form method="POST">
-  {% csrf_token %}
-  {{ form|crispy }}
-  <button type="submit">Submit</button>
-
-</form>
-
-{% else %}
-<p>You are not authorized to view this page</p>
-{% endif %}
-
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script>
-  $(document).ready(function () {
-    $('select').addClass('js-example-basic-single');
-
-    $('.js-example-basic-single').select2({
-      placeholder: 'Type name to search',
+      $('.js-example-basic-single').select2({
+        placeholder: 'Type name to search',
+      });
+      $('#div_id_assigned_to').css('width', '100%');
+      $('.select2').css('width', '100%');
     });
-    $('#div_id_assigned_to').css('width', '100%');
-    $('.select2').css('width', '100%');
-  });
-  $(function () {
-    $("#id_birthday").datepicker();
-  });
+    $(function () {
+      $("#id_birthday").datepicker();
+    });
+  </script>
+{% endblock%}
 
+{% block content %}
+  {% comment %} Add student page with limited access {% endcomment %}
+  {% if request.user.role == 0 or request.user.role == 2 %}
+    <div class="student">
+      <div class="student__form--container">
+        <h2 class="student__form--title">Add Student</h2>
 
+        <form method="POST" class="student__form">
+          {% csrf_token %}
+          {{ form|crispy }}
+          <div class="student__buttons">
+            {% comment %} Go back to students page {% endcomment %}
+            <a href="{% url 'students' %}"
+              class="student__buttons--btn student__btn student__back--btn">
+              <div class="student__btn--text">Go back
+              </div>
+              <i class="far fa-window-close  student__btn--icon"></i>
+            </a>
+            {% comment %} Submit student changes button {% endcomment %}
+            <button type="submit" class="student__buttons--btn student__btn student__confirm--btn">
+              <div class="student__btn--text">Submit</div>
+              <i class="fas fa-trash-alt student__btn--icon"></i>
+            </button>
+          </div>
 
+        </form>
+      </div>
+    </div>
 
-
-</script>
-
-
+  {% else %}
+    {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
+    <div class="access">
+      <div class="access__error">
+        <div class="access__error--image">
+          <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
+        </div>
+        <p class="access__error--text">You are not authorized to view this page!</p>
+        <div class="links">
+          <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
+            <div class="profile__btn--text">
+              Back to your profile
+            </div>
+            <i class="fas fa-external-link-alt profile__btn--icon"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  {% endif %}
 {% endblock %}
