@@ -1,71 +1,92 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_js %}
+  <script>
+    const input = document.getElementById('search_here')
+    console.log(input)
+
+    const search = (e) => {
+      let members = document.querySelectorAll('.student')
+      members.forEach(element => {
+        element.style.display = "none"
+      });
+      let searchData = input.value
+      members.forEach(element => {
+        if (element.innerText.includes(searchData)) {
+          element.style.display = "block"
+        }
+      });
+    }
+    input.addEventListener("keyup", search)
+  </script>
+{% endblock %}
+
 {% block content %}
-<h2>All students</h2>
-{% if request.user.role != 4 or request.user.role != 5 %}
-{% if request.user.role == 0 or request.user.role == 2 %}
-<a href="{% url 'student_add' %}">Add student</a>
-{% endif %}
-
-{% if students.count == 0 %}
-
-<p>No students in database</p>
-
-{% else %}
-<form method="POST">
-  {% csrf_token %}
-
-  <div>
-    <input type="radio" class="" name="classes" value="all" id="all">
-    <label class="btn" for="all">all students</label>
-
-    <input type="radio" class="" name="classes" value="urgent" id="urgent">
-    <label class="btn" for="parents">Urgent Call</label>
-
-    <input type="submit" value="Search">
-  </div>
-  <input type="text" id="search_here" class="from-control" placeholder="type sth">
-  <div id="box">
-    {% for student in students %}
-    <div class="student">
-      <div>
-        {{ student.first_name }} {{ student.last_name }}
+  <h2>All students</h2>
+  {% if request.user.role == 4 or request.user.role == 5 %}
+  {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
+      <div class="access">
+        <div class="access__error">
+          <div class="access__error--image">
+            <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
+          </div>
+          <p class="access__error--text">You are not authorized to view this page!</p>
+          <div class="links">
+            <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
+              <div class="profile__btn--text">
+                Back to your profile
+              </div>
+              <i class="fas fa-external-link-alt profile__btn--icon"></i>
+            </a>
+          </div>
+        </div>
       </div>
-      <a href="{% url 'student_detail' pk=student.pk %}">Open student data</a>
-      {% if student.has_classes_left %}
-      <div>Urgent</div>
-      {% endif %}
-    </div>
+  {% else %}
 
 
-    {% endfor %}
-  </div>
-</form>
-{{ students_urgent }}
-{% endif %}
+    {% if request.user.role == 0 or request.user.role == 2 %}
+    <a href="{% url 'student_add' %}">Add student</a>
+    {% endif %}
 
-{% else %}
-<p>You are not authorized to view this page</p>
-{% endif %}
+    {% if students.count == 0 %}
 
-<script>
-  const input = document.getElementById('search_here')
-  console.log(input)
+    <p>No students in database</p>
 
-  const search = (e) => {
-    let members = document.querySelectorAll('.student')
-    members.forEach(element => {
-      element.style.display = "none"
-    });
-    let searchData = input.value
-    members.forEach(element => {
-      if (element.innerText.includes(searchData)) {
-        element.style.display = "block"
-      }
-    });
-  }
-  input.addEventListener("keyup", search)
-</script>
+    {% else %}
+    <form method="POST">
+      {% csrf_token %}
+
+      <div>
+        <input type="radio" class="" name="classes" value="all" id="all">
+        <label class="btn" for="all">all students</label>
+
+        <input type="radio" class="" name="classes" value="urgent" id="urgent">
+        <label class="btn" for="parents">Urgent Call</label>
+
+        <input type="submit" value="Search">
+      </div>
+      <input type="text" id="search_here" class="from-control" placeholder="type sth">
+      <div id="box">
+        {% for student in students %}
+        <div class="student">
+          <div>
+            {{ student.first_name }} {{ student.last_name }}
+          </div>
+          <a href="{% url 'student_detail' pk=student.pk %}">Open student data</a>
+          {% if student.has_classes_left %}
+          <div>Urgent</div>
+          {% endif %}
+        </div>
+
+
+        {% endfor %}
+      </div>
+    </form>
+    {{ students_urgent }}
+    {% endif %}
+  {% endif %}
+
+
 
 {% endblock %}
