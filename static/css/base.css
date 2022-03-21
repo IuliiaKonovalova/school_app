@@ -759,6 +759,17 @@ body {
   font-size: 1.2rem;
 }
 
+
+
+
+
+
+
+
+
+
+
+
 .profile__form input,
 .student__form input {
   margin-bottom: 0.5em;
@@ -778,7 +789,7 @@ student__form input:focus {
 
 .account input::placeholder,
 .profile__form input::placeholder,
-student__form input::placeholder {
+.student__form input::placeholder {
   color: #001c828f;
   font-size: 1.2rem;
   letter-spacing: 0.13rem;
@@ -881,6 +892,67 @@ student__form input:placeholder-shown {
 
 .student__form label[for='id_notes']~div::before {
   content: 'Notes:';
+}
+
+
+/* Forms Select */
+.select2-container--default .select2-selection--single {
+  background-color: #fff;
+  border: 1px solid #aaa;
+}
+
+
+.select2-container--default .select2-search--inline .select2-search__field {
+  color: var(--clr-primary--900);
+  padding: 2em;
+}
+
+.student__form .select2-container--default .select2-selection--multiple {
+  cursor: text;
+  position: relative;
+  border: 1px solid #ffffff8c;
+  border-radius: var(--br);
+  padding: 0.4em 1em 0.6em 1em;
+  min-width: 25rem;
+  margin: 1em 0;
+  background-color: #ffffff;
+  font-size: 1.2rem;
+  color: #001d82;
+  margin-bottom: 0.5em;
+}
+
+.select2-results {
+  margin: 0.5em;
+}
+
+.select2-results__options {
+  cursor: pointer;
+  background-color: white;
+  color: var(--clr-neutral--900);
+  border: none;
+}
+
+.select2-selection__choice {
+  background-color: red;
+}
+
+button.select2-selection__choice__remove {
+  margin: unset;
+  border: none;
+}
+
+.select2-selection__choice__display {
+  color: #040911;
+  border: none;
+}
+
+.select2-results__option.select2-results__option--selectable.select2-results__option--selected.select2-results__option--highlighted {
+  background-color: var(--clr-accent--700);
+}
+
+.select2-results__option.select2-results__option--selectable.select2-results__option--selected {
+  background-color: white;
+  color: var(--clr-neutral--900);
 }
 
 #hint_id_new_password1 ul li {
