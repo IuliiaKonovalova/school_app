@@ -15,9 +15,9 @@
 </form>
 
 {% else %}
+{% comment %} Access limitation for potentail clients and other parents {% endcomment %}
 <div class="access">
   <div class="access__error">
-
     <div class="access__error--image">
       <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
     </div>
