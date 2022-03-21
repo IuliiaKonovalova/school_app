@@ -706,7 +706,8 @@ body {
   margin-top: 0.5em;
 }
 
-.profile__form--suggestions {
+.profile__form--suggestions,
+.student__form--suggestions {
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -715,7 +716,8 @@ body {
   text-align: center;
 }
 
-.profile__form--suggestions .links {
+.profile__form--suggestions .links,
+.student__form--suggestions .links {
   width: 100%;
   margin: 0.7em auto;
   display: flex;

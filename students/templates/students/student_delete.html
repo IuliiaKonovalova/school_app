@@ -2,24 +2,44 @@
 {% load static %}
 
 {% block content %}
+  {% comment %} Limit access to student deletion page {% endcomment %}
   {% if request.user.role == 0 or request.user.role == 2 %}
-    <h2>
-      Delete Student
-    </h2>
-
-    <form method="POST">
-      {% csrf_token %}
-
-      <div>Are you sure you want to delete this student: </div>
-      <div> {{ student.first_name }} {{ student.last_name}} ?</div>
-      <div>This student will permanently deleted from database.</div>
+    <div class="student">
+      <div class="student__form--container">
+        <h2 class="student__form--title">Delete Student's data</h2>
+        {% comment %} Delete student profile Form {% endcomment %}
+        <form method="POST" class="student__form">
+          {% csrf_token %}
+          <div class="student__form--suggestions">
+            <div>Are you sure you want to delete this student? </div>
+            <div class="links">
+              <a href="{% url 'student_detail' pk=student.pk %}"
+                class="links__btn links__btn--content links__btn--name">
+                <div class="student__btn--text">
+                  {{ student.first_name }} {{ student.last_name}}
+                </div>
+                <i class="fas fa-external-link-alt student__btn--icon"></i>
+              </a>
+            </div>
+            <div>This student will permanently deleted from database.</div>
+          </div>
+          <div class="student__buttons">
+            {% comment %} Go back to user profile page {% endcomment %}
+            <a href="{% url 'student_detail' pk=student.pk %}"
+              class="student__buttons--btn student__btn student__back--btn">
+              <div class="student__btn--text">Go back
+              </div>
+              <i class="far fa-window-close  student__btn--icon"></i>
+            </a>
+            {% comment %} Submit profile changes button {% endcomment %}
+            <button type="submit" class="student__buttons--btn student__btn student__confirm--btn">
+              <div class="student__btn--text">Submit</div>
+              <i class="fas fa-trash-alt student__btn--icon"></i>
+            </button>
+          </div>
+        </form>
       </div>
-      <div>
-        <a href="{% url 'student_detail' pk=student.pk %}">Go
-          back</a>
-        <button type="submit" name="delete">Delete</button>
-      </div>
-    </form>
+    </div>
   {% else %}
     {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
     <div class="access">
