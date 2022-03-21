@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+  {% comment %} Access to the form only for the user {% endcomment %}
   {% if user_profile == request.user %}
     <div class="profile">
       <div class="profile__form--container">
@@ -28,7 +29,7 @@
       </div>
     </div>
   {% else %}
-    {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
+    {% comment %} Access limitation for all users accept the user {% endcomment %}
     <div class="access">
       <div class="access__error">
         <div class="access__error--image">
