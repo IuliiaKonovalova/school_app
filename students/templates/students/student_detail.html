@@ -144,24 +144,31 @@
     {% comment %} Student's Attendence data {% endcomment %}
     <div class="classes">
       <h3 class="classes__title">Search by date</h3>
-      <form method="POST">
+      <form method="POST" class="classes__form">
         {% csrf_token %}
-        From: <input type="text" id="datepicker1" name="from_date" placeholder="mm-dd-yyyy">
-        To: <input type="text" id="datepicker2" name="to_date" placeholder="mm-dd-yyyy">
-        <input type="submit" value="search">
-        <div class="lessons">
-
-          <div>
+        <div class="classes__form--settings">
+          <div class="datepicker__container">
+            <div class="datepicker__container--title">From:</div>
+            <input type="text" id="datepicker1" name="from_date" placeholder="mm-dd-yyyy">
+          </div>
+          <div  class="datepicker__container">
+            <div class="datepicker__container--title">To:</div>
+            <input type="text" id="datepicker2" name="to_date" placeholder="mm-dd-yyyy">
+          </div>
+          <input type="submit" value="search" class="classes__form--btn btn">
+        </div>
+        <div class="classes__results">
+          <div class="classes__results--summary">
             {{ lessons|length }} sales found
           </div>
-          <div>
+          <div class="classes__results--container">
             {% for lesson in lessons %}
-            <div>
-              <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-                {{ lesson.date|date:'m/d/Y' }}
-                {{ lesson.get_subject }}
-              </a>
-            </div>
+              <div class="classes__results--item">
+                <a href="{% url 'lesson_detail' pk=lesson.pk %}">
+                  <div>{{ lesson.date|date:'m/d/Y' }}</div>
+                  <div>{{ lesson.get_subject }}</div>
+                </a>
+              </div>
             {% endfor %}
           </div>
         </div>

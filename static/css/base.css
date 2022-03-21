@@ -320,9 +320,10 @@ body {
 
 
 
-/* ----- Profile ----- */
+/* ----- Main Content ----- */
 .profile,
 .student,
+.access,
 .classes {
   background-color: var(--clr-primary--300);
   max-width: 50rem;
@@ -337,10 +338,7 @@ body {
   position: relative;
 }
 
-.classes {
-  margin-top: 2em;
-  max-width: 100%;
-}
+/* Profile */
 
 /* Profile buttons */
 .profile__delete {
@@ -357,6 +355,7 @@ body {
   display: flex;
 }
 
+/* Buttons */
 .profile__btn,
 .student__btn,
 .links__btn,
@@ -550,6 +549,11 @@ body {
   background-color: white;
 }
 
+/* Styling Student Classes Section */
+.classes {
+  margin-top: 2em;
+  max-width: 100%;
+}
 
 
 
