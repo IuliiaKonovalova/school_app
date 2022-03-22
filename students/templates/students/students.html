@@ -43,8 +43,13 @@
     <form method="POST" class="students__form">
 
       {% csrf_token %}
-      <input type="text" id="student-search_here" class="from-control" placeholder="Type a name">
-      <div class="students__sort--instructions">
+      <div class="students__search">
+        <input type="text" id="student-search_here" class="from-control" placeholder="Type a name">
+        <div value="search" class="search__btn students__undo--btn" id="students-search-undo">
+          <i class="fas fa-undo-alt  profile__btn--icon"></i>
+        </div>
+      </div>
+      <div class="students__search--instructions">
         <strong>* </strong>Remember: search is case-insensitive
       </div>
       <div class="students__sort">
@@ -80,7 +85,7 @@
     </div>
       <div id="box">
         {% for student in students %}
-        <div class="student">
+        <div class="students__student">
           <div>
             {{ student.first_name }} {{ student.last_name }}
           </div>

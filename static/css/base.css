@@ -688,6 +688,28 @@ body {
   justify-content: center;
 }
 
+.students__search {
+  position: relative;
+}
+
+.students__undo--btn {
+  background-color: var(--clr-primary--900);
+  color: white;
+  font-weight: 900;
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  top: 2.2rem;
+  right: 0.4rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.students__undo--btn:hover {
+  background-color: #0230d6;
+}
+
 .students__search--instructions,
 .students__sort--instructions {
   font-size: 1.2rem;

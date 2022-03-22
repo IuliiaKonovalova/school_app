@@ -8,6 +8,7 @@ const addNewProject = document.getElementById("add__project");
 const projectOptions = document.getElementById("project__options");
 const addProjectIcon = document.getElementById("add-project-icon");
 const studentSearchInput = document.getElementById('student-search_here');
+const undoSearchStudent = document.getElementById("students-search-undo");
 
 // On load
 document.addEventListener("DOMContentLoaded", function () {
@@ -45,14 +46,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Search for students
 const searchStudent = (e) => {
-  let students = document.querySelectorAll('.student')
+  let students = document.querySelectorAll('.students__student')
   students.forEach(element => {
-    element.style.display = "none"
+    element.style.display = "none";
   });
-  let searchStudentsData = studentSearchInput.value
+  let searchStudentsData = studentSearchInput.value;
   students.forEach(element => {
     if (element.innerText.includes(searchStudentsData)) {
-      element.style.display = "block"
+      element.style.display = "block";
     }
   });
+
+  // Show undo search button if there is a search
+  undoSearchStudent.style.display = "flex";
+  // Hide undo search button if there is no search
+  if (searchStudentsData == "") {
+    undoSearchStudent.style.display = "none";
+  } else {
+    // Reset search input
+    undoSearchStudent.addEventListener("click", function() {
+      // Clear input, hide undo button, and show all students 
+      studentSearchInput.value = "";
+      undoSearchStudent.style.display = "none";
+      searchStudent();
+    });
+  }
 }
