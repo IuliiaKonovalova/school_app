@@ -2,186 +2,205 @@
 {% load static %}
 
 {% block content %}
-  <div class="profile">
-    {% comment %} Delete member button with limited access only for bosses {% endcomment %}
-    {% if request.user.role == 0 %}
-      <div class="profile__delete">
-        <a href="{% url 'delete_member' username=user_profile.username %}" class="profile__btn profile__delete--btn">
-          <div class="profile__btn--text">Delete</div>
-          <i class="fas fa-trash-alt profile__btn--icon"></i>
-        </a>
-      </div>
-    {% endif %}
-    {% comment %} Render profile options if user is in their account {% endcomment %}
-    {% if user_profile == request.user %}
-      <div class="profile__edit">
-        <a href="{% url 'user_profile_edit' username=request.user %}" class="profile__btn profile__edit--btn">
-          <div class=" profile__btn--text">Edit
+  {% if user.is_authenticated %}
+    <div class="profile">
+      {% comment %} Delete member button with limited access only for bosses {% endcomment %}
+      {% if request.user.role == 0 %}
+        <div class="profile__delete">
+          <a href="{% url 'delete_member' username=user_profile.username %}" class="profile__btn profile__delete--btn">
+            <div class="profile__btn--text">Delete</div>
+            <i class="fas fa-trash-alt profile__btn--icon"></i>
+          </a>
+        </div>
+      {% endif %}
+      {% comment %} Render profile options if user is in their account {% endcomment %}
+      {% if user_profile == request.user %}
+        <div class="profile__edit">
+          <a href="{% url 'user_profile_edit' username=request.user %}" class="profile__btn profile__edit--btn">
+            <div class=" profile__btn--text">Edit
+            </div>
+            <i class="fas fa-edit  profile__btn--icon"></i>
+          </a>
+          <a href="{% url 'user_profile_change_password' username=request.user %}"
+            class="profile__btn profile__password--btn">
+            <div class=" profile__btn--text">Password
+            </div>
+            <i class="fas fa-unlock-alt profile__btn--icon"></i>
+          </a>
+        </div>
+
+        <h2 class="profile__title">Your Profile:</h2>
+
+      {% else %}
+        <h2 class="profile__title">User's Profile:</h2>
+      {% endif %}
+
+      {% if user_profile.role == 0 %}
+      <div class="profile__role">(Admin)</div>
+      {% elif user_profile.role == 1 %}
+      <div class="profile__role">(Teacher)</div>
+      {% elif user_profile.role == 2 %}
+      <div class="profile__role">(Sales Manager)</div>
+      {% elif user_profile.role == 3 %}
+      <div class="profile__role">(Receptionist)</div>
+      {% elif user_profile.role == 4 %}
+      <div class="profile__role">(Parent)</div>
+      {% endif %}
+
+      <div class="profile__info">
+        <div class="profile__data">
+          <div class="profile__data--heading">Full name:</div>
+          <div class="profile__data--info">
+            {{ user_profile.first_name }} {{ user_profile.last_name }}
           </div>
-          <i class="fas fa-edit  profile__btn--icon"></i>
-        </a>
-        <a href="{% url 'user_profile_change_password' username=request.user %}"
-          class="profile__btn profile__password--btn">
-          <div class=" profile__btn--text">Password
+        </div>
+
+        <div class="profile__data">
+          <div class="profile__data--heading">Phone number:</div>
+          <div class="profile__data--info">
+            {{ user_profile.phone }}
           </div>
-          <i class="fas fa-unlock-alt profile__btn--icon"></i>
-        </a>
-      </div>
+        </div>
 
-      <h2 class="profile__title">Your Profile:</h2>
-
-    {% else %}
-      <h2 class="profile__title">User's Profile:</h2>
-    {% endif %}
-
-    {% if user_profile.role == 0 %}
-    <div class="profile__role">(Admin)</div>
-    {% elif user_profile.role == 1 %}
-    <div class="profile__role">(Teacher)</div>
-    {% elif user_profile.role == 2 %}
-    <div class="profile__role">(Sales Manager)</div>
-    {% elif user_profile.role == 3 %}
-    <div class="profile__role">(Receptionist)</div>
-    {% elif user_profile.role == 4 %}
-    <div class="profile__role">(Parent)</div>
-    {% endif %}
-
-    <div class="profile__info">
-      <div class="profile__data">
-        <div class="profile__data--heading">Full name:</div>
-        <div class="profile__data--info">
-          {{ user_profile.first_name }} {{ user_profile.last_name }}
+        <div class="profile__data">
+          <div class="profile__data--heading">Email:</div>
+          <div class="profile__data--info">
+            {{ user_profile.email }}
+          </div>
         </div>
       </div>
+      {% comment %} Profile additional Data for Teacher's profile {% endcomment %}
+      {% if user_profile.role == 1 %}
+        <h4>Lessons:</h4>
 
-      <div class="profile__data">
-        <div class="profile__data--heading">Phone number:</div>
-        <div class="profile__data--info">
-          {{ user_profile.phone }}
-        </div>
-      </div>
+        <h3>Search by date</h3>
+        <form method="POST">
+          {% csrf_token %}
+          From: <input type="date" name="from_date">
+          To: <input type="date" name="to_date">
+          <input type="submit" value="search">
+          <div class="lessons">
 
-      <div class="profile__data">
-        <div class="profile__data--heading">Email:</div>
-        <div class="profile__data--info">
-          {{ user_profile.email }}
-        </div>
-      </div>
-    </div>
-    {% comment %} Profile additional Data for Teacher's profile {% endcomment %}
-    {% if user_profile.role == 1 %}
-      <h4>Lessons:</h4>
-
-      <h3>Search by date</h3>
-      <form method="POST">
-        {% csrf_token %}
-        From: <input type="date" name="from_date">
-        To: <input type="date" name="to_date">
-        <input type="submit" value="search">
-        <div class="lessons">
-
-          <div>
-            {{ lessons|length }} sales found
-          </div>
-
-          {% for lesson in lessons %}
             <div>
-              <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-                {{ lesson.date|date:'m/d/Y' }}
-                {{ lesson.get_subject }}
-              </a>
+              {{ lessons|length }} sales found
+            </div>
+
+            {% for lesson in lessons %}
+              <div>
+                <a href="{% url 'lesson_detail' pk=lesson.pk %}">
+                  {{ lesson.date|date:'m/d/Y' }}
+                  {{ lesson.get_subject }}
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+        </form>
+      {% endif %}
+      {% comment %} Profile additional Data for Sales Manager's profile {% endcomment %}
+      {% if user_profile.role == 2 %}
+        <h3 class="profile__students">Students:</h3>
+        <div class="profile__students--amount">In charge of <strong>{{ children|length }}</strong> students</div>
+        <div class="profile__students--data">
+          {% for child in children %}
+            <div class="profile__student--data">
+              <div class="links">
+                <a href="{% url 'student_detail' pk=child.pk%}" class="links__btn links__btn--name">
+                  <div class="profile__btn--text">
+                    {{ child.first_name }} {{ child.last_name }}
+                  </div>
+                  <i class="fas fa-external-link-alt profile__btn--icon"></i>
+                </a>
+              </div>
             </div>
           {% endfor %}
         </div>
-      </form>
-    {% endif %}
-    {% comment %} Profile additional Data for Sales Manager's profile {% endcomment %}
-    {% if user_profile.role == 2 %}
-      <h3 class="profile__students">Students:</h3>
-      <div class="profile__students--amount">In charge of <strong>{{ children|length }}</strong> students</div>
-      <div class="profile__students--data">
-        {% for child in children %}
-          <div class="profile__student--data">
-            <div class="links">
-              <a href="{% url 'student_detail' pk=child.pk%}" class="links__btn links__btn--name">
-                <div class="profile__btn--text">
-                  {{ child.first_name }} {{ child.last_name }}
-                </div>
-                <i class="fas fa-external-link-alt profile__btn--icon"></i>
-              </a>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-      <h3 class="profile__sales">Sales made:</h3>
-      <div class="profile__sales--amount">In charge of <strong>{{ sales|length }}</strong> students</div>
-      <div class="links">
-        <a href="{% url 'sales_list' %}" class="links__btn links__btn--page">
-          <div class="profile__btn--text">Open sales</div>
-          <i class="fas fa-external-link-alt profile__btn--icon"></i>
-        </a>
-      </div>
-      <div class="profile__sales--data">
-        {% for sale in sales %}
-          <div class="profile__student--data">
-            <div class="links">
-              <div class="links__btn links__btn--name">
-                <div class="profile__data--text">
-                  {{ sale.date|date:'m/d/Y' }}
-                  <br>
-                  ({{ sale.amount }} classes)
+        <h3 class="profile__sales">Sales made:</h3>
+        <div class="profile__sales--amount">In charge of <strong>{{ sales|length }}</strong> students</div>
+        <div class="links">
+          <a href="{% url 'sales_list' %}" class="links__btn links__btn--page">
+            <div class="profile__btn--text">Open sales</div>
+            <i class="fas fa-external-link-alt profile__btn--icon"></i>
+          </a>
+        </div>
+        <div class="profile__sales--data">
+          {% for sale in sales %}
+            <div class="profile__student--data">
+              <div class="links">
+                <div class="links__btn links__btn--name">
+                  <div class="profile__data--text">
+                    {{ sale.date|date:'m/d/Y' }}
+                    <br>
+                    ({{ sale.amount }} classes)
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        {% endfor %}
-      </div>
-    {% endif %}
-    {% comment %} Profile additional Data for Parent's profile {% endcomment %}
-    {% if user_profile.role == 4 %}
-      <h3 class="profile__children">Children:</h3>
-      <div class="profile__children--data">
-        {% for child in children %}
-          <div class="profile__child--data">
-            <div class="links">
-              <a href="{% url 'student_detail' pk=child.pk%}" class="links__btn links__btn--name">
-                <div class="profile__btn--text">
-                  {{ child.first_name }} {{ child.last_name }}
-                </div>
-                <i class="fas fa-external-link-alt profile__btn--icon"></i>
-              </a>
-            </div>
-            <div class="profile__relation">
-              <div class="profile__relation--status" id="profile__relation--status">
-                ( {{ relation|title }} )
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% comment %} Profile additional Data for Parent's profile {% endcomment %}
+      {% if user_profile.role == 4 %}
+        <h3 class="profile__children">Children:</h3>
+        <div class="profile__children--data">
+          {% for child in children %}
+            <div class="profile__child--data">
+              <div class="links">
+                <a href="{% url 'student_detail' pk=child.pk%}" class="links__btn links__btn--name">
+                  <div class="profile__btn--text">
+                    {{ child.first_name }} {{ child.last_name }}
+                  </div>
+                  <i class="fas fa-external-link-alt profile__btn--icon"></i>
+                </a>
               </div>
-              {% if user_profile == request.user %}
-                <div class="add__relation">
-                  <button id="add_relation" class="profile__btn profile__edit--btn">
-                    <div class=" profile__btn--text">Edit
-                    </div>
-                    <i class="fas fa-edit  profile__btn--icon"></i>
-                  </button>
-                  <select id="relation_select" style="display: none;" class="profile__select">
-                    <option value="1">Father</option>
-                    <option value="2">Mother</option>
-                    <option value="3">Grandfather</option>
-                    <option value="4">Grandmother</option>
-                    <option value="5">Other</option>
-                  </select>
-                  <button id="add_relation_btn" style="display: none;" class="profile__btn profile__delete--btn">
-                    <div class=" profile__btn--text">Save</div>
-                    <i class="far fa-save  profile__btn--icon"></i>
-                  </button>
+              <div class="profile__relation">
+                <div class="profile__relation--status" id="profile__relation--status">
+                  ( {{ relation|title }} )
                 </div>
-              {% endif %}
+                {% if user_profile == request.user %}
+                  <div class="add__relation">
+                    <button id="add_relation" class="profile__btn profile__edit--btn">
+                      <div class=" profile__btn--text">Edit
+                      </div>
+                      <i class="fas fa-edit  profile__btn--icon"></i>
+                    </button>
+                    <select id="relation_select" style="display: none;" class="profile__select">
+                      <option value="1">Father</option>
+                      <option value="2">Mother</option>
+                      <option value="3">Grandfather</option>
+                      <option value="4">Grandmother</option>
+                      <option value="5">Other</option>
+                    </select>
+                    <button id="add_relation_btn" style="display: none;" class="profile__btn profile__delete--btn">
+                      <div class=" profile__btn--text">Save</div>
+                      <i class="far fa-save  profile__btn--icon"></i>
+                    </button>
+                  </div>
+                {% endif %}
+              </div>
             </div>
-          </div>
-        {% endfor %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  {% else %}
+    {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
+    <div class="access">
+      <div class="access__error">
+        <div class="access__error--image">
+          <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
+        </div>
+        <p class="access__error--text">You are not authorized to view this page!</p>
+        <div class="links">
+          <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
+            <div class="profile__btn--text">
+              Back to your profile
+            </div>
+            <i class="fas fa-external-link-alt profile__btn--icon"></i>
+          </a>
+        </div>
       </div>
-    {% endif %}
-  </div>
-
+    </div>
+  {% endif %}
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
