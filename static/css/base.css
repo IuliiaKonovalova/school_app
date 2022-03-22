@@ -797,8 +797,6 @@ input[type="radio"]:focus+span.sort__check {
 }
 
 .students__results--item a {
-  /* align-self: center;
-  justify-self: center; */
   font-size: 1.7rem;
 }
 

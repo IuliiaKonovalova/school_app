@@ -1,10 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_js %}
-
-{% endblock %}
-
 {% block content %}
   
   {% if request.user.role == 4 or request.user.role == 5 %}
