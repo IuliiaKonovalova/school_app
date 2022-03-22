@@ -26,23 +26,24 @@
         </div>
       </div>
   {% else %}
-  {% comment %} Students search page with limited access only for school staff {% endcomment %}
-    {% if request.user.role == 0 or request.user.role == 2 %}
+    {% comment %} Students search page with limited access only for school staff {% endcomment %}
     <div class=students>
-      <div class="students__header">
-        <h2 class="students__title">All students:</h2>
-        <a href="{% url 'student_add' %}" class="student__btn student__add--btn students__btn">
-          <div class="student__btn--text">
-            Add new student
-          </div>
-          <i class="fas fa-plus-circle student__btn--icon"></i>
-        </a>
-      </div>
-    {% endif %}
-
+      {% if request.user.role == 0 or request.user.role == 2 %}
+        {% comment %} Limit access for adding student only for bosses and sales managers {% endcomment %}
+        <div class="students__header">
+          <h2 class="students__title">All students:</h2>
+          <a href="{% url 'student_add' %}" class="student__btn student__add--btn students__btn">
+            <div class="student__btn--text">
+              Add new student
+            </div>
+            <i class="fas fa-plus-circle student__btn--icon"></i>
+          </a>
+        </div>
+      {% endif %}
+    {% comment %} Search and sort students form {% endcomment %}
     <form method="POST" class="students__form">
-
       {% csrf_token %}
+      {% comment %} Students Search by name {% endcomment %}
       <div class="students__search">
         <input type="text" id="student-search_here" class="from-control" placeholder="Type a name">
         <div value="search" class="search__btn students__undo--btn" id="students-search-undo">
@@ -50,8 +51,9 @@
         </div>
       </div>
       <div class="students__search--instructions">
-        <strong>* </strong>Remember: search is case-insensitive
+        <strong>* </strong>Remember: search is case-insensitive.
       </div>
+      {% comment %} Students Sort by urgent call {% endcomment %}
       <div class="students__sort">
         <div class="students__sort--item">
           <label class="" for="all">
@@ -71,18 +73,18 @@
           </label>
           <div class="students__sort--name">urgent call</div>
         </div>
-
         <button type="submit" value="search" class="search__btn students__search--btn">
             <div class=" profile__btn--text">Search</div>
             <i class="fas fa-search  profile__btn--icon"></i>
         </button>
       </div>
       <div class="students__sort--instructions">
-        <strong>*</strong> Select icon to sort students and click search
+        <strong>* </strong>Select icon to sort students and click search.
       </div>
-          <div>
-      {{ students|length }} students found
-    </div>
+
+      <div class="students__summary">
+        {{ students|length }} students found
+      </div>
       <div id="box">
         {% for student in students %}
         <div class="students__student">

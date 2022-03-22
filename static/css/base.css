@@ -779,6 +779,14 @@ input[type="radio"]:focus+span.sort__check {
   font-weight: 700;
 }
 
+.students__summary {
+  margin: 1em 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 /* ----- Forms ----- */
