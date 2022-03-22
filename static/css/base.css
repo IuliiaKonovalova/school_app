@@ -414,7 +414,8 @@ body {
 .links__btn--page,
 .profile__back--btn,
 .classes__form--btn,
-.student__back--btn {
+.student__back--btn,
+.students__search--btn {
   background-color: var(--clr-accent--900);
   border: 1px solid var(--clr-accent--900);
   margin-right: 0.5em;
@@ -440,7 +441,8 @@ body {
 .links__btn--page:hover,
 .profile__back--btn:hover,
 .classes__form--btn:hover,
-.student__back--btn:hover {
+.student__back--btn:hover,
+.students__search--btn:hover {
   background-color: var(--clr-accent--800);
 }
 
@@ -602,9 +604,10 @@ body {
   margin-right: 0.5em;
 }
 
-.classes__form--btn {
+.classes__form--btn,
+.students__search--btn {
   font-size: 1.3rem;
-  border-radius: 0.2em;
+  border-radius: 0.4em;
 }
 
 .hasDatepicker {
@@ -651,6 +654,7 @@ body {
 .students {
   background-color: unset;
   max-width: 120rem;
+  justify-content: start;
 }
 
 .students__header {
@@ -675,17 +679,29 @@ body {
   font-size: 1.6rem;
 }
 
-.students__search {
-  /* border: 1px */
-  border: 1px solid var(--clr-primary--900);
+/* Styling student search form */
+.students__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Styling sorting students section */
+.students__search--instructions,
+.students__sort--instructions {
+  font-size: 1.2rem;
+  margin-top: 0.5em;
+  font-style: italic;
+  text-align: center;
+}
+
 .students__sort {
-  margin: 2em auto;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  margin-top: 1em;
 }
 
 .students__sort--item {
@@ -711,7 +727,8 @@ input[type="radio"]+span.sort__check {
   transition: all 0.2s;
   width: 3rem;
   height: 3rem;
-  border-radius: 0.4em;
+  border-radius: 0.2em;
+  font-size: 1.2rem;
 }
 
 input+span.sort__check {
@@ -732,7 +749,6 @@ input[type="radio"]:checked+span.sort__check,
 input[type="radio"]:focus+span.sort__check {
   transform: scale(1.05);
   background-color: var(--clr-accent--700);
-
 }
 
 .students__sort--name {
@@ -861,6 +877,8 @@ input[type="radio"]:focus+span.sort__check {
 
 .students input {
   border: 2px solid var(--clr-primary--900);
+  margin: 0;
+  margin-top: 1.5em;
 }
 
 .profile__form input,

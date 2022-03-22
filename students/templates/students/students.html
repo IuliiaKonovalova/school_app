@@ -40,10 +40,13 @@
       </div>
     {% endif %}
 
-    <form method="POST">
+    <form method="POST" class="students__form">
 
       {% csrf_token %}
-    
+      <input type="text" id="student-search_here" class="from-control" placeholder="Type a name">
+      <div class="students__sort--instructions">
+        <strong>* </strong>Remember: search is case-insensitive
+      </div>
       <div class="students__sort">
         <div class="students__sort--item">
           <label class="" for="all">
@@ -64,15 +67,17 @@
           <div class="students__sort--name">urgent call</div>
         </div>
 
-        <button type="submit" value="search" class="search__btn classes__form--btn">
+        <button type="submit" value="search" class="search__btn students__search--btn">
             <div class=" profile__btn--text">Search</div>
             <i class="fas fa-search  profile__btn--icon"></i>
         </button>
       </div>
+      <div class="students__sort--instructions">
+        <strong>*</strong> Select icon to sort students and click search
+      </div>
           <div>
       {{ students|length }} students found
     </div>
-      <input type="text" id="student-search_here" class="from-control" placeholder="type sth">
       <div id="box">
         {% for student in students %}
         <div class="student">
