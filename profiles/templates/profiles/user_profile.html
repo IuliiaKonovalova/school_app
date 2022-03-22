@@ -1,7 +1,57 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_js %}
+  {% comment %} Code to handle AJAX request for quardian status change {% endcomment %}
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <script>
+    // Function on load
+    $(document).ready(function () {
+      // Variable to show the guardian status of the user on the page
+      const relations = {
+        1: 'Father',
+        2: 'Mother',
+        3: 'Grandfather',
+        4: 'Grandmother',
+        5: 'Other'
+      };
+      // Show select form for guardian status
+      $('#add_relation').click(function () {
+        $('#add_relation').hide();
+        $('#relation_select').show();
+        $('#add_relation_btn').show();
+        // Adding Django Form to the page
+        $('#add_relation_btn').click(() => {
+          let relation = $('#relation_select').val();
+          let url = "{% url 'add_relation' %}";
+          let data = {
+            username: "{{ user_profile.username }}",
+            relation: relation,
+            csrfmiddlewaretoken: "{{ csrf_token }}"
+          }
+          // Ajax request to add guardian status
+          $.ajax({
+            url: "{% url 'add_relation' %}",
+            type: 'POST',
+            data: data,
+            success: function (data) {
+              console.log(data);
+              let relation = data.relation;
+              $('#relation_select').hide();
+              $('#add_relation_btn').hide();
+              $('#add_relation').show();
+              $('#profile__relation--status').text(`( ${relations[relation]} )`);
+            },
+          });
+        });
+      });
+    });
+  </script>
+{% endblock%}
+
 {% block content %}
+  {% comment %} If user is authenticated {% endcomment %}
   {% if user.is_authenticated %}
     <div class="profile">
       {% comment %} Delete member button with limited access only for bosses {% endcomment %}
@@ -183,7 +233,7 @@
       {% endif %}
     </div>
   {% else %}
-    {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
+    {% comment %} Access limitation for all not authenticated users {% endcomment %}
     <div class="access">
       <div class="access__error">
         <div class="access__error--image">
@@ -201,50 +251,4 @@
       </div>
     </div>
   {% endif %}
-
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-<script>
-  $(document).ready(function () {
-
-    const relations = {
-      1: 'Father',
-      2: 'Mother',
-      3: 'Grandfather',
-      4: 'Grandmother',
-      5: 'Other'
-    };
-
-
-    $('#add_relation').click(function () {
-      $('#add_relation').hide();
-      $('#relation_select').show();
-      $('#add_relation_btn').show();
-      $('#add_relation_btn').click(() => {
-        let relation = $('#relation_select').val();
-        let url = "{% url 'add_relation' %}";
-        let data = {
-          username: "{{ user_profile.username }}",
-          relation: relation,
-          csrfmiddlewaretoken: "{{ csrf_token }}"
-        }
-        $.ajax({
-          url: "{% url 'add_relation' %}",
-          type: 'POST',
-          data: data,
-          success: function (data) {
-            console.log(data);
-            let relation = data.relation;
-            $('#relation_select').hide();
-            $('#add_relation_btn').hide();
-            $('#add_relation').show();
-            $('#profile__relation--status').text(`( ${relations[relation]} )`);
-          },
-
-        });
-      })
-
-    });
-  });
-</script>
 {% endblock %}

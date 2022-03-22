@@ -327,7 +327,7 @@ body {
 .classes,
 .students {
   background-color: var(--clr-primary--300);
-  max-width: 50rem;
+  max-width: 55rem;
   width: 100%;
   padding: 2em;
   border-radius: var(--br);
