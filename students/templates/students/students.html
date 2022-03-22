@@ -2,24 +2,7 @@
 {% load static %}
 
 {% block extra_js %}
-  <script>
-    const input = document.getElementById('search_here')
-    console.log(input)
 
-    const search = (e) => {
-      let members = document.querySelectorAll('.student')
-      members.forEach(element => {
-        element.style.display = "none"
-      });
-      let searchData = input.value
-      members.forEach(element => {
-        if (element.innerText.includes(searchData)) {
-          element.style.display = "block"
-        }
-      });
-    }
-    input.addEventListener("keyup", search)
-  </script>
 {% endblock %}
 
 {% block content %}
@@ -57,14 +40,10 @@
       </div>
     {% endif %}
 
-      {% if students.count == 0 %}
-
-    <p>No students in database</p>
-
-    {% else %}
     <form method="POST">
-      {% csrf_token %}
 
+      {% csrf_token %}
+    
       <div class="students__sort">
         <div class="students__sort--item">
           <label class="" for="all">
@@ -73,7 +52,7 @@
               <i class="fas fa-user-friends"></i>
             </span>
           </label>
-          <div>all students</div>
+          <div class="students__sort--name">all students</div>
         </div>
         <div class="students__sort--item">
           <label class="" for="urgent">
@@ -82,14 +61,18 @@
                 <i class="fas fa-exclamation-circle"></i>
               </span>
           </label>
-          <div>urgent call</div>
+          <div class="students__sort--name">urgent call</div>
         </div>
-        <input type="submit" value="Search">
+
+        <button type="submit" value="search" class="search__btn classes__form--btn">
+            <div class=" profile__btn--text">Search</div>
+            <i class="fas fa-search  profile__btn--icon"></i>
+        </button>
       </div>
           <div>
       {{ students|length }} students found
     </div>
-      <input type="text" id="search_here" class="from-control" placeholder="type sth">
+      <input type="text" id="student-search_here" class="from-control" placeholder="type sth">
       <div id="box">
         {% for student in students %}
         <div class="student">
@@ -112,7 +95,10 @@
       </div>
     </form>
     {{ students_urgent }}
-    {% endif %}
+
     </div>
   {% endif %}
+    <script>
+
+  </script>
 {% endblock %}

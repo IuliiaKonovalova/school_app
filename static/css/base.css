@@ -648,17 +648,13 @@ body {
 
 
 /* Styling students page */
-
 .students {
   background-color: unset;
   max-width: 120rem;
-  /* background-color: rgb(248, 178, 178); */
 }
 
 .students__header {
-  /* padding: 2em; */
   position: relative;
-  /* background-color: #25a77b; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -679,8 +675,30 @@ body {
   font-size: 1.6rem;
 }
 
+.students__search {
+  /* border: 1px */
+  border: 1px solid var(--clr-primary--900);
+}
+
+/* Styling sorting students section */
+.students__sort {
+  margin: 2em auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.students__sort--item {
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .students__sort label {
   position: relative;
+  margin-right: 0.5em;
 }
 
 input[type="radio"] {
@@ -695,7 +713,6 @@ input[type="radio"]+span.sort__check {
   height: 3rem;
   border-radius: 0.4em;
 }
-
 
 input+span.sort__check {
   cursor: pointer;
@@ -716,6 +733,12 @@ input[type="radio"]:focus+span.sort__check {
   transform: scale(1.05);
   background-color: var(--clr-accent--700);
 
+}
+
+.students__sort--name {
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 
@@ -825,7 +848,8 @@ input[type="radio"]:focus+span.sort__check {
 /* Forms Inputs */
 .account input,
 .profile__form input,
-.student__form input {
+.student__form input,
+.students input {
   border: 1px solid #ffffff8c;
   border-radius: var(--br);
   padding: 0.8em 1em 0.6em 1em;
@@ -835,6 +859,10 @@ input[type="radio"]:focus+span.sort__check {
   font-size: 1.2rem;
 }
 
+.students input {
+  border: 2px solid var(--clr-primary--900);
+}
+
 .profile__form input,
 .student__form input {
   margin-bottom: 0.5em;
@@ -842,7 +870,8 @@ input[type="radio"]:focus+span.sort__check {
 
 .account input:focus,
 .profile__form input:focus,
-student__form input:focus {
+.student__form input:focus,
+.students input:focus {
   outline: none;
 }
 
@@ -854,7 +883,8 @@ student__form input:focus {
 
 .account input::placeholder,
 .profile__form input::placeholder,
-.student__form input::placeholder {
+.student__form input::placeholder,
+.students input::placeholder {
   color: #001c828f;
   font-size: 1.2rem;
   letter-spacing: 0.13rem;
@@ -863,14 +893,16 @@ student__form input:focus {
 
 .account input:placeholder-shown,
 .profile__form input:placeholder-shown,
-student__form input:placeholder-shown {
+.student__form input:placeholder-shown,
+.students input:placeholder-shown {
   color: #022c29;
   font-weight: 600;
 }
 
 .account input:not(:placeholder-shown),
 .profile__form input:not(:placeholder-shown),
-.student__form input:not(:placeholder-shown) {
+.student__form input:not(:placeholder-shown),
+.students input:not(:placeholder-shown) {
   color: var(--clr-primary--900);
   font-weight: 600;
   font-size: 1.2rem;

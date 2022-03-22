@@ -7,6 +7,7 @@ const openProjectTypes = document.getElementById("add-new-project");
 const addNewProject = document.getElementById("add__project");
 const projectOptions = document.getElementById("project__options");
 const addProjectIcon = document.getElementById("add-project-icon");
+const studentSearchInput = document.getElementById('student-search_here');
 
 // On load
 document.addEventListener("DOMContentLoaded", function () {
@@ -37,4 +38,21 @@ document.addEventListener("DOMContentLoaded", function () {
       m.classList.toggle("open");
     })
   );
+
+// If student search input is on the page, listen for input
+  studentSearchInput?.addEventListener("keyup", searchStudent)
 });
+
+// Search for students
+const searchStudent = (e) => {
+  let students = document.querySelectorAll('.student')
+  students.forEach(element => {
+    element.style.display = "none"
+  });
+  let searchStudentsData = studentSearchInput.value
+  students.forEach(element => {
+    if (element.innerText.includes(searchStudentsData)) {
+      element.style.display = "block"
+    }
+  });
+}
