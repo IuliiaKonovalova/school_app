@@ -788,6 +788,24 @@ input[type="radio"]:focus+span.sort__check {
   justify-content: center;
 }
 
+.students__results {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-auto-flow: dense;
+  gap: 0.5rem;
+}
+
+.students__results--item a {
+  /* align-self: center;
+  justify-self: center; */
+  font-size: 1.7rem;
+}
+
+.students__label {
+  color: var(--clr-accent--500);
+  margin-left: 0.5em;
+}
 
 /* ----- Forms ----- */
 .account__container,

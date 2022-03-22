@@ -40,77 +40,69 @@
           </a>
         </div>
       {% endif %}
-    {% comment %} Search and sort students form {% endcomment %}
-    <form method="POST" class="students__form">
-      {% csrf_token %}
-      {% comment %} Students Search by name {% endcomment %}
-      <div class="students__search">
-        <input type="text" id="student-search_here" class="from-control" placeholder="Type a name">
-        <div value="search" class="search__btn students__undo--btn" id="students-search-undo">
-          <i class="fas fa-undo-alt  profile__btn--icon"></i>
+      {% comment %} Search and sort students form {% endcomment %}
+      <form method="POST" class="students__form">
+        {% csrf_token %}
+        {% comment %} Students Search by name {% endcomment %}
+        <div class="students__search">
+          <input type="text" id="student-search_here" class="from-control" placeholder="Type a name">
+          <div value="search" class="search__btn students__undo--btn" id="students-search-undo">
+            <i class="fas fa-undo-alt  profile__btn--icon"></i>
+          </div>
         </div>
-      </div>
-      <div class="students__search--instructions">
-        <strong>* </strong>Remember: search is case-insensitive.
-      </div>
-      {% comment %} Students Sort by urgent call {% endcomment %}
-      <div class="students__sort">
-        <div class="students__sort--item">
-          <label class="" for="all">
-            <input type="radio" class="" name="classes" value="all" id="all">
-            <span class="sort__check">
-              <i class="fas fa-user-friends"></i>
-            </span>
-          </label>
-          <div class="students__sort--name">all students</div>
+        <div class="students__search--instructions">
+          <strong>* </strong>Remember: search is case-insensitive.
         </div>
-        <div class="students__sort--item">
-          <label class="" for="urgent">
-            <input type="radio" class="" name="classes" value="urgent" id="urgent">
+        {% comment %} Students Sort by urgent call {% endcomment %}
+        <div class="students__sort">
+          <div class="students__sort--item">
+            <label class="" for="all">
+              <input type="radio" class="" name="classes" value="all" id="all">
               <span class="sort__check">
-                <i class="fas fa-exclamation-circle"></i>
+                <i class="fas fa-user-friends"></i>
               </span>
-          </label>
-          <div class="students__sort--name">urgent call</div>
-        </div>
-        <button type="submit" value="search" class="search__btn students__search--btn">
-            <div class=" profile__btn--text">Search</div>
-            <i class="fas fa-search  profile__btn--icon"></i>
-        </button>
-      </div>
-      <div class="students__sort--instructions">
-        <strong>* </strong>Select icon to sort students and click search.
-      </div>
-
-      <div class="students__summary">
-        {{ students|length }} students found
-      </div>
-      <div id="box">
-        {% for student in students %}
-        <div class="students__student">
-          <div>
-            {{ student.first_name }} {{ student.last_name }}
+            </label>
+            <div class="students__sort--name">all students</div>
           </div>
-          <a href="{% url 'student_detail' pk=student.pk %}">Open student data</a>
-          {% if student.has_classes_left %}
-          <div class="label__btn label__btn--name">
-              <div class="student__btn--text">
-                Urgent call
-              </div>
-              <i class="fas fa-exclamation-circle student__btn--icon"></i>
+          <div class="students__sort--item">
+            <label class="" for="urgent">
+              <input type="radio" class="" name="classes" value="urgent" id="urgent">
+                <span class="sort__check">
+                  <i class="fas fa-exclamation-circle"></i>
+                </span>
+            </label>
+            <div class="students__sort--name">urgent call</div>
           </div>
-          {% endif %}
+          <button type="submit" value="search" class="search__btn students__search--btn">
+              <div class=" profile__btn--text">Search</div>
+              <i class="fas fa-search  profile__btn--icon"></i>
+          </button>
         </div>
-
-
-        {% endfor %}
-      </div>
-    </form>
-    {{ students_urgent }}
-
+        <div class="students__sort--instructions">
+          <strong>* </strong>Select icon to sort students and click search.
+        </div>
+        <div class="students__summary">
+          {{ students|length }} students found
+        </div>
+        {% comment %} Students data results {% endcomment %}
+        <div id="box" class="students__results">
+          {% for student in students %}
+            <div class="students__student students__results--item">
+              <a href="{% url 'student_detail' pk=student.pk%}" class="links__btn links__btn--name">
+                <div class="profile__btn--text">
+                  {{ student.first_name }} {{ student.last_name }}
+                </div>
+                <i class="fas fa-external-link-alt profile__btn--icon"></i>
+                {% if student.has_classes_left %}
+                  <div class="students__label">
+                    <i class="fas fa-exclamation-circle"></i>
+                  </div>
+                {% endif %}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </form>
     </div>
   {% endif %}
-    <script>
-
-  </script>
 {% endblock %}
