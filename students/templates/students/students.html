@@ -43,8 +43,14 @@
         </div>
       </div>
   {% else %}
+  {% comment %} Students search page with limited access only for school staff {% endcomment %}
     {% if request.user.role == 0 or request.user.role == 2 %}
-    <a href="{% url 'student_add' %}">Add student</a>
+      <a href="{% url 'student_add' %}" class="label__btn label__btn--name">
+        <div class="student__btn--text">
+          Add new student
+        </div>
+        <i class="fas fa-plus-circle student__btn--icon"></i>
+      </a>
     {% endif %}
 
     {% if students.count == 0 %}
@@ -57,20 +63,16 @@
 
       <div class="students__sort">
         <div class="students__sort--item">
-
           <label class="" for="all">
-          
             <input type="radio" class="" name="classes" value="all" id="all">
             <span class="sort__check">
               <i class="fas fa-user-friends"></i>
             </span>
-
           </label>
           <div>all students</div>
         </div>
         <div class="students__sort--item">
           <label class="" for="urgent">
-        
             <input type="radio" class="" name="classes" value="urgent" id="urgent">
               <span class="sort__check">
                 <i class="fas fa-exclamation-circle"></i>
