@@ -23,7 +23,7 @@
 {% endblock %}
 
 {% block content %}
-  <h2>All students</h2>
+  
   {% if request.user.role == 4 or request.user.role == 5 %}
   {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
       <div class="access">
@@ -45,15 +45,19 @@
   {% else %}
   {% comment %} Students search page with limited access only for school staff {% endcomment %}
     {% if request.user.role == 0 or request.user.role == 2 %}
-      <a href="{% url 'student_add' %}" class="label__btn label__btn--name">
-        <div class="student__btn--text">
-          Add new student
-        </div>
-        <i class="fas fa-plus-circle student__btn--icon"></i>
-      </a>
+    <div class=students>
+      <div class="students__header">
+        <h2 class="students__title">All students:</h2>
+        <a href="{% url 'student_add' %}" class="student__btn student__add--btn students__btn">
+          <div class="student__btn--text">
+            Add new student
+          </div>
+          <i class="fas fa-plus-circle student__btn--icon"></i>
+        </a>
+      </div>
     {% endif %}
 
-    {% if students.count == 0 %}
+      {% if students.count == 0 %}
 
     <p>No students in database</p>
 
@@ -82,6 +86,9 @@
         </div>
         <input type="submit" value="Search">
       </div>
+          <div>
+      {{ students|length }} students found
+    </div>
       <input type="text" id="search_here" class="from-control" placeholder="type sth">
       <div id="box">
         {% for student in students %}
@@ -106,5 +113,6 @@
     </form>
     {{ students_urgent }}
     {% endif %}
+    </div>
   {% endif %}
 {% endblock %}
