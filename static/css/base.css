@@ -415,7 +415,8 @@ body {
 .profile__back--btn,
 .classes__form--btn,
 .student__back--btn,
-.students__search--btn {
+.students__search--btn,
+.members__search--btn {
   background-color: var(--clr-accent--900);
   border: 1px solid var(--clr-accent--900);
   margin-right: 0.5em;
@@ -442,7 +443,8 @@ body {
 .profile__back--btn:hover,
 .classes__form--btn:hover,
 .student__back--btn:hover,
-.students__search--btn:hover {
+.students__search--btn:hover,
+.members__search--btn:hover {
   background-color: var(--clr-accent--800);
 }
 
@@ -734,7 +736,8 @@ body {
   margin-top: 1em;
 }
 
-.students__sort--item {
+.students__sort--item,
+.members__sort--item {
   justify-self: center;
   align-self: center;
   display: flex;
@@ -882,6 +885,7 @@ input[type="radio"]:focus+span.sort__check {
   display: flex;
   width: 100%;
   justify-content: space-around;
+  margin-top: 1em;
 }
 
 .members__results {

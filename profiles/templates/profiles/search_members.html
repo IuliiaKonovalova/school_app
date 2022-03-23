@@ -29,48 +29,38 @@
   <form method="POST" class="members__form">
     {% csrf_token %}
     <div class="members__sort">
-      <div class="students__sort--item">
-        <label class="" for="all">all members</label>
+      <div class="members__sort--item">
         <input type="radio" class="" name="role" value="all" id="all">
-      </div>
-      <div class="students__sort--item">
         <label class="" for="all">
-          <input type="radio" class="" name="role" value="4" id="parents">
-          <span class="sort__check">
-            <i class="fas fa-user-friends"></i>
-          </span>
+          <div class="members__sort--name">all students</div>
         </label>
-        <div class="students__sort--name">Parents</div>
       </div>
-      <div class="students__sort--item">
-        <label class="" for="all">
-          <input type="radio" class="" name="role" value="1" id="teachers">
-          <span class="sort__check">
-            <i class="fas fa-user-friends"></i>
-          </span>
+      <div class="members__sort--item">
+        <input type="radio" class="" name="role" value="4" id="parents">
+        <label class="" for="parents">
+          <div class="members__sort--name">Parents</div>
         </label>
-        <div class="students__sort--name">Teachers</div>
       </div>
-      <div class="students__sort--item">
-        <label class="" for="all">
-          <input type="radio" class="" name="role" value="2" id="sales">
-          <span class="sort__check">
-            <i class="fas fa-user-friends"></i>
-          </span>
+      <div class="members__sort--item">
+        <input type="radio" class="" name="role" value="1" id="teachers">
+        <label class="" for="teachers">
+          <div class="members__sort--name">Teachers</div>
         </label>
-        <div class="students__sort--name">Sales Managers</div>
       </div>
-      <div class="students__sort--item">
-        <label class="" for="all">
-          <input type="radio" class="" name="role" value="3" id="receptionists">
-          <span class="sort__check">
-            <i class="fas fa-user-friends"></i>
-          </span>
+      <div class="members__sort--item">
+        <input type="radio" class="" name="role" value="2" id="sales">
+        <label class="" for="sales">
+          <div class="members__sort--name">Sales Managers</div>
         </label>
-        <div class="members__sort--name">Receptionists</div>
+      </div>
+      <div class="members__sort--item">
+        <input type="radio" class="" name="role" value="3" id="receptionists">
+        <label class="" for="receptionists">
+          <div class="members__sort--name">Receptionists</div>
+        </label>
       </div>
 
-      <button type="submit" value="search" class="search__btn students__search--btn">
+      <button type="submit" value="search" class="search__btn members__search--btn">
         <div class=" profile__btn--text">Search</div>
         <i class="fas fa-search  profile__btn--icon"></i>
       </button>
@@ -82,7 +72,7 @@
       {{ members|length }} members found
     </div>
     <div class="members__search">
-      <input type="text" id="members-search-here" class="from-control" placeholder="Type a name">
+      <input type="text" id="members-search-here" class="from-control" placeholder="Type name or phone number...">
       <div value="search" class="search__btn members__undo--btn" id="members-search-undo">
         <i class="fas fa-undo-alt  profile__btn--icon"></i>
       </div>
