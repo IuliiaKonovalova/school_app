@@ -838,6 +838,16 @@ input[type="radio"]:focus+span.sort__check {
   padding: 0.2em 0;
 }
 
+.member__phone {
+  display: flex;
+  align-items: center;
+}
+
+.member__icon {
+  font-size: 1.1rem;
+  margin-right: 0.5em;
+}
+
 
 /* ----- Forms ----- */
 .account__container,

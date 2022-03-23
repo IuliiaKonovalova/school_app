@@ -60,6 +60,7 @@
     </div>
 
     <div id="box" class="members__results">
+
       {% for member in members %}
       <!-- <div class="member members__results--item"> -->
 
@@ -85,10 +86,10 @@
             Potential Client
             {% endif %}
           </div>
-          <div>{{ member.phone }}</div>
+          <div class="member__phone"><i class="fas fa-phone-alt member__icon"></i>{{ member.phone }}</div>
 
         </div>
-        <i class="fas fa-external-link-alt profile__btn--icon"></i>
+        <i class="fas fa-external-link-alt"></i>
       </a>
 
       <!-- </div> -->
