@@ -46,6 +46,9 @@
 
       <input type="submit" value="Search">
     </div>
+    <div class="members__summary">
+      {{ members|length }} members found
+    </div>
     <div class="members__search">
       <input type="text" id="members-search-here" class="from-control" placeholder="Type a name">
       <div value="search" class="search__btn members__undo--btn" id="members-search-undo">
@@ -55,34 +58,40 @@
     <div class="members__search--instructions">
       <strong>* </strong>Remember: search is case-insensitive.
     </div>
-    <div id="box">
+
+    <div id="box" class="members__results">
       {% for member in members %}
-      <div class="member">
-        <div>{{ member.first_name }}</div>
-        <div>{{ member.last_name }}</div>
+      <!-- <div class="member members__results--item"> -->
 
-        <div class="member__phone">{{member.phone}}</div>
-        {% if member.role == 0 %}
-        <div>Boss</div>
-        {% elif member.role == 1 %}
-        <div>Teacher</div>
+      <a href="{% url 'user_profile' username=member.username %}"
+        class="links__btn links__btn--name members__results--item">
 
-        {% elif member.role == 2 %}
-        <div>Sales</div>
+        <div class="profile__btn--text">
+          <div class="">
+            {{ member.first_name }} {{ member.last_name }}
+          </div>
+          <div class="member__role">
+            {% if member.role == 0 %}
+            Boss
+            {% elif member.role == 1 %}
+            Teacher
+            {% elif member.role == 2 %}
+            Sales
+            {% elif member.role == 3 %}
+            Receptionist
+            {% elif member.role == 4 %}
+            Parent
+            {% elif member.role == 5 %}
+            Potential Client
+            {% endif %}
+          </div>
+          <div>{{ member.phone }}</div>
 
-        {% elif member.role == 3 %}
-        <div>Receptionist</div>
+        </div>
+        <i class="fas fa-external-link-alt profile__btn--icon"></i>
+      </a>
 
-        {% elif member.role == 4 %}
-        <div>Parent</div>
-
-        {% elif member.role == 5 %}
-        <div>Potential Client</div>
-
-        {% endif %}
-        <a href="{% url 'user_profile' username=member.username %}">Visit profile</a>
-        <br>
-      </div>
+      <!-- </div> -->
       {% endfor %}
     </div>
   </form>

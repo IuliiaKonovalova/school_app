@@ -785,7 +785,8 @@ input[type="radio"]:focus+span.sort__check {
   font-weight: 700;
 }
 
-.students__summary {
+.students__summary,
+.members__summary {
   margin: 1em 0;
   font-size: 1.5rem;
   font-weight: 700;
@@ -802,7 +803,8 @@ input[type="radio"]:focus+span.sort__check {
   gap: 0.5rem;
 }
 
-.students__results--item a {
+.students__results--item a,
+.members__results--item a {
   font-size: 1.7rem;
 }
 
@@ -810,6 +812,32 @@ input[type="radio"]:focus+span.sort__check {
   color: var(--clr-accent--500);
   margin-left: 0.5em;
 }
+
+/* Styling Members Page */
+.members__results {
+  margin: 2em auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-auto-flow: dense;
+  gap: 0.5rem;
+}
+
+.members__results--item {
+  font-size: 1.4rem;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.member__role {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.795);
+  padding: 0.2em 0;
+}
+
 
 /* ----- Forms ----- */
 .account__container,
