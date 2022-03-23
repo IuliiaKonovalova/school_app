@@ -2,115 +2,107 @@
 {% load static %}
 
 {% block content %}
-
-
-
-{% if not user.is_authenticated or request.user.role == 4 or request.user.role == 5 %}
-<div class="access">
-  <div class="access__error">
-
-    <div class="access__error--image">
-      <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
-    </div>
-    <p class="access__error--text">You are not authorized to view this page!</p>
-    <div class="links">
-      <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
-        <div class="profile__btn--text">
-          Back to your profile
+  {% comment %} Limited access to members page only for staff {% endcomment %}
+  {% if not user.is_authenticated or request.user.role == 4 or request.user.role == 5 %}
+  {% comment %} Show Limited access message {% endcomment %}
+    <div class="access">
+      <div class="access__error">
+        <div class="access__error--image">
+          <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
         </div>
-        <i class="fas fa-external-link-alt profile__btn--icon"></i>
-      </a>
-    </div>
-  </div>
-</div>
-{% else %}
-<div class="members">
-  <h2 class="members__title">Members:</h2>
-  <form method="POST" class="members__form">
-    {% csrf_token %}
-    <div class="members__sort">
-      <div class="members__sort--item">
-        <input type="radio" class="" name="role" value="all" id="all">
-        <label class="" for="all">
-          <div class="members__sort--name">all students</div>
-        </label>
-      </div>
-      <div class="members__sort--item">
-        <input type="radio" class="" name="role" value="4" id="parents">
-        <label class="" for="parents">
-          <div class="members__sort--name">Parents</div>
-        </label>
-      </div>
-      <div class="members__sort--item">
-        <input type="radio" class="" name="role" value="1" id="teachers">
-        <label class="" for="teachers">
-          <div class="members__sort--name">Teachers</div>
-        </label>
-      </div>
-      <div class="members__sort--item">
-        <input type="radio" class="" name="role" value="2" id="sales">
-        <label class="" for="sales">
-          <div class="members__sort--name">Sales Managers</div>
-        </label>
-      </div>
-      <div class="members__sort--item">
-        <input type="radio" class="" name="role" value="3" id="receptionists">
-        <label class="" for="receptionists">
-          <div class="members__sort--name">Receptionists</div>
-        </label>
-      </div>
-
-      <button type="submit" value="search" class="search__btn members__search--btn">
-        <div class=" profile__btn--text">Search</div>
-        <i class="fas fa-search  profile__btn--icon"></i>
-      </button>
-    </div>
-    <div class="students__sort--instructions">
-      <strong>* </strong>Select icon to sort members and click search.
-    </div>
-    <div class="members__summary">
-      {{ members|length }} members found
-    </div>
-    <div class="members__search">
-      <input type="text" id="members-search-here" class="from-control" placeholder="Type name or phone number...">
-      <div value="search" class="search__btn members__undo--btn" id="members-search-undo">
-        <i class="fas fa-undo-alt  profile__btn--icon"></i>
-      </div>
-    </div>
-    <div class="members__search--instructions">
-      <strong>* </strong>Remember: search is case-insensitive.
-    </div>
-
-    <div id="box" class="members__results">
-
-      {% for member in members %}
-      <!-- <div class="member members__results--item"> -->
-
-      <a href="{% url 'user_profile' username=member.username %}"
-        class="links__btn links__btn--name members__results--item">
-
-        <div class="profile__btn--text">
-          <div class="">
-            {{ member.first_name }} {{ member.last_name }}
-          </div>
-          <div class="member__role">
-            {{ member.get_role_choices}}
-          </div>
-          <div class="member__phone"><i class="fas fa-phone-alt member__icon"></i>{{ member.phone }}</div>
-
+        <p class="access__error--text">You are not authorized to view this page!</p>
+        <div class="links">
+          <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
+            <div class="profile__btn--text">
+              Back to your profile
+            </div>
+            <i class="fas fa-external-link-alt profile__btn--icon"></i>
+          </a>
         </div>
-        <i class="fas fa-external-link-alt"></i>
-      </a>
-
-      <!-- </div> -->
-      {% endfor %}
+      </div>
     </div>
-  </form>
-</div>
-{% endif %}
+  {% else %}
+    {% comment %} Main content of the pages {% endcomment %}
+    <div class="members">
+      <h2 class="members__title">Members:</h2>
+      {% comment %} Sort members form {% endcomment %}
+      <form method="POST" class="members__form">
+        {% csrf_token %}
+        {% comment %} Sorting members by role {% endcomment %}
+        <div class="members__sort">
+          <div class="members__sort--item">
+            <input type="radio" class="" name="role" value="all" id="all" checked>
+            <label class="" for="all">
+              <div class="members__sort--name">all students</div>
+            </label>
+          </div>
+          <div class="members__sort--item">
+            <input type="radio" class="" name="role" value="4" id="parents">
+            <label class="" for="parents">
+              <div class="members__sort--name">Parents</div>
+            </label>
+          </div>
+          <div class="members__sort--item">
+            <input type="radio" class="" name="role" value="1" id="teachers">
+            <label class="" for="teachers">
+              <div class="members__sort--name">Teachers</div>
+            </label>
+          </div>
+          <div class="members__sort--item">
+            <input type="radio" class="" name="role" value="2" id="sales">
+            <label class="" for="sales">
+              <div class="members__sort--name">Sales Managers</div>
+            </label>
+          </div>
+          <div class="members__sort--item">
+            <input type="radio" class="" name="role" value="3" id="receptionists">
+            <label class="" for="receptionists">
+              <div class="members__sort--name">Receptionists</div>
+            </label>
+          </div>
+          {% comment %} Submit selection button {% endcomment %}
+          <button type="submit" value="search" class="search__btn members__search--btn">
+            <div class=" profile__btn--text">Search</div>
+            <i class="fas fa-search  profile__btn--icon"></i>
+          </button>
+        </div>
+        <div class="members__sort--instructions">
+          <strong>* </strong>Select icon to sort members and click search.
+        </div>
+        <div class="members__summary">
+          {{ members|length }} members found
+        </div>
+        <div class="members__search">
+          <input type="text" id="members-search-here" class="from-control" placeholder="Type name or phone number...">
+          <div value="search" class="search__btn members__undo--btn" id="members-search-undo">
+            <i class="fas fa-undo-alt  profile__btn--icon"></i>
+          </div>
+        </div>
+        <div class="members__search--instructions">
+          <strong>* </strong>Remember: search is case-insensitive.
+        </div>
 
+        <div id="box" class="members__results">
 
+          {% for member in members %}
+          <a href="{% url 'user_profile' username=member.username %}"
+            class="links__btn links__btn--name members__results--item">
 
+            <div class="profile__btn--text">
+              <div class="">
+                {{ member.first_name }} {{ member.last_name }}
+              </div>
+              <div class="member__role">
+                {{ member.get_role_choices}}
+              </div>
+              <div class="member__phone"><i class="fas fa-phone-alt member__icon"></i>{{ member.phone }}</div>
 
-
+            </div>
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          {% endfor %}
+        </div>
+      </form>
+    </div>
+  {% endif %}
 {% endblock %}

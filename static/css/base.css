@@ -721,7 +721,8 @@ body {
 
 .students__search--instructions,
 .students__sort--instructions,
-.members__search--instructions {
+.members__search--instructions,
+.members__sort--instructions {
   font-size: 1.2rem;
   margin-top: 0.5em;
   font-style: italic;

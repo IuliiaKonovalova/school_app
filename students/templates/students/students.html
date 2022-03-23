@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block content %}
-  
   {% if request.user.role == 4 or request.user.role == 5 %}
   {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
     <div class="access">
@@ -52,7 +51,7 @@
         {% comment %} Students Sort by urgent call {% endcomment %}
         <div class="students__sort">
           <div class="students__sort--item">
-            <input type="radio" class="" name="classes" value="all" id="all">
+            <input type="radio" class="" name="classes" value="all" id="all" checked>
             <label class="" for="all">
               <div class="students__sort--name">all students</div>
             </label>
