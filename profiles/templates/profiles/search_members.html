@@ -47,11 +47,13 @@
     <input type="submit" value="Search">
   </div>
 
-  <input type="text" id="search_here" class="from-control" placeholder="type sth">
+  <input type="text" id="members-search-here" class="from-control" placeholder="type sth">
   <div id="box">
     {% for member in members %}
     <div class="member">
-      <div>{{member}}</div>
+      <div>{{ member.first_name }}</div>
+      <div>{{ member.last_name }}</div>
+
       <div class="member__phone">{{member.phone}}</div>
       {% if member.role == 0 %}
       <div>Boss</div>
@@ -81,23 +83,6 @@
 
 
 
-<script>
-  const input = document.getElementById('search_here');
 
-
-  const search = (e) => {
-    let members = document.querySelectorAll('.member');
-    members.forEach(element => {
-      element.style.display = "none";
-    });
-    let searchData = input.value;
-    members.forEach(element => {
-      if (element.innerText.includes(searchData)) {
-        element.style.display = "block";
-      }
-    });
-  };
-  input.addEventListener("keyup", search);
-</script>
 
 {% endblock %}
