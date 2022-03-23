@@ -242,8 +242,7 @@
   {% if user_profile.role == 1 %}
     <div class="classes">
       <h3 class="classes__title">Classes given:</h3>
-
-      
+      {% comment %} Get classes by time period for a teacher {% endcomment %}
       <form method="POST" class="classes__form">
         <h4 class="classes__form--heading">Search classes by date</h4>
         {% csrf_token %}
@@ -261,20 +260,24 @@
             <i class="fas fa-search  profile__btn--icon"></i>
           </button>
         </div>
-        <div class="lessons">
-
-          <div>
-            {{ lessons|length }} sales found
+        {% comment %} Classes Results recieved {% endcomment %}
+        <div class="classes__results">
+          <div class="classes__results--summary">
+            <strong>{{ lessons|length }}</strong> classes found
           </div>
-
-          {% for lesson in lessons %}
-            <div>
-              <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-                {{ lesson.date|date:'m/d/Y' }}
-                {{ lesson.get_subject }}
-              </a>
-            </div>
-          {% endfor %}
+          <div class="classes__results--container">
+            {% for lesson in lessons %}
+              <div class="classes__results--item">
+                <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="links__btn links__btn--name links__btn--classes">
+                  <div class="profile__btn--text">
+                    <div >{{ lesson.date|date:'m/d/Y' }}</div>
+                    <div>{{ lesson.get_subject }}</div>
+                  </div>
+                  <i class="fas fa-external-link-alt profile__btn--icon"></i>
+                </a>
+              </div>
+            {% endfor %}
+          </div>
         </div>
       </form>
     </div>

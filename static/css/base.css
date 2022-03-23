@@ -563,8 +563,9 @@ body {
 
 /* Styling Classes Section */
 .classes {
-  margin-top: 2em;
+  /* margin-top: 2em; */
   max-width: 100%;
+  background-color: unset;
 }
 
 .classes__form {
@@ -615,7 +616,7 @@ body {
   max-width: 10rem;
   font-size: 1.5rem;
   padding: 0.2em 0.35em;
-  border: 1px solid var(--clr-primary--900);
+  border: 3px solid var(--clr-primary--900);
   border-radius: 0.2em;
   color: var(--clr-primary--900);
 }
