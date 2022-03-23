@@ -3,8 +3,12 @@
 
 {% block extra_js %}
   {% comment %} Code to handle AJAX request for quardian status change {% endcomment %}
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+  
   <script>
     // Function on load
     $(document).ready(function () {
@@ -45,6 +49,16 @@
             },
           });
         });
+      });
+    });
+  
+    {% comment %} Datepicker implementation {% endcomment %}
+    $(function () {
+      $("#datepicker1").datepicker({
+        dateFormat: 'yy-mm-dd',
+      });
+      $("#datepicker2").datepicker({
+        dateFormat: 'yy-mm-dd',
       });
     });
   </script>
@@ -119,33 +133,6 @@
           </div>
         </div>
       </div>
-      {% comment %} Profile additional Data for Teacher's profile {% endcomment %}
-      {% if user_profile.role == 1 %}
-        <h4>Lessons:</h4>
-
-        <h3>Search by date</h3>
-        <form method="POST">
-          {% csrf_token %}
-          From: <input type="date" name="from_date">
-          To: <input type="date" name="to_date">
-          <input type="submit" value="search">
-          <div class="lessons">
-
-            <div>
-              {{ lessons|length }} sales found
-            </div>
-
-            {% for lesson in lessons %}
-              <div>
-                <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-                  {{ lesson.date|date:'m/d/Y' }}
-                  {{ lesson.get_subject }}
-                </a>
-              </div>
-            {% endfor %}
-          </div>
-        </form>
-      {% endif %}
       {% comment %} Profile additional Data for Sales Manager's profile {% endcomment %}
       {% if user_profile.role == 2 %}
         <h3 class="profile__students">Students:</h3>
@@ -249,6 +236,47 @@
           </a>
         </div>
       </div>
+    </div>
+  {% endif %}
+  {% comment %} Profile additional Data for Teacher's profile {% endcomment %}
+  {% if user_profile.role == 1 %}
+    <div class="classes">
+      <h3 class="classes__title">Classes given:</h3>
+
+      
+      <form method="POST" class="classes__form">
+        <h4 class="classes__form--heading">Search classes by date</h4>
+        {% csrf_token %}
+        <div class="classes__form--settings">
+          <div class="datepicker__container">
+            <div class="datepicker__container--title">From:</div>
+            <input type="text" id="datepicker1" name="from_date" placeholder="mm-dd-yyyy">
+          </div>
+          <div  class="datepicker__container">
+            <div class="datepicker__container--title">To:</div>
+            <input type="text" id="datepicker2" name="to_date" placeholder="mm-dd-yyyy">
+          </div>
+          <button type="submit" value="search" class="search__btn classes__form--btn">
+            <div class=" profile__btn--text">Search</div>
+            <i class="fas fa-search  profile__btn--icon"></i>
+          </button>
+        </div>
+        <div class="lessons">
+
+          <div>
+            {{ lessons|length }} sales found
+          </div>
+
+          {% for lesson in lessons %}
+            <div>
+              <a href="{% url 'lesson_detail' pk=lesson.pk %}">
+                {{ lesson.date|date:'m/d/Y' }}
+                {{ lesson.get_subject }}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </form>
     </div>
   {% endif %}
 {% endblock %}
