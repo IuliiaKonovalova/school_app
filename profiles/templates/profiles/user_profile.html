@@ -239,7 +239,8 @@
     </div>
   {% endif %}
   {% comment %} Profile additional Data for Teacher's profile {% endcomment %}
-  {% if user_profile.role == 1 %}
+  {% if user_profile.role == 1 and user_profile == request.user or request.user.role == 0 %}
+    {% comment %} Access limitation to teachers classes data, only for bosess and the teacher {% endcomment %}
     <div class="classes">
       <h3 class="classes__title">Classes given:</h3>
       {% comment %} Get classes by time period for a teacher {% endcomment %}
