@@ -52,22 +52,16 @@
         {% comment %} Students Sort by urgent call {% endcomment %}
         <div class="students__sort">
           <div class="students__sort--item">
+            <input type="radio" class="" name="classes" value="all" id="all">
             <label class="" for="all">
-              <input type="radio" class="" name="classes" value="all" id="all">
-              <span class="sort__check">
-                <i class="fas fa-user-friends"></i>
-              </span>
+              <div class="students__sort--name">all students</div>
             </label>
-            <div class="students__sort--name">all students</div>
           </div>
           <div class="students__sort--item">
+            <input type="radio" class="" name="classes" value="urgent" id="urgent">
             <label class="" for="urgent">
-              <input type="radio" class="" name="classes" value="urgent" id="urgent">
-                <span class="sort__check">
-                  <i class="fas fa-exclamation-circle"></i>
-                </span>
+              <div class="students__sort--name">urgent call</div>
             </label>
-            <div class="students__sort--name">urgent call</div>
           </div>
           <button type="submit" value="search" class="search__btn students__search--btn">
               <div class=" profile__btn--text">Search</div>

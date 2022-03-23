@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<h2>All members</h2>
+
 
 {% if not user.is_authenticated or request.user.role == 4 or request.user.role == 5 %}
 <div class="access">
@@ -25,26 +25,58 @@
 </div>
 {% else %}
 <div class="members">
+  <h2 class="members__title">Members:</h2>
   <form method="POST" class="members__form">
     {% csrf_token %}
+    <div class="members__sort">
+      <div class="students__sort--item">
+        <label class="" for="all">all members</label>
+        <input type="radio" class="" name="role" value="all" id="all">
+      </div>
+      <div class="students__sort--item">
+        <label class="" for="all">
+          <input type="radio" class="" name="role" value="4" id="parents">
+          <span class="sort__check">
+            <i class="fas fa-user-friends"></i>
+          </span>
+        </label>
+        <div class="students__sort--name">Parents</div>
+      </div>
+      <div class="students__sort--item">
+        <label class="" for="all">
+          <input type="radio" class="" name="role" value="1" id="teachers">
+          <span class="sort__check">
+            <i class="fas fa-user-friends"></i>
+          </span>
+        </label>
+        <div class="students__sort--name">Teachers</div>
+      </div>
+      <div class="students__sort--item">
+        <label class="" for="all">
+          <input type="radio" class="" name="role" value="2" id="sales">
+          <span class="sort__check">
+            <i class="fas fa-user-friends"></i>
+          </span>
+        </label>
+        <div class="students__sort--name">Sales Managers</div>
+      </div>
+      <div class="students__sort--item">
+        <label class="" for="all">
+          <input type="radio" class="" name="role" value="3" id="receptionists">
+          <span class="sort__check">
+            <i class="fas fa-user-friends"></i>
+          </span>
+        </label>
+        <div class="members__sort--name">Receptionists</div>
+      </div>
 
-    <div>
-      <input type="radio" class="" name="role" value="all" id="all">
-      <label class="btn" for="all">all members</label>
-
-      <input type="radio" class="" name="role" value="4" id="parents">
-      <label class="btn" for="parents">Parents</label>
-
-      <input type="radio" class="" name="role" value="1" id="teachers">
-      <label class="btn" for="teachers">Teachers</label>
-
-      <input type="radio" class="" name="role" value="2" id="sales">
-      <label class="btn" for="sales">Sales</label>
-
-      <input type="radio" class="" name="role" value="3" id="receptionists">
-      <label class="btn" for="receptionists">Receptionists</label>
-
-      <input type="submit" value="Search">
+      <button type="submit" value="search" class="search__btn students__search--btn">
+        <div class=" profile__btn--text">Search</div>
+        <i class="fas fa-search  profile__btn--icon"></i>
+      </button>
+    </div>
+    <div class="students__sort--instructions">
+      <strong>* </strong>Select icon to sort members and click search.
     </div>
     <div class="members__summary">
       {{ members|length }} members found
@@ -69,22 +101,10 @@
 
         <div class="profile__btn--text">
           <div class="">
-            {{ member.first_name }} {{ member.last_name }} {{ member.get_role_choices}}
+            {{ member.first_name }} {{ member.last_name }}
           </div>
           <div class="member__role">
-            {% if member.role == 0 %}
-            Boss
-            {% elif member.role == 1 %}
-            Teacher
-            {% elif member.role == 2 %}
-            Sales
-            {% elif member.role == 3 %}
-            Receptionist
-            {% elif member.role == 4 %}
-            Parent
-            {% elif member.role == 5 %}
-            Potential Client
-            {% endif %}
+            {{ member.get_role_choices}}
           </div>
           <div class="member__phone"><i class="fas fa-phone-alt member__icon"></i>{{ member.phone }}</div>
 

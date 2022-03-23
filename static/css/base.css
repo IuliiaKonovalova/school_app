@@ -667,10 +667,12 @@ body {
   justify-content: center;
 }
 
-.students__title {
+.students__title,
+.members__title {
   font-size: 2.5rem;
   font-weight: 900;
   text-transform: capitalize;
+  text-align: center;
 }
 
 .students__btn {
@@ -745,7 +747,7 @@ body {
   margin-right: 0.5em;
 }
 
-input[type="radio"] {
+/* input[type="radio"] {
   position: absolute;
   opacity: 0;
 }
@@ -777,12 +779,66 @@ input[type="radio"]:checked+span.sort__check,
 input[type="radio"]:focus+span.sort__check {
   transform: scale(1.05);
   background-color: var(--clr-accent--700);
+} */
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
 }
 
-.students__sort--name {
+[type="radio"]:checked+label,
+[type="radio"]:not(:checked)+label {
+  position: relative;
+  padding-left: 1.5em;
+  cursor: pointer;
+  display: inline-block;
+}
+
+[type="radio"]:checked+label:before,
+[type="radio"]:not(:checked)+label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 3px solid var(--clr-accent--500);
+  border-radius: 100%;
+}
+
+[type="radio"]:checked+label:after,
+[type="radio"]:not(:checked)+label:after {
+  content: '';
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: var(--clr-accent--500);
+  position: absolute;
+  top: 0.45rem;
+  left: 0.45rem;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+[type="radio"]:not(:checked)+label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+[type="radio"]:checked+label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.students__sort--name,
+.members__sort--name {
   text-transform: capitalize;
   font-size: 1.5rem;
   font-weight: 700;
+  text-align: center;
 }
 
 .students__summary,
@@ -793,6 +849,7 @@ input[type="radio"]:focus+span.sort__check {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .students__results {
@@ -814,6 +871,19 @@ input[type="radio"]:focus+span.sort__check {
 }
 
 /* Styling Members Page */
+.members {
+  width: 100%;
+  max-width: 120rem;
+  justify-content: start;
+  padding: 0.5em;
+}
+
+.members__sort {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
 .members__results {
   margin: 2em auto;
   width: 100%;
