@@ -69,7 +69,7 @@
 
         <div class="profile__btn--text">
           <div class="">
-            {{ member.first_name }} {{ member.last_name }}
+            {{ member.first_name }} {{ member.last_name }} {{ member.get_role_choices}}
           </div>
           <div class="member__role">
             {% if member.role == 0 %}
