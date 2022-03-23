@@ -5,22 +5,22 @@
   
   {% if request.user.role == 4 or request.user.role == 5 %}
   {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
-      <div class="access">
-        <div class="access__error">
-          <div class="access__error--image">
-            <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
-          </div>
-          <p class="access__error--text">You are not authorized to view this page!</p>
-          <div class="links">
-            <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
-              <div class="profile__btn--text">
-                Back to your profile
-              </div>
-              <i class="fas fa-external-link-alt profile__btn--icon"></i>
-            </a>
-          </div>
+    <div class="access">
+      <div class="access__error">
+        <div class="access__error--image">
+          <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
+        </div>
+        <p class="access__error--text">You are not authorized to view this page!</p>
+        <div class="links">
+          <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
+            <div class="profile__btn--text">
+              Back to your profile
+            </div>
+            <i class="fas fa-external-link-alt profile__btn--icon"></i>
+          </a>
         </div>
       </div>
+    </div>
   {% else %}
     {% comment %} Students search page with limited access only for school staff {% endcomment %}
     <div class=students>

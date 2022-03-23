@@ -681,7 +681,8 @@ body {
 }
 
 /* Styling student search form */
-.students__form {
+.students__form,
+.members__form {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -689,11 +690,13 @@ body {
   justify-content: center;
 }
 
-.students__search {
+.students__search,
+.members__search {
   position: relative;
 }
 
-.students__undo--btn {
+.students__undo--btn,
+.members__undo--btn {
   background-color: var(--clr-primary--900);
   color: white;
   font-weight: 900;
@@ -707,12 +710,14 @@ body {
   justify-content: center;
 }
 
-.students__undo--btn:hover {
+.students__undo--btn:hover,
+.members__undo--btn:hover {
   background-color: #0230d6;
 }
 
 .students__search--instructions,
-.students__sort--instructions {
+.students__sort--instructions,
+.members__search--instructions {
   font-size: 1.2rem;
   margin-top: 0.5em;
   font-style: italic;
@@ -912,7 +917,8 @@ input[type="radio"]:focus+span.sort__check {
 .account input,
 .profile__form input,
 .student__form input,
-.students input {
+.students input,
+.members input {
   border: 1px solid #ffffff8c;
   border-radius: var(--br);
   padding: 0.8em 1em 0.6em 1em;
@@ -922,7 +928,8 @@ input[type="radio"]:focus+span.sort__check {
   font-size: 1.2rem;
 }
 
-.students input {
+.students input,
+.members input {
   border: 2px solid var(--clr-primary--900);
   margin: 0;
   margin-top: 1.5em;
@@ -936,7 +943,8 @@ input[type="radio"]:focus+span.sort__check {
 .account input:focus,
 .profile__form input:focus,
 .student__form input:focus,
-.students input:focus {
+.students input:focus,
+.members input:focus {
   outline: none;
 }
 
@@ -949,7 +957,8 @@ input[type="radio"]:focus+span.sort__check {
 .account input::placeholder,
 .profile__form input::placeholder,
 .student__form input::placeholder,
-.students input::placeholder {
+.students input::placeholder,
+.members input::placeholder {
   color: #001c828f;
   font-size: 1.2rem;
   letter-spacing: 0.13rem;
@@ -959,7 +968,8 @@ input[type="radio"]:focus+span.sort__check {
 .account input:placeholder-shown,
 .profile__form input:placeholder-shown,
 .student__form input:placeholder-shown,
-.students input:placeholder-shown {
+.students input:placeholder-shown,
+.members input:placeholder-shown {
   color: #022c29;
   font-weight: 600;
 }
@@ -967,7 +977,8 @@ input[type="radio"]:focus+span.sort__check {
 .account input:not(:placeholder-shown),
 .profile__form input:not(:placeholder-shown),
 .student__form input:not(:placeholder-shown),
-.students input:not(:placeholder-shown) {
+.students input:not(:placeholder-shown),
+.members input:not(:placeholder-shown) {
   color: var(--clr-primary--900);
   font-weight: 600;
   font-size: 1.2rem;
