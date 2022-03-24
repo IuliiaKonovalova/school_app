@@ -81,14 +81,12 @@
       {% if user_profile == request.user %}
         <div class="profile__edit">
           <a href="{% url 'user_profile_edit' username=request.user %}" class="profile__btn profile__edit--btn">
-            <div class=" profile__btn--text">Edit
-            </div>
+            <div class=" profile__btn--text">Edit</div>
             <i class="fas fa-edit  profile__btn--icon"></i>
           </a>
           <a href="{% url 'user_profile_change_password' username=request.user %}"
             class="profile__btn profile__password--btn">
-            <div class=" profile__btn--text">Password
-            </div>
+            <div class=" profile__btn--text">Password</div>
             <i class="fas fa-unlock-alt profile__btn--icon"></i>
           </a>
         </div>

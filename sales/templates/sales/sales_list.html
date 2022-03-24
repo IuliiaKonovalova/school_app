@@ -61,7 +61,7 @@
           <table class="sales__results--container">
             <tr>
               <th>Date</th>
-              <th>Classes</th>
+              <th>Total</th>
               <th>Manager</th>
               <th>Client</th>
               <th>Student</th>
@@ -111,10 +111,16 @@
               
               {% if request.user.role == 2 %}
               <td>
-                <a href="{% url 'edit_sales' pk=sale.pk %}">Edit</a>
+                <a href="{% url 'edit_sales' pk=sale.pk %}" class="profile__btn profile__edit--btn">
+                  <div class=" profile__btn--text">Edit</div>
+                  <i class="fas fa-edit  profile__btn--icon"></i>
+                </a>
               </td>
               <td>
-                <a href="{% url 'delete_sales' pk=sale.pk %}">Delete</a>
+                <a href="{% url 'delete_sales' pk=sale.pk %}" class="profile__btn profile__password--btn">
+                  <div class=" profile__btn--text">Password</div>
+                  <i class="fas fa-unlock-alt profile__btn--icon"></i>
+                </a>
               </td>
               {% endif %}
             {% comment %} </div> {% endcomment %}
