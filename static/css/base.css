@@ -325,7 +325,8 @@ body {
 .student,
 .access,
 .classes,
-.students {
+.students,
+.sales {
   background-color: var(--clr-primary--300);
   max-width: 55rem;
   width: 100%;
@@ -654,7 +655,8 @@ body {
 
 
 /* Styling students page */
-.students {
+.students,
+.sales {
   background-color: unset;
   max-width: 120rem;
   justify-content: start;
@@ -670,7 +672,8 @@ body {
 }
 
 .students__title,
-.members__title {
+.members__title,
+.sales__title {
   font-size: 2.5rem;
   font-weight: 900;
   text-transform: capitalize;
