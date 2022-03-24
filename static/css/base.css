@@ -326,7 +326,8 @@ body {
 .access,
 .classes,
 .students,
-.sales {
+.sales,
+.sale {
   background-color: var(--clr-primary--300);
   max-width: 55rem;
   width: 100%;
@@ -363,7 +364,8 @@ body {
 .links__btn,
 .label__btn,
 .search__btn,
-.sales__btn {
+.sales__btn,
+.sale__btn {
   padding: 0.4em 1em 0.4em 1em;
   border-radius: var(--br);
   font-weight: 900;
@@ -397,7 +399,8 @@ body {
 
 .profile__btn--text,
 .student__btn--text,
-.sales__btn--text {
+.sales__btn--text,
+.sale__btn--text {
   margin-right: 0.5em;
 }
 
@@ -409,7 +412,8 @@ body {
 .student__confirm--btn,
 .student__add--btn,
 .sales__add--btn,
-.sales__delete--btn {
+.sales__delete--btn,
+.sale__confirm--btn {
   background-color: var(--clr-accent--700);
   border: 1px solid var(--clr-accent--700);
 }
@@ -423,7 +427,8 @@ body {
 .students__search--btn,
 .members__search--btn,
 .sales__form--btn,
-.sales__edit--btn {
+.sales__edit--btn,
+.sale__back--btn {
   background-color: var(--clr-accent--900);
   border: 1px solid var(--clr-accent--900);
   margin-right: 0.5em;
@@ -442,7 +447,8 @@ body {
 .student__confirm--btn:hover,
 .student__add--btn:hover,
 .sales__add--btn:hover,
-.sales__delete--btn:hover {
+.sales__delete--btn:hover,
+.sale__confirm--btn:hover {
   background-color: var(--clr-accent--500);
 }
 
@@ -455,7 +461,8 @@ body {
 .students__search--btn:hover,
 .members__search--btn:hover,
 .sales__form--btn:hover,
-.sales__edit--btn:hover {
+.sales__edit--btn:hover,
+.sale__back--btn:hover {
   background-color: var(--clr-accent--800);
 }
 
@@ -945,7 +952,8 @@ td {
 /* ----- Forms ----- */
 .account__container,
 .profile__form--container,
-.student__form--container {
+.student__form--container,
+.sale__form--container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -955,12 +963,14 @@ td {
 }
 
 .profile__form--container,
-.student__form--container {
+.student__form--container,
+.sale__form--container {
   color: var(--clr-neutral--900);
 }
 
 .profile__form,
-.student__form {
+.student__form,
+.sale__form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -986,14 +996,16 @@ td {
 
 .account__title,
 .profile__form--title,
-.student__form--title {
+.student__form--title,
+.sale__form--title {
   font-size: 2.2rem;
   letter-spacing: 0.15rem;
   font-weight: 900;
 }
 
 .profile__form--title,
-.student__form--title {
+.student__form--title,
+.sale__form--title {
   margin: 0.9em 0;
 }
 
@@ -1049,7 +1061,8 @@ td {
 .profile__form input,
 .student__form input,
 .students input,
-.members input {
+.members input,
+.sale input {
   border: 1px solid #ffffff8c;
   border-radius: var(--br);
   padding: 0.8em 1em 0.6em 1em;
@@ -1067,7 +1080,8 @@ td {
 }
 
 .profile__form input,
-.student__form input {
+.student__form input,
+.sale__form input {
   margin-bottom: 0.5em;
 }
 
@@ -1075,13 +1089,15 @@ td {
 .profile__form input:focus,
 .student__form input:focus,
 .students input:focus,
-.members input:focus {
+.members input:focus,
+.sale__form input:focus {
   outline: none;
 }
 
 .account label:not([for='id_remember']),
 .profile__form label:not([for='id_remember']),
-.student__form label:not([for='id_remember']) {
+.student__form label:not([for='id_remember']),
+.sale__form label:not([for='id_remember']) {
   display: none;
 }
 
@@ -1089,7 +1105,8 @@ td {
 .profile__form input::placeholder,
 .student__form input::placeholder,
 .students input::placeholder,
-.members input::placeholder {
+.members input::placeholder,
+.sale__form input::placeholder {
   color: #001c828f;
   font-size: 1.2rem;
   letter-spacing: 0.13rem;
@@ -1100,7 +1117,8 @@ td {
 .profile__form input:placeholder-shown,
 .student__form input:placeholder-shown,
 .students input:placeholder-shown,
-.members input:placeholder-shown {
+.members input:placeholder-shown,
+.sale__form input:placeholder-shown {
   color: #022c29;
   font-weight: 600;
 }
@@ -1109,7 +1127,8 @@ td {
 .profile__form input:not(:placeholder-shown),
 .student__form input:not(:placeholder-shown),
 .students input:not(:placeholder-shown),
-.members input:not(:placeholder-shown) {
+.members input:not(:placeholder-shown),
+.sale__form input:not(:placeholder-shown) {
   color: var(--clr-primary--900);
   font-weight: 600;
   font-size: 1.2rem;
@@ -1138,7 +1157,10 @@ td {
 .student__form label[for='id_address']~div::before,
 .student__form label[for='id_classes_left']~div::before,
 .student__form label[for='id_sales_manager']~div::before,
-.student__form label[for='id_notes']~div::before {
+.student__form label[for='id_notes']~div::before,
+.sale__form label[for='id_sold_to']~div::before,
+.sale__form label[for='id_amount']~div::before,
+.sale__form label[for='id_student']~div::before {
   position: absolute;
   top: 0.55rem;
   left: 0.4rem;
@@ -1198,6 +1220,17 @@ td {
   content: 'Notes:';
 }
 
+.sale__form label[for='id_sold_to']~div::before {
+  content: 'Client Name:';
+}
+
+.sale__form label[for='id_amount']~div::before {
+  content: 'Amount:';
+}
+
+.sale__form label[for='id_student']~div::before {
+  content: 'Student:';
+}
 
 /* Forms Select */
 .select2-container--default .select2-selection--single {
@@ -1205,13 +1238,21 @@ td {
   border: 1px solid #aaa;
 }
 
+.select2-container .select2-container--default .select2-container--below .select2-container--focus {
+  background-color: red;
+}
+
+.select2-selection .select2-container .select2-container--default .select2-container--below {
+  background-color: #25a77b;
+}
 
 .select2-container--default .select2-search--inline .select2-search__field {
   color: var(--clr-primary--900);
   padding: 2em;
 }
 
-.student__form .select2-container--default .select2-selection--multiple {
+.student__form .select2-container--default .select2-selection--multiple,
+.sale__form .select2-container--default .select2-selection--single {
   cursor: text;
   position: relative;
   border: 1px solid #ffffff8c;
@@ -1223,6 +1264,21 @@ td {
   font-size: 1.2rem;
   color: #001d82;
   margin-bottom: 0.5em;
+}
+
+.sale__form .select2-container--default .select2-selection--single {
+  height: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.sale__form .select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: var(--clr-primary--900);
+  font-weight: 900;
+  font-size: 1.2rem;
+  /* color: red; */
 }
 
 .select2-results {
@@ -1283,7 +1339,8 @@ button.select2-selection__choice__remove {
 }
 
 .profile__buttons,
-.student__buttons {
+.student__buttons,
+.sale__buttons {
   display: flex;
   justify-content: space-between;
   width: 25rem;
@@ -1291,7 +1348,8 @@ button.select2-selection__choice__remove {
 }
 
 .profile__form--btn,
-.student__buttons--btn {
+.student__buttons--btn,
+.sale__form--btn {
   margin: 1em 0;
   padding: 0.5em 1.2em;
   border-radius: var(--br);
@@ -1306,7 +1364,7 @@ button.select2-selection__choice__remove {
 }
 
 
-input[type=date]::-webkit-calendar-picker-indicator {
+/* input[type=date]::-webkit-calendar-picker-indicator {
   cursor: pointer;
   border-radius: var(--br);
   color: var(--clr-primary--900);
@@ -1324,7 +1382,6 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator {
 input[type="date"]:hover:after {}
 
 input[type="date"]::-webkit-inner-spin-button {
-  /* display: none; <- Crashes Chrome on hover */
   -webkit-appearance: none;
   margin: 0;
 }
@@ -1335,7 +1392,7 @@ input[type=date]::-webkit-calendar-picker-indicator:hover {
 
 input[type=date]:focus {
   border-color: rgb(47, 0, 255);
-}
+} */
 
 /* Forms buttons */
 .btn,

@@ -31,13 +31,13 @@
       {{ form|crispy }}
       <div class="sale__buttons">
         {% comment %} Go back to sales {% endcomment %}
-        <a href="{% url 'sales' %}" class="sale__form--btn sale__btn sale__back--btn">
+        <a href="{% url 'sales_list' %}" class="sale__form--btn sale__btn sale__back--btn">
           <div class=" sale__btn--text">Go back
           </div>
           <i class="far fa-window-close  sale__btn--icon"></i>
         </a>
         {% comment %} Submit changes {% endcomment %}
-        <button type="submit" class="sale__form--btn sale__btn sale__back--btn">
+        <button type="submit" class="sale__form--btn sale__btn sale__confirm--btn">
           <div class="sale__btn--text">Submit</div>
           <i class="fas fa-trash-alt sale__btn--icon"></i>
         </button>
