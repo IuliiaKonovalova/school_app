@@ -1232,7 +1232,7 @@ td {
   content: 'Student:';
 }
 
-/* Forms Select */
+/* Stylings jquery ui elements for student form */
 .select2-container--default .select2-selection--single {
   background-color: #fff;
   border: 1px solid #aaa;
@@ -1257,28 +1257,13 @@ td {
   position: relative;
   border: 1px solid #ffffff8c;
   border-radius: var(--br);
-  padding: 0.4em 1em 0.6em 1em;
+  padding: 0.4em 1em 0.5em 1em;
   min-width: 25rem;
   margin: 1em 0;
   background-color: #ffffff;
   font-size: 1.2rem;
   color: #001d82;
   margin-bottom: 0.5em;
-}
-
-.sale__form .select2-container--default .select2-selection--single {
-  height: 3.2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-}
-
-.sale__form .select2-container--default .select2-selection--single .select2-selection__rendered {
-  color: var(--clr-primary--900);
-  font-weight: 900;
-  font-size: 1.2rem;
-  /* color: red; */
 }
 
 .select2-results {
@@ -1313,6 +1298,21 @@ button.select2-selection__choice__remove {
 .select2-results__option.select2-results__option--selectable.select2-results__option--selected {
   background-color: white;
   color: var(--clr-neutral--900);
+}
+
+/* Stylings jquery ui elements for sale form */
+.sale__form .select2-container--default .select2-selection--single {
+  height: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.sale__form .select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: var(--clr-primary--900);
+  font-weight: 900;
+  font-size: 1.2rem;
 }
 
 /* Styling Forms Textarea */
