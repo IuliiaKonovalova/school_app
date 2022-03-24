@@ -77,7 +77,7 @@
         <div id="box" class="students__results">
           {% for student in students %}
             <div class="students__student students__results--item">
-              <a href="{% url 'student_detail' pk=student.pk%}" class="links__btn links__btn--name">
+              <a href="{% url 'student_detail' pk=student.pk %}" class="links__btn links__btn--name">
                 <div class="profile__btn--text">
                   {{ student.first_name }} {{ student.last_name }}
                 </div>

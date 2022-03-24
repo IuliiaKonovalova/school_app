@@ -23,6 +23,9 @@ class SalesView(View):
         if request.user.is_authenticated and request.user.role == 2:
             sales_manager = SalesManager.objects.get(user=request.user)
             sales = Sales.objects.filter(sold_by=sales_manager)
+            for sale in sales:
+                student = Student.objects.get(id=sale.student_id)
+                sale.student_name = student.first_name + ' ' + student.last_name
             return render(
                 request,
                 'sales/sales_list.html',
