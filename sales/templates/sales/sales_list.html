@@ -54,79 +54,80 @@
             <i class="fas fa-search  profile__btn--icon"></i>
           </button>
         </div>
+        {% comment %} Sales results {% endcomment %}
         <div class="sales__results">
           <div class="sales__results--summary">
             <strong>{{ sales|length }}</strong> sales found
           </div>
           <table class="sales__results--container">
+            {% comment %} Sales Table Header {% endcomment %}
             <tr>
               <th>Date</th>
               <th>Total</th>
               <th>Manager</th>
               <th>Client</th>
               <th>Student</th>
+              {% comment %} Limit access to render sale only for sales managers {% endcomment %}
               {% if request.user.role == 2 %}
                 <th>Edit</th>
                 <th>Delete</th>
               {% endif %}
             </tr>
-            
+            {% comment %} Sales table data {% endcomment %}
             {% for sale in sales %}
-            <tr class="sales__results--item">
-              <td>{{ sale.date|date:'m/d/Y' }}</td>
-            {% comment %} <div class="sales__results--item"> {% endcomment %}
-              <td>{{ sale.amount }}</td>
-              <td>
-                <div class="links">
-                  <a href="{% url 'user_profile' username=sale.sold_by.user.username %}" class="links__btn links__btn--name">
-                    <div class="student__btn--text">
-                      {{ sale.sold_by|title }}
-                    </div>
-                    <i class="fas fa-external-link-alt student__btn--icon"></i>
-                  </a>
-                </div>
-              </td>
-              <td>
-                <div class="links">
-                  <a href="{% url 'user_profile' username=sale.sold_to.user.username %}" class="links__btn links__btn--name">
-                    <div class="student__btn--text">
-                      {{ sale.sold_to|title }}
-                    </div>
-                    <i class="fas fa-external-link-alt student__btn--icon"></i>
-                  </a>
-                </div>
-              </td>
-              <td>
-                <div class="links">
-                  <a href="{% url 'student_detail' pk=sale.student_id %}" class="links__btn links__btn--name">
-                    <div class="student__btn--text">
-                      {{ sale.student_name}}
-                    </div>
-                    <i class="fas fa-external-link-alt student__btn--icon"></i>
-                  </a>
-                </div>
-              </td>
-              
-              
-              
-              {% if request.user.role == 2 %}
-              <td>
-                <a href="{% url 'edit_sales' pk=sale.pk %}" class="profile__btn profile__edit--btn">
-                  <div class=" profile__btn--text">Edit</div>
-                  <i class="fas fa-edit  profile__btn--icon"></i>
-                </a>
-              </td>
-              <td>
-                <a href="{% url 'delete_sales' pk=sale.pk %}" class="profile__btn profile__password--btn">
-                  <div class=" profile__btn--text">Password</div>
-                  <i class="fas fa-unlock-alt profile__btn--icon"></i>
-                </a>
-              </td>
-              {% endif %}
-            {% comment %} </div> {% endcomment %}
-            </tr>
+              <tr class="sales__results--item">
+                <td>{{ sale.date|date:'m/d/Y' }}</td>
+                <td>{{ sale.amount }}</td>
+                {% comment %} Link to sales manager profile {% endcomment %}
+                <td>
+                  <div class="links">
+                    <a href="{% url 'user_profile' username=sale.sold_by.user.username %}" class="links__btn links__btn--name">
+                      <div class="student__btn--text">
+                        {{ sale.sold_by|title }}
+                      </div>
+                      <i class="fas fa-external-link-alt student__btn--icon"></i>
+                    </a>
+                  </div>
+                </td>
+                {% comment %} Link to parent profile {% endcomment %}
+                <td>
+                  <div class="links">
+                    <a href="{% url 'user_profile' username=sale.sold_to.user.username %}" class="links__btn links__btn--name">
+                      <div class="student__btn--text">
+                        {{ sale.sold_to|title }}
+                      </div>
+                      <i class="fas fa-external-link-alt student__btn--icon"></i>
+                    </a>
+                  </div>
+                </td>
+                {% comment %} Link to student profile {% endcomment %}
+                <td>
+                  <div class="links">
+                    <a href="{% url 'student_detail' pk=sale.student_id %}" class="links__btn links__btn--name">
+                      <div class="student__btn--text">
+                        {{ sale.student_name}}
+                      </div>
+                      <i class="fas fa-external-link-alt student__btn--icon"></i>
+                    </a>
+                  </div>
+                </td>
+                {% comment %} Limit access of rendering sales, only for manager who conducted a deal {% endcomment %}
+                {% if request.user.role == 2 and request.user.username == sale.sold_by.user.username %}
+                  <td>
+                    <a href="{% url 'edit_sales' pk=sale.pk %}" class="profile__btn profile__edit--btn">
+                      <div class=" profile__btn--text">Edit</div>
+                      <i class="fas fa-edit  profile__btn--icon"></i>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="{% url 'delete_sales' pk=sale.pk %}" class="profile__btn profile__password--btn">
+                      <div class=" profile__btn--text">Password</div>
+                      <i class="fas fa-unlock-alt profile__btn--icon"></i>
+                    </a>
+                  </td>
+                {% endif %}
+              </tr>
             {% endfor %}
-            
           </table>
         </div>
       </form>
