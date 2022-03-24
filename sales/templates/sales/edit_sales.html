@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_js %}
-  {% comment %} jquery iu libriary select2 {% endcomment %}
+  {% comment %} jquery iu library select2 {% endcomment %}
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
@@ -32,8 +32,7 @@
           <div class="sale__buttons">
             {% comment %} Go back to sales {% endcomment %}
             <a href="{% url 'sales_list' %}" class="sale__form--btn sale__btn sale__back--btn">
-              <div class=" sale__btn--text">Go back
-              </div>
+              <div class=" sale__btn--text">Go back</div>
               <i class="far fa-window-close  sale__btn--icon"></i>
             </a>
             {% comment %} Submit changes {% endcomment %}
