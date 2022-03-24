@@ -420,7 +420,8 @@ body {
 .classes__form--btn,
 .student__back--btn,
 .students__search--btn,
-.members__search--btn {
+.members__search--btn,
+.sales__form--btn {
   background-color: var(--clr-accent--900);
   border: 1px solid var(--clr-accent--900);
   margin-right: 0.5em;
@@ -449,7 +450,8 @@ body {
 .classes__form--btn:hover,
 .student__back--btn:hover,
 .students__search--btn:hover,
-.members__search--btn:hover {
+.members__search--btn:hover,
+.sales__form--btn:hover {
   background-color: var(--clr-accent--800);
 }
 
@@ -583,14 +585,16 @@ body {
   justify-content: center;
 }
 
-.classes__form--heading {
+.classes__form--heading,
+.sales__form--heading {
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 0.5em;
   color: var(--clr-primary--900);
 }
 
-.classes__form--settings {
+.classes__form--settings,
+.sales__form--settings {
   display: flex;
   align-items: center;
   width: 100%;
@@ -613,7 +617,8 @@ body {
 }
 
 .classes__form--btn,
-.students__search--btn {
+.students__search--btn,
+.sales__form--btn {
   font-size: 1.3rem;
   border-radius: 0.4em;
 }
@@ -695,7 +700,8 @@ body {
 
 /* Styling student search form */
 .students__form,
-.members__form {
+.members__form,
+.sales__form {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -759,40 +765,6 @@ body {
   position: relative;
   margin-right: 0.5em;
 }
-
-/* input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-}
-
-input[type="radio"]+span.sort__check {
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 0.2em;
-  font-size: 1.2rem;
-}
-
-input+span.sort__check {
-  cursor: pointer;
-}
-
-.sort__check {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5em;
-  background-color: var(--clr-accent--500);
-  color: white;
-}
-
-input[type="radio"]:hover+span.sort__check,
-input[type="radio"]:checked+span.sort__check,
-input[type="radio"]:focus+span.sort__check {
-  transform: scale(1.05);
-  background-color: var(--clr-accent--700);
-} */
 
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
@@ -932,6 +904,12 @@ input[type="radio"]:focus+span.sort__check {
   margin-right: 0.5em;
 }
 
+/* Styling sales page */
+
+.sales__form {
+  margin: 1em auto;
+  background-color: orange;
+}
 
 /* ----- Forms ----- */
 .account__container,

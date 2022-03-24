@@ -36,38 +36,43 @@
         {% endif %}
       </div>
 
-      {% if sales.count == 0 %}
-        <p>Sales not found</p>
-      {% else %}
-
-        <h3>Search by date</h3>
-        <form method="POST">
-          {% csrf_token %}
-          From: <input type="text" id="datepicker1" name="from_date">
-          To: <input type="text" id="datepicker2" name="to_date">
-          <input type="submit" value="search">
-          <div class="sales">
-
-            <div>
-              {{ sales|length }} sales found
-            </div>
-            <ul>
-              {% for sale in sales %}
-              <li>
-                Sold {{ sale.amount }} classes
-                to:<a href="{% url 'user_profile' username=sale.sold_to.user.username %}">{{ sale.sold_to }}</a>
-                by: <a href="{% url 'user_profile' username=sale.sold_by.user.username %}">{{ sale.sold_by }}</a>
-                on {{ sale.date|date:'m/d/Y' }}
-                {% if request.user.role == 2 %}
-                <a href="{% url 'edit_sales' pk=sale.pk %}">Edit sale</a>
-                <a href="{% url 'delete_sales' pk=sale.pk %}">Delete sale</a>
-                {% endif %}
-              </li>
-              {% endfor %}
-            </ul>
+      <form method="POST" class="sales__form">
+      <h4 class="sales__form--heading">Search sales by date</h4>
+        {% csrf_token %}
+        <div class="sales__form--settings">
+          
+          <div class="datepicker__container">
+            <div class="datepicker__container--title">From:</div>
+            <input type="text" id="datepicker1" name="from_date" placeholder="mm-dd-yyyy">
           </div>
-        </form>
-      {% endif %}
+          <div  class="datepicker__container">
+            <div class="datepicker__container--title">To:</div>
+            <input type="text" id="datepicker2" name="to_date" placeholder="mm-dd-yyyy">
+          </div>
+          <button type="submit" value="search" class="search__btn classes__form--btn">
+            <div class=" profile__btn--text">Search</div>
+            <i class="fas fa-search  profile__btn--icon"></i>
+          </button>
+        </div>
+          <div>
+            {{ sales|length }} sales found
+          </div>
+          <ul>
+            {% for sale in sales %}
+            <li>
+              Sold {{ sale.amount }} classes
+              to:<a href="{% url 'user_profile' username=sale.sold_to.user.username %}">{{ sale.sold_to }}</a>
+              by: <a href="{% url 'user_profile' username=sale.sold_by.user.username %}">{{ sale.sold_by }}</a>
+              on {{ sale.date|date:'m/d/Y' }}
+              {% if request.user.role == 2 %}
+              <a href="{% url 'edit_sales' pk=sale.pk %}">Edit sale</a>
+              <a href="{% url 'delete_sales' pk=sale.pk %}">Delete sale</a>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </form>
     </div>
   {% else %}
     {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
