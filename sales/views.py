@@ -13,16 +13,8 @@ class SalesView(View):
     """Sales view"""
     def get(self, request, *args, **kwargs):
         """Receive sales"""
-        if request.user.is_authenticated and request.user.role == 0:
+        if request.user.is_authenticated and (request.user.role == 0 or request.user.role == 2):
             sales = Sales.objects.all()
-            return render(
-                request,
-                'sales/sales_list.html',
-                {'sales': sales}
-                )
-        if request.user.is_authenticated and request.user.role == 2:
-            sales_manager = SalesManager.objects.get(user=request.user)
-            sales = Sales.objects.filter(sold_by=sales_manager)
             for sale in sales:
                 student = Student.objects.get(id=sale.student_id)
                 sale.student_name = student.first_name + ' ' + student.last_name
