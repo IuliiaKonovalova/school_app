@@ -20,17 +20,22 @@
 {% endblock%}
 
 {% block content %}
+  {% comment %} Main content to sales page only for bosses and sales managers {% endcomment %}
   {% if request.user.role == 0 or request.user.role == 2 %}
     <div class="sales">
-      <h2 class="sales__title">All sales made</h2>
+      <div class="sales__header">
+        <h2 class="sales__title">Sales</h2>
+        {% comment %} Add sales button only for sales managers {% endcomment %}
+        {% if request.user.role == 2 %}
+          <a href="{% url 'sales_form' %}" class="sales__btn sales__add--btn sales__btn--custom">
+            <div class="student__btn--text">
+              Add new Sale
+            </div>
+            <i class="fas fa-plus-circle student__btn--icon"></i>
+          </a>
+        {% endif %}
+      </div>
 
-
-      {% if request.user.role == 2 %}
-        <div>
-          <a href="{% url 'sales_form' %}">Add sale</a>
-
-        </div>
-      {% endif %}
       {% if sales.count == 0 %}
         <p>Sales not found</p>
       {% else %}
@@ -60,12 +65,9 @@
               </li>
               {% endfor %}
             </ul>
-
           </div>
-
         </form>
       {% endif %}
-
     </div>
   {% else %}
     {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}

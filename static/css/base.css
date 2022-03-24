@@ -362,7 +362,8 @@ body {
 .student__btn,
 .links__btn,
 .label__btn,
-.search__btn {
+.search__btn,
+.sales__btn {
   padding: 0.4em 1em 0.4em 1em;
   border-radius: var(--br);
   font-weight: 900;
@@ -395,7 +396,8 @@ body {
 }
 
 .profile__btn--text,
-.student__btn--text {
+.student__btn--text,
+.sales__btn--text {
   margin-right: 0.5em;
 }
 
@@ -405,7 +407,8 @@ body {
 .label__btn--name,
 .profile__confirm--btn,
 .student__confirm--btn,
-.student__add--btn {
+.student__add--btn,
+.sales__add--btn {
   background-color: var(--clr-accent--700);
   border: 1px solid var(--clr-accent--700);
 }
@@ -434,7 +437,8 @@ body {
 .label__btn--name:hover,
 .profile__confirm--btn:hover,
 .student__confirm--btn:hover,
-.student__add--btn:hover {
+.student__add--btn:hover,
+.sales__add--btn:hover {
   background-color: var(--clr-accent--500);
 }
 
@@ -662,7 +666,8 @@ body {
   justify-content: start;
 }
 
-.students__header {
+.students__header,
+.sales__header {
   position: relative;
   width: 100%;
   display: flex;
@@ -680,7 +685,8 @@ body {
   text-align: center;
 }
 
-.students__btn {
+.students__btn,
+.sales__btn--custom {
   position: absolute;
   right: -1.5rem;
   top: -3.5rem;
