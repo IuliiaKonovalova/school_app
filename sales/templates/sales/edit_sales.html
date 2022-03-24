@@ -1,21 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block content %}
-
-{% if request.user.role == 2 %}
-<h2>Edit Sale</h2>
-<form method="POST">
-  {% csrf_token %}
-  {{ form|crispy }}
-  <button type="submit">Submit</button>
-
-</form>
-
-{% else %}
-<p>You are not authorized to view this page</p>
-{% endif %}
-
+{% block extra_js %}
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
@@ -32,5 +18,53 @@
     $('.select2').css('width', '100%');
   });
 </script>
+{% endblock%}
+
+{% block content %}
+
+{% if request.user.role == 2 %}
+<div class="sale">
+  <div class="sale__form--container">
+    <form method="POST" class="sale__form">
+      <h2 class="sale__form--title">Edit Sale</h2>
+      {% csrf_token %}
+      {{ form|crispy }}
+      <div class="sale__buttons">
+        {% comment %} Go back to sales {% endcomment %}
+        <a href="{% url 'sales' %}" class="sale__form--btn sale__btn sale__back--btn">
+          <div class=" sale__btn--text">Go back
+          </div>
+          <i class="far fa-window-close  sale__btn--icon"></i>
+        </a>
+        {% comment %} Submit changes {% endcomment %}
+        <button type="submit" class="sale__form--btn sale__btn sale__back--btn">
+          <div class="sale__btn--text">Submit</div>
+          <i class="fas fa-trash-alt sale__btn--icon"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% else %}
+{% comment %} Access limitation, only sales managers {% endcomment %}
+<div class="access">
+  <div class="access__error">
+    <div class="access__error--image">
+      <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
+    </div>
+    <p class="access__error--text">You are not authorized to view this page!</p>
+    <div class="links">
+      <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
+        <div class="profile__btn--text">
+          Back to your profile
+        </div>
+        <i class="fas fa-external-link-alt profile__btn--icon"></i>
+      </a>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
 
 {% endblock %}
