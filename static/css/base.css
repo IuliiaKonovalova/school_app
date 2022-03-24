@@ -946,7 +946,12 @@ td {
 
 .sales__results--item {
   font-size: 1.4rem;
+}
 
+.sale__data--text {
+  margin: 0.5em auto;
+  font-weight: 900;
+  font-size: 1.2rem;
 }
 
 /* ----- Forms ----- */
@@ -1015,7 +1020,8 @@ td {
 }
 
 .profile__form--suggestions,
-.student__form--suggestions {
+.student__form--suggestions,
+.sale__form--suggestions {
   width: 100%;
   margin: 0 auto;
   display: flex;

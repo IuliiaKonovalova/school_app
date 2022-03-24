@@ -1,33 +1,57 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
 {% if request.user.role == 2 %}
-<h2>
-  Delete Sale
-</h2>
-
-<form method="POST">
-  {% csrf_token %}
-
-  <div>Are you sure you want to delete the sale: </div>
-  <div>
-    Sold {{ sales.amount }} classes
-    to:<a href="{% url 'user_profile' username=sales.sold_to.user.username %}">{{ sales.sold_to }}</a>
-    by: <a href="{% url 'user_profile' username=sales.sold_by.user.username %}">{{ sales.sold_by }}</a>
-    on {{ sales.date|date:'m/d/Y' }}
-    ?</div>
-  <div>This student will permanently deleted from database.</div>
-  </div>
-  <div>
-    <a href="{% url 'sales_list' %}">Go
-      back</a>
-    <button type="submit" name="delete">Delete</button>
-  </div>
-</form>
-
-{% else %}
-<p>You are not authorized to view this page</p>
-{% endif %}
-
+    <div class="sale">
+      <div class="sale__form--container">
+        <form method="POST" class="sale__form">
+          <h2 class="sale__form--title">Delete Sale</h2>
+          {% csrf_token %}
+          {% comment %} Member deletion warning {% endcomment %}
+          <div class="sale__form--suggestions">
+            <div>Are you sure you want to delete this sale?</div>
+            <div class="links">
+                <div class="sale__data--text">
+                  on {{ sales.date|date:'m/d/Y' }}
+                </div>
+            </div>
+            <div>This sale will <strong>permanently</strong> deleted from database.</div>
+          </div>
+          <div class="sale__buttons">
+            {% comment %} Go back to sales {% endcomment %}
+            <a href="{% url 'sales_list' %}" class="sale__form--btn sale__btn sale__back--btn">
+              <div class=" sale__btn--text">Go back
+              </div>
+              <i class="far fa-window-close  sale__btn--icon"></i>
+            </a>
+            {% comment %} Submit changes {% endcomment %}
+            <button type="submit" class="sale__form--btn sale__btn sale__confirm--btn">
+              <div class="sale__btn--text">Submit</div>
+              <i class="fas fa-trash-alt sale__btn--icon"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  {% else %}
+    {% comment %} Access limitation, only sales managers {% endcomment %}
+      <div class="access">
+        <div class="access__error">
+          <div class="access__error--image">
+            <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
+          </div>
+          <p class="access__error--text">You are not authorized to view this page!</p>
+          <div class="links">
+            <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
+              <div class="profile__btn--text">
+                Back to your profile
+              </div>
+              <i class="fas fa-external-link-alt profile__btn--icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+  {% endif %}
 {% endblock %}
