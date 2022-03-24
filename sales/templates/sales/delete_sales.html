@@ -11,13 +11,13 @@
           {% csrf_token %}
           {% comment %} Member deletion warning {% endcomment %}
           <div class="sale__form--suggestions">
-            <div>Are you sure you want to delete this sale?</div>
-            <div class="links">
-                <div class="sale__data--text">
-                  on {{ sales.date|date:'m/d/Y' }}
-                </div>
+            <div class="sale__form--warning">
+              Are you sure you want to delete sale <strong>ID {{ sales.id }}</strong> made on
+              <strong> {{ sales.date|date:'m/d/Y' }}</strong>?
             </div>
-            <div>This sale will <strong>permanently</strong> deleted from database.</div>
+            <div class="sale__form--warning">
+              This sale will <strong>permanently</strong> deleted from database.
+            </div>
           </div>
           <div class="sale__buttons">
             {% comment %} Go back to sales {% endcomment %}
@@ -28,7 +28,7 @@
             </a>
             {% comment %} Submit changes {% endcomment %}
             <button type="submit" class="sale__form--btn sale__btn sale__confirm--btn">
-              <div class="sale__btn--text">Submit</div>
+              <div class="sale__btn--text">Delete</div>
               <i class="fas fa-trash-alt sale__btn--icon"></i>
             </button>
           </div>

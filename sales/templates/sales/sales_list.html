@@ -62,6 +62,7 @@
           <table class="sales__results--container">
             {% comment %} Sales Table Header {% endcomment %}
             <tr>
+              <th>ID</th>
               <th>Date</th>
               <th>Total</th>
               <th>Manager</th>
@@ -76,6 +77,7 @@
             {% comment %} Sales table data {% endcomment %}
             {% for sale in sales %}
               <tr class="sales__results--item">
+                <td>{{ sale.id }}</td>
                 <td>{{ sale.date|date:'m/d/Y' }}</td>
                 <td>{{ sale.amount }}</td>
                 {% comment %} Link to sales manager profile {% endcomment %}

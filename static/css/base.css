@@ -948,10 +948,8 @@ td {
   font-size: 1.4rem;
 }
 
-.sale__data--text {
-  margin: 0.5em auto;
-  font-weight: 900;
-  font-size: 1.2rem;
+.sale__form--warning {
+  margin-bottom: 0.5em;
 }
 
 /* ----- Forms ----- */
