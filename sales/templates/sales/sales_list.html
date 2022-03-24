@@ -62,45 +62,65 @@
             <tr>
               <th>Date</th>
               <th>Classes</th>
-              <th>Sales Manager</th>
+              <th>Manager</th>
               <th>Client</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-            {% for sale in sales %}
-            <div class="sales__results--item">
-              Sold {{ sale.amount }} classes
-              <div class="links">
-                <a href="{% url 'user_profile' username=sale.sold_to.user.username %}" class="links__btn links__btn--name">
-                  <div class="student__btn--text">
-                    {{ sale.sold_to|title }}
-                  </div>
-                  <i class="fas fa-external-link-alt student__btn--icon"></i>
-                </a>
-              </div>
-              <div class="links">
-                <a href="{% url 'user_profile' username=sale.sold_by.user.username %}" class="links__btn links__btn--name">
-                  <div class="student__btn--text">
-                    {{ sale.sold_by|title }}
-                  </div>
-                  <i class="fas fa-external-link-alt student__btn--icon"></i>
-                </a>
-              </div>
-              on {{ sale.date|date:'m/d/Y' }}
-              <div class="links">
-                <a href="{% url 'student_detail' pk=sale.student_id %}" class="links__btn links__btn--name">
-                  <div class="student__btn--text">
-                    {{ sale.student_name}}
-                  </div>
-                  <i class="fas fa-external-link-alt student__btn--icon"></i>
-                </a>
-              </div>
+              <th>Student</th>
               {% if request.user.role == 2 %}
-              <a href="{% url 'edit_sales' pk=sale.pk %}">Edit sale</a>
-              <a href="{% url 'delete_sales' pk=sale.pk %}">Delete sale</a>
+                <th>Edit</th>
+                <th>Delete</th>
               {% endif %}
-            </div>
+            </tr>
+            
+            {% for sale in sales %}
+            <tr class="sales__results--item">
+              <td>{{ sale.date|date:'m/d/Y' }}</td>
+            {% comment %} <div class="sales__results--item"> {% endcomment %}
+              <td>{{ sale.amount }}</td>
+              <td>
+                <div class="links">
+                  <a href="{% url 'user_profile' username=sale.sold_by.user.username %}" class="links__btn links__btn--name">
+                    <div class="student__btn--text">
+                      {{ sale.sold_by|title }}
+                    </div>
+                    <i class="fas fa-external-link-alt student__btn--icon"></i>
+                  </a>
+                </div>
+              </td>
+              <td>
+                <div class="links">
+                  <a href="{% url 'user_profile' username=sale.sold_to.user.username %}" class="links__btn links__btn--name">
+                    <div class="student__btn--text">
+                      {{ sale.sold_to|title }}
+                    </div>
+                    <i class="fas fa-external-link-alt student__btn--icon"></i>
+                  </a>
+                </div>
+              </td>
+              <td>
+                <div class="links">
+                  <a href="{% url 'student_detail' pk=sale.student_id %}" class="links__btn links__btn--name">
+                    <div class="student__btn--text">
+                      {{ sale.student_name}}
+                    </div>
+                    <i class="fas fa-external-link-alt student__btn--icon"></i>
+                  </a>
+                </div>
+              </td>
+              
+              
+              
+              {% if request.user.role == 2 %}
+              <td>
+                <a href="{% url 'edit_sales' pk=sale.pk %}">Edit</a>
+              </td>
+              <td>
+                <a href="{% url 'delete_sales' pk=sale.pk %}">Delete</a>
+              </td>
+              {% endif %}
+            {% comment %} </div> {% endcomment %}
+            </tr>
             {% endfor %}
+            
           </table>
         </div>
       </form>
