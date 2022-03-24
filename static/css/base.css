@@ -633,7 +633,8 @@ body {
   color: var(--clr-primary--900);
 }
 
-.classes__results {
+.classes__results,
+.sales__results {
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -641,11 +642,13 @@ body {
   align-items: center;
 }
 
-.classes__results--summary {
+.classes__results--summary,
+.sales__results--summary {
   margin-bottom: 0.5em;
 }
 
-.classes__results--container {
+.classes__results--container,
+.sales__results--container {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
@@ -908,7 +911,23 @@ body {
 
 .sales__form {
   margin: 1em auto;
-  background-color: orange;
+}
+
+.sales__results--container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.sales__results--item {
+  font-size: 1.4rem;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  background-color: plum;
 }
 
 /* ----- Forms ----- */

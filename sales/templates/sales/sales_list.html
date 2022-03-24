@@ -54,23 +54,38 @@
             <i class="fas fa-search  profile__btn--icon"></i>
           </button>
         </div>
-          <div>
-            {{ sales|length }} sales found
+        <div class="sales__results">
+          <div class="sales__results--summary">
+            <strong>{{ sales|length }}</strong> sales found
           </div>
-          <ul>
+          <table class="sales__results--container">
             {% for sale in sales %}
-            <li>
+            <div class="sales__results--item">
               Sold {{ sale.amount }} classes
-              to:<a href="{% url 'user_profile' username=sale.sold_to.user.username %}">{{ sale.sold_to }}</a>
-              by: <a href="{% url 'user_profile' username=sale.sold_by.user.username %}">{{ sale.sold_by }}</a>
+              <div class="links">
+                <a href="{% url 'user_profile' username=sale.sold_to.user.username %}" class="links__btn links__btn--name">
+                  <div class="student__btn--text">
+                    {{ sale.sold_to|title }}
+                  </div>
+                  <i class="fas fa-external-link-alt student__btn--icon"></i>
+                </a>
+              </div>
+              <div class="links">
+                <a href="{% url 'user_profile' username=sale.sold_by.user.username %}" class="links__btn links__btn--name">
+                  <div class="student__btn--text">
+                    {{ sale.sold_by|title }}
+                  </div>
+                  <i class="fas fa-external-link-alt student__btn--icon"></i>
+                </a>
+              </div>
               on {{ sale.date|date:'m/d/Y' }}
               {% if request.user.role == 2 %}
               <a href="{% url 'edit_sales' pk=sale.pk %}">Edit sale</a>
               <a href="{% url 'delete_sales' pk=sale.pk %}">Delete sale</a>
               {% endif %}
-            </li>
+            </div>
             {% endfor %}
-          </ul>
+          </table>
         </div>
       </form>
     </div>

@@ -122,7 +122,6 @@
           <div class="student__data--info">
             {% for sales_manager in student.get_sales_managers %}
             <div class="links">
-
               <a href="{% url 'user_profile' username=sales_manager.user.username %}" class="links__btn links__btn--name">
                 <div class="student__btn--text">
                   {{ sales_manager|title }}
