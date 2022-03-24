@@ -6,14 +6,15 @@ from profiles.models import Parent, SalesManager
 from students.models import Student
 from .forms import SalesForm
 from .models import Sales
-from datetime import datetime
 
 
 class SalesView(View):
     """Sales view"""
     def get(self, request, *args, **kwargs):
         """Receive sales"""
-        if request.user.is_authenticated and (request.user.role == 0 or request.user.role == 2):
+        if request.user.is_authenticated and (
+            request.user.role == 0 or request.user.role == 2
+        ):
             sales = Sales.objects.all()
             for sale in sales:
                 student = Student.objects.get(id=sale.student_id)
@@ -26,7 +27,9 @@ class SalesView(View):
 
     def post(self, request, *args, **kwargs):
         """Search by date"""
-        if request.user.is_authenticated and (request.user.role == 0 or request.user.role == 2):
+        if request.user.is_authenticated and (
+            request.user.role == 0 or request.user.role == 2
+        ):
             fromdate=request.POST.get('from_date')
             todate=request.POST.get('to_date')
             print(fromdate, todate)
@@ -36,14 +39,16 @@ class SalesView(View):
                 request,
                 'sales/sales_list.html',
                 {'sales': search_items}
-                )
+            )
 
 
 
 def sales_form(request):
     """Sales form"""
     if request.method == 'GET':
-        if request.user.is_authenticated and (request.user.role == 0 or request.user.role == 2):
+        if request.user.is_authenticated and (
+            request.user.role == 0 or request.user.role == 2
+        ):
             form = SalesForm()
             form.fields['sold_to'].queryset = Parent.objects.all()
             form.fields['student'].queryset = Student.objects.all()

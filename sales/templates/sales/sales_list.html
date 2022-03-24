@@ -114,17 +114,20 @@
                 {% comment %} Limit access of rendering sales, only for manager who conducted a deal {% endcomment %}
                 {% if request.user.role == 2 and request.user.username == sale.sold_by.user.username %}
                   <td>
-                    <a href="{% url 'edit_sales' pk=sale.pk %}" class="profile__btn profile__edit--btn">
-                      <div class=" profile__btn--text">Edit</div>
-                      <i class="fas fa-edit  profile__btn--icon"></i>
+                    <a href="{% url 'edit_sales' pk=sale.pk %}" class="sales__btn sales__edit--btn">
+                      <div class=" sales__btn--text">Edit</div>
+                      <i class="fas fa-edit  sales__btn--icon"></i>
                     </a>
                   </td>
                   <td>
-                    <a href="{% url 'delete_sales' pk=sale.pk %}" class="profile__btn profile__password--btn">
-                      <div class=" profile__btn--text">Password</div>
-                      <i class="fas fa-unlock-alt profile__btn--icon"></i>
+                    <a href="{% url 'delete_sales' pk=sale.pk %}" class="sales__btn sales__delete--btn">
+                      <div class="sales__btn--text">Delete</div>
+                      <i class="fas fa-trash-alt sales__btn--icon"></i>
                     </a>
                   </td>
+                {% else %}
+                  <td></td>
+                  <td></td>
                 {% endif %}
               </tr>
             {% endfor %}

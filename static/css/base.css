@@ -408,7 +408,8 @@ body {
 .profile__confirm--btn,
 .student__confirm--btn,
 .student__add--btn,
-.sales__add--btn {
+.sales__add--btn,
+.sales__delete--btn {
   background-color: var(--clr-accent--700);
   border: 1px solid var(--clr-accent--700);
 }
@@ -421,7 +422,8 @@ body {
 .student__back--btn,
 .students__search--btn,
 .members__search--btn,
-.sales__form--btn {
+.sales__form--btn,
+.sales__edit--btn {
   background-color: var(--clr-accent--900);
   border: 1px solid var(--clr-accent--900);
   margin-right: 0.5em;
@@ -439,7 +441,8 @@ body {
 .profile__confirm--btn:hover,
 .student__confirm--btn:hover,
 .student__add--btn:hover,
-.sales__add--btn:hover {
+.sales__add--btn:hover,
+.sales__delete--btn:hover {
   background-color: var(--clr-accent--500);
 }
 
@@ -451,7 +454,8 @@ body {
 .student__back--btn:hover,
 .students__search--btn:hover,
 .members__search--btn:hover,
-.sales__form--btn:hover {
+.sales__form--btn:hover,
+.sales__edit--btn:hover {
   background-color: var(--clr-accent--800);
 }
 
