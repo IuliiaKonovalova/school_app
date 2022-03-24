@@ -173,6 +173,11 @@ As a Receptionist, I want to be able to create lessons for a day (day, time, sub
 - [#35](https://github.com/IuliiaKonovalova/school_app/issues/35):
 
 As a Receptionist, I want to be able to render lessons for a day (day, time, subject, teachers, students), so that I can provide up to date schedule.
+
+- [#61](https://github.com/IuliiaKonovalova/school_app/issues/61):
+
+As a Sales Manager I want to control my own sales so that nobody else can edit or delete my sales.
+
 </details>
 
 

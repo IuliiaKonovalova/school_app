@@ -26,11 +26,11 @@ class UserProfileView(View):
                 request,
                 'profiles/user_profile.html',
                 {'user_profile': user_profile, 'lessons': lessons}
-                )
+            )
 
         if user_profile.role == 2:
             children = Student.objects.filter(sales_manager__user=user_profile)
-            sales = Sales.objects.all()
+            sales = Sales.objects.filter(sold_by__user=user_profile)
             return render(
                 request,
                 'profiles/user_profile.html',
@@ -39,7 +39,7 @@ class UserProfileView(View):
                     'sales': sales,
                     'children': children
                 }
-                )
+            )
 
         if user_profile.role == 4:
             children = Student.objects.filter(parent__user=user_profile)
@@ -54,7 +54,7 @@ class UserProfileView(View):
                 request,
                 'profiles/user_profile.html',
                 context
-                )
+            )
 
         return render(
             request,
@@ -76,7 +76,7 @@ class UserProfileView(View):
                 request,
                 'profiles/user_profile.html',
                 {'user_profile': user_profile, 'lessons': search_items}
-                )
+            )
 
 
 class UserProfileEditView(View):
@@ -92,7 +92,7 @@ class UserProfileEditView(View):
             request,
             'profiles/user_profile_edit.html',
             {'user_profile': user_profile, 'form': form}
-            )
+        )
 
     def post(self, request, *args, **kwargs):
         """Receive user profile edit form"""
@@ -115,7 +115,7 @@ class UserProfileEditView(View):
             request,
             'profiles/user_profile_edit.html',
             {'user_profile': user_profile, 'form': form}
-            )
+        )
 
 
 class UserProfileEditPasswordView(View):
@@ -135,12 +135,12 @@ class UserProfileEditPasswordView(View):
                     request,
                     'profiles/user_profile_change_password.html',
                     {'user_profile': user_profile, 'password_form': form}
-                    )
+                )
         return render(
             request,
             'profiles/user_profile_change_password.html',
             {'user_profile': user_profile}
-            )
+        )
 
     def post(self, request, *args, **kwargs):
         """Update user profile"""
@@ -163,12 +163,12 @@ class UserProfileEditPasswordView(View):
                         request,
                         'profiles/user_profile_edit.html',
                         {'user_profile': user_profile, 'password_form': form}
-                        )
+                    )
         return render(
             request,
             'profiles/user_profile_edit.html',
             {'user_profile': user_profile}
-            )
+        )
 
 
 class NewApplicationsView(View):
@@ -199,7 +199,8 @@ class NewApplicationsDetailView(View):
             request,
             'profiles/application_detail.html',
             {'new_application': new_application,}
-            )
+        )
+
     def post(self, request, pk, *args, **kwargs):
         """Update new applications"""
         new_application = get_object_or_404(CustomUser, pk=pk)
@@ -232,7 +233,7 @@ class NewApplicationsDetailView(View):
             request,
             'profiles/application_detail.html',
             {'new_application': new_application, 'form': form}
-            )
+        )
 
 
 class NewApplicationsDeleteView(View):
@@ -246,14 +247,14 @@ class NewApplicationsDeleteView(View):
                     request,
                     'profiles/application_delete.html',
                     {'new_application': new_application}
-                    )
+                )
         else:
             return HttpResponseRedirect(
                 reverse(
                     'application_detail',
                     args=[request.user.username, new_application.pk]
-                    )
-                    )
+                )
+            )
 
     def post(self, request, pk, *args, **kwargs):
         """Delete new applications"""
@@ -263,8 +264,8 @@ class NewApplicationsDeleteView(View):
             reverse(
                 'new_applications',
                 args=[request.user.username]
-                    )
-                    )
+                )
+        )
 
 class SearchMembersView(ListView):
     """Search Members"""
@@ -277,7 +278,7 @@ class SearchMembersView(ListView):
                     request,
                     'profiles/search_members.html',
                     {'members': members}
-                    )
+                )
 
     def post(self, request, *args, **kwargs):
         """Search members"""
@@ -292,7 +293,7 @@ class SearchMembersView(ListView):
                     request,
                     'profiles/search_members.html',
                     {'members': members}
-                    )
+                )
 
 
 class DeleteMemberView(View):
@@ -308,7 +309,7 @@ class DeleteMemberView(View):
                     request,
                     'profiles/delete_member.html',
                     {'member': member}
-                    )
+                )
 
     def post(self, request, *args, **kwargs):
         """Delete member"""

@@ -153,7 +153,7 @@
         </div>
         {% if user_profile.role == 2 and user_profile == request.user or request.user.role == 0 %}
           <h3 class="profile__sales">Sales made:</h3>
-          <div class="profile__sales--amount">In charge of <strong>{{ sales|length }}</strong> students</div>
+          <div class="profile__sales--amount"><strong>{{ sales|length }}</strong> sales made</div>
           <div class="links">
             <a href="{% url 'sales_list' %}" class="links__btn links__btn--page">
               <div class="profile__btn--text">Open sales</div>
