@@ -29,6 +29,7 @@
       {% comment %} Applicant's data {% endcomment %}
       {% if new_application %}
         <div class="application">
+          <a href="{% url 'application_delete' username=request.user pk=new_application.pk %}">Delete application</a>
           <div class="application__data">
             <span>Name:</span>
             {{ new_application.first_name }} {{ new_application.last_name }}
@@ -44,18 +45,24 @@
         </div>
         {% comment %} Assigning role by boss {% endcomment %}
         {% if request.user.role == 0 %}
-          <h4>Assign role</div>
-          <form method="POST">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button type="submit">Submit</button>
-
-          </form>
-          <a href="{% url 'new_applications' username=request.user %}">Go
-            to other application</a>
-          <a href="{% url 'application_delete' username=request.user pk=new_application.pk %}">Delete application</a>
+          <div class="role__form--container">
+            {% comment %} Role assignement form {% endcomment %}
+            <form method="POST" class="role__form">
+              <h3 class="role__form--title">Assign role:</h3>
+              {% csrf_token %}
+              {{ form|crispy }}
+              {% comment %} Role Form Confirm button {% endcomment %}
+              <div class="role__button">
+                <button type="submit" class="profile__form--btn profile__btn role__confirm--btn">
+                  <div class="profile__btn--text">Save</div>
+                  <i class="fas fa-save"></i>
+                </button>
+              </div>
+            </form>
+          </div>
         {% endif %}
-
+        <a href="{% url 'new_applications' username=request.user %}">Go
+              to other application</a>
       {% else %}
         <p>Application not found</p>
       {% endif %}

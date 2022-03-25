@@ -414,7 +414,8 @@ body {
 .student__add--btn,
 .sales__add--btn,
 .sales__delete--btn,
-.sale__confirm--btn {
+.sale__confirm--btn,
+.role__confirm--btn {
   background-color: var(--clr-accent--700);
   border: 1px solid var(--clr-accent--700);
 }
@@ -449,7 +450,8 @@ body {
 .student__add--btn:hover,
 .sales__add--btn:hover,
 .sales__delete--btn:hover,
-.sale__confirm--btn:hover {
+.sale__confirm--btn:hover,
+.role__confirm--btn:hover {
   background-color: var(--clr-accent--500);
 }
 
@@ -983,6 +985,7 @@ td {
   width: 100%;
   max-width: 40rem;
   margin: 2em auto;
+  margin-bottom: 0.5em;
   padding: 1em 1.5em;
   background-color: var(--clr-primary--300);
   border-radius: var(--br);
@@ -997,6 +1000,34 @@ td {
   font-weight: 900;
 }
 
+.role__form--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.9rem;
+  width: 100%;
+  max-width: 40rem;
+  text-align: center;
+  background-color: var(--clr-primary--300);
+  border-radius: var(--br);
+}
+
+.role__form--title {
+  padding-top: 0.8em;
+  font-size: 1.6rem;
+  font-weight: 900;
+}
+
+.role__button {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
 
 
 
@@ -1149,7 +1180,8 @@ td {
 .account label:not([for='id_remember']),
 .profile__form label:not([for='id_remember']),
 .student__form label:not([for='id_remember']),
-.sale__form label:not([for='id_remember']) {
+.sale__form label:not([for='id_remember']),
+.role__form label:not([for='id_remember']) {
   display: none;
 }
 
@@ -1304,7 +1336,8 @@ td {
 }
 
 .student__form .select2-container--default .select2-selection--multiple,
-.sale__form .select2-container--default .select2-selection--single {
+.sale__form .select2-container--default .select2-selection--single,
+.role__form .select2-container--default .select2-selection--single {
   cursor: text;
   position: relative;
   border: 1px solid #ffffff8c;
@@ -1352,8 +1385,13 @@ button.select2-selection__choice__remove {
   color: var(--clr-neutral--900);
 }
 
-/* Stylings jquery ui elements for sale form */
-.sale__form .select2-container--default .select2-selection--single {
+/* Stylings jquery ui elements for sale form, role form */
+.role__form .select2-container--default .select2-selection--single {
+  margin: 0;
+}
+
+.sale__form .select2-container--default .select2-selection--single,
+.role__form .select2-container--default .select2-selection--single {
   height: 3.2rem;
   display: flex;
   flex-direction: column;
@@ -1361,7 +1399,8 @@ button.select2-selection__choice__remove {
   align-items: start;
 }
 
-.sale__form .select2-container--default .select2-selection--single .select2-selection__rendered {
+.sale__form .select2-container--default .select2-selection--single .select2-selection__rendered,
+.role__form .select2-container--default .select2-selection--single .select2-selection__rendered {
   color: var(--clr-primary--900);
   font-weight: 900;
   font-size: 1.2rem;
