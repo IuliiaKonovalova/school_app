@@ -210,7 +210,7 @@ class NewApplicationsDetailView(View):
             if new_application.role == 1:
                 new_teacher = Teacher.objects.create(
                   user=new_application,
-                  )
+                )
                 new_teacher.save()
             if new_application.role == 2:
                 new_manager = SalesManager.objects.create(
@@ -223,12 +223,11 @@ class NewApplicationsDetailView(View):
                 )
                 new_parent.save()
             new_application.save()
-            return HttpResponseRedirect(
-                reverse(
-                    'user_profile',
-                    kwargs={'username': new_application.username}
-                    )
-                )
+            return render(
+                request,
+                'profiles/application_detail.html',
+                {'new_application': new_application, 'form': form}
+            )
         return render(
             request,
             'profiles/application_detail.html',
