@@ -705,7 +705,8 @@ body {
 .students__title,
 .members__title,
 .sales__title,
-.applications__title {
+.applications__title,
+.lessons__title {
   font-size: 2.5rem;
   font-weight: 900;
   text-transform: capitalize;
@@ -1064,6 +1065,33 @@ td {
 }
 
 /* Styling lessons list page (Schedule page) */
+.lessons__title {
+  text-transform: unset;
+  color: var(--clr-neutral--900);
+}
+
+.lessons__subtitle {
+  color: #4d4d4d;
+}
+
+.lessons__subtitle span {
+  font-weight: 900;
+}
+
+.lessons__search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.lessons__search--text {
+  margin-left: 0.5em;
+  font-style: italic;
+  color: #4d4d4d;
+}
+
 .schedule {
   width: 100%;
   background-color: var(--clr-primary--900);
