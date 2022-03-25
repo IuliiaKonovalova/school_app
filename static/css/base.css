@@ -1063,6 +1063,74 @@ td {
   font-weight: 900;
 }
 
+/* Styling lessons list page (Schedule page) */
+.schedule {
+  width: 100%;
+  background-color: var(--clr-primary--900);
+  border-radius: var(--br);
+  display: grid;
+  gap: 0.4em;
+  margin: 2em auto;
+  padding: 0.4em;
+}
+
+.schedule__section {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  gap: 0.4em;
+  background-color: var(--clr-primary--900);
+}
+
+.schedule__section--time {
+  background-color: var(--clr-neutral--100);
+  color: var(--clr-neutral--900);
+  border-radius: 0.3em;
+  padding: 0.5em;
+  font-size: 1.6rem;
+  font-weight: 900;
+  align-self: center;
+  justify-self: stretch;
+  text-align: center;
+}
+
+.schedule__section--lessons {
+  width: 100%;
+  display: flex;
+  background-color: var(--clr-neutral--100);
+  border-radius: 0.3em;
+  padding: 0.5em;
+
+}
+
+.schedule__section--lesson:not(:last-child) {
+  margin-right: 0.5em;
+}
+
+.schedule__section--lesson {
+  max-height: 2.5rem;
+  padding: 0.4em 1em 0.4em 1em;
+  border-radius: var(--br);
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: background-color 150ms ease-in-out;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  background-color: var(--clr-accent--900);
+  border: 1px solid var(--clr-accent--900);
+  text-transform: capitalize;
+}
+
+.schedule__section--lesson:hover {
+  background-color: var(--clr-accent--800);
+}
+
+.schedule__section--subject {
+  color: var(--clr-neutral--100);
+}
+
 
 /* ----- Forms ----- */
 .account__container,

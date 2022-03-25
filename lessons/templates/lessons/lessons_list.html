@@ -8,118 +8,114 @@
 <div>Today is: {% now 'm/d/Y' %}</div>
 
 
-<h3>Search by date</h3>
+<h2>Search by date</h2>
 
 <input id="schedule-by-date" value="{% now 'm/d/Y' %}"></input>
 
-<div>
-  <h3>'9:00-9:45'</h3>
-  <div>
-    {% for lesson in lessons_time_0 %}
-    <div data-date="{{ lesson.date|date:'m/d/Y' }}">
-      <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-        {{ lesson.date|date:'m/d/Y' }}
-        {{ lesson.get_time }}
-        {{ lesson.get_subject }}
-      </a>
+<div class="schedule">
+  <div class="schedule__section">
+    <h3 class="schedule__section--time">9:00-9:45</h3>
+    <div class="schedule__section--lessons">
+      {% for lesson in lessons_time_0 %}
+      <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
+        <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--subject">
+          {{ lesson.get_subject }}
+        </a>
+      </div>
+      {% endfor %}
     </div>
+  </div>
 
-    {% endfor %}
+  <div class="schedule__section">
+    <h3 class="schedule__section--time">10:00-10:45</h3>
+    <div class="schedule__section--lessons">
+      {% for lesson in lessons_time_1 %}
+      <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
+        <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--subject">
+          {{ lesson.get_subject }}
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="schedule__section">
+    <h3 class="schedule__section--time">11:00-11:45</h3>
+    <div class="schedule__section--lessons">
+      {% for lesson in lessons_time_2 %}
+      <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
+        <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--subject">
+          {{ lesson.get_subject }}
+        </a>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+  <div class="schedule__section">
+    <h3 class="schedule__section--time">14:00-14:45</h3>
+    <div class="schedule__section--lessons">
+      {% for lesson in lessons_time_3 %}
+      <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
+        <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--subject">
+          {{ lesson.get_subject }}
+        </a>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+  <div class="schedule__section">
+    <h3 class="schedule__section--time">15:00-15:45</h3>
+    <div class="schedule__section--lessons">
+      {% for lesson in lessons_time_4 %}
+      <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
+        <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--subject">
+          {{ lesson.get_subject }}
+        </a>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+  <div class="schedule__section">
+    <h3 class="schedule__section--time">16:00-16:45</h3>
+    <div class="schedule__section--lessons">
+      {% for lesson in lessons_time_5 %}
+      <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
+        <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--subject">
+          {{ lesson.get_subject }}
+        </a>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+  <div class="schedule__section">
+    <h3 class="schedule__section--time">17:00-17:45</h3>
+    <div class="schedule__section--lessons">
+      {% for lesson in lessons_time_6 %}
+      <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
+        <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--subject">
+          {{ lesson.get_subject }}
+        </a>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+  <div class="schedule__section">
+    <h3 class="schedule__section--time">18:00-18:45</h3>
+    <div class="schedule__section--lessons">
+      {% for lesson in lessons_time_7 %}
+      <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
+        <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--subject">
+          {{ lesson.get_subject }}
+        </a>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 </div>
-
-<div>
-  <h3>'10:00-10:45'</h3>
-  <div>
-    {% for lesson in lessons_time_1 %}
-    <div data-date="{{ lesson.date|date:'m/d/Y' }}">
-      <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-        {{ lesson.get_subject }}
-      </a>
-    </div>
-
-    {% endfor %}
-  </div>
-</div>
-<div>
-  <h3>'11:00-11:45'</h3>
-  <div>
-    {% for lesson in lessons_time_2 %}
-    <div data-date="{{ lesson.date|date:'m/d/Y' }}">
-      <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-        {{ lesson.get_subject }}
-      </a>
-    </div>
-
-    {% endfor %}
-  </div>
-</div>
-<div>
-  <h3>'14:00-14:45'</h3>
-  <div>
-    {% for lesson in lessons_time_3 %}
-    <div data-date="{{ lesson.date|date:'m/d/Y' }}">
-      <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-        {{ lesson.get_subject }}
-      </a>
-    </div>
-
-    {% endfor %}
-  </div>
-</div>
-<div>
-  <h3>'15:00-15:45'</h3>
-  <div>
-    {% for lesson in lessons_time_4 %}
-    <div data-date="{{ lesson.date|date:'m/d/Y' }}">
-      <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-        {{ lesson.get_subject }}
-      </a>
-    </div>
-
-    {% endfor %}
-  </div>
-</div>
-<div>
-  <h3>'16:00-16:45'</h3>
-  <div>
-    {% for lesson in lessons_time_5 %}
-    <div data-date="{{ lesson.date|date:'m/d/Y' }}">
-      <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-        {{ lesson.get_subject }}
-      </a>
-    </div>
-
-    {% endfor %}
-  </div>
-</div>
-<div>
-  <h3>'17:00-17:45'</h3>
-  <div>
-    {% for lesson in lessons_time_6 %}
-    <div data-date="{{ lesson.date|date:'m/d/Y' }}">
-      <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-        {{ lesson.get_subject }}
-      </a>
-    </div>
-
-    {% endfor %}
-  </div>
-</div>
-<div>
-  <h3>'18:00-18:45'</h3>
-  <div>
-    {% for lesson in lessons_time_7 %}
-    <div data-date="{{ lesson.date|date:'m/d/Y' }}">
-      <a href="{% url 'lesson_detail' pk=lesson.pk %}">
-        {{ lesson.get_subject }}
-      </a>
-    </div>
-
-    {% endfor %}
-  </div>
-</div>
-
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
