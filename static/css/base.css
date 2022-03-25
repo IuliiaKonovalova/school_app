@@ -1059,6 +1059,10 @@ td {
   margin-left: 0.5em;
 }
 
+.delete__form--warning {
+  font-weight: 900;
+}
+
 
 /* ----- Forms ----- */
 .account__container,
