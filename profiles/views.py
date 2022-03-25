@@ -263,8 +263,9 @@ class NewApplicationsDeleteView(View):
             reverse(
                 'new_applications',
                 args=[request.user.username]
-                )
+            )
         )
+
 
 class SearchMembersView(ListView):
     """Search Members"""

@@ -31,7 +31,7 @@
         <div class="application">
           {% if request.user.role == 0 %}
             <div class="application__delete">
-              <a href="{% url 'application_delete' username=request.user pk=new_application.pk %)"
+              <a href="{% url 'application_delete' username=request.user pk=new_application.pk %}"
                 class="profile__btn application__delete--btn">
                 <div class="application__btn--text">Delete</div>
                 <i class="fas fa-trash-alt"></i>
