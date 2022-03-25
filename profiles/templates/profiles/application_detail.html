@@ -29,7 +29,15 @@
       {% comment %} Applicant's data {% endcomment %}
       {% if new_application %}
         <div class="application">
-          <a href="{% url 'application_delete' username=request.user pk=new_application.pk %}">Delete application</a>
+          {% if request.user.role == 0 %}
+            <div class="application__delete">
+              <a href="{% url 'application_delete' username=request.user pk=new_application.pk %)"
+                class="profile__btn application__delete--btn">
+                <div class="application__btn--text">Delete</div>
+                <i class="fas fa-trash-alt"></i>
+              </a>
+            </div>
+          {% endif %}
           <div class="application__data">
             <span>Name:</span>
             {{ new_application.first_name }} {{ new_application.last_name }}
@@ -61,10 +69,12 @@
             </form>
           </div>
         {% endif %}
-        <a href="{% url 'new_applications' username=request.user %}">Go
-              to other application</a>
+        <a href="{% url 'new_applications' username=request.user %}" class="application__link">
+          <div class="application__link--text">Go to other application</div>
+          <i class="fas fa-long-arrow-alt-right"></i>
+        </a>
       {% else %}
-        <p>Application not found</p>
+        <p class="applications__number">Application is not found</p>
       {% endif %}
     </div>
   {% else %}

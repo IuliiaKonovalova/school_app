@@ -401,7 +401,8 @@ body {
 .profile__btn--text,
 .student__btn--text,
 .sales__btn--text,
-.sale__btn--text {
+.sale__btn--text,
+.application__btn--text {
   margin-right: 0.5em;
 }
 
@@ -415,7 +416,8 @@ body {
 .sales__add--btn,
 .sales__delete--btn,
 .sale__confirm--btn,
-.role__confirm--btn {
+.role__confirm--btn,
+.application__delete--btn {
   background-color: var(--clr-accent--700);
   border: 1px solid var(--clr-accent--700);
 }
@@ -451,7 +453,8 @@ body {
 .sales__add--btn:hover,
 .sales__delete--btn:hover,
 .sale__confirm--btn:hover,
-.role__confirm--btn:hover {
+.role__confirm--btn:hover,
+.application__delete--btn:hover {
   background-color: var(--clr-accent--500);
 }
 
@@ -989,6 +992,7 @@ td {
   padding: 1em 1.5em;
   background-color: var(--clr-primary--300);
   border-radius: var(--br);
+  position: relative;
 }
 
 .application__data:not(:last-child) {
@@ -998,6 +1002,12 @@ td {
 
 .application__data span {
   font-weight: 900;
+}
+
+.application__delete {
+  position: absolute;
+  right: 0.8rem;
+  top: 0.8rem;
 }
 
 .role__form--container {
@@ -1029,6 +1039,25 @@ td {
   margin: 0;
 }
 
+.application__link {
+  color: var(--clr-neutral--900);
+  display: flex;
+  margin: 1em;
+}
+
+.application__link:hover {
+  color: var(--clr-accent--500);
+}
+
+.application__link--text {
+  font-size: 1.6rem;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.application__link i {
+  margin-left: 0.5em;
+}
 
 
 /* ----- Forms ----- */
