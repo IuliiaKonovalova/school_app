@@ -12,11 +12,15 @@
 
   <ul>
     {% for application in new_applications %}
-    <li>
-      <a href="{% url 'application_detail' username=request.user pk=application.pk %}">
-        {{ application }}
+    <div class="links">
+      <a href="{% url 'application_detail' username=request.user pk=application.pk %}"
+        class="links__btn links__btn--name">
+        <div class="profile__btn--text">
+          {{ application.first_name }} {{ application.last_name }}
+        </div>
+        <i class="fas fa-external-link-alt profile__btn--icon"></i>
       </a>
-    </li>
+    </div>
     {% endfor %}
   </ul>
 </div>

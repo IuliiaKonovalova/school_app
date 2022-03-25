@@ -2,9 +2,6 @@
 from django.shortcuts import render, reverse, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.views import View
-from datetime import datetime
-from profiles.models import Teacher
-from students.models import Student
 from .models import Lesson
 from .forms import LessonForm
 
