@@ -327,7 +327,8 @@ body {
 .classes,
 .students,
 .sales,
-.sale {
+.sale,
+.applications {
   background-color: var(--clr-primary--300);
   max-width: 55rem;
   width: 100%;
@@ -679,7 +680,8 @@ body {
 
 /* Styling students page */
 .students,
-.sales {
+.sales,
+.applications {
   background-color: unset;
   max-width: 120rem;
   justify-content: start;
@@ -697,7 +699,8 @@ body {
 
 .students__title,
 .members__title,
-.sales__title {
+.sales__title,
+.applications__title {
   font-size: 2.5rem;
   font-weight: 900;
   text-transform: capitalize;
@@ -884,7 +887,8 @@ body {
   margin-top: 1em;
 }
 
-.members__results {
+.members__results,
+.applications__results {
   margin: 2em auto;
   width: 100%;
   display: grid;
@@ -919,7 +923,6 @@ body {
 }
 
 /* Styling sales page */
-
 .sales__form {
   margin: 1em auto;
 }
@@ -950,6 +953,29 @@ td {
 
 .sale__form--warning {
   margin-bottom: 0.5em;
+}
+
+/* Styling new applications page */
+.applications__number {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.applications__results {
+  gap: 2rem;
+}
+
+.applications__results .links .links__btn--name {
+  font-size: 1.8rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.applications__results .links .links__btn--name .profile__btn--text {
+  font-size: 1.8rem;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ----- Forms ----- */

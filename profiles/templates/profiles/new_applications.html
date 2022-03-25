@@ -2,34 +2,29 @@
 {% load static %}
 
 {% block content %}
-<h2 style="color: black;">New application</h2>
-{% if request.user.role == 0 or request.user.role == 2 %}
-{% if applications.count == 0 %}
-<p style="color: black;">Applications not found</p>
-{% else %}
-<!-- get new applications -->
-<div class="applications">
-
-  <ul>
-    {% for application in new_applications %}
-    <div class="links">
-      <a href="{% url 'application_detail' username=request.user pk=application.pk %}"
-        class="links__btn links__btn--name">
-        <div class="profile__btn--text">
-          {{ application.first_name }} {{ application.last_name }}
+  {% comment %} New applications page with access only by bosses or managers {% endcomment %}
+  {% if request.user.role == 0 or request.user.role == 2 %}
+    <div class="applications">
+      <h2 class="applications__title">New application</h2>
+      {% comment %} Amount of new applications {% endcomment %}
+      <div class="applications__number">{{ applications|length }} new applications found</div>
+      {% comment %} All applications {% endcomment %}
+        <div class="applications__results">
+          {% for application in new_applications %}
+          <div class="links">
+            <a href="{% url 'application_detail' username=request.user pk=application.pk %}"
+              class="links__btn links__btn--name">
+              <div class="profile__btn--text">
+                <div>{{ application.first_name }}</div>
+                <div>{{ application.last_name }}</div>
+              </div>
+              <i class="fas fa-external-link-alt profile__btn--icon"></i>
+            </a>
+          </div>
+          {% endfor %}
         </div>
-        <i class="fas fa-external-link-alt profile__btn--icon"></i>
-      </a>
+      </div>
     </div>
-    {% endfor %}
-  </ul>
-</div>
-
-
-
-
-
-{% endif %}
   {% else %}
     {% comment %} Access limitation, access only to bosses and managers {% endcomment %}
     <div class="access">
