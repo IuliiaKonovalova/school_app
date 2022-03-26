@@ -1,16 +1,7 @@
 <!-- Add form -->
 {% extends "base.html" %}
 
-{% block content %}
-
-<h2>Add class</h2>
-
-<form method="POST">
-  {% csrf_token %}
-  {{ form|crispy }}
-  <input type="submit">
-</form>
-
+{% block extra_js %}
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
@@ -31,5 +22,18 @@
   });
 
 </script>
+{% endblock%}
+
+{% block content %}
+
+<h2>Add class</h2>
+
+<form method="POST">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <input type="submit">
+</form>
+
+
 
 {% endblock %}
