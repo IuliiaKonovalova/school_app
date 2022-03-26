@@ -1182,6 +1182,82 @@ td {
   margin-bottom: 1em;
 }
 
+/* Styling Lesson Detail Page */
+.lesson__details {
+  width: 100%;
+  max-width: 70rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: var(--clr-primary--900);
+  border-radius: var(--br);
+}
+
+.lesson__details--header {
+  position: relative;
+  width: 100%;
+  padding: 3rem;
+}
+
+
+
+.lesson__details--title {
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: capitalize;
+  color: white;
+}
+
+.lesson__details--container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-primary--900);
+  border-radius: var(--br);
+  padding: 0.4em;
+}
+
+.lesson__details--data {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  background-color: var(--clr-primary--900);
+  gap: 0.4em;
+}
+
+.lesson__details--data:not(:last-child) {
+  margin-bottom: 0.4em;
+}
+
+.lesson__details--subtitle,
+.lesson__details--content {
+  padding: 0.5em;
+  background-color: var(--clr-neutral--100);
+}
+
+.lesson__details--subtitle {
+  font-weight: 900;
+  font-size: 1.6rem;
+}
+
+.lesson__details--content {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.lesson__details--content a {
+  width: fit-content;
+  margin-right: 0.2em;
+  border: 1px solid white;
+}
+
+
+
+
+
 
 /* ----- Forms ----- */
 .account__container,

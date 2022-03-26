@@ -1,32 +1,71 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<div class="lesson__details">
+  <div class="lesson__details--header">
+    <div class="lesson__details--title">{{ lesson.get_subject }}</div>
+    <div class="profile__edit">
+      <a href="{% url 'lesson_edit' pk=lesson.pk %}" class="profile__btn profile__edit--btn">
+        <div class=" profile__btn--text">Edit</div>
+        <i class="fas fa-edit  profile__btn--icon"></i>
+      </a>
+      <a href="{% url 'lesson_delete' pk=lesson.pk %}" class="profile__btn profile__password--btn">
+        <div class=" profile__btn--text">Password</div>
+        <i class="fas fa-unlock-alt profile__btn--icon"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="lesson__details--container">
+    <div class="lesson__details--data">
+      <div class="lesson__details--subtitle">
+        Date:
+      </div>
+      <div class="lesson__details--content">{{ lesson.date|date:'m/d/Y' }}</div>
+    </div>
+    <div class="lesson__details--data">
+      <div class="lesson__details--subtitle">
+        Time:
+      </div>
+      <div class="lesson__details--content">{{ lesson.get_time }}</div>
+    </div>
+
+    <div class="lesson__details--data">
+      <div class="lesson__details--subtitle">
+        Teachers:
+      </div>
+      <div class="lesson__details--content">
+        {% for teacher in lesson.get_teachers %}
+        <a href="{% url 'user_profile' username=teacher.user.username %}" class="links__btn links__btn--name">
+          <div class="profile__btn--text">
+            {{ teacher.user.first_name }} {{ teacher.user.last_name }}
+          </div>
+          <i class="fas fa-external-link-alt profile__btn--icon"></i>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="lesson__details--data">
+      <div class="lesson__details--subtitle">
+        Students:
+      </div>
+      <div class="lesson__details--content">
+        {% for student in lesson.get_students %}
+        <a href="{% url 'student_detail' pk=student.pk %}" class="links__btn links__btn--name">
+          <div class="profile__btn--text">
+            {{ student.first_name }} {{ student.last_name }}
+          </div>
+          <i class="fas fa-external-link-alt profile__btn--icon"></i>
+        </a>
+
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 
 
-{{ lesson.date|date:'m/d/Y' }}
-{{ lesson.get_time }}
-{{ lesson.get_subject }}
 
-
-{% for teacher in lesson.get_teachers %}
-<a href="{% url 'user_profile' username=teacher.user.username %}">
-  {{ teacher.user.first_name }}
-  {{ teacher.user.last_name }}
-</a>
-
-{% endfor %}
-
-
-{% for student in lesson.get_students %}
-<a href="{% url 'student_detail' pk=student.pk %}">
-  {{ student.first_name }}
-  {{ student.last_name }}
-</a>
-
-{% endfor %}
-<a href="{% url 'lesson_edit' pk=lesson.pk %}">Edit lesson</a>
-<a href="{% url 'lesson_delete' pk=lesson.pk %}">Delete lesson</a>
-
-
-
+</div>
 {% endblock %}
