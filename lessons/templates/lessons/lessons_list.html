@@ -2,12 +2,18 @@
 
 {% block content %}
 <div class="lessons">
-  <h2 class="lessons__title">Schedule</h2>
-  <div class="lessons__subtitle">Today is <span>{% now 'm/d/Y' %}</span></div>
-  {% if request.user.role == 3 %}
-
   <div class="lessons__header">
-    <a href="{% url 'lesson_add' %}">Add lesson</a>
+    <h2 class="lessons__title">Schedule</h2>
+    <div class="lessons__subtitle">Today is <span>{% now 'm/d/Y' %}</span></div>
+    {% if request.user.role == 3 %}
+
+
+    <a href="{% url 'lesson_add' %}" class="lesson__btn sales__add--btn lesson__btn--custom">
+      <div class="lesson__btn--text">
+        Add lesson
+      </div>
+      <i class="fas fa-plus-circle student__btn--icon"></i>
+    </a>
   </div>
   {% endif %}
 

@@ -366,7 +366,8 @@ body {
 .label__btn,
 .search__btn,
 .sales__btn,
-.sale__btn {
+.sale__btn,
+.lesson__btn {
   padding: 0.4em 1em 0.4em 1em;
   border-radius: var(--br);
   font-weight: 900;
@@ -402,7 +403,8 @@ body {
 .student__btn--text,
 .sales__btn--text,
 .sale__btn--text,
-.application__btn--text {
+.application__btn--text,
+.lesson__btn--text {
   margin-right: 0.5em;
 }
 
@@ -1076,6 +1078,17 @@ td {
 
 .lessons__subtitle span {
   font-weight: 900;
+}
+
+.lessons__header {
+  position: relative;
+}
+
+.lesson__btn--custom {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.6rem;
 }
 
 .lessons__search {
