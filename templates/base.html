@@ -37,51 +37,52 @@
         Cool<div class="logo__container--image"></div>School
       </div>
       <ul class="navbar__items">
-        <li class="navbar__item">
-          <a href="{% url 'home' %}">Home</a>
-        </li>
+        {% if not request.user.is_authenticated %}
+          <li class="navbar__item">
+            <a href="{% url 'home' %}">Home</a>
+          </li>
+        {% endif %}
         {% if request.user.is_authenticated %}
         <li class="navbar__item">
           <div id="dropdown-profile" class="dropdown navbar__item--dropdown">Menu</div>
           <ul class="account__options">
-            <li class="account__option">
-              <a href="{% url 'user_profile' username=request.user %}">Profile</a>
-            </li>
-
+            <a href="{% url 'user_profile' username=request.user %}" class="account__option">
+              Profile
+            </a>
             {% if request.user.role == 0 or request.user.role == 1 or request.user.role == 2 or request.user.role == 3 %}
               {% if request.user.role == 0 or request.user.role == 2 %}
-                <li class="account__option">
-                  <a href="{% url 'new_applications' username=request.user %}">New applications</a>
-                </li>
-                <li class="account__option">
-                  <a href="{% url 'sales_list' %}">Add sale</a>
-                </li>
+                <a  href="{% url 'new_applications' username=request.user %}" class="account__option">
+                  New applications
+                </a>
+                <a  href="{% url 'sales_list' %}" class="account__option">
+                  Add sale
+                </a>
               {% endif %}
-              <li class="account__option">
-                <a href="{% url 'search_members' username=request.user %}">Members</a>
-              </li>
-              <li class="account__option">
-                <a href="{% url 'students' %}">Students</a>
-              </li>
+              <a href="{% url 'search_members' username=request.user %}" class="account__option">
+                Members
+              </a>
+              <a href="{% url 'students' %}" class="account__option">
+                Students
+              </a>
             {% endif %}
-            <li class="account__option">
-              <a href="{% url 'lessons_list' %}">Schedule</a>
-            </li>
-            <li class="account__option account__option--logout">
-              <a href="{% url 'account_logout' %}">Logout</a>
-            </li>
+            <a href="{% url 'lessons_list' %}" class="account__option">
+              Schedule
+            </a>
+            <a href="{% url 'account_logout' %}" class="account__option account__option--logout">
+              Logout
+            </a>
           </ul>
         </li>
         {% else %}
         <li class="navbar__item ">
           <div id="dropdown-enter" class="dropdown navbar__item--dropdown">Get started</div>
           <ul class="account__options">
-            <li class="account__option">
-              <a href="{% url 'account_login' %}">Login</a>
-            </li>
-            <li class="account__option">
-              <a href="{% url 'account_signup' %}">Sign Up</a>
-            </li>
+            <a href="{% url 'account_login' %}" class="account__option">
+              Login
+            </a>
+            <a href="{% url 'account_signup' %}" class="account__option">
+              Sign Up
+            </a>
           </ul>
         </li>
         {% endif %}
