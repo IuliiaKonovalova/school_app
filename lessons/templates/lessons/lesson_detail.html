@@ -53,19 +53,33 @@
       </div>
       <div class="lesson__details--content">
         {% for student in lesson.get_students %}
-        <a href="{% url 'student_detail' pk=student.pk %}" class="links__btn links__btn--name">
-          <div class="profile__btn--text">
-            {{ student.first_name }} {{ student.last_name }}
-          </div>
-          <i class="fas fa-external-link-alt profile__btn--icon"></i>
-        </a>
-
+          {% if request.user.role == 4 or request.user.role == 5 %}
+            {% if request.user.username in student.get_parent_usernames %}
+              <a href="{% url 'student_detail' pk=student.pk %}" class="links__btn links__btn--name">
+                <div class="profile__btn--text">
+                  {{ student.first_name }} {{ student.last_name }}
+                </div>
+                <i class="fas fa-external-link-alt profile__btn--icon"></i>
+              </a>
+            {% else %}
+            <div class="links__btn links__btn--name">
+              <div class="">
+                {{ student.first_name }} {{ student.last_name }}
+              </div>
+            </div>
+            {% endif %}
+          {% else %}
+            <a href="{% url 'student_detail' pk=student.pk %}" class="links__btn links__btn--name">
+              <div class="profile__btn--text">
+                {{ student.first_name }} {{ student.last_name }}
+              </div>
+              <i class="fas fa-external-link-alt profile__btn--icon"></i>
+            </a>
+          {% endif %}
         {% endfor %}
       </div>
     </div>
   </div>
-
-
-
 </div>
+
 {% endblock %}

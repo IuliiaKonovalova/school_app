@@ -1248,7 +1248,7 @@ td {
   justify-content: flex-start;
 }
 
-.lesson__details--content a {
+.lesson__details--content .links__btn {
   width: fit-content;
   margin-right: 0.2em;
   border: 1px solid white;
