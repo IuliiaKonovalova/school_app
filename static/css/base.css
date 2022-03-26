@@ -328,7 +328,8 @@ body {
 .students,
 .sales,
 .sale,
-.applications {
+.applications,
+.lesson__new {
   background-color: var(--clr-primary--300);
   max-width: 55rem;
   width: 100%;
@@ -1177,7 +1178,8 @@ td {
 .account__container,
 .profile__form--container,
 .student__form--container,
-.sale__form--container {
+.sale__form--container,
+.lesson__form--container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1188,13 +1190,15 @@ td {
 
 .profile__form--container,
 .student__form--container,
-.sale__form--container {
+.sale__form--container,
+.lesson__form--container {
   color: var(--clr-neutral--900);
 }
 
 .profile__form,
 .student__form,
-.sale__form {
+.sale__form,
+.lesson__form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1221,7 +1225,8 @@ td {
 .account__title,
 .profile__form--title,
 .student__form--title,
-.sale__form--title {
+.sale__form--title,
+.lesson__form--title {
   font-size: 2.2rem;
   letter-spacing: 0.15rem;
   font-weight: 900;
@@ -1287,7 +1292,8 @@ td {
 .student__form input,
 .students input,
 .members input,
-.sale input {
+.sale input,
+.lesson__form input {
   border: 1px solid #ffffff8c;
   border-radius: var(--br);
   padding: 0.8em 1em 0.6em 1em;
@@ -1298,15 +1304,21 @@ td {
 }
 
 .students input,
-.members input {
+.members input,
+.lesson__form input {
   border: 2px solid var(--clr-primary--900);
   margin: 0;
   margin-top: 1.5em;
 }
 
+.lesson__form input {
+  border: none;
+}
+
 .profile__form input,
 .student__form input,
-.sale__form input {
+.sale__form input,
+.lesson__form input {
   margin-bottom: 0.5em;
 }
 
@@ -1315,7 +1327,8 @@ td {
 .student__form input:focus,
 .students input:focus,
 .members input:focus,
-.sale__form input:focus {
+.sale__form input:focus,
+.lesson__form input:focus {
   outline: none;
 }
 
@@ -1323,7 +1336,8 @@ td {
 .profile__form label:not([for='id_remember']),
 .student__form label:not([for='id_remember']),
 .sale__form label:not([for='id_remember']),
-.role__form label:not([for='id_remember']) {
+.role__form label:not([for='id_remember']),
+.lesson__form label:not([for='id_remember']) {
   display: none;
 }
 
@@ -1332,7 +1346,8 @@ td {
 .student__form input::placeholder,
 .students input::placeholder,
 .members input::placeholder,
-.sale__form input::placeholder {
+.sale__form input::placeholder,
+.lesson__form input::placeholder {
   color: #001c828f;
   font-size: 1.2rem;
   letter-spacing: 0.13rem;
@@ -1344,7 +1359,8 @@ td {
 .student__form input:placeholder-shown,
 .students input:placeholder-shown,
 .members input:placeholder-shown,
-.sale__form input:placeholder-shown {
+.sale__form input:placeholder-shown,
+.lesson__form input:placeholder-shown {
   color: #022c29;
   font-weight: 600;
 }
@@ -1354,7 +1370,8 @@ td {
 .student__form input:not(:placeholder-shown),
 .students input:not(:placeholder-shown),
 .members input:not(:placeholder-shown),
-.sale__form input:not(:placeholder-shown) {
+.sale__form input:not(:placeholder-shown),
+.lesson__form input:not(:placeholder-shown) {
   color: var(--clr-primary--900);
   font-weight: 600;
   font-size: 1.2rem;
@@ -1386,7 +1403,11 @@ td {
 .student__form label[for='id_notes']~div::before,
 .sale__form label[for='id_sold_to']~div::before,
 .sale__form label[for='id_amount']~div::before,
-.sale__form label[for='id_student']~div::before {
+.sale__form label[for='id_student']~div::before,
+.lesson__form label[for='id_time']~div::before,
+.lesson__form label[for='id_subject']~div::before,
+.lesson__form label[for='id_teachers']~div::before,
+.lesson__form label[for='id_students']~div::before {
   position: absolute;
   top: 0.55rem;
   left: 0.4rem;
@@ -1458,6 +1479,31 @@ td {
   content: 'Student:';
 }
 
+.lesson__form label[for='id_date']~div::before {
+  content: 'Date:';
+  position: absolute;
+  top: 1.2rem;
+  left: 0.4rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.lesson__form label[for='id_time']~div::before {
+  content: 'Time Period:';
+}
+
+.lesson__form label[for='id_subject']~div::before {
+  content: 'Subject:';
+}
+
+.lesson__form label[for='id_teachers']~div::before {
+  content: 'Teachers:';
+}
+
+.lesson__form label[for='id_students']~div::before {
+  content: 'Students:';
+}
+
 /* Stylings jquery ui elements for student form */
 .select2-container--default .select2-selection--single {
   background-color: #fff;
@@ -1479,7 +1525,9 @@ td {
 
 .student__form .select2-container--default .select2-selection--multiple,
 .sale__form .select2-container--default .select2-selection--single,
-.role__form .select2-container--default .select2-selection--single {
+.role__form .select2-container--default .select2-selection--single,
+.lesson__form .select2-container--default .select2-selection--multiple,
+.lesson__form .select2-container--default .select2-selection--single {
   cursor: text;
   position: relative;
   border: 1px solid #ffffff8c;
@@ -1491,6 +1539,27 @@ td {
   font-size: 1.2rem;
   color: #001d82;
   margin-bottom: 0.5em;
+}
+
+.lesson__form .select2-container--default .select2-selection--single {
+  margin-top: 0;
+}
+
+.lesson__form .select2-container--default .select2-selection--multiple {
+  padding: 0.5em 1em 0.7em 1em;
+}
+
+.lesson__form .select2-container {
+  margin-top: 1rem;
+}
+
+/* .lesson__form .select2 .select2-container .select2-container--default {
+  margin-top: 2rem;
+} */
+
+#div_id_teachers,
+#div_id_students {
+  padding-bottom: 0.9rem;
 }
 
 .select2-results {
@@ -1527,22 +1596,26 @@ button.select2-selection__choice__remove {
   color: var(--clr-neutral--900);
 }
 
-/* Stylings jquery ui elements for sale form, role form */
-.role__form .select2-container--default .select2-selection--single {
+/* Stylings jquery ui elements for sale form, role form, lesson form */
+.role__form .select2-container--default .select2-selection--single,
+.lesson__form .select2-container--default .select2-selection--multiple {
   margin: 0;
 }
 
 .sale__form .select2-container--default .select2-selection--single,
-.role__form .select2-container--default .select2-selection--single {
-  height: 3.2rem;
+.role__form .select2-container--default .select2-selection--single,
+.lesson__form .select2-container--default .select2-selection--single {
+  height: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
 }
 
+
 .sale__form .select2-container--default .select2-selection--single .select2-selection__rendered,
-.role__form .select2-container--default .select2-selection--single .select2-selection__rendered {
+.role__form .select2-container--default .select2-selection--single .select2-selection__rendered,
+.lesson__form .select2-container--default .select2-selection--multiple .select2-selection__rendered {
   color: var(--clr-primary--900);
   font-weight: 900;
   font-size: 1.2rem;

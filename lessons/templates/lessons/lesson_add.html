@@ -25,15 +25,15 @@
 {% endblock%}
 
 {% block content %}
+<div class="lesson__new">
+  <div class="lesson__form--container">
+    <h2 class="lesson__form--title">Adding lesson</h2>
+    <form method="POST" class="lesson__form">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input type="submit">
+    </form>
+  </div>
 
-<h2>Add class</h2>
 
-<form method="POST">
-  {% csrf_token %}
-  {{ form|crispy }}
-  <input type="submit">
-</form>
-
-
-
-{% endblock %}
+  {% endblock %}
