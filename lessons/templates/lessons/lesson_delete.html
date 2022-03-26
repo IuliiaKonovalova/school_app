@@ -1,49 +1,50 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
+{% comment %} Add lesson page with access only by receptionists {% endcomment %}
 {% if request.user.role == 3 %}
-<h2>
-  Delete Lesson
-</h2>
+<div class="lesson__new">
+  <div class="lesson__form--container">
+    <h2 class="lesson__form--title">Adding lesson</h2>
 
-<form method="POST">
-  {% csrf_token %}
+    <form method="POST" class="lesson__form">
+      {% csrf_token %}
 
-  <div>
-    {{ lesson.date|date:'m/d/Y' }}
-    {{ lesson.get_time }}
-    {{ lesson.get_subject }}
+      <div>
+        {{ lesson.date|date:'m/d/Y' }}
+        {{ lesson.get_time }}
+        {{ lesson.get_subject }}
 
-
-    {% for teacher in lesson.get_teachers %}
-
-    {{ teacher.user.first_name }}
-    {{ teacher.user.last_name }}
+      </div>
 
 
-    {% endfor %}
+      <a href="{% url 'lessons_list' %}">Go
+        back</a>
+      <button type="submit" name="delete">Delete</button>
 
-
-    {% for student in lesson.get_students %}
-
-    {{ student.first_name }}
-    {{ student.last_name }}
-
-
-    {% endfor %}
-
+    </form>
   </div>
-
-
-  <a href="{% url 'lessons_list' %}">Go
-    back</a>
-  <button type="submit" name="delete">Delete</button>
-  </div>
-</form>
-
+</div>
 {% else %}
-<p>You are not authorized to view this page</p>
+{% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
+<div class="access">
+  <div class="access__error">
+    <div class="access__error--image">
+      <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
+    </div>
+    <p class="access__error--text">You are not authorized to view this page!</p>
+    <div class="links">
+      <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
+        <div class="profile__btn--text">
+          Back to your profile
+        </div>
+        <i class="fas fa-external-link-alt profile__btn--icon"></i>
+      </a>
+    </div>
+  </div>
+</div>
 {% endif %}
 
 {% endblock %}
