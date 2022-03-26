@@ -35,14 +35,13 @@
           <div class="student__buttons">
             {% comment %} Go back to lesson detail page {% endcomment %}
             <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="student__buttons--btn student__btn student__back--btn">
-              <div class="student__btn--text">Go back
-              </div>
+              <div class="student__btn--text">Go back</div>
               <i class="far fa-window-close  student__btn--icon"></i>
             </a>
             {% comment %} Submit Lesson edition button {% endcomment %}
             <button type="submit" class="student__buttons--btn student__btn student__confirm--btn">
               <div class="student__btn--text">Submit</div>
-              <i class="fas fa-trash-alt student__btn--icon"></i>
+              <i class="fas fa-save"></i>
             </button>
           </div>
         </form>

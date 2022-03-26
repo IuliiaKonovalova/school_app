@@ -7,23 +7,36 @@
 {% if request.user.role == 3 %}
 <div class="lesson__new">
   <div class="lesson__form--container">
-    <h2 class="lesson__form--title">Adding lesson</h2>
-
+    <h2 class="lesson__form__delete--title">Lesson Deletion</h2>
     <form method="POST" class="lesson__form">
       {% csrf_token %}
-
-      <div>
-        {{ lesson.date|date:'m/d/Y' }}
-        {{ lesson.get_time }}
-        {{ lesson.get_subject }}
-
+      <div class="lesson__form--suggestions">
+        <div>Are you sure you want to delete this lesson?</div>
+        <div class="delete__form--warning">
+          <div class="schedule__section--lessons lesson__link">
+            <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--lesson links__btn">
+              <div class="lesson__btn--text lesson__link">
+                {{ lesson.get_subject }}
+              </div>
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+        <div>The lesson will be <strong>permanently</strong> deleted.</div>
       </div>
-
-
-      <a href="{% url 'lessons_list' %}">Go
-        back</a>
-      <button type="submit" name="delete">Delete</button>
-
+      <div class="profile__buttons">
+        {% comment %} Go back to application detail page {% endcomment %}
+        <a href="{% url 'lessons_list' %}" class="profile__form--btn profile__btn profile__back--btn">
+          <div class=" profile__btn--text">
+            Go back
+          </div>
+          <i class="far fa-window-close  profile__btn--icon"></i>
+        </a>
+        {% comment %} Submit application's deletion {% endcomment %}
+        <button type="submit" name="delete" class="profile__form--btn profile__btn profile__confirm--btn">
+          <div class="profile__btn--text">Delete</div>
+          <i class="fas fa-trash-alt profile__btn--icon"></i>
+        </button>
     </form>
   </div>
 </div>

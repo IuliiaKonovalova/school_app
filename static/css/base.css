@@ -1173,6 +1173,15 @@ td {
   color: var(--clr-neutral--100);
 }
 
+.lesson__link {
+  justify-content: center;
+  background-color: unset;
+}
+
+.lesson__form__delete--title {
+  margin-bottom: 1em;
+}
+
 
 /* ----- Forms ----- */
 .account__container,
@@ -1226,7 +1235,8 @@ td {
 .profile__form--title,
 .student__form--title,
 .sale__form--title,
-.lesson__form--title {
+.lesson__form--title,
+.lesson__form__delete--title {
   font-size: 2.2rem;
   letter-spacing: 0.15rem;
   font-weight: 900;
@@ -1245,7 +1255,8 @@ td {
 
 .profile__form--suggestions,
 .student__form--suggestions,
-.sale__form--suggestions {
+.sale__form--suggestions,
+.lesson__form--suggestions {
   width: 100%;
   margin: 0 auto;
   display: flex;
