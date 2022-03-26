@@ -5,16 +5,18 @@
 <div class="lesson__details">
   <div class="lesson__details--header">
     <div class="lesson__details--title">{{ lesson.get_subject }}</div>
-    <div class="profile__edit">
-      <a href="{% url 'lesson_edit' pk=lesson.pk %}" class="profile__btn profile__edit--btn">
-        <div class=" profile__btn--text">Edit</div>
-        <i class="fas fa-edit  profile__btn--icon"></i>
-      </a>
-      <a href="{% url 'lesson_delete' pk=lesson.pk %}" class="profile__btn profile__password--btn">
-        <div class=" profile__btn--text">Password</div>
-        <i class="fas fa-unlock-alt profile__btn--icon"></i>
-      </a>
-    </div>
+    {% if request.user.role == 3 %}
+      <div class="profile__edit">
+        <a href="{% url 'lesson_edit' pk=lesson.pk %}" class="profile__btn profile__edit--btn">
+          <div class=" profile__btn--text">Edit</div>
+          <i class="fas fa-edit  profile__btn--icon"></i>
+        </a>
+        <a href="{% url 'lesson_delete' pk=lesson.pk %}" class="profile__btn profile__password--btn">
+          <div class=" profile__btn--text">Delete</div>
+          <i class="fas fa-edit"></i>
+        </a>
+      </div>
+    {% endif %}
   </div>
 
   <div class="lesson__details--container">
@@ -46,7 +48,6 @@
         {% endfor %}
       </div>
     </div>
-
     <div class="lesson__details--data">
       <div class="lesson__details--subtitle">
         Students:
