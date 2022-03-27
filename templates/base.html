@@ -2,115 +2,122 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  {% block meta %}
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% endblock%}
+  <head>
+    {% block meta %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock%}
 
-  {% block extra_meta %}
-  {% endblock%}
+    {% block extra_meta %}
+    {% endblock%}
 
-  {% block corecss %}
+    {% block corecss %}
 
-  <link rel="stylesheet" href="{% static 'css/base.css' %}">
-  {% endblock%}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% endblock%}
 
-  {% block extra_css %}
-  {% endblock%}
+    {% block extra_css %}
+    {% endblock%}
 
-  {% block corejs %}
-  <script src="https://kit.fontawesome.com/7a0af02583.js" crossorigin="anonymous"></script>
-  {% endblock%}
+    {% block corejs %}
+    <script src="https://kit.fontawesome.com/7a0af02583.js" crossorigin="anonymous"></script>
+    {% endblock%}
 
-  {% block extra_js %}
-  {% endblock%}
+    {% block extra_js %}
+    {% endblock%}
 
-  <title>CoolSchool {% block extra_title %}{% endblock %}</title>
-</head>
+    <title>CoolSchool {% block extra_title %}{% endblock %}</title>
+  </head>
 
-<body>
-  <header class="header">
-    <nav class="navbar">
-      <div class="logo__container">
-        Cool<div class="logo__container--image"></div>School
-      </div>
-      <ul class="navbar__items">
-        {% if not request.user.is_authenticated %}
+  <body>
+    <header class="header">
+      {% comment %} Navbar {% endcomment %}
+      <nav class="navbar">
+      {% comment %} Logo container {% endcomment %}
+        <div class="logo__container">
+          Cool<div class="logo__container--image"></div>School
+        </div>
+        {% comment %} Navbar content {% endcomment %}
+        <ul class="navbar__items">
+          {% if not request.user.is_authenticated %}
+            <li class="navbar__item">
+              <a href="{% url 'home' %}">Home</a>
+            </li>
+          {% endif %}
+          {% if request.user.is_authenticated %}
           <li class="navbar__item">
-            <a href="{% url 'home' %}">Home</a>
-          </li>
-        {% endif %}
-        {% if request.user.is_authenticated %}
-        <li class="navbar__item">
-          <div id="dropdown-profile" class="dropdown navbar__item--dropdown">Menu</div>
-          <ul class="account__options">
-            <a href="{% url 'user_profile' username=request.user %}" class="account__option">
-              Profile
-            </a>
-            {% if request.user.role == 0 or request.user.role == 1 or request.user.role == 2 or request.user.role == 3 %}
-              {% if request.user.role == 0 or request.user.role == 2 %}
-                <a  href="{% url 'new_applications' username=request.user %}" class="account__option">
-                  New applications
+            <div id="dropdown-profile" class="dropdown navbar__item--dropdown">Menu</div>
+            <ul class="account__options">
+              <a href="{% url 'user_profile' username=request.user %}" class="account__option">
+                Profile
+              </a>
+              {% comment %} Links accessable to school staff only {% endcomment %}
+              {% if request.user.role == 0 or request.user.role == 1 or request.user.role == 2 or request.user.role == 3 %}
+                {% comment %} Links accessable to bosses and receptionists {% endcomment %}
+                {% if request.user.role == 0 or request.user.role == 2 %}
+                  <a  href="{% url 'new_applications' username=request.user %}" class="account__option">
+                    New applications
+                  </a>
+                  <a  href="{% url 'sales_list' %}" class="account__option">
+                    Add sale
+                  </a>
+                {% endif %}
+                <a href="{% url 'search_members' username=request.user %}" class="account__option">
+                  Members
                 </a>
-                <a  href="{% url 'sales_list' %}" class="account__option">
-                  Add sale
+                <a href="{% url 'students' %}" class="account__option">
+                  Students
                 </a>
               {% endif %}
-              <a href="{% url 'search_members' username=request.user %}" class="account__option">
-                Members
+              <a href="{% url 'lessons_list' %}" class="account__option">
+                Schedule
               </a>
-              <a href="{% url 'students' %}" class="account__option">
-                Students
+              <a href="{% url 'account_logout' %}" class="account__option account__option--logout">
+                Logout
               </a>
-            {% endif %}
-            <a href="{% url 'lessons_list' %}" class="account__option">
-              Schedule
-            </a>
-            <a href="{% url 'account_logout' %}" class="account__option account__option--logout">
-              Logout
-            </a>
-          </ul>
-        </li>
-        {% else %}
-        <li class="navbar__item ">
-          <div id="dropdown-enter" class="dropdown navbar__item--dropdown">Get started</div>
-          <ul class="account__options">
-            <a href="{% url 'account_login' %}" class="account__option">
-              Login
-            </a>
-            <a href="{% url 'account_signup' %}" class="account__option">
-              Sign Up
-            </a>
-          </ul>
-        </li>
+            </ul>
+          </li>
+          {% comment %} Links acccessable to every member {% endcomment %}
+          {% else %}
+          <li class="navbar__item ">
+            <div id="dropdown-enter" class="dropdown navbar__item--dropdown">Get started</div>
+            <ul class="account__options">
+              <a href="{% url 'account_login' %}" class="account__option">
+                Login
+              </a>
+              <a href="{% url 'account_signup' %}" class="account__option">
+                Sign Up
+              </a>
+            </ul>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+    {% comment %} Main content container {% endcomment %}
+    <main class="main">
+      <div class="content__container">
+        {% if messages %}
+        <div class="message-container"></div>
         {% endif %}
-      </ul>
-    </nav>
-  </header>
-  <main class="main">
-    <div class="content__container">
-      {% if messages %}
-      <div class="message-container"></div>
-      {% endif %}
 
-      {% block page_header %}
-      {% endblock %}
+        {% block page_header %}
+        {% endblock %}
 
-      {% block content %}
-      {% endblock %}
-    </div>
-  </main>
-  <footer class="footer">
-    <div class="footer__content">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium numquam natus id amet nostrum repellendus
-      modi repudiandae, debitis assumenda molestiae rerum quos architecto nesciunt delectus ea est. Amet, maxime illum!
-    </div>
-  </footer>
-  {% block postloadjs %}
-  <script src="{% static 'js/base.js' %}"></script>
-  {% endblock %}
-</body>
+        {% block content %}
+        {% endblock %}
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer__content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium numquam natus id amet nostrum repellendus
+        modi repudiandae, debitis assumenda molestiae rerum quos architecto nesciunt delectus ea est. Amet, maxime illum!
+      </div>
+    </footer>
+    {% block postloadjs %}
+    <script src="{% static 'js/base.js' %}"></script>
+    {% endblock %}
+  </body>
 
 </html>
