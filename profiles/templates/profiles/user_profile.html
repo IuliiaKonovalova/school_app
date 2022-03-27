@@ -2,67 +2,69 @@
 {% load static %}
 
 {% block extra_js %}
-  {% comment %} Code to handle AJAX request for quardian status change {% endcomment %}
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+{% comment %} Code to handle AJAX request for quardian status change {% endcomment %}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
-  
-  <script>
-    // Function on load
-    $(document).ready(function () {
-      // Variable to show the guardian status of the user on the page
-      const relations = {
-        1: 'Father',
-        2: 'Mother',
-        3: 'Grandfather',
-        4: 'Grandmother',
-        5: 'Other'
-      };
-      // Show select form for guardian status
-      $('#add_relation').click(function () {
-        $('#add_relation').hide();
-        $('#relation_select').show();
-        $('#add_relation_btn').show();
-        // Adding Django Form to the page
-        $('#add_relation_btn').click(() => {
-          let relation = $('#relation_select').val();
-          let url = "{% url 'add_relation' %}";
-          let data = {
-            username: "{{ user_profile.username }}",
-            relation: relation,
-            csrfmiddlewaretoken: "{{ csrf_token }}"
-          }
-          // Ajax request to add guardian status
-          $.ajax({
-            url: "{% url 'add_relation' %}",
-            type: 'POST',
-            data: data,
-            success: function (data) {
-              console.log(data);
-              let relation = data.relation;
-              $('#relation_select').hide();
-              $('#add_relation_btn').hide();
-              $('#add_relation').show();
-              $('#profile__relation--status').text(`( ${relations[relation]} )`);
-            },
-          });
+<script>
+  // Function on load
+  $(document).ready(function () {
+    // Variable to show the guardian status of the user on the page
+    const relations = {
+      1: 'Father',
+      2: 'Mother',
+      3: 'Grandfather',
+      4: 'Grandmother',
+      5: 'Other'
+    };
+    // Show select form for guardian status
+    $('#add_relation').click(function () {
+      $('#add_relation').hide();
+      $('#relation_select').show();
+      $('#add_relation_btn').show();
+      // Adding Django Form to the page
+      $('#add_relation_btn').click(() => {
+        let relation = $('#relation_select').val();
+        let url = "{% url 'add_relation' %}";
+        let data = {
+          username: "{{ user_profile.username }}",
+          relation: relation,
+          csrfmiddlewaretoken: "{{ csrf_token }}"
+        }
+        // Ajax request to add guardian status
+        $.ajax({
+          url: "{% url 'add_relation' %}",
+          type: 'POST',
+          data: data,
+          success: function (data) {
+            console.log(data);
+            let relation = data.relation;
+            $('#relation_select').hide();
+            $('#add_relation_btn').hide();
+            $('#add_relation').show();
+            $('#profile__relation--status').text(`( ${relations[relation]} )`);
+          },
         });
       });
     });
-  
-    {% comment %} Datepicker implementation {% endcomment %}
-    $(function () {
-      $("#datepicker1").datepicker({
-        dateFormat: 'yy-mm-dd',
-      });
-      $("#datepicker2").datepicker({
-        dateFormat: 'yy-mm-dd',
-      });
+  });
+
+  {% comment %} Datepicker implementation {% endcomment %}
+  $(function () {
+    $("#datepicker1").datepicker({
+      dateFormat: 'yy-mm-dd',
     });
-  </script>
+    $("#datepicker2").datepicker({
+      dateFormat: 'yy-mm-dd',
+    });
+  });
+</script>
 {% endblock%}
+
+{% comment %} Extra Title {% endcomment %}
+{% block extra_title %}Profiles{% endblock %}
 
 {% block content %}
   {% comment %} If user is authenticated {% endcomment %}
@@ -90,25 +92,23 @@
             <i class="fas fa-unlock-alt profile__btn--icon"></i>
           </a>
         </div>
-
         <h2 class="profile__title">Your Profile:</h2>
-
       {% else %}
         <h2 class="profile__title">User's Profile:</h2>
       {% endif %}
-
+      {% comment %} Role of the user {% endcomment %}
       {% if user_profile.role == 0 %}
       <div class="profile__role">(Admin)</div>
-      {% elif user_profile.role == 1 %}
+        {% elif user_profile.role == 1 %}
       <div class="profile__role">(Teacher)</div>
-      {% elif user_profile.role == 2 %}
+        {% elif user_profile.role == 2 %}
       <div class="profile__role">(Sales Manager)</div>
       {% elif user_profile.role == 3 %}
-      <div class="profile__role">(Receptionist)</div>
+        <div class="profile__role">(Receptionist)</div>
       {% elif user_profile.role == 4 %}
-      <div class="profile__role">(Parent)</div>
+        <div class="profile__role">(Parent)</div>
       {% endif %}
-
+      {% comment %} Profile content {% endcomment %}
       <div class="profile__info">
         <div class="profile__data">
           <div class="profile__data--heading">Full name:</div>
@@ -139,87 +139,87 @@
         </div>
         <div class="profile__students--data">
           {% for child in children %}
+          <div class="profile__student--data">
+            <div class="links">
+              <a href="{% url 'student_detail' pk=child.pk%}" class="links__btn links__btn--name">
+                <div class="profile__btn--text">
+                  {{ child.first_name }} {{ child.last_name }}
+                </div>
+                <i class="fas fa-external-link-alt profile__btn--icon"></i>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      {% if user_profile.role == 2 and user_profile == request.user or request.user.role == 0 %}
+        <h3 class="profile__sales">Sales made:</h3>
+        <div class="profile__sales--amount"><strong>{{ sales|length }}</strong> sales made</div>
+        <div class="links">
+          <a href="{% url 'sales_list' %}" class="links__btn links__btn--page">
+            <div class="profile__btn--text">Open sales</div>
+            <i class="fas fa-external-link-alt profile__btn--icon"></i>
+          </a>
+        </div>
+        <div class="profile__sales--data">
+          {% for sale in sales %}
             <div class="profile__student--data">
               <div class="links">
-                <a href="{% url 'student_detail' pk=child.pk%}" class="links__btn links__btn--name">
-                  <div class="profile__btn--text">
-                    {{ child.first_name }} {{ child.last_name }}
+                <div class="links__btn links__btn--name">
+                  <div class="profile__data--text">
+                    {{ sale.date|date:'m/d/Y' }}
+                    <br>
+                    ({{ sale.amount }} classes)
                   </div>
-                  <i class="fas fa-external-link-alt profile__btn--icon"></i>
-                </a>
+                </div>
               </div>
             </div>
           {% endfor %}
         </div>
-        {% if user_profile.role == 2 and user_profile == request.user or request.user.role == 0 %}
-          <h3 class="profile__sales">Sales made:</h3>
-          <div class="profile__sales--amount"><strong>{{ sales|length }}</strong> sales made</div>
+      {% endif %}
+    {% endif %}
+    {% comment %} Profile additional Data for Parent's profile {% endcomment %}
+    {% if user_profile.role == 4 %}
+      <h3 class="profile__children">Children:</h3>
+      <div class="profile__children--data">
+      {% for child in children %}
+        <div class="profile__child--data">
           <div class="links">
-            <a href="{% url 'sales_list' %}" class="links__btn links__btn--page">
-              <div class="profile__btn--text">Open sales</div>
+            <a href="{% url 'student_detail' pk=child.pk%}" class="links__btn links__btn--name">
+              <div class="profile__btn--text">
+                {{ child.first_name }} {{ child.last_name }}
+              </div>
               <i class="fas fa-external-link-alt profile__btn--icon"></i>
             </a>
           </div>
-          <div class="profile__sales--data">
-            {% for sale in sales %}
-              <div class="profile__student--data">
-                <div class="links">
-                  <div class="links__btn links__btn--name">
-                    <div class="profile__data--text">
-                      {{ sale.date|date:'m/d/Y' }}
-                      <br>
-                      ({{ sale.amount }} classes)
-                    </div>
-                  </div>
-                </div>
-              </div>
-            {% endfor %}
-          </div>
-        {% endif %}
-      {% endif %}
-      {% comment %} Profile additional Data for Parent's profile {% endcomment %}
-      {% if user_profile.role == 4 %}
-        <h3 class="profile__children">Children:</h3>
-        <div class="profile__children--data">
-          {% for child in children %}
-            <div class="profile__child--data">
-              <div class="links">
-                <a href="{% url 'student_detail' pk=child.pk%}" class="links__btn links__btn--name">
-                  <div class="profile__btn--text">
-                    {{ child.first_name }} {{ child.last_name }}
-                  </div>
-                  <i class="fas fa-external-link-alt profile__btn--icon"></i>
-                </a>
-              </div>
-              <div class="profile__relation">
-                <div class="profile__relation--status" id="profile__relation--status">
-                  ( {{ relation|title }} )
-                </div>
-                {% if user_profile == request.user %}
-                  <div class="add__relation">
-                    <button id="add_relation" class="profile__btn profile__edit--btn">
-                      <div class=" profile__btn--text">Edit
-                      </div>
-                      <i class="fas fa-edit  profile__btn--icon"></i>
-                    </button>
-                    <select id="relation_select" style="display: none;" class="profile__select">
-                      <option value="1">Father</option>
-                      <option value="2">Mother</option>
-                      <option value="3">Grandfather</option>
-                      <option value="4">Grandmother</option>
-                      <option value="5">Other</option>
-                    </select>
-                    <button id="add_relation_btn" style="display: none;" class="profile__btn profile__delete--btn">
-                      <div class=" profile__btn--text">Save</div>
-                      <i class="far fa-save  profile__btn--icon"></i>
-                    </button>
-                  </div>
-                {% endif %}
-              </div>
+          <div class="profile__relation">
+            <div class="profile__relation--status" id="profile__relation--status">
+              ( {{ relation|title }} )
             </div>
-          {% endfor %}
+            {% if user_profile == request.user %}
+              <div class="add__relation">
+                <button id="add_relation" class="profile__btn profile__edit--btn">
+                  <div class=" profile__btn--text">Edit
+                  </div>
+                  <i class="fas fa-edit  profile__btn--icon"></i>
+                </button>
+                <select id="relation_select" style="display: none;" class="profile__select">
+                  <option value="1">Father</option>
+                  <option value="2">Mother</option>
+                  <option value="3">Grandfather</option>
+                  <option value="4">Grandmother</option>
+                  <option value="5">Other</option>
+                </select>
+                <button id="add_relation_btn" style="display: none;" class="profile__btn profile__delete--btn">
+                  <div class=" profile__btn--text">Save</div>
+                  <i class="far fa-save  profile__btn--icon"></i>
+                </button>
+              </div>
+            {% endif %}
+          </div>
         </div>
-      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
     </div>
   {% else %}
     {% comment %} Access limitation for all not authenticated users {% endcomment %}
@@ -242,7 +242,7 @@
   {% endif %}
   {% comment %} Profile additional Data for Teacher's profile {% endcomment %}
   {% if user_profile.role == 1 and user_profile == request.user or user_profile.role == 1 and request.user.role == 0 %}
-    {% comment %} Access limitation to teachers classes data, only for bosess and the teacher {% endcomment %}
+  {% comment %} Access limitation to teachers classes data, only for bosess and the teacher {% endcomment %}
     <div class="classes">
       <h3 class="classes__title">Classes given:</h3>
       {% comment %} Get classes by time period for a teacher {% endcomment %}
@@ -254,7 +254,7 @@
             <div class="datepicker__container--title">From:</div>
             <input type="text" id="datepicker1" name="from_date" placeholder="mm-dd-yyyy">
           </div>
-          <div  class="datepicker__container">
+          <div class="datepicker__container">
             <div class="datepicker__container--title">To:</div>
             <input type="text" id="datepicker2" name="to_date" placeholder="mm-dd-yyyy">
           </div>
@@ -273,7 +273,7 @@
               <div class="classes__results--item">
                 <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="links__btn links__btn--name links__btn--classes">
                   <div class="profile__btn--text">
-                    <div >{{ lesson.date|date:'m/d/Y' }}</div>
+                    <div>{{ lesson.date|date:'m/d/Y' }}</div>
                     <div>{{ lesson.get_subject }}</div>
                   </div>
                   <i class="fas fa-external-link-alt profile__btn--icon"></i>
