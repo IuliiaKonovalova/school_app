@@ -42,55 +42,54 @@
         <ul class="navbar__items">
           {% if not request.user.is_authenticated %}
             <li class="navbar__item">
-              <a href="{% url 'home' %}">Home</a>
+              <a href="{% url 'home' %}" aria-label="Go to Home page">Home</a>
             </li>
           {% endif %}
+          {% comment %} Links for school members {% endcomment %}
           {% if request.user.is_authenticated %}
           <li class="navbar__item">
             <div id="dropdown-profile" class="dropdown navbar__item--dropdown">Menu</div>
             <ul class="account__options">
-              <a href="{% url 'user_profile' username=request.user %}" class="account__option">
+              <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to Profile page"
+                class="account__option">
                 Profile
               </a>
               {% comment %} Links accessable to school staff only {% endcomment %}
               {% if request.user.role == 0 or request.user.role == 1 or request.user.role == 2 or request.user.role == 3 %}
                 {% comment %} Links accessable to bosses and receptionists {% endcomment %}
                 {% if request.user.role == 0 or request.user.role == 2 %}
-                  <a  href="{% url 'new_applications' username=request.user %}" class="account__option">
+                  <a  href="{% url 'new_applications' username=request.user %}" aria-label="Go to New Applications page"
+                    class="account__option">
                     New applications
                   </a>
-                  <a  href="{% url 'sales_list' %}" class="account__option">
-                    Add sale
-                  </a>
+                  <a  href="{% url 'sales_list' %}" aria-label="Go to Sales page" class="account__option">Sales</a>
                 {% endif %}
-                <a href="{% url 'search_members' username=request.user %}" class="account__option">
+                <a href="{% url 'search_members' username=request.user %}" aria-label="Go to Members page"
+                  class="account__option">
                   Members
                 </a>
-                <a href="{% url 'students' %}" class="account__option">
-                  Students
-                </a>
+                <a href="{% url 'students' %}" aria-label="Go to Students page" class="account__option">Students</a>
               {% endif %}
-              <a href="{% url 'lessons_list' %}" class="account__option">
-                Schedule
-              </a>
-              <a href="{% url 'account_logout' %}" class="account__option account__option--logout">
+              <a href="{% url 'lessons_list' %}" aria-label="Go to Schedule page" class="account__option">Schedule</a>
+              <a href="{% url 'account_logout' %}" aria-label="Go to Logout"
+                class="account__option account__option--logout">
                 Logout
               </a>
             </ul>
           </li>
           {% comment %} Links acccessable to every member {% endcomment %}
           {% else %}
-          <li class="navbar__item ">
-            <div id="dropdown-enter" class="dropdown navbar__item--dropdown">Get started</div>
-            <ul class="account__options">
-              <a href="{% url 'account_login' %}" class="account__option">
-                Login
-              </a>
-              <a href="{% url 'account_signup' %}" class="account__option">
-                Sign Up
-              </a>
-            </ul>
-          </li>
+            <li class="navbar__item ">
+              <div id="dropdown-enter" class="dropdown navbar__item--dropdown">Get started</div>
+              <ul class="account__options">
+                <a href="{% url 'account_login' %}" aria-label="Go to Login" class="account__option">
+                  Login
+                </a>
+                <a href="{% url 'account_signup' %}" aria-label="Go to Sign Up" class="account__option">
+                  Sign Up
+                </a>
+              </ul>
+            </li>
           {% endif %}
         </ul>
       </nav>
@@ -119,5 +118,4 @@
     <script src="{% static 'js/base.js' %}"></script>
     {% endblock %}
   </body>
-
 </html>
