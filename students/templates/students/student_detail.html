@@ -33,7 +33,8 @@
         </div>
         <p class="access__error--text">You are not authorized to view this page!</p>
         <div class="links">
-          <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
+          <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to Your Profile page"
+            class="links__btn links__btn--name links__btn--content">
             <div class="profile__btn--text">
               Back to your profile
             </div>
@@ -47,12 +48,13 @@
       {% comment %} Rendering or deleting data if the user is Admin or Sales Manager {% endcomment %}
       {% if request.user.role == 0 or request.user.role == 2 %}
         <div class="student__edit">
-          <a href="{% url 'student_edit' pk=student.pk %}" class="student__btn student__edit--btn">
-            <div class=" student__btn--text">Edit
-            </div>
+          <a href="{% url 'student_edit' pk=student.pk %}" aria-label="Go to Edit Data Student page"
+            class="student__btn student__edit--btn">
+            <div class=" student__btn--text">Edit</div>
             <i class="fas fa-edit  student__btn--icon"></i>
           </a>
-          <a href="{% url 'student_delete' pk=student.pk %}" class="student__btn student__delete--btn">
+          <a href="{% url 'student_delete' pk=student.pk %}" aria-label="Go to Delete Student page"
+            class="student__btn student__delete--btn">
             <div class="student__btn--text">Delete</div>
             <i class="fas fa-trash-alt student__btn--icon"></i>
           </a>
@@ -88,7 +90,8 @@
           <div class="student__data--info">
             {% for parent in student.get_parents %}
             <div class="links">
-              <a href="{% url 'user_profile' username=parent.user.username %}" class="links__btn links__btn--name">
+              <a href="{% url 'user_profile' username=parent.user.username %}" aria-label="Go to Profile page"
+                class="links__btn links__btn--name">
                 <div class="student__btn--text">
                   {{ parent|title }} ({{parent.get_relation }})
                 </div>
@@ -111,7 +114,8 @@
           </div>
           <div class="student__label">
             {% if student.has_classes_left %}
-            <a href="{% url 'sales_list' %}" class="label__btn label__btn--name">
+            <a href="{% url 'sales_list' %}" aria-label="Go to Sales page"
+              class="label__btn label__btn--name">
               <div class="student__btn--text">
                 Urgent call
               </div>
@@ -125,7 +129,8 @@
           <div class="student__data--info">
             {% for sales_manager in student.get_sales_managers %}
             <div class="links">
-              <a href="{% url 'user_profile' username=sales_manager.user.username %}" class="links__btn links__btn--name">
+              <a href="{% url 'user_profile' username=sales_manager.user.username %}"
+                aria-label="Go to User Profile page" class="links__btn links__btn--name">
                 <div class="student__btn--text">
                   {{ sales_manager|title }}
                 </div>
@@ -170,7 +175,8 @@
           <div class="classes__results--container">
             {% for lesson in lessons %}
               <div class="classes__results--item">
-                <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="links__btn links__btn--name links__btn--classes">
+                <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
+                  class="links__btn links__btn--name links__btn--classes">
                   <div class="profile__btn--text">
                     <div >{{ lesson.date|date:'m/d/Y' }}</div>
                     <div>{{ lesson.get_subject }}</div>

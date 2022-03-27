@@ -10,7 +10,6 @@
   <script>
     $(document).ready(function () {
       $('select').addClass('js-example-basic-single');
-
       $('.js-example-basic-single').select2({
         placeholder: 'Type name to search',
       });
@@ -37,7 +36,7 @@
           {% csrf_token %}
           <div class="student__buttons">
             {% comment %} Go back to student profile page {% endcomment %}
-            <a href="{% url 'student_detail' pk=student.pk %}"
+            <a href="{% url 'student_detail' pk=student.pk %}" aria-label="Go Back to Student page"
               class="student__buttons--btn student__btn student__back--btn">
               <div class="student__btn--text">Go back</div>
               <i class="far fa-window-close  student__btn--icon"></i>
@@ -60,7 +59,8 @@
         </div>
         <p class="access__error--text">You are not authorized to view this page!</p>
         <div class="links">
-          <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
+          <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to Your Profile page"
+            class="links__btn links__btn--name links__btn--content">
             <div class="profile__btn--text">
               Back to your profile
             </div>

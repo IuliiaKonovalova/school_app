@@ -14,7 +14,8 @@
         </div>
         <p class="access__error--text">You are not authorized to view this page!</p>
         <div class="links">
-          <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
+          <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to Your Profile page"
+            class="links__btn links__btn--name links__btn--content">
             <div class="profile__btn--text">
               Back to your profile
             </div>
@@ -30,7 +31,8 @@
         {% comment %} Limit access for adding student only for bosses and sales managers {% endcomment %}
         <div class="students__header">
           <h2 class="students__title">All students:</h2>
-          <a href="{% url 'student_add' %}" class="student__btn student__add--btn students__btn">
+          <a href="{% url 'student_add' %}" aria-label="Go to Add Student page"
+            class="student__btn student__add--btn students__btn">
             <div class="sales__btn--text">
               Add new student
             </div>
@@ -80,7 +82,8 @@
         <div id="box" class="students__results">
           {% for student in students %}
             <div class="students__student students__results--item">
-              <a href="{% url 'student_detail' pk=student.pk %}" class="links__btn links__btn--name">
+              <a href="{% url 'student_detail' pk=student.pk %}" aria-label="Go to Student's Detail page"
+                class="links__btn links__btn--name">
                 <div class="profile__btn--text">
                   {{ student.first_name }} {{ student.last_name }}
                 </div>
