@@ -23,6 +23,9 @@
   </script>
 {% endblock%}
 
+{% comment %} Extra Title {% endcomment %}
+{% block extra_title %}Students{% endblock %}
+
 {% block content %}
   {% comment %} Edit student profile with limited access {% endcomment %}
   {% if request.user.role == 0 or request.user.role == 2 %}

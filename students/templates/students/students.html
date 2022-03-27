@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% comment %} Extra Title {% endcomment %}
+{% block extra_title %}Students{% endblock %}
+
 {% block content %}
   {% if request.user.role == 4 or request.user.role == 5 %}
   {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
