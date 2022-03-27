@@ -305,6 +305,21 @@ As a Parent, I want to be able to see names of teachers for each lesson, so that
 
 
 
+---
+## Flowcharts
+
+This application is aimed at users with different roles to fulfill there expectations and provide all functionality.
+
+The following flowcharts were created to help to understand the application and its functionality.
+
+The flowcharts were created using [Draw.io](https://www.lucidchart.com/).
+
+
+- Boss;
+- Sales Manager;
+- Parent;
+- Teacher;
+- Receptionist;
 
 ---
 ## Testing
