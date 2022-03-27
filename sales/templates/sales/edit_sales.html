@@ -20,6 +20,9 @@
   </script>
 {% endblock%}
 
+{% comment %} Extra Title {% endcomment %}
+{% block extra_title %}Sales{% endblock %}
+
 {% block content %}
   {% comment %} Edit Sale page accessed only by sale manager {% endcomment %}
   {% if request.user.role == 2 %}

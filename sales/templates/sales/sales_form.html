@@ -21,6 +21,9 @@
   </script>
 {% endblock%}
 
+{% comment %} Extra Title {% endcomment %}
+{% block extra_title %}Sales{% endblock %}
+
 {% block content %}
   {% if request.user.role == 2 %}
     <div class="sale">

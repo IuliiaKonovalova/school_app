@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
+{% comment %} Extra Title {% endcomment %}
+{% block extra_title %}Sales{% endblock %}
 
-{% if request.user.role == 2 %}
+{% block content %}
+  {% if request.user.role == 2 %}
     <div class="sale">
       <div class="sale__form--container">
         <form method="POST" class="sale__form">

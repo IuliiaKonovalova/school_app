@@ -19,6 +19,9 @@
   </script>
 {% endblock%}
 
+{% comment %} Extra Title {% endcomment %}
+{% block extra_title %}Sales{% endblock %}
+
 {% block content %}
   {% comment %} Main content to sales page only for bosses and sales managers {% endcomment %}
   {% if request.user.role == 0 or request.user.role == 2 %}
@@ -35,12 +38,11 @@
           </a>
         {% endif %}
       </div>
-
+      {% comment %} Form to search sales by time period {% endcomment %}
       <form method="POST" class="sales__form">
       <h4 class="sales__form--heading">Search sales by date</h4>
         {% csrf_token %}
         <div class="sales__form--settings">
-          
           <div class="datepicker__container">
             <div class="datepicker__container--title">From:</div>
             <input type="text" id="datepicker1" name="from_date" placeholder="mm-dd-yyyy">
