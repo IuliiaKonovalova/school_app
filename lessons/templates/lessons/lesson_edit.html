@@ -22,6 +22,10 @@
     });
   </script>
 {% endblock%}
+
+{% comment %} Extra Title {% endcomment %}
+{% block extra_title %}Students{% endblock %}
+
 {% block content %}
   {% comment %} Add lesson page with access only by receptionists {% endcomment %}
   {% if request.user.role == 3 %}
