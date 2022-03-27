@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% comment %} Extra Title {% endcomment %}
+{% block extra_title %}Applications{% endblock %}
+
 {% block content %}
   {% if request.user.role == 0 %}
     <div class="profile">

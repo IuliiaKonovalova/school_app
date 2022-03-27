@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% comment %} Extra Title {% endcomment %}
+{% block extra_title %}Profiles{% endblock %}
+
 {% block content %}
   {% comment %} Limit access to student deletion page {% endcomment %}
   {% if request.user.role == 0 %}

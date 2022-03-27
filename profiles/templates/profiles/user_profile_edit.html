@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% comment %} Extra Title {% endcomment %}
+{% block extra_title %}Profiles{% endblock %}
+
 {% block content %}
   {% comment %} Access to the form only for the user {% endcomment %}
   {% if user_profile == request.user %}

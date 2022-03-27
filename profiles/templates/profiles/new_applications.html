@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% comment %} Extra Title {% endcomment %}
+{% block extra_title %}Aplications{% endblock %}
+
 {% block content %}
   {% comment %} New applications page with access only by bosses or managers {% endcomment %}
   {% if request.user.role == 0 or request.user.role == 2 %}
@@ -11,16 +14,16 @@
       {% comment %} All applications {% endcomment %}
         <div class="applications__results">
           {% for application in new_applications %}
-          <div class="links">
-            <a href="{% url 'application_detail' username=request.user pk=application.pk %}"
-              class="links__btn links__btn--name">
-              <div class="profile__btn--text">
-                <div>{{ application.first_name }}</div>
-                <div>{{ application.last_name }}</div>
-              </div>
-              <i class="fas fa-external-link-alt profile__btn--icon"></i>
-            </a>
-          </div>
+            <div class="links">
+              <a href="{% url 'application_detail' username=request.user pk=application.pk %}"
+                class="links__btn links__btn--name">
+                <div class="profile__btn--text">
+                  <div>{{ application.first_name }}</div>
+                  <div>{{ application.last_name }}</div>
+                </div>
+                <i class="fas fa-external-link-alt profile__btn--icon"></i>
+              </a>
+            </div>
           {% endfor %}
         </div>
       </div>

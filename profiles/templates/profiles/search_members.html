@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% comment %} Extra Title {% endcomment %}
+{% block extra_title %}Profiles{% endblock %}
+
 {% block content %}
   {% comment %} Limited access to members page only for staff {% endcomment %}
   {% if not user.is_authenticated or request.user.role == 4 or request.user.role == 5 %}
-  {% comment %} Show Limited access message {% endcomment %}
+    {% comment %} Show Limited access message {% endcomment %}
     <div class="access">
       <div class="access__error">
         <div class="access__error--image">
@@ -81,25 +84,22 @@
         <div class="members__search--instructions">
           <strong>* </strong>Remember: search is case-insensitive.
         </div>
-
+        {% comment %} Displays members according to settings {% endcomment %}
         <div id="box" class="members__results">
-
           {% for member in members %}
-          <a href="{% url 'user_profile' username=member.username %}"
-            class="links__btn links__btn--name members__results--item">
-
-            <div class="profile__btn--text">
-              <div class="">
-                {{ member.first_name }} {{ member.last_name }}
+            <a href="{% url 'user_profile' username=member.username %}"
+              class="links__btn links__btn--name members__results--item">
+              <div class="profile__btn--text">
+                <div class="">
+                  {{ member.first_name }} {{ member.last_name }}
+                </div>
+                <div class="member__role">
+                  {{ member.get_role_choices}}
+                </div>
+                <div class="member__phone"><i class="fas fa-phone-alt member__icon"></i>{{ member.phone }}</div>
               </div>
-              <div class="member__role">
-                {{ member.get_role_choices}}
-              </div>
-              <div class="member__phone"><i class="fas fa-phone-alt member__icon"></i>{{ member.phone }}</div>
-
-            </div>
-            <i class="fas fa-external-link-alt"></i>
-          </a>
+              <i class="fas fa-external-link-alt"></i>
+            </a>
           {% endfor %}
         </div>
       </form>
