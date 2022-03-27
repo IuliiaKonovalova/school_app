@@ -30,7 +30,8 @@
         <h2 class="sales__title">Sales</h2>
         {% comment %} Add sales button only for sales managers {% endcomment %}
         {% if request.user.role == 2 %}
-          <a href="{% url 'sales_form' %}" class="sales__btn sales__add--btn sales__btn--custom">
+          <a href="{% url 'sales_form' %}" aria-label="Go to Add Sale page"
+            class="sales__btn sales__add--btn sales__btn--custom">
             <div class="student__btn--text">
               Add new Sale
             </div>
@@ -85,7 +86,8 @@
                 {% comment %} Link to sales manager profile {% endcomment %}
                 <td>
                   <div class="links">
-                    <a href="{% url 'user_profile' username=sale.sold_by.user.username %}" class="links__btn links__btn--name">
+                    <a href="{% url 'user_profile' username=sale.sold_by.user.username %}"
+                      aria-label="Go to Profile page" class="links__btn links__btn--name">
                       <div class="student__btn--text">
                         {{ sale.sold_by|title }}
                       </div>
@@ -96,7 +98,8 @@
                 {% comment %} Link to parent profile {% endcomment %}
                 <td>
                   <div class="links">
-                    <a href="{% url 'user_profile' username=sale.sold_to.user.username %}" class="links__btn links__btn--name">
+                    <a href="{% url 'user_profile' username=sale.sold_to.user.username %}"
+                      aria-label="Go to Profile page" class="links__btn links__btn--name">
                       <div class="student__btn--text">
                         {{ sale.sold_to|title }}
                       </div>
@@ -107,7 +110,8 @@
                 {% comment %} Link to student profile {% endcomment %}
                 <td>
                   <div class="links">
-                    <a href="{% url 'student_detail' pk=sale.student_id %}" class="links__btn links__btn--name">
+                    <a href="{% url 'student_detail' pk=sale.student_id %}" aria-label="Go to Student's Detail page"
+                      class="links__btn links__btn--name">
                       <div class="student__btn--text">
                         {{ sale.student_name}}
                       </div>
@@ -118,13 +122,15 @@
                 {% comment %} Limit access of rendering sales, only for manager who conducted a deal {% endcomment %}
                 {% if request.user.role == 2 and request.user.username == sale.sold_by.user.username %}
                   <td>
-                    <a href="{% url 'edit_sales' pk=sale.pk %}" class="sales__btn sales__edit--btn">
+                    <a href="{% url 'edit_sales' pk=sale.pk %}" aria-label="Go to Edit Sale page"
+                      class="sales__btn sales__edit--btn">
                       <div class=" sales__btn--text">Edit</div>
                       <i class="fas fa-edit  sales__btn--icon"></i>
                     </a>
                   </td>
                   <td>
-                    <a href="{% url 'delete_sales' pk=sale.pk %}" class="sales__btn sales__delete--btn">
+                    <a href="{% url 'delete_sales' pk=sale.pk %}" aria-label="Go to Delete Sales page"
+                      class="sales__btn sales__delete--btn">
                       <div class="sales__btn--text">Delete</div>
                       <i class="fas fa-trash-alt sales__btn--icon"></i>
                     </a>
