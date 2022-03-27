@@ -35,7 +35,7 @@
           {% if request.user.role == 0 %}
             <div class="application__delete">
               <a href="{% url 'application_delete' username=request.user pk=new_application.pk %}"
-                class="profile__btn application__delete--btn">
+                aria-label="Go to Delete Application page" class="profile__btn application__delete--btn">
                 <div class="application__btn--text">Delete</div>
                 <i class="fas fa-trash-alt"></i>
               </a>
@@ -72,7 +72,8 @@
             </form>
           </div>
         {% endif %}
-        <a href="{% url 'new_applications' username=request.user %}" class="application__link">
+        <a href="{% url 'new_applications' username=request.user %}" aria-label="Go to All New applications page"
+          class="application__link">
           <div class="application__link--text">Go to other application</div>
           <i class="fas fa-long-arrow-alt-right"></i>
         </a>
@@ -89,7 +90,8 @@
         </div>
         <p class="access__error--text">You are not authorized to view this page!</p>
         <div class="links">
-          <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
+          <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to Your Profile page"
+            class="links__btn links__btn--name links__btn--content">
             <div class="profile__btn--text">
               Back to your profile
             </div>

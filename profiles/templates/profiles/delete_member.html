@@ -19,7 +19,7 @@
               <div>Are you sure you want to delete this member?</div>
               <div class="links">
                 <a href="{% url 'user_profile' username=member.username %}"
-                  class="links__btn links__btn--content links__btn--name">
+                  aria-label="Go back to Profile page" class="links__btn links__btn--content links__btn--name">
                   <div class="profile__btn--text">
                     {{ member.first_name }} {{ member.last_name}}
                   </div>

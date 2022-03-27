@@ -16,7 +16,7 @@
           {% for application in new_applications %}
             <div class="links">
               <a href="{% url 'application_detail' username=request.user pk=application.pk %}"
-                class="links__btn links__btn--name">
+                aria-label="Go back to application Detail page" class="links__btn links__btn--name">
                 <div class="profile__btn--text">
                   <div>{{ application.first_name }}</div>
                   <div>{{ application.last_name }}</div>
@@ -37,7 +37,8 @@
         </div>
         <p class="access__error--text">You are not authorized to view this page!</p>
         <div class="links">
-          <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
+          <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to Your Profile page"
+            class="links__btn links__btn--name links__btn--content">
             <div class="profile__btn--text">
               Back to your profile
             </div>

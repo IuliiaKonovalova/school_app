@@ -15,7 +15,8 @@
         </div>
         <p class="access__error--text">You are not authorized to view this page!</p>
         <div class="links">
-          <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
+          <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to Your Profile page"
+            class="links__btn links__btn--name links__btn--content">
             <div class="profile__btn--text">
               Back to your profile
             </div>
@@ -88,7 +89,7 @@
         <div id="box" class="members__results">
           {% for member in members %}
             <a href="{% url 'user_profile' username=member.username %}"
-              class="links__btn links__btn--name members__results--item">
+              aria-label="Go to User Profile page" class="links__btn links__btn--name members__results--item">
               <div class="profile__btn--text">
                 <div class="">
                   {{ member.first_name }} {{ member.last_name }}

@@ -9,26 +9,25 @@
   {% if user_profile == request.user %}
     <div class="profile">
       <div class="profile__form--container">
-          <h2 class="profile__form--title">Edit profile</h2>
-          {% comment %} Edit profile form {% endcomment %}
-          <form method="POST" action="{% url 'user_profile_edit' username=request.user %}"  class="profile__form">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <div class="profile__buttons">
-              {% comment %} Go back to user profile page {% endcomment %}
-              <a href="{% url 'user_profile' username=request.user %}"
-                class="profile__form--btn profile__btn profile__back--btn">
-                <div class=" profile__btn--text">Go back
-                </div>
-                <i class="far fa-window-close  profile__btn--icon"></i>
-              </a>
-              {% comment %} Submit profile changes button {% endcomment %}
-              <button type="submit" class="profile__form--btn profile__btn profile__confirm--btn">
-                <div class="profile__btn--text">Submit</div>
-                <i class="fas fa-trash-alt profile__btn--icon"></i>
-              </button>
-            </div>
-          </form>
+        <h2 class="profile__form--title">Edit profile</h2>
+        {% comment %} Edit profile form {% endcomment %}
+        <form method="POST" action="{% url 'user_profile_edit' username=request.user %}"  class="profile__form">
+          {% csrf_token %}
+          {{ form|crispy }}
+          <div class="profile__buttons">
+            {% comment %} Go back to user profile page {% endcomment %}
+            <a href="{% url 'user_profile' username=request.user %}"
+              aria-label="Go Back to Profile page" class="profile__form--btn profile__btn profile__back--btn">
+              <div class=" profile__btn--text">Go back</div>
+              <i class="far fa-window-close  profile__btn--icon"></i>
+            </a>
+            {% comment %} Submit profile changes button {% endcomment %}
+            <button type="submit" class="profile__form--btn profile__btn profile__confirm--btn">
+              <div class="profile__btn--text">Submit</div>
+              <i class="fas fa-trash-alt profile__btn--icon"></i>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   {% else %}
@@ -40,7 +39,8 @@
         </div>
         <p class="access__error--text">You are not authorized to view this page!</p>
         <div class="links">
-          <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
+          <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to Your Profile page"
+            class="links__btn links__btn--name links__btn--content">
             <div class="profile__btn--text">
               Back to your profile
             </div>
