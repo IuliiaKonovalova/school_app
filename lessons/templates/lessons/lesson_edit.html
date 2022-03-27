@@ -38,7 +38,8 @@
           {{ form|crispy }}
           <div class="student__buttons">
             {% comment %} Go back to lesson detail page {% endcomment %}
-            <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="student__buttons--btn student__btn student__back--btn">
+            <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to back to lesson page"
+              class="student__buttons--btn student__btn student__back--btn">
               <div class="student__btn--text">Go back</div>
               <i class="far fa-window-close  student__btn--icon"></i>
             </a>
@@ -52,22 +53,23 @@
       </div>
     </div>
   {% else %}
-  {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
-  <div class="access">
-    <div class="access__error">
-      <div class="access__error--image">
-        <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
-      </div>
-      <p class="access__error--text">You are not authorized to view this page!</p>
-      <div class="links">
-        <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
-          <div class="profile__btn--text">
-            Back to your profile
-          </div>
-          <i class="fas fa-external-link-alt profile__btn--icon"></i>
-        </a>
+    {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
+    <div class="access">
+      <div class="access__error">
+        <div class="access__error--image">
+          <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
+        </div>
+        <p class="access__error--text">You are not authorized to view this page!</p>
+        <div class="links">
+          <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to Your Profile page"
+            class="links__btn links__btn--name links__btn--content">
+            <div class="profile__btn--text">
+              Back to your profile
+            </div>
+            <i class="fas fa-external-link-alt profile__btn--icon"></i>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
   {% endif %}
 {% endblock %}

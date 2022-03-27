@@ -13,11 +13,13 @@
       {% comment %} Rendering lesson btns only for receptionists {% endcomment %}
       {% if request.user.role == 3 %}
         <div class="profile__edit">
-          <a href="{% url 'lesson_edit' pk=lesson.pk %}" class="profile__btn profile__edit--btn">
+          <a href="{% url 'lesson_edit' pk=lesson.pk %}" aria-label="Go to Edit lesson page"
+            class="profile__btn profile__edit--btn">
             <div class=" profile__btn--text">Edit</div>
             <i class="fas fa-edit  profile__btn--icon"></i>
           </a>
-          <a href="{% url 'lesson_delete' pk=lesson.pk %}" class="profile__btn profile__password--btn">
+          <a href="{% url 'lesson_delete' pk=lesson.pk %}" aria-label="Go to Delete lesson page"
+            class="profile__btn profile__password--btn">
             <div class=" profile__btn--text">Delete</div>
             <i class="fas fa-edit"></i>
           </a>
@@ -47,7 +49,8 @@
         </div>
         <div class="lesson__details--content">
           {% for teacher in lesson.get_teachers %}
-          <a href="{% url 'user_profile' username=teacher.user.username %}" class="links__btn links__btn--name">
+          <a href="{% url 'user_profile' username=teacher.user.username %}" aria-label="Go to User Profile page"
+            class="links__btn links__btn--name">
             <div class="profile__btn--text">
               {{ teacher.user.first_name }} {{ teacher.user.last_name }}
             </div>
@@ -67,7 +70,8 @@
             {% if request.user.role == 4 or request.user.role == 5 %}
               {% comment %} Let see parents their chilrend's profiles {% endcomment %}
               {% if request.user.username in student.get_parent_usernames %}
-                <a href="{% url 'student_detail' pk=student.pk %}" class="links__btn links__btn--name">
+                <a href="{% url 'student_detail' pk=student.pk %}" aria-label="Go to Student's details page"
+                  class="links__btn links__btn--name">
                   <div class="profile__btn--text">
                     {{ student.first_name }} {{ student.last_name }}
                   </div>
@@ -83,7 +87,8 @@
               </div>
               {% endif %}
             {% else %}
-              <a href="{% url 'student_detail' pk=student.pk %}" class="links__btn links__btn--name">
+              <a href="{% url 'student_detail' pk=student.pk %}" aria-label="Go to Student's details page"
+                class="links__btn links__btn--name">
                 <div class="profile__btn--text">
                   {{ student.first_name }} {{ student.last_name }}
                 </div>

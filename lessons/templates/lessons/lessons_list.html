@@ -12,7 +12,8 @@
       <div class="lessons__subtitle">Today is <span>{% now 'm/d/Y' %}</span></div>
         {% comment %} Add lessson button with access only by receptionists {% endcomment %}
         {% if request.user.role == 3 %}
-          <a href="{% url 'lesson_add' %}" class="lesson__btn sales__add--btn lesson__btn--custom">
+          <a href="{% url 'lesson_add' %}" aria-label="Go to Edit Lesson page"
+            class="lesson__btn sales__add--btn lesson__btn--custom">
             <div class="lesson__btn--text">
               Add lesson
             </div>
@@ -34,7 +35,8 @@
           {% comment %} Display all lessons for this period {% endcomment %}
           {% for lesson in lessons_time_0 %}
           <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
-            <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--subject">
+            <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
+              class="schedule__section--subject">
               {{ lesson.get_subject }}
             </a>
           </div>
@@ -48,7 +50,8 @@
           {% comment %} Display all lessons for this period {% endcomment %}
           {% for lesson in lessons_time_1 %}
             <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
-              <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--subject">
+              <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
+                class="schedule__section--subject">
                 {{ lesson.get_subject }}
               </a>
             </div>
@@ -62,7 +65,8 @@
           {% comment %} Display all lessons for this period {% endcomment %}
           {% for lesson in lessons_time_2 %}
             <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
-              <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--subject">
+              <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
+                class="schedule__section--subject">
                 {{ lesson.get_subject }}
               </a>
             </div>
@@ -76,7 +80,8 @@
           {% comment %} Display all lessons for this period {% endcomment %}
           {% for lesson in lessons_time_3 %}
           <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
-            <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--subject">
+            <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
+              class="schedule__section--subject">
               {{ lesson.get_subject }}
             </a>
           </div>
@@ -90,7 +95,8 @@
           {% comment %} Display all lessons for this period {% endcomment %}
           {% for lesson in lessons_time_4 %}
             <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
-              <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--subject">
+              <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
+                class="schedule__section--subject">
                 {{ lesson.get_subject }}
               </a>
             </div>
@@ -104,7 +110,8 @@
           {% comment %} Display all lessons for this period {% endcomment %}
           {% for lesson in lessons_time_5 %}
             <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
-              <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--subject">
+              <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
+                class="schedule__section--subject">
                 {{ lesson.get_subject }}
               </a>
             </div>
@@ -118,7 +125,8 @@
           {% comment %} Display all lessons for this period {% endcomment %}
           {% for lesson in lessons_time_6 %}
             <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
-              <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--subject">
+              <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
+                class="schedule__section--subject">
                 {{ lesson.get_subject }}
               </a>
             </div>
@@ -132,7 +140,8 @@
           {% comment %} Display all lessons for this period {% endcomment %}
           {% for lesson in lessons_time_7 %}
             <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
-              <a href="{% url 'lesson_detail' pk=lesson.pk %}" class="schedule__section--subject">
+              <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Details page"
+                class="schedule__section--subject">
                 {{ lesson.get_subject }}
               </a>
             </div>
