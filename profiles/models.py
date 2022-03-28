@@ -14,7 +14,7 @@ class CustomUser(AbstractUser):
         (4, 'parent'),
         (5, 'potential user'),
     )
-    
+
     username = models.CharField(
         max_length=50, blank=False,
         null=True,
@@ -26,12 +26,12 @@ class CustomUser(AbstractUser):
     phone = models.CharField(max_length=30)
     role = models.IntegerField(choices=ROLES, default=5)
 
-    # add method to get role choices
     def get_role_choices(self):
         """Return role choices."""
         return dict(self.ROLES)[self.role]
 
     def __str__(self):
+        """Return string representation of user."""
         return str(self.username)
     class Meta:
         """Meta class"""
@@ -43,6 +43,7 @@ class Teacher(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
     def __str__(self):
+        """Return string representation of teacher."""
         return self.user.first_name + ' ' + self.user.last_name
 
 class Receptionist(models.Model):
@@ -57,6 +58,7 @@ class SalesManager(models.Model):
     total_sold = models.IntegerField(default=0, blank=True, null=True)
 
     def __str__(self):
+        """Return sales manager name."""
         return self.user.first_name + ' ' + self.user.last_name
 
 
@@ -74,8 +76,9 @@ class Parent(models.Model):
     relation = models.IntegerField(choices=GUARDIAN_RELATION, default=5)
 
     def get_relation(self):
+        """Return relation."""
         return dict(self.GUARDIAN_RELATION)[self.relation]
-        
-    def __str__(self):
-        return self.user.first_name + ' ' + self.user.last_name
 
+    def __str__(self):
+        """Return string representation of the model."""
+        return self.user.first_name + ' ' + self.user.last_name
