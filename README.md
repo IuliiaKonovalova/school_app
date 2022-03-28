@@ -314,11 +314,11 @@ The following flowcharts were created to help to understand the application and 
 
 The flowcharts were created using [Draw.io](https://www.lucidchart.com/).
 
-- [Flowchart for Bosses](documentation/flowchart/flowchart_boss.pdf)
-- [Flowchart for Sales Managers](documentation/flowchart/flowchart_sales.pdf)
-- [Flowchart for Parents](documentation/flowchart/flowchart_parent.pdf)
-- [Flowchart for Teachers](documentation/flowchart/flowchart_teacher.pdf)
-- [Flowchart for Receptionist](documentation/flowchart/flowchart_receptionist.pdf)
+- [Flowchart for Bosses](documentation/flowcharts/flowchart_boss.pdf)
+- [Flowchart for Sales Managers](documentation/flowcharts/flowchart_sales.pdf)
+- [Flowchart for Parents](documentation/flowcharts/flowchart_parent.pdf)
+- [Flowchart for Teachers](documentation/flowcharts/flowchart_teacher.pdf)
+- [Flowchart for Receptionist](documentation/flowcharts/flowchart_receptionist.pdf)
 
 ---
 ## Testing
