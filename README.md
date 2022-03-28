@@ -335,6 +335,36 @@ The flowcharts were created using [Draw.io](https://www.lucidchart.com/).
 
 - [Database Scheme](documentation/diagrams/db_final.pdf)
 
+### Data Modeling
+
+1. **CustomUser**
+
+Extends Allauth's User model.
+
+| Name          | Database Key  | Field Type    | Validation |
+| ------------- | ------------- | ------------- | ---------- |
+| UserName      | username      | CharField     |  max_length=50, blank=False, null=True, unique=True    |
+| Email         | email         | EmailField    | max_length=50    |
+| First Name    | first_name    | CharField     | max_length=30    |
+| Last Name     | last_name     | CharField     | max_length=30    |
+| Phone Number  | email         | CharField     | max_length=30    |
+| Role          | phone         | IntegerField  | choices=ROLES, default=5    |
+
+
+```Python
+    # Roles to assign to users
+    ROLES = (
+        (0, 'boss'),
+        (1, 'teacher'),
+        (2, 'sales'),
+        (3, 'receptionist'),
+        (4, 'parent'),
+        (5, 'potential user'),
+    )
+```
+
+
+
 ---
 ## Testing
 
