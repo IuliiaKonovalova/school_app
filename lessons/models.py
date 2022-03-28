@@ -4,29 +4,31 @@ from profiles.models import Teacher
 from students.models import Student
 
 
+# Time periods variations
 TIME_PERIODS = (
-        (0, '9:00-9:45'),
-        (1, '10:00-10:45'),
-        (2, '11:00-11:45'),
-        (3, '14:00-14:45'),
-        (4, '15:00-15:45'),
-        (5, '16:00-16:45'),
-        (6, '17:00-17:45'),
-        (7, '18:00-18:45'),
+    (0, '9:00-9:45'),
+    (1, '10:00-10:45'),
+    (2, '11:00-11:45'),
+    (3, '14:00-14:45'),
+    (4, '15:00-15:45'),
+    (5, '16:00-16:45'),
+    (6, '17:00-17:45'),
+    (7, '18:00-18:45'),
 )
 
+# Subject variations
 SUBJECTS = (
-        (1, 'art'),
-        (2, 'math'),
-        (3, 'casa'),
-        (4, 'chinese'),
-        (5, 'toddlers'),
-        (6, 'music'),
-        (7, 'english'),
-        (8, 'sport'),
-        (9, 'cooking'),
-        (10, 'infants'),
-    )
+    (1, 'art'),
+    (2, 'math'),
+    (3, 'casa'),
+    (4, 'chinese'),
+    (5, 'toddlers'),
+    (6, 'music'),
+    (7, 'english'),
+    (8, 'sport'),
+    (9, 'cooking'),
+    (10, 'infants'),
+)
 
 class Lesson(models.Model):
     """Lesson model"""
@@ -36,7 +38,6 @@ class Lesson(models.Model):
     teachers = models.ManyToManyField(Teacher, related_name='lessons')
     students = models.ManyToManyField(Student, related_name='lessons')
 
-    # get time period name for a lesson
     def get_time(self):
         """Get time period name of the lesson"""
         return dict(TIME_PERIODS)[self.time]

@@ -435,6 +435,46 @@ This table is needed to conduct sales operations. It controls the sales of the p
 | Date of Sale  | date          | DateTimeField | auto_now_add=True    |
 | Student       | amount        | IntegerField  |  default=0          |
 
+8. **Lesson**
+
+This table is necessary to control the lessons and provide data for schedule.
+
+| Name          | Database Key  | Field Type     | Validation |
+| ------------- | ------------- | -------------- | ---------- |
+| Class's Date  | date          | DateField      |            |
+| Class's Time  | time          | IntegerField   | choices=TIME_PERIODS, default=0 |
+| Subject       | subject       | IntegerField   | choices=SUBJECTS, default=1     |
+| Teachers      | teachers      | ManyToManyField| Teacher, related_name='lessons' |
+| Students      | students      | ManyToManyField| Student, related_name='lessons' |
+
+
+```Python
+    # Time periods variations
+    TIME_PERIODS = (
+        (0, '9:00-9:45'),
+        (1, '10:00-10:45'),
+        (2, '11:00-11:45'),
+        (3, '14:00-14:45'),
+        (4, '15:00-15:45'),
+        (5, '16:00-16:45'),
+        (6, '17:00-17:45'),
+        (7, '18:00-18:45'),
+    )
+
+    # Subject variations
+    SUBJECTS = (
+        (1, 'art'),
+        (2, 'math'),
+        (3, 'casa'),
+        (4, 'chinese'),
+        (5, 'toddlers'),
+        (6, 'music'),
+        (7, 'english'),
+        (8, 'sport'),
+        (9, 'cooking'),
+        (10, 'infants'),
+    )
+```
 
 ---
 ## Testing
