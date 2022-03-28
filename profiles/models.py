@@ -20,10 +20,10 @@ class CustomUser(AbstractUser):
         null=True,
         unique=True
     )
-    email = models.EmailField(max_length=50, unique=True)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    phone = models.CharField(max_length=30)
+    email = models.EmailField(max_length=50, unique=True, blank=False, null=False)
+    first_name = models.CharField(max_length=30, blank=False, null=False)
+    last_name = models.CharField(max_length=30, blank=False, null=False)
+    phone = models.CharField(max_length=30, blank=False, null=False)
     role = models.IntegerField(choices=ROLES, default=5)
 
     def get_role_choices(self):

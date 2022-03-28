@@ -344,10 +344,10 @@ Extends Allauth's User model.
 | Name          | Database Key  | Field Type    | Validation |
 | ------------- | ------------- | ------------- | ---------- |
 | UserName      | username      | CharField     |  max_length=50, blank=False, null=True, unique=True    |
-| Email         | email         | EmailField    | max_length=50    |
-| First Name    | first_name    | CharField     | max_length=30    |
-| Last Name     | last_name     | CharField     | max_length=30    |
-| Phone Number  | email         | CharField     | max_length=30    |
+| Email         | email         | EmailField    | max_length=50, unique=True, blank=False, null=False    |
+| First Name    | first_name    | CharField     | max_length=30, blank=False, null=False    |
+| Last Name     | last_name     | CharField     | max_length=30, blank=False, null=False    |
+| Phone Number  | email         | CharField     | max_length=30, blank=False, null=False    |
 | Role          | phone         | IntegerField  | choices=ROLES, default=5    |
 
 
@@ -407,7 +407,21 @@ Was created in order to provide more room for manipulation of the database and p
         (5, 'other'),
     )
 ```
+6. **Student**
 
+This table does not inherit from the CustomUser model. This is because the students are not users. Instead, they are the main table of the application.
+
+| Name          | Database Key  | Field Type    | Validation |
+| ------------- | ------------- | ------------- | ---------- |
+| First Name         | first_name    | CharField       | max_length=50, blank=False, null=False    |
+| Last Name          | last_name     | CharField       | max_length=50, blank=False, null=False    |
+| Parents            | parent        | ManyToManyField | Parent, related_name='child'  |
+| Birthday           | birthday      | DateField       |          |
+| Address            | address       | CharField       | max_length=100, blank=True, null=True |
+| Date of enrollment | enrolled      | DateTimeField   | auto_now_add=True    |
+| Classes left       | classes_left  | IntegerField    | default=0, blank=True, null=True    |
+| Sales Manager      | sales_manager | ManyToManyField | SalesManager, related_name='student'    |
+| Notes              | notes         | TextField       | blank=True    |
 
 
 

@@ -3,7 +3,6 @@ from django.db import models
 from profiles.models import Parent
 from sales.models import SalesManager
 
-# Create your models here.
 
 class Student(models.Model):
     """Student model"""
@@ -13,7 +12,7 @@ class Student(models.Model):
     birthday = models.DateField()
     address = models.CharField(max_length=100, blank=True, null=True)
     enrolled = models.DateTimeField(auto_now_add=True)
-    classes_left = models.IntegerField()
+    classes_left = models.IntegerField(default=0, blank=True, null=True)
     sales_manager = models.ManyToManyField(
         SalesManager,
         related_name='student'
@@ -37,8 +36,10 @@ class Student(models.Model):
         return [parent.user.username for parent in self.get_parents()]
 
     def __str__(self):
+        """Return string representation of student."""
         return self.first_name + ' ' + self.last_name
 
     class Meta:
+        """Meta class"""
         db_table = 'students'
         ordering = ['-enrolled']
