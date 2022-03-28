@@ -26,7 +26,7 @@
 
 {% block content %}
   {% comment %} Application detail page with access only for bosses and managers {% endcomment %}
-  {% if request.user.role == 0 or request.user.role == 1 %}
+  {% if request.user.role == 0 or request.user.role == 2 %}
     <div class="applications">
       <h2 class="applications__title">Application's Details</h2>
       {% comment %} Applicant's data {% endcomment %}
