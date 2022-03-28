@@ -20,6 +20,7 @@ class Sales(models.Model):
     student_id = models.IntegerField(default=0)
 
     def __str__(self):
+        """Return string representation of sales."""
         return (
           str(self.sold_by) +
           ' sold ' +

@@ -423,11 +423,17 @@ This table does not inherit from the CustomUser model. This is because the stude
 | Sales Manager      | sales_manager | ManyToManyField | SalesManager, related_name='student'    |
 | Notes              | notes         | TextField       | blank=True    |
 
+7. **Sales**
 
+This table is needed to conduct sales operations. It controls the sales of the products. It is also adds classes to a particular student and adds total classes sold to a sales manager. Separate field "student_id" was added in order to prevent a circular import but allow sales to be in control of classes added to a particular student or reduced (For example, when parents asks for a refund).
 
-
-
-
+| Name          | Database Key  | Field Type    | Validation |
+| ------------- | ------------- | ------------- | ---------- |
+| Sales Manager | sold_by       | ForeignKey    | SalesManager, on_delete=models.CASCADE, related_name='sold'   |
+| Client(Parent)| sold_to       | ForeignKey    | Parent, on_delete=models.CASCADE, related_name='bought'   |
+| Classes Number| amount        | IntegerField  |            |
+| Date of Sale  | date          | DateTimeField | auto_now_add=True    |
+| Student       | amount        | IntegerField  |  default=0          |
 
 
 ---
