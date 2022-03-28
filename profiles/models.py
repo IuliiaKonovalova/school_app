@@ -54,7 +54,7 @@ class SalesManager(models.Model):
     """Sales model"""
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    total_sold = models.IntegerField(default=0)
+    total_sold = models.IntegerField(default=0, blank=True, null=True)
 
     def __str__(self):
         return self.user.first_name + ' ' + self.user.last_name
@@ -62,7 +62,7 @@ class SalesManager(models.Model):
 
 class Parent(models.Model):
     """Parent model"""
-    # Gaurdian's relation to the student
+    # Guardian's relation to the student
     GUARDIAN_RELATION = (
         (1, 'father'),
         (2, 'mother'),

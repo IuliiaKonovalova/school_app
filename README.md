@@ -363,6 +363,57 @@ Extends Allauth's User model.
     )
 ```
 
+2. **Teacher**
+
+Was created in order to provide more room for manipulation of the database and provide opportunities for the future developments. Users with the role of teacher will be automatically assigned to this table.
+
+| Name          | Database Key  | Field Type    | Validation |
+| ------------- | ------------- | ------------- | ---------- |
+| Teacher       | user          | ForeignKey    |  CustomUser, on_delete=models.CASCADE  |
+
+3. **Receptionist**
+
+Was created in order to provide more room for manipulation of the database and provide opportunities for the future developments.
+
+| Name          | Database Key  | Field Type    | Validation |
+| ------------- | ------------- | ------------- | ---------- |
+| Receptionist  | user          | ForeignKey    |  CustomUser, on_delete=models.CASCADE  |
+
+4. **SalesManager**
+
+Was created in order to provide more room for manipulation of the database and provide opportunities for the future developments. Users with the role of sales manager will be automatically assigned to this table.
+
+| Name          | Database Key  | Field Type    | Validation |
+| ------------- | ------------- | ------------- | ---------- |
+| Sales Manager | user          | ForeignKey    |  CustomUser, on_delete=models.CASCADE  |
+| Sales Total   | total_sold    | IntegerField  |  default=0, blank=True, null=True  |
+
+5. **Parent**
+
+Was created in order to provide more room for manipulation of the database and provide opportunities for the future developments. Users with the role of parent will be automatically assigned to this table.
+
+| Name          | Database Key  | Field Type    | Validation |
+| ------------- | ------------- | ------------- | ---------- |
+| Sales Manager | user          | ForeignKey    |  CustomUser, on_delete=models.CASCADE  |
+| Relation to a student  | relation      | IntegerField  |  choices=GUARDIAN_RELATION, default=5  |
+
+```Python
+    # Guardian's relation to the student
+    GUARDIAN_RELATION = (
+        (1, 'father'),
+        (2, 'mother'),
+        (3, 'grandfather'),
+        (4, 'grandmother'),
+        (5, 'other'),
+    )
+```
+
+
+
+
+
+
+
 
 
 ---
