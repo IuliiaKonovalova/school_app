@@ -10,7 +10,7 @@
     <div class="applications">
       <h2 class="applications__title">New application</h2>
       {% comment %} Amount of new applications {% endcomment %}
-      <div class="applications__number">{{ applications|length }} new applications found</div>
+      <div class="applications__number">{{ new_applications|length }} new applications found</div>
       {% comment %} All applications {% endcomment %}
         <div class="applications__results">
           {% for application in new_applications %}
