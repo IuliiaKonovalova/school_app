@@ -317,8 +317,23 @@ The flowcharts were created using [Draw.io](https://www.lucidchart.com/).
 - [Flowchart for Bosses](documentation/flowcharts/flowchart_boss.pdf)
 - [Flowchart for Sales Managers](documentation/flowcharts/flowchart_sales.pdf)
 - [Flowchart for Parents](documentation/flowcharts/flowchart_parent.pdf)
-- [Flowchart for Teachers](documentation/flowcharts/flowchart_teacher.pdf)
+- [Flowchart for Teachers](documentation/flowcharts/flowchart_teachers.pdf)
 - [Flowchart for Receptionist](documentation/flowcharts/flowchart_receptionist.pdf)
+
+---
+
+## Information Architecture
+
+### Database
+
+* During the earliest stages of the project, the database was created using SQLite.
+* The database was then migrated to PostgreSQL.
+
+### Entity-Relationship Diagram
+
+* The ERD was created using [Draw.io](https://www.lucidchart.com/).
+
+- [Database Scheme](documentation/diagrams/db_final.pdf)
 
 ---
 ## Testing
