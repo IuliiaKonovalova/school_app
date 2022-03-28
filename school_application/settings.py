@@ -31,7 +31,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_summernote',
     'crispy_forms',
-    'django_filters',
     'home',
     'profiles',
     'students',
