@@ -4,12 +4,13 @@
 {% block extra_title %}Lessons{% endblock %}
 
 {% block content %}
+{% comment %} Warning messages about classes left {% endcomment %}
   {% if messages1 %}
-    <div class="message-container">
+    <div class="messages__container--warning">
       {% for message in messages1 %}
-      <div class="message-container__message">
-        <p class="message-container__message--text">{{ message }}</p>
-      </div>
+        <div class="message__container">
+          <p class="message__container--message">{{ message }}</p>
+        </div>
       {% endfor %}
     </div>
   {% endif %}

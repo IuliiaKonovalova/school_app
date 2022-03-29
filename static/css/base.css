@@ -1871,3 +1871,20 @@ input[type=date]:focus {
   color: var(--clr-primary--900);
   font-style: italic;
 }
+
+/* Messages */
+
+.messages__container--warning {
+  width: 100%;
+  max-width: 120rem;
+  margin-bottom: 1em;
+  text-align: center;
+  padding: 0.5em;
+  background-color: rgba(221, 96, 96, 0.322);
+  color: red;
+  font-weight: 900;
+}
+
+.message__container {
+  padding: 0.2em;
+}
