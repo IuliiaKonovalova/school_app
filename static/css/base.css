@@ -259,7 +259,8 @@ body {
 }
 
 .home__hero--subtitle {
-  font-size: 2.1rem;
+  font-size: 1.8rem;
+  margin-top: 1vh;
 }
 
 .home__hero--button {
@@ -273,7 +274,7 @@ body {
 }
 
 .benefits {
-  background-color: var(--clr-primary--300);
+  /* background-color: var(--clr-primary--300); */
   max-width: 120rem;
   margin: 0 auto;
   padding: 3em 2em;
