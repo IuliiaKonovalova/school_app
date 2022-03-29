@@ -88,78 +88,27 @@ The app was developed for all members of the early childhood school.
 
 | Issue ID    | User Story |
 |-------------|-------------|
+|[#36](https://github.com/IuliiaKonovalova/school_app/issues/36)|As a Sales Manager, I want to be able to search for a particular student, so that I can easily access information on this student.|
+|[#37](https://github.com/IuliiaKonovalova/school_app/issues/37)|As a Sales Manager, I want to be able to see personal information on a kid, so that I can know student’s personal data.|
+|[#38](https://github.com/IuliiaKonovalova/school_app/issues/38)|As a Sales Manager, I want to be able to sort students by the urgent sale, so that I can control the sales in the company and preserve clients.|
+|[#40](https://github.com/IuliiaKonovalova/school_app/issues/40)|As a Sales Manager, I want to be able to view new applications, so that I can contact a potential client and make profits for a company.|
+|[#42](https://github.com/IuliiaKonovalova/school_app/issues/42)|As a Sales Manager, I want to be able to add personal notes on each student that I’m in charge of, so that I can increase the company’s sales.|
+|[#43](https://github.com/IuliiaKonovalova/school_app/issues/43)|As a Sales Manager, I want to be able to add or edit information on students, so that I can keep up to date students’ profiles.|
+|[#44](https://github.com/IuliiaKonovalova/school_app/issues/44)|As a Sales Manager, I want to be able to review my sales, so that I can control my performance.|
+|[#45](https://github.com/IuliiaKonovalova/school_app/issues/45)|As a Sales Manager, I want to be able to add new classes to a child when parents buy classes, so that I can maintain relationships with clients.|
+|[#52](https://github.com/IuliiaKonovalova/school_app/issues/52)|As a Sales Manager, I want to be able to delete students from the application, so that I can control the flow of the present students.|
+|[#53](https://github.com/IuliiaKonovalova/school_app/issues/53)|As a Sales Manager I can edit information on about a sale so that change the data on a sale if a mistake was made or a parent changed his or her mind.|
+|[#54](https://github.com/IuliiaKonovalova/school_app/issues/54)|As a Sales Manager I can delete information on about a sale so that render sales data if a mistake was made or a parent changed his or her mind.|
 
-- [#36](https://github.com/IuliiaKonovalova/school_app/issues/36):
+**Parents' Goals:**
 
-As a Sales Manager, I want to be able to search for a particular student, so that I can easily access information on this student.
-
-- [#37](https://github.com/IuliiaKonovalova/school_app/issues/37):
-
-As a Sales Manager, I want to be able to see personal information on a kid, so that I can know student’s personal data.
-
-- [#38](https://github.com/IuliiaKonovalova/school_app/issues/38):
-
-As a Sales Manager, I want to be able to sort students by the urgent sale, so that I can control the sales in the company and preserve clients.
-
-- [#40](https://github.com/IuliiaKonovalova/school_app/issues/40):
-
-As a Sales Manager, I want to be able to view new applications, so that I can contact a potential client and make profits for a company.
-
-- [#42](https://github.com/IuliiaKonovalova/school_app/issues/42):
-
-As a Sales Manager, I want to be able to add personal notes on each student that I’m in charge of, so that I can increase the company’s sales.
-
-- [#43](https://github.com/IuliiaKonovalova/school_app/issues/43):
-
-As a Sales Manager, I want to be able to add or edit information on students, so that I can keep up to date students’ profiles.
-
-- [#44](https://github.com/IuliiaKonovalova/school_app/issues/44):
-
-As a Sales Manager, I want to be able to review my sales, so that I can control my performance.
-
-- [#45](https://github.com/IuliiaKonovalova/school_app/issues/45):
-
-As a Sales Manager, I want to be able to add new classes to a child when parents buy classes, so that I can maintain relationships with clients.
-
-- [#52](https://github.com/IuliiaKonovalova/school_app/issues/52):
-
-As a Sales Manager, I want to be able to delete students from the application, so that I can control the flow of the present students.
-
-- [#53](https://github.com/IuliiaKonovalova/school_app/issues/53):
-
-As a Sales Manager I can edit information on about a sale so that change the data on a sale if a mistake was made or a parent changed his or her mind
-
-- [#54](https://github.com/IuliiaKonovalova/school_app/issues/54):
-
-As a Sales Manager I can delete information on about a sale so that render sales data if a mistake was made or a parent changed his or her mind
-
-</details>
-
-
-<details open>
-<summary>Parents' Goals:</summary>
-
-- [#46](https://github.com/IuliiaKonovalova/school_app/issues/46):
-
-As a Parent, I want to be able to see personal information on my child/children, so that I can check the personal data.
-
-- [#47](https://github.com/IuliiaKonovalova/school_app/issues/47):
-
-As a Parent, I want to be able to see my child’s attendance (subject, teacher, date), so that I can control my child’s education and my spending.
-
-- [#48](https://github.com/IuliiaKonovalova/school_app/issues/48):
-
-As a Parent, I want to be able to see lessons schedule, so that I can manage my time and control child’s attendance.
-
-- [#49](https://github.com/IuliiaKonovalova/school_app/issues/49):
-
-As a Parent, I want to be able to see information on students for each lesson, so that I can prepare my child for a lesson.
-
-- [#50](https://github.com/IuliiaKonovalova/school_app/issues/50):
-
-As a Parent, I want to be able to see names of teachers for each lesson, so that I can know who is/are teaching a lesson.
-
-</details>
+| Issue ID    | User Story |
+|-------------|-------------|
+|[#46](https://github.com/IuliiaKonovalova/school_app/issues/46)|As a Parent, I want to be able to see personal information on my child/children, so that I can check the personal data.|
+|[#47](https://github.com/IuliiaKonovalova/school_app/issues/47)|As a Parent, I want to be able to see my child’s attendance (subject, teacher, date), so that I can control my child’s education and my spending.|
+|[#48](https://github.com/IuliiaKonovalova/school_app/issues/48)|As a Parent, I want to be able to see lessons schedule, so that I can manage my time and control child’s attendance.|
+|[#49](https://github.com/IuliiaKonovalova/school_app/issues/49)|As a Parent, I want to be able to see information on students for each lesson, so that I can prepare my child for a lesson.|
+|[#50](https://github.com/IuliiaKonovalova/school_app/issues/50)|As a Parent, I want to be able to see names of teachers for each lesson, so that I can know who is/are teaching a lesson.|
 
 ---
 
