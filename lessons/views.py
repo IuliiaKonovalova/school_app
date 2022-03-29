@@ -22,6 +22,10 @@ class LessonsView(View):
             lessons_time_5 = lessons.filter(time=5)
             lessons_time_6 = lessons.filter(time=6)
             lessons_time_7 = lessons.filter(time=7)
+            messages1 = []
+            if request.session.has_key('messages1'):
+                messages1 = request.session['messages1']
+                del request.session['messages1']
             context = {
                 'lessons_time_0': lessons_time_0,
                 'lessons_time_1': lessons_time_1,
@@ -31,6 +35,7 @@ class LessonsView(View):
                 'lessons_time_5': lessons_time_5,
                 'lessons_time_6': lessons_time_6,
                 'lessons_time_7': lessons_time_7,
+                'messages1': messages1,
             }
             return render(
                 request,
@@ -57,18 +62,29 @@ class LessonAddView(View):
         if request.user.is_authenticated and request.user.role == 3:
             form = LessonForm(request.POST)
             if form.is_valid():
-                print(form.cleaned_data)
                 lesson = form.save(commit=False)
                 students = form.cleaned_data['students']
+                messages1 = []
                 for student in students:
                     student.classes_left -= 1
+                    if student.classes_left < 0:
+                        messages1.append(
+                            'Unfortunately, ' +
+                            student.first_name +
+                            ' ' +
+                            student.last_name +
+                            ' Does not have enough classes left. ' +
+                            'However, proceed with caution and notify ' +
+                            'Sales Department.'
+                        )
                     student.save()
                 lesson.save()
                 form.save_m2m()
                 lesson.save()
+                request.session['messages1'] = messages1
                 return HttpResponseRedirect(
-                    reverse('lessons_list')
-                    )
+                    reverse('lessons_list'),
+                )
             return render(
                 request,
                 'lessons/lesson_add.html',
@@ -99,15 +115,26 @@ class LessonEditView(View):
                 student.save()
             form = LessonForm(request.POST, instance=lesson)
             if form.is_valid():
-                print(form.cleaned_data)
                 lesson = form.save(commit=False)
                 students = form.cleaned_data['students']
+                messages1 = []
                 for student in students:
                     student.classes_left -= 1
+                    if student.classes_left < 0:
+                        messages1.append(
+                            'Unfortunately, ' +
+                            student.first_name +
+                            ' ' +
+                            student.last_name +
+                            ' Does not have enough classes left. ' +
+                            'However, proceed with caution and notify ' +
+                            'Sales Department.'
+                        )
                     student.save()
                 lesson.save()
                 form.save_m2m()
                 lesson.save()
+                request.session['messages1'] = messages1
                 return HttpResponseRedirect(
                     reverse('lessons_list')
                     )

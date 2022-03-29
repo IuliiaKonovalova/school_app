@@ -4,6 +4,15 @@
 {% block extra_title %}Lessons{% endblock %}
 
 {% block content %}
+  {% if messages1 %}
+    <div class="message-container">
+      {% for message in messages1 %}
+      <div class="message-container__message">
+        <p class="message-container__message--text">{{ message }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  {% endif %}
   {% comment %} All lessons displayed in a schedule for each day{% endcomment %}
   <div class="lessons">
     {% comment %} Heading for the schedule page {% endcomment %}

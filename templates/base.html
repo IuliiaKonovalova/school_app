@@ -98,7 +98,13 @@
     <main class="main">
       <div class="content__container">
         {% if messages %}
-        <div class="message-container"></div>
+          <div class="message-container">
+            {% for message in messages %}
+            <div class="message-container__message">
+              <p class="message-container__message--text">{{ message }}</p>
+            </div>
+            {% endfor %}
+          </div>
         {% endif %}
 
         {% block page_header %}
