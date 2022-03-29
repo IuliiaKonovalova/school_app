@@ -22,168 +22,72 @@ The app was developed for all members of the early childhood school.
 
 ## User Stories
 
-<details open>
-<summary>First Time Visitor Goals:</summary>
-
-- [#1](https://github.com/IuliiaKonovalova/school_app/issues/1):
-
-As a First Time Visitor, I want to be able to easily understand the main purpose of the app, so that I can learn more about this app.
-- [#2](https://github.com/IuliiaKonovalova/school_app/issues/2):
-
-As a First Time Visitor, I want to be able to easily navigate through the app, so that I can find the content.
-- [#3](https://github.com/IuliiaKonovalova/school_app/issues/3):
-
-As a First Time Visitor, I want to be able to register my account, so that I can learn the benefits of the app as a user.
-
-- [#4](https://github.com/IuliiaKonovalova/school_app/issues/4):
-
-As a First Time Visitor, I want to be able to find the app useful, so that I can use it according to my needs.
-</details>
-
-
-<details open>
-<summary>Frequent Visitor Goals:</summary>
-
-- [#5](https://github.com/IuliiaKonovalova/school_app/issues/5):
-
-As a Frequent User, I want to be able to log in to my account, so that I can have a personal account.
-
-- [#6](https://github.com/IuliiaKonovalova/school_app/issues/6):
-
-As a Frequent User, I want to be able to easily log in and log out, so that I can access my personal account information.
-
-- [#7](https://github.com/IuliiaKonovalova/school_app/issues/7):
-
-As a Frequent User, I want to be able to easily recover my password in case I forget it, so that I can recover access to my account.
-
-- [#8](https://github.com/IuliiaKonovalova/school_app/issues/8):
-
-As a Frequent User, I can be able to change my password, so that I can be sure that nobody else can access my account.
-</details>
-
-<details open>
-<summary>Potential Client Goals:</summary>
-
-
-- [#9](https://github.com/IuliiaKonovalova/school_app/issues/9):
-
-As a Potential client, I want to be contacted by sales managers, so that I can make a prudent decision about being a member.
-
-</details>
-
-<details open>
-<summary>Boss Goals:</summary>
-
-
-- [#11](https://github.com/IuliiaKonovalova/school_app/issues/11):
-
-As a Boss, I want to be able to view new applications, so that I can control the flow of potential clients.
-
-- [#13](https://github.com/IuliiaKonovalova/school_app/issues/13):
-
-As a Boss, I want to be able to delete or approve membership, assign a role to a new member, so that I can keep data up to date.
-
-- [#14](https://github.com/IuliiaKonovalova/school_app/issues/14):
-
-As a Boss, I want to be able to add, edit data on a kid, so that I can have a profile for each student.
-
-- [#15](https://github.com/IuliiaKonovalova/school_app/issues/15):
-
-As a Boss, I want to be able to delete a member, so that I can control the access to the application.
-
-- [#16](https://github.com/IuliiaKonovalova/school_app/issues/16):
-
-As a Boss I can see the info about kids provided by the company: name, contact info, classes visited, how many classes left, so that refresh the information about a client.
-
-- [#17](https://github.com/IuliiaKonovalova/school_app/issues/17):
-
-As a Boss, I want to be able to search for a particular member, so that I can easily access information on this member.
-
-- [#18](https://github.com/IuliiaKonovalova/school_app/issues/18):
-
-As a Boss, I want to be able to sort members according to a role, so that I can easily access particular group of members.
-
-- [#19](https://github.com/IuliiaKonovalova/school_app/issues/19):
-
-As a Boss, I want to be able to search for a particular student, so that I can easily access information on this student.
-
-- [#21](https://github.com/IuliiaKonovalova/school_app/issues/21):
-
-As a Boss, I want to be able to sort students by the urgent sale, so that I can control the sales in the company and preserve clients.
-
-- [#22](https://github.com/IuliiaKonovalova/school_app/issues/22):
-
-As a Boss, I want to be able to see lessons schedule, so that I can schedule time to talk to a teacher or a parent.
-
-- [#23](https://github.com/IuliiaKonovalova/school_app/issues/23):
-
-As a Boss, I want to see see information on students for each lesson, so that I can control students’ attendance, learn clients preferences.
-
-- [#24](https://github.com/IuliiaKonovalova/school_app/issues/24):
-
-As a Boss, I want to be able to see sales' details, so that I can check which sales manager and which parent was involved in a deal.
-
-- [#51](https://github.com/IuliiaKonovalova/school_app/issues/51):
-
-As a Boss, I want to be able to delete students from the application, so that I can control the flow of the present students.
-
-</details>
-
-
-<details open>
-<summary>Teachers' Goals:</summary>
-
-- [#25](https://github.com/IuliiaKonovalova/school_app/issues/25):
-
-As a Teacher, I want to be able to search for a particular student, so that I can easily access information on this student.
-
-- [#26](https://github.com/IuliiaKonovalova/school_app/issues/26):
-
-As a Teacher, I want to be able to see personal information on a kid, so that I can know student’s personal data.
-
-- [#28](https://github.com/IuliiaKonovalova/school_app/issues/28):
-
-As a Teacher, I want to be able to see lessons schedule, so that I can manage my time.
-
-- [#29](https://github.com/IuliiaKonovalova/school_app/issues/29):
-
-As a Teacher, I want to be able to see information on students for each lesson, so that I can be prepared for each student.
-</details>
-
-
-<details open>
-<summary>Receptionists' Goals:</summary>
-
-- [#30](https://github.com/IuliiaKonovalova/school_app/issues/30):
-
-As a Receptionist, I want to be able to search for a particular student, so that I can easily access information on this student.
-
-- [#31](https://github.com/IuliiaKonovalova/school_app/issues/31):
-
-As a Receptionist, I want to be able to see personal information on a kid, so that I can know student’s personal data.
-
-- [#33](https://github.com/IuliiaKonovalova/school_app/issues/33):
-
-As a Receptionist, I want to be able to see lessons schedule and student attending lessons, so that I can arrange the flow of the students.
-
-- [#34](https://github.com/IuliiaKonovalova/school_app/issues/34):
-
-As a Receptionist, I want to be able to create lessons for a day (day, time, subject, teachers, students), so that I can provide a precise schedule for school members.
-
-- [#35](https://github.com/IuliiaKonovalova/school_app/issues/35):
-
-As a Receptionist, I want to be able to render lessons for a day (day, time, subject, teachers, students), so that I can provide up to date schedule.
-
-- [#61](https://github.com/IuliiaKonovalova/school_app/issues/61):
-
-As a Sales Manager I want to control my own sales so that nobody else can edit or delete my sales.
-
-</details>
-
-
-<details open>
-<summary>Sales Managers' Goals:</summary>
-
+**First Time Visitor Goals:**
+
+| Issue ID    | User Story |
+|-------------|-------------|
+|[#1](https://github.com/IuliiaKonovalova/school_app/issues/1)| As a First Time Visitor, I want to be able to easily understand the main purpose of the app, so that I can learn more about this app. |
+|[#2](https://github.com/IuliiaKonovalova/school_app/issues/2)|As a First Time Visitor, I want to be able to easily navigate through the app, so that I can find the content.|
+|[#3](https://github.com/IuliiaKonovalova/school_app/issues/3)|As a First Time Visitor, I want to be able to register my account, so that I can learn the benefits of the app as a user.|
+|[#4](https://github.com/IuliiaKonovalova/school_app/issues/4)|As a First Time Visitor, I want to be able to find the app useful, so that I can use it according to my needs.|
+
+**Frequent Visitor Goals:**
+
+| Issue ID    | User Story |
+|-------------|-------------|
+|[#5](https://github.com/IuliiaKonovalova/school_app/issues/5)|As a Frequent User, I want to be able to log in to my account, so that I can have a personal account.|
+|[#6](https://github.com/IuliiaKonovalova/school_app/issues/6)|As a Frequent User, I want to be able to easily log in and log out, so that I can access my personal account information.|
+|[#7](https://github.com/IuliiaKonovalova/school_app/issues/7)|As a Frequent User, I want to be able to easily recover my password in case I forget it, so that I can recover access to my account.|
+|[#8](https://github.com/IuliiaKonovalova/school_app/issues/8)|As a Frequent User, I can be able to change my password, so that I can be sure that nobody else can access my account.|
+
+**Potential Client Goals:**
+
+| Issue ID    | User Story |
+|-------------|-------------|
+|[#9](https://github.com/IuliiaKonovalova/school_app/issues/9)|As a Potential client, I want to be contacted by sales managers, so that I can make a prudent decision about being a member.|
+
+**Boss Goals:**
+
+| Issue ID    | User Story |
+|-------------|-------------|
+|[#11](https://github.com/IuliiaKonovalova/school_app/issues/11)|As a Boss, I want to be able to view new applications, so that I can control the flow of potential clients.|
+|[#13](https://github.com/IuliiaKonovalova/school_app/issues/13)|As a Boss, I want to be able to delete or approve membership, assign a role to a new member, so that I can keep data up to date.|
+|[#14](https://github.com/IuliiaKonovalova/school_app/issues/14)|As a Boss, I want to be able to add, edit data on a kid, so that I can have a profile for each student.|
+|[#15](https://github.com/IuliiaKonovalova/school_app/issues/15)|As a Boss, I want to be able to delete a member, so that I can control the access to the application.|
+|[#16](https://github.com/IuliiaKonovalova/school_app/issues/16)|As a Boss I can see the info about kids provided by the company: name, contact info, classes visited, how many classes left, so that refresh the information about a client.|
+|[#17](https://github.com/IuliiaKonovalova/school_app/issues/17)|As a Boss, I want to be able to search for a particular member, so that I can easily access information on this member.|
+|[#18](https://github.com/IuliiaKonovalova/school_app/issues/18)|As a Boss, I want to be able to sort members according to a role, so that I can easily access particular group of members.|
+|[#19](https://github.com/IuliiaKonovalova/school_app/issues/19)|As a Boss, I want to be able to search for a particular student, so that I can easily access information on this student.|
+|[#21](https://github.com/IuliiaKonovalova/school_app/issues/21)|As a Boss, I want to be able to sort students by the urgent sale, so that I can control the sales in the company and preserve clients.|
+|[#22](https://github.com/IuliiaKonovalova/school_app/issues/22)|As a Boss, I want to be able to see lessons schedule, so that I can schedule time to talk to a teacher or a parent.|
+|[#23](https://github.com/IuliiaKonovalova/school_app/issues/23)|As a Boss, I want to see see information on students for each lesson, so that I can control students’ attendance, learn clients preferences.|
+|[#24](https://github.com/IuliiaKonovalova/school_app/issues/24)|As a Boss, I want to be able to see sales' details, so that I can check which sales manager and which parent was involved in a deal.|
+|[#51](https://github.com/IuliiaKonovalova/school_app/issues/51)|As a Boss, I want to be able to delete students from the application, so that I can control the flow of the present students.|
+
+**Teachers' Goals:**
+
+| Issue ID    | User Story |
+|-------------|-------------|
+|[#25](https://github.com/IuliiaKonovalova/school_app/issues/25)|As a Teacher, I want to be able to search for a particular student, so that I can easily access information on this student.|
+|[#26](https://github.com/IuliiaKonovalova/school_app/issues/26)|As a Teacher, I want to be able to see personal information on a kid, so that I can know student’s personal data.|
+|[#28](https://github.com/IuliiaKonovalova/school_app/issues/28)|As a Teacher, I want to be able to see lessons schedule, so that I can manage my time.|
+|[#29](https://github.com/IuliiaKonovalova/school_app/issues/29)|As a Teacher, I want to be able to see information on students for each lesson, so that I can be prepared for each student.|
+
+**Receptionists' Goals:**
+
+| Issue ID    | User Story |
+|-------------|-------------|
+|[#30](https://github.com/IuliiaKonovalova/school_app/issues/30)|As a Receptionist, I want to be able to search for a particular student, so that I can easily access information on this student.|
+|[#31](https://github.com/IuliiaKonovalova/school_app/issues/31)|As a Receptionist, I want to be able to see personal information on a kid, so that I can know student’s personal data.|
+|[#33](https://github.com/IuliiaKonovalova/school_app/issues/33)|As a Receptionist, I want to be able to see lessons schedule and student attending lessons, so that I can arrange the flow of the students.|
+|[#34](https://github.com/IuliiaKonovalova/school_app/issues/34)|As a Receptionist, I want to be able to create lessons for a day (day, time, subject, teachers, students), so that I can provide a precise schedule for school members.|
+|[#35](https://github.com/IuliiaKonovalova/school_app/issues/35)|As a Receptionist, I want to be able to render lessons for a day (day, time, subject, teachers, students), so that I can provide up to date schedule.|
+|[#61](https://github.com/IuliiaKonovalova/school_app/issues/61)|As a Sales Manager I want to control my own sales so that nobody else can edit or delete my sales.|
+
+**Sales Managers' Goals:**
+
+| Issue ID    | User Story |
+|-------------|-------------|
 
 - [#36](https://github.com/IuliiaKonovalova/school_app/issues/36):
 

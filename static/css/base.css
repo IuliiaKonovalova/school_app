@@ -1873,7 +1873,6 @@ input[type=date]:focus {
 }
 
 /* Messages */
-
 .messages__container--warning {
   width: 100%;
   max-width: 120rem;
