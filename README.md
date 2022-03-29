@@ -1,17 +1,56 @@
 # Cool School
 
+## **Contents**
+
+* [About](#About)
+* [User Experience Design](#User-Experience-Design)
+  * [Strategy](#Strategy)
+  * [Target Audience](#Target-Audience)
+  * [User Stories](#User-Stories)
+    * [First Time Visitor Goals](#First-Time-Visitor-Goals)
+    * [Frequent Visitor Goals](#Frequent-Visitor-Goals)
+    * [Potential Client Goals](#Potential-Client-Goals)
+    * [Boss Goals](#Boss-Goals)
+    * [Teachers' Goals](#Teachers-Goals)
+    * [Receptionists' Goals](#Receptionists-Goals)
+    * [Sales Managers' Goals](#Sales-Managers-Goals)
+    * [Parents' Goals](#Parents-Goals)
+* [Technologies used](#Technologies-used)
+* [Features](#Features)
+* [Design](#Design)
+  * [Colour Scheme](#Colour-Scheme)
+  * [Typography](#Typography)
+  * [Imagery](#Imagery)
+  * [Wireframes](#Wireframes)
+* [Flowcharts](#Flowcharts)
+* [Information Architecture](#Information-Architecture)
+  * [Database](#Database)
+  * [Entity-Relationship Diagram](#Entity-Relationship-Diagram)
+  * [Data Modeling](#Data-Modeling)
+* [Testing](#Testing)
+
+* [Deployment](#Deployment)
+  * [Local deployment](#Local-deployment)
+  * [Heroku Deployment](#Heroku-Deployment)
+
+* [Credits](#Credits)
+
+* [Acknowledgments](#Acknowledgments)
+
 ## About
 
 This is [Cool School app](https://school-application-konovalova.herokuapp.com/), which is a school management application. The main goal Ff this app is to help the school to manage the students, teachers, classes, subjects, etc. Moreover, the app is aimed at increasing the efficiency of the school management. The app is developed by [Iuliia Konovalova](https://github.com/IuliiaKonovalova).
 Repository: [GitHub Repo](https://github.com/IuliiaKonovalova/school_app)
 
-# User Experience Design
+[Back to contents](#contents)
 
-## Strategy
+## User Experience Design
+
+### Strategy
 
 Developed for a real early childhood school, the app is designed to be easy to use and intuitive. The main goal of the app is to help the school to manage the students, teachers, classes, subjects, etc. This is achieved by the use of a simple and intuitive interface. As a final goal, the app is aimed at increasing the efficiency of the school management.
 
-## Target Audience
+### Target Audience
 
 The app was developed for all members of the early childhood school. 
   * Bosses: to control the flow of the school, to manage the students, teachers, classes, subjects, sales, etc.;
@@ -20,9 +59,9 @@ The app was developed for all members of the early childhood school.
   * Sales Managers: to control sales, to manage the sales, to manage the payments, to manage the schedules, to access students' personal information on time, to manage the attendance, etc.;
   * Receptionists: to control the schedule of the school, to manage the schedule, to access students' personal information on time, to manage the attendance, etc.;
 
-## User Stories
+### User Stories
 
-**First Time Visitor Goals:**
+#### **First Time Visitor Goals**
 
 | Issue ID    | User Story |
 |-------------|-------------|
@@ -31,7 +70,7 @@ The app was developed for all members of the early childhood school.
 |[#3](https://github.com/IuliiaKonovalova/school_app/issues/3)|As a First Time Visitor, I want to be able to register my account, so that I can learn the benefits of the app as a user.|
 |[#4](https://github.com/IuliiaKonovalova/school_app/issues/4)|As a First Time Visitor, I want to be able to find the app useful, so that I can use it according to my needs.|
 
-**Frequent Visitor Goals:**
+#### **Frequent Visitor Goals**
 
 | Issue ID    | User Story |
 |-------------|-------------|
@@ -40,13 +79,13 @@ The app was developed for all members of the early childhood school.
 |[#7](https://github.com/IuliiaKonovalova/school_app/issues/7)|As a Frequent User, I want to be able to easily recover my password in case I forget it, so that I can recover access to my account.|
 |[#8](https://github.com/IuliiaKonovalova/school_app/issues/8)|As a Frequent User, I can be able to change my password, so that I can be sure that nobody else can access my account.|
 
-**Potential Client Goals:**
+#### **Potential Client Goals**
 
 | Issue ID    | User Story |
 |-------------|-------------|
 |[#9](https://github.com/IuliiaKonovalova/school_app/issues/9)|As a Potential client, I want to be contacted by sales managers, so that I can make a prudent decision about being a member.|
 
-**Boss Goals:**
+#### **Boss Goals**
 
 | Issue ID    | User Story |
 |-------------|-------------|
@@ -64,7 +103,7 @@ The app was developed for all members of the early childhood school.
 |[#24](https://github.com/IuliiaKonovalova/school_app/issues/24)|As a Boss, I want to be able to see sales' details, so that I can check which sales manager and which parent was involved in a deal.|
 |[#51](https://github.com/IuliiaKonovalova/school_app/issues/51)|As a Boss, I want to be able to delete students from the application, so that I can control the flow of the present students.|
 
-**Teachers' Goals:**
+#### **Teachers' Goals**
 
 | Issue ID    | User Story |
 |-------------|-------------|
@@ -73,7 +112,7 @@ The app was developed for all members of the early childhood school.
 |[#28](https://github.com/IuliiaKonovalova/school_app/issues/28)|As a Teacher, I want to be able to see lessons schedule, so that I can manage my time.|
 |[#29](https://github.com/IuliiaKonovalova/school_app/issues/29)|As a Teacher, I want to be able to see information on students for each lesson, so that I can be prepared for each student.|
 
-**Receptionists' Goals:**
+#### **Receptionists' Goals**
 
 | Issue ID    | User Story |
 |-------------|-------------|
@@ -84,7 +123,7 @@ The app was developed for all members of the early childhood school.
 |[#35](https://github.com/IuliiaKonovalova/school_app/issues/35)|As a Receptionist, I want to be able to render lessons for a day (day, time, subject, teachers, students), so that I can provide up to date schedule.|
 |[#61](https://github.com/IuliiaKonovalova/school_app/issues/61)|As a Sales Manager I want to control my own sales so that nobody else can edit or delete my sales.|
 
-**Sales Managers' Goals:**
+#### **Sales Managers' Goals**
 
 | Issue ID    | User Story |
 |-------------|-------------|
@@ -100,7 +139,7 @@ The app was developed for all members of the early childhood school.
 |[#53](https://github.com/IuliiaKonovalova/school_app/issues/53)|As a Sales Manager I can edit information on about a sale so that change the data on a sale if a mistake was made or a parent changed his or her mind.|
 |[#54](https://github.com/IuliiaKonovalova/school_app/issues/54)|As a Sales Manager I can delete information on about a sale so that render sales data if a mistake was made or a parent changed his or her mind.|
 
-**Parents' Goals:**
+#### **Parents' Goals**
 
 | Issue ID    | User Story |
 |-------------|-------------|
@@ -109,6 +148,8 @@ The app was developed for all members of the early childhood school.
 |[#48](https://github.com/IuliiaKonovalova/school_app/issues/48)|As a Parent, I want to be able to see lessons schedule, so that I can manage my time and control child’s attendance.|
 |[#49](https://github.com/IuliiaKonovalova/school_app/issues/49)|As a Parent, I want to be able to see information on students for each lesson, so that I can prepare my child for a lesson.|
 |[#50](https://github.com/IuliiaKonovalova/school_app/issues/50)|As a Parent, I want to be able to see names of teachers for each lesson, so that I can know who is/are teaching a lesson.|
+
+[Back to contents](#contents)
 
 ---
 
@@ -153,10 +194,18 @@ The app was developed for all members of the early childhood school.
     + [JShint](https://jshint.com/): was used to validate JS code for the website.
     + [PEP8](https://pep8.org/): was used to validate Python code for the website.
 
+[Back to contents](#contents)
+
+---
+
+## Features
+
+[Back to contents](#contents)
+
 ---
 ## Design
 
-
+[Back to contents](#contents)
 
 ---
 ## Flowcharts
@@ -172,6 +221,8 @@ The flowcharts were created using [Draw.io](https://www.lucidchart.com/).
 - [Flowchart for Parents](documentation/flowcharts/flowchart_parent.pdf)
 - [Flowchart for Teachers](documentation/flowcharts/flowchart_teachers.pdf)
 - [Flowchart for Receptionist](documentation/flowcharts/flowchart_receptionist.pdf)
+
+[Back to contents](#contents)
 
 ---
 
@@ -329,10 +380,15 @@ This table is necessary to control the lessons and provide data for schedule.
     )
 ```
 
+
+[Back to contents](#contents)
+
 ---
 ## Testing
 
 Please refer to the [TESTING.md](TESTING.md) file for all test related documentation.
+
+[Back to contents](#contents)
 
 ---
 
@@ -340,7 +396,7 @@ Please refer to the [TESTING.md](TESTING.md) file for all test related documenta
 
 - The program was deployed to [Heroku](https://dashboard.heroku.com).
 - The program can be reached by the [link](https://issue-tracker-by-konovalovs.herokuapp.com/)
-### Local deployment:
+### Local deployment
 
 *Note:*
   - This project requires install all the requirements:
@@ -431,6 +487,9 @@ Create a local copy of the GitHub repository by following one of the two process
 1. Migrate changes.
 1. Set debug to False in settings.py
 1. Commit and push the changes to GitHub.
+
+
+[Back to contents](#contents)
 
 ---
 
