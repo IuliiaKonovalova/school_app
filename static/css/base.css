@@ -274,7 +274,6 @@ body {
 }
 
 .benefits {
-  /* background-color: var(--clr-primary--300); */
   max-width: 120rem;
   margin: 0 auto;
   padding: 3em 2em;
@@ -285,10 +284,11 @@ body {
 
 .benefits__content {
   background-image: url('/static/images/cloud.svg');
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 50%;
+  width: 60%;
+  /* width: fit-content; */
   display: flex;
   flex-direction: column;
   height: fit-content;
@@ -310,14 +310,17 @@ body {
 .benefits__content--text {
   /* padding: 2em; */
   line-height: 2.2rem;
+  width: 70%;
 
 }
 
 .benefits__image {
-  width: 50%;
+  width: 40%;
   transform: scaleX(-1);
   margin: auto 0;
   margin-left: 5vw;
+  padding: 1em;
+  /* background-color: #25a77b; */
 }
 
 
@@ -349,7 +352,6 @@ body {
 }
 
 /* Profile */
-
 /* Profile buttons */
 .profile__delete {
   position: absolute;
@@ -597,7 +599,7 @@ body {
 
 /* Styling Classes Section */
 .classes {
-  /* margin-top: 2em; */
+  padding-top: 0;
   max-width: 100%;
   background-color: unset;
 }
@@ -698,6 +700,10 @@ body {
   background-color: unset;
   max-width: 120rem;
   justify-content: start;
+}
+
+.student {
+  margin: 2em 0;
 }
 
 .students__header,

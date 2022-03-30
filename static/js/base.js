@@ -1,4 +1,4 @@
-/*jshint version: 6 */
+/* jshint esversion: 8 */
 const profileMenu = document.getElementById("dropdown-profile");
 const menu = document.querySelectorAll(".dropdown");
 const loginSignup = document.getElementById("dropdown-enter");
@@ -68,7 +68,7 @@ const searchStudent = (e) => {
     undoSearchStudent.style.display = "none";
   } else {
     // Reset search input
-    undoSearchStudent.addEventListener("click", function() {
+    undoSearchStudent.addEventListener("click", function () {
       // Clear input, hide undo button, and show all students 
       studentSearchInput.value = "";
       undoSearchStudent.style.display = "none";
@@ -98,7 +98,7 @@ const searchMembers = (e) => {
     undoSearchMember.style.display = "none";
   } else {
     // Reset search input
-    undoSearchMember.addEventListener("click", function() {
+    undoSearchMember.addEventListener("click", function () {
       // Clear input, hide undo button, and show all members 
       memberSearchInput.value = "";
       undoSearchMember.style.display = "none";
@@ -106,5 +106,3 @@ const searchMembers = (e) => {
     });
   }
 };
-
-
