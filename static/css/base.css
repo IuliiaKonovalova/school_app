@@ -1835,26 +1835,38 @@ input[type=date]:focus {
   max-width: 120rem;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  grid-template-columns: 0.6fr 1fr 1fr;
+  grid-template-rows: 0.2fr 1fr;
+  gap: 2rem;
   padding: 2em;
   color: var(--clr-neutral--100);
 }
 
 .footer__content--logo {
-
-  font-size: 4rem;
+  grid-column: 1/4;
+  grid-row: 1/2;
+  font-size: 2rem;
   letter-spacing: 0.15rem;
   font-weight: 900;
   display: flex;
   width: 100%;
-  justify-content: center;
-  align-content: center;
+  justify-content: start;
+  align-content: start;
 }
 
 .footer__content--logo .logo__image {
-  height: 4rem;
-  width: 4rem;
+  height: 2rem;
+  width: 2rem;
+}
+
+.footer__content--info {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.footer__content--creator {
+  grid-column: 3/4;
+  grid-row: 2/3;
 }
 
 .footer__content--info,
@@ -1863,11 +1875,20 @@ input[type=date]:focus {
   align-self: start;
 }
 
+.footer__info--item {
+  display: flex;
+}
 
+.footer__info--item:not(:last-child) {
+  margin-bottom: 0.5em;
+}
 
-.footer__content--creator {
+.footer__info--item i {
+  margin-right: 0.5em;
+}
 
-  /*  */
+.footer__info--text {
+  font-size: 1.2rem;
 }
 
 .creator__name {
@@ -1876,9 +1897,9 @@ input[type=date]:focus {
   display: flex;
   justify-content: center;
   align-content: center;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   margin-bottom: 0.8em;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.05rem;
 }
 
 .creator__name span {
@@ -1893,7 +1914,7 @@ input[type=date]:focus {
 }
 
 .creator__link a i {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--clr-neutral--100);
 }
 
