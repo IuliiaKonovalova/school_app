@@ -1834,9 +1834,8 @@ input[type=date]:focus {
   width: 100%;
   max-width: 120rem;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: gird;
+  grid-template-columns: repeat(3, 1fr);
   padding: 6em 2em;
   color: var(--clr-neutral--100);
 }
@@ -1846,6 +1845,8 @@ input[type=date]:focus {
   letter-spacing: 0.15rem;
   font-weight: 900;
   display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .footer__content--image {
