@@ -114,13 +114,16 @@
         {% endblock %}
       </div>
     </main>
+    {% comment %} Footer {% endcomment %}
     <footer class="footer">
       <div class="footer__content">
+        {% comment %} Logo footer {% endcomment %}
         <div class="footer__content--logo">
           <div>Cool</div>
           <img src="{% static 'images/logo_footer.svg' %}" alt="Image of a globe" class="logo__image">
           <div>School</div>
         </div>
+        {% comment %} Footer contact info {% endcomment %}
         <div class="footer__content--info">
           <div class="footer__info--item">
             <i class="fas fa-envelope-square"></i>
@@ -141,8 +144,7 @@
             </div>
           </div>
         </div>
-
-
+        {% comment %} Footer creator info {% endcomment %}
         <div class="footer__content--creator">
           <div class="creator__name">Creater: <span>Iuliia Konovalova</span></div>
           <ul class="creator__links">

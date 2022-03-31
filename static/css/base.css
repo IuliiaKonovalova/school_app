@@ -1919,7 +1919,7 @@ input[type=date]:focus {
 }
 
 .creator__link a i:hover {
-  color: var(--clr-accent--300);
+  color: #ffffffa8;
 }
 
 
