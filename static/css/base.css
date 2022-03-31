@@ -1845,12 +1845,13 @@ input[type=date]:focus {
   letter-spacing: 0.15rem;
   font-weight: 900;
   display: flex;
+  width: 100%;
   justify-content: center;
   align-content: center;
 }
 
-.footer__content--image {
-  background-image: url('/static/images/logo_footer.svg');
+.footer__content--logo .logo__image {
+  /* background-image: url('/static/images/logo_footer.svg'); */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
