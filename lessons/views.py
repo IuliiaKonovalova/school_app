@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.views import View
 from .models import Lesson
 from .forms import LessonForm
+from profiles.models import Teacher
 
 
 
@@ -44,6 +45,40 @@ class LessonsView(View):
                 )
         return HttpResponseRedirect(reverse('home'))
 
+
+
+# Add LessonsforTeacherView: where only classes for a teacher which in session will be seen
+class TeacherScheduleView(View):
+    """Teacher Schedule View"""
+    def get(self, request, *args, **kwargs):
+        """Receive lessons list for a teacher in session"""
+        if request.user.is_authenticated and request.user.role == 1:
+            teacher = get_object_or_404(Teacher, user=request.user)
+            lessons = Lesson.objects.filter(teachers__in=[teacher]).distinct()
+            lessons_time_0 = lessons.filter(time=0)
+            lessons_time_1 = lessons.filter(time=1)
+            lessons_time_2 = lessons.filter(time=2)
+            lessons_time_3 = lessons.filter(time=3)
+            lessons_time_4 = lessons.filter(time=4)
+            lessons_time_5 = lessons.filter(time=5)
+            lessons_time_6 = lessons.filter(time=6)
+            lessons_time_7 = lessons.filter(time=7)
+            context = {
+                'lessons_time_0': lessons_time_0,
+                'lessons_time_1': lessons_time_1,
+                'lessons_time_2': lessons_time_2,
+                'lessons_time_3': lessons_time_3,
+                'lessons_time_4': lessons_time_4,
+                'lessons_time_5': lessons_time_5,
+                'lessons_time_6': lessons_time_6,
+                'lessons_time_7': lessons_time_7,
+            }
+            return render(
+                request,
+                'lessons/lessons_list.html',
+                context
+                )
+        return HttpResponseRedirect(reverse('home'))
 
 class LessonAddView(View):
     """Lesson Add View"""
