@@ -1,1 +1,197 @@
-<h2>Hello world!</h2>
+{% extends 'base.html' %}
+
+{% comment %} Extra Title {% endcomment %}
+{% block extra_title %}Lessons{% endblock %}
+
+{% block content %}
+  {% comment %} All lessons displayed in a schedule for each day{% endcomment %}
+  <div class="lessons">
+    {% comment %} Heading for the schedule page {% endcomment %}
+    <div class="lessons__header">
+      <h2 class="lessons__title">Schedule</h2>
+      <div class="lessons__subtitle">Today is <span>{% now 'm/d/Y' %}</span></div>
+        {% comment %} Add lessson button with access only by receptionists {% endcomment %}
+          <a href="{% url 'lessons_list' %}" aria-label="Go to teacher's personal schedule page"
+            class="lesson__btn schedule__teacher--btn lesson__btn--custom">
+            <div class="schedule__teacher--text">
+              Back
+            </div>
+          </a>
+      </div>
+    {% comment %} Searching schedule by day {% endcomment %}
+    <div class="lessons__search">
+      <input id="schedule-by-date" value="{% now 'm/d/Y' %}">
+      <div class="lessons__search--text"><strong>* </strong>Click on date to search</div>
+    </div>
+    {% comment %} Schedule table {% endcomment %}
+    <div class="schedule">
+      {% comment %} Displaying classes for 9-9:45 period {% endcomment %}
+      <div class="schedule__section">
+        <h3 class="schedule__section--time">9:00-9:45</h3>
+        <div class="schedule__section--lessons">
+          {% comment %} Display all lessons for this period {% endcomment %}
+          {% for lesson in lessons_time_0 %}
+          <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
+            <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
+              class="schedule__section--subject">
+              {{ lesson.get_subject }}
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="schedule__section">
+        {% comment %} Displaying classes for 10-10:45 period {% endcomment %}
+        <h3 class="schedule__section--time">10:00-10:45</h3>
+        <div class="schedule__section--lessons">
+          {% comment %} Display all lessons for this period {% endcomment %}
+          {% for lesson in lessons_time_1 %}
+            <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
+              <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
+                class="schedule__section--subject">
+                {{ lesson.get_subject }}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="schedule__section">
+        {% comment %} Displaying classes for 11-11:45 period {% endcomment %}
+        <h3 class="schedule__section--time">11:00-11:45</h3>
+        <div class="schedule__section--lessons">
+          {% comment %} Display all lessons for this period {% endcomment %}
+          {% for lesson in lessons_time_2 %}
+            <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
+              <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
+                class="schedule__section--subject">
+                {{ lesson.get_subject }}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="schedule__section">
+        {% comment %} Displaying classes for 14-14:45 period {% endcomment %}
+        <h3 class="schedule__section--time">14:00-14:45</h3>
+        <div class="schedule__section--lessons">
+          {% comment %} Display all lessons for this period {% endcomment %}
+          {% for lesson in lessons_time_3 %}
+          <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
+            <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
+              class="schedule__section--subject">
+              {{ lesson.get_subject }}
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="schedule__section">
+        {% comment %} Displaying classes for 15-15:45 period {% endcomment %}
+        <h3 class="schedule__section--time">15:00-15:45</h3>
+        <div class="schedule__section--lessons">
+          {% comment %} Display all lessons for this period {% endcomment %}
+          {% for lesson in lessons_time_4 %}
+            <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
+              <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
+                class="schedule__section--subject">
+                {{ lesson.get_subject }}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="schedule__section">
+        {% comment %} Displaying classes for 16-16:45 period {% endcomment %}
+        <h3 class="schedule__section--time">16:00-16:45</h3>
+        <div class="schedule__section--lessons">
+          {% comment %} Display all lessons for this period {% endcomment %}
+          {% for lesson in lessons_time_5 %}
+            <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
+              <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
+                class="schedule__section--subject">
+                {{ lesson.get_subject }}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="schedule__section">
+        {% comment %} Displaying classes for 17-17:45 period {% endcomment %}
+        <h3 class="schedule__section--time">17:00-17:45</h3>
+        <div class="schedule__section--lessons">
+          {% comment %} Display all lessons for this period {% endcomment %}
+          {% for lesson in lessons_time_6 %}
+            <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
+              <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
+                class="schedule__section--subject">
+                {{ lesson.get_subject }}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="schedule__section">
+        {% comment %} Displaying classes for 18-18:45 period {% endcomment %}
+        <h3 class="schedule__section--time">18:00-18:45</h3>
+        <div class="schedule__section--lessons">
+          {% comment %} Display all lessons for this period {% endcomment %}
+          {% for lesson in lessons_time_7 %}
+            <div data-date="{{ lesson.date|date:'m/d/Y' }}" class="schedule__section--lesson">
+              <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Details page"
+                class="schedule__section--subject">
+                {{ lesson.get_subject }}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% comment %} Jquery IU datepicker library {% endcomment %}
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  {% comment %} Additional code to control displaying lessons according to the date in input {% endcomment %}
+  <script>
+    const lessons = document.querySelectorAll('div[data-date]');
+    // Hide all lessons
+    lessons.forEach(function (lesson) {
+      lesson.style.display = 'none';
+    });
+    // show data for today lessons
+    const date = document.querySelector('#schedule-by-date');
+    $(document).ready(function () {
+      let lessonsToday = document.querySelectorAll('[data-date="' + date + '"]');
+      for (let lesson of lessons) {
+        if (lesson.getAttribute('data-date') === date.value) {
+          lesson.style.display = 'block';
+        } else {
+          lesson.style.display = 'none';
+        }
+      }
+      for (let lesson of lessonsToday) {
+        lesson.style.display = 'block';
+      }
+    });
+
+    // Function to add data according to date chosen
+    $(function () {
+      $('#schedule-by-date').datepicker({
+        dateFormat: 'mm/dd/yy',
+        // add data on page load  from the value of the input
+        onSelect: function (dateText, inst) {
+          let lessonsToday = document.querySelectorAll('[data-date="' + dateText + '"]');
+          for (let lesson of lessons) {
+            lesson.style.display = 'none';
+          }
+          for (let lesson of lessonsToday) {
+            lesson.style.display = 'block';
+          }
+        }
+      });
+    });
+  </script>
+{% endblock %}
