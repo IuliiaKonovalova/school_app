@@ -29,6 +29,13 @@
             </div>
             <i class="fas fa-plus-circle student__btn--icon"></i>
           </a>
+        {% elif request.user.role == 1 %}
+          <a href="{% url 'teacher_schedule' %}" aria-label="Go to teacher's personal schedule page"
+            class="lesson__btn schedule__teacher--btn lesson__btn--custom">
+            <div class="schedule__teacher--text">
+              My schedule
+            </div>
+          </a>
         {% endif %}
       </div>
     {% comment %} Searching schedule by day {% endcomment %}

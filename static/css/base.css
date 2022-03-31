@@ -442,7 +442,8 @@ body {
 .members__search--btn,
 .sales__form--btn,
 .sales__edit--btn,
-.sale__back--btn {
+.sale__back--btn,
+.schedule__teacher--btn {
   background-color: var(--clr-accent--900);
   border: 1px solid var(--clr-accent--900);
   margin-right: 0.5em;
@@ -478,7 +479,8 @@ body {
 .members__search--btn:hover,
 .sales__form--btn:hover,
 .sales__edit--btn:hover,
-.sale__back--btn:hover {
+.sale__back--btn:hover,
+.schedule__teacher--btn {
   background-color: var(--clr-accent--800);
 }
 
@@ -1211,8 +1213,6 @@ td {
   padding: 3rem;
 }
 
-
-
 .lesson__details--title {
   font-size: 2rem;
   font-weight: 900;
@@ -1254,6 +1254,10 @@ td {
   font-size: 1.6rem;
 }
 
+.schedule__teacher--text {
+  text-transform: capitalize;
+}
+
 .lesson__details--content {
   display: flex;
   justify-content: flex-start;
@@ -1264,11 +1268,6 @@ td {
   margin-right: 0.2em;
   border: 1px solid white;
 }
-
-
-
-
-
 
 /* ----- Forms ----- */
 .account__container,

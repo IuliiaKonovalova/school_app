@@ -42,7 +42,7 @@ class LessonsView(View):
                 request,
                 'lessons/lessons_list.html',
                 context
-                )
+            )
         return HttpResponseRedirect(reverse('home'))
 
 
@@ -75,9 +75,9 @@ class TeacherScheduleView(View):
             }
             return render(
                 request,
-                'lessons/lessons_list.html',
+                'lessons/teacher_schedule.html',
                 context
-                )
+            )
         return HttpResponseRedirect(reverse('home'))
 
 class LessonAddView(View):
