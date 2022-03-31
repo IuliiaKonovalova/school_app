@@ -1834,13 +1834,15 @@ input[type=date]:focus {
   width: 100%;
   max-width: 120rem;
   margin: 0 auto;
-  display: gird;
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 6em 2em;
+  gap: 1rem;
+  padding: 2em;
   color: var(--clr-neutral--100);
 }
 
 .footer__content--logo {
+
   font-size: 4rem;
   letter-spacing: 0.15rem;
   font-weight: 900;
@@ -1851,13 +1853,54 @@ input[type=date]:focus {
 }
 
 .footer__content--logo .logo__image {
-  /* background-image: url('/static/images/logo_footer.svg'); */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
   height: 4rem;
   width: 4rem;
 }
+
+.footer__content--info,
+.footer__content--creator {
+  justify-self: center;
+  align-self: start;
+}
+
+
+
+.footer__content--creator {
+
+  /*  */
+}
+
+.creator__name {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 0.8em;
+  letter-spacing: 0.1rem;
+}
+
+.creator__name span {
+  font-weight: 900;
+  margin-left: 0.5em;
+}
+
+.creator__links {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.creator__link a i {
+  font-size: 2rem;
+  color: var(--clr-neutral--100);
+}
+
+.creator__link a i:hover {
+  color: var(--clr-accent--300);
+}
+
 
 /* Access Error */
 
