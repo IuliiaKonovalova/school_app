@@ -206,16 +206,20 @@ The app was developed for all members of the early childhood school.
 ## Design
 
 
+
+
+
+
+### Wireframes
+
+- [Desktop Wireframes](documentation/wireframes/pp4_desktop.pdf)
+- [Tablet Wireframes](documentation/wireframes/pp4_tablet.pdf)
+- [Mobile Wireframes](documentation/wireframes/pp4_mobile.pdf)
+
 [Back to contents](#contents)
 
 ---
 
-### Wireframes
-
-[Desktop Wireframes](documentation/wireframes/pp4_desktop.pdf)
-[Tablet Wireframes](documentation/wireframes/pp4_tablet.pdf)
-[Mobile Wireframes](documentation/wireframes/pp4_mobile.pdf)
----
 ## Flowcharts
 
 This application is aimed at users with different roles to fulfill there expectations and provide all functionality.

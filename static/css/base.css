@@ -1841,6 +1841,22 @@ input[type=date]:focus {
   color: var(--clr-neutral--100);
 }
 
+.footer__content--logo {
+  font-size: 4rem;
+  letter-spacing: 0.15rem;
+  font-weight: 900;
+  display: flex;
+}
+
+.footer__content--image {
+  background-image: url('/static/images/logo_footer.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 4rem;
+  width: 4rem;
+}
+
 /* Access Error */
 
 .access__error {
