@@ -28,12 +28,14 @@ class TestViews(TestCase):
         self.user = CustomUser.objects.create(
             username='testuser',
             email='testuser@potential.com',
-            password='testuser',
+            password='Testuser123',
             first_name='test',
             last_name='user',
             phone='1234567890',
             role = CustomUser.ROLES[5][0],
         )
+
+        # self.client.force_login(self.user)
         self.user_boss = CustomUser.objects.create(
             username='boss',
             email='boss@gmail.com',
@@ -43,7 +45,8 @@ class TestViews(TestCase):
             phone='1234567890',
             role = CustomUser.ROLES[0][0],
         )
-
+        
+        self.client.force_login(self.user_boss)
         self.user_teacher = CustomUser.objects.create(
             username='teacher',
             email = 'teacher@gmail.com',
@@ -88,6 +91,10 @@ class TestViews(TestCase):
 
     def test_user_profile_view(self):
         """Test the user_profile view."""
+        
+        response = self.client.get(self.user_profile_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/user_profile.html')
 
 
 
