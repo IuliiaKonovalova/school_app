@@ -91,10 +91,6 @@ class TestViews(TestCase):
 
     def test_user_profile_view(self):
         """Test the user_profile view."""
-        
         response = self.client.get(self.user_profile_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/user_profile.html')
-
-
-
