@@ -290,7 +290,6 @@ class SearchMembersView(ListView):
             'profiles/access_limitation.html',
         )
 
-
     def post(self, request, *args, **kwargs):
         """Search members"""
         if request.user.is_authenticated:
