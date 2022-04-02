@@ -280,6 +280,16 @@ class SearchMembersView(ListView):
                     'profiles/search_members.html',
                     {'members': members}
                 )
+            else:
+                return render(
+                    request,
+                    'profiles/access_limitation.html',
+                )
+        return render(
+            request,
+            'profiles/access_limitation.html',
+        )
+
 
     def post(self, request, *args, **kwargs):
         """Search members"""
