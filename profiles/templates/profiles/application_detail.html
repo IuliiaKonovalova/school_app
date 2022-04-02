@@ -26,79 +26,58 @@
 
 {% block content %}
   {% comment %} Application detail page with access only for bosses and managers {% endcomment %}
-  {% if request.user.role == 0 or request.user.role == 2 %}
-    <div class="applications">
-      <h2 class="applications__title">Application's Details</h2>
-      {% comment %} Applicant's data {% endcomment %}
-      {% if new_application %}
-        <div class="application">
-          {% if request.user.role == 0 %}
-            <div class="application__delete">
-              <a href="{% url 'application_delete' username=request.user pk=new_application.pk %}"
-                aria-label="Go to Delete Application page" class="profile__btn application__delete--btn">
-                <div class="application__btn--text">Delete</div>
-                <i class="fas fa-trash-alt"></i>
-              </a>
-            </div>
-          {% endif %}
-          <div class="application__data">
-            <span>Name:</span>
-            {{ new_application.first_name }} {{ new_application.last_name }}
-          </div>
-          <div class="application__data">
-            <span>Phone:</span>
-            {{ new_application.phone }}
-          </div>
-          <div class="application__data">
-            <span>Email:</span>
-            {{ new_application.email }}
-          </div>
-        </div>
-        {% comment %} Assigning role by boss {% endcomment %}
+  <div class="applications">
+    <h2 class="applications__title">Application's Details</h2>
+    {% comment %} Applicant's data {% endcomment %}
+    {% if new_application %}
+      <div class="application">
         {% if request.user.role == 0 %}
-          <div class="role__form--container">
-            {% comment %} Role assignement form {% endcomment %}
-            <form method="POST" class="role__form">
-              <h3 class="role__form--title">Assign role:</h3>
-              {% csrf_token %}
-              {{ form|crispy }}
-              {% comment %} Role Form Confirm button {% endcomment %}
-              <div class="role__button">
-                <button type="submit" class="profile__form--btn profile__btn role__confirm--btn">
-                  <div class="profile__btn--text">Save</div>
-                  <i class="fas fa-save"></i>
-                </button>
-              </div>
-            </form>
+          <div class="application__delete">
+            <a href="{% url 'application_delete' username=request.user pk=new_application.pk %}"
+              aria-label="Go to Delete Application page" class="profile__btn application__delete--btn">
+              <div class="application__btn--text">Delete</div>
+              <i class="fas fa-trash-alt"></i>
+            </a>
           </div>
         {% endif %}
-        <a href="{% url 'new_applications' username=request.user %}" aria-label="Go to All New applications page"
-          class="application__link">
-          <div class="application__link--text">Go to other application</div>
-          <i class="fas fa-long-arrow-alt-right"></i>
-        </a>
-      {% else %}
-        <p class="applications__number">Application is not found</p>
-      {% endif %}
-    </div>
-  {% else %}
-    {% comment %} Access limitation, access only to bosses and managers {% endcomment %}
-    <div class="access">
-      <div class="access__error">
-        <div class="access__error--image">
-          <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
+        <div class="application__data">
+          <span>Name:</span>
+          {{ new_application.first_name }} {{ new_application.last_name }}
         </div>
-        <p class="access__error--text">You are not authorized to view this page!</p>
-        <div class="links">
-          <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to Your Profile page"
-            class="links__btn links__btn--name links__btn--content">
-            <div class="profile__btn--text">
-              Back to your profile
-            </div>
-            <i class="fas fa-external-link-alt profile__btn--icon"></i>
-          </a>
+        <div class="application__data">
+          <span>Phone:</span>
+          {{ new_application.phone }}
+        </div>
+        <div class="application__data">
+          <span>Email:</span>
+          {{ new_application.email }}
         </div>
       </div>
-    </div>
-  {% endif %}
+      {% comment %} Assigning role by boss {% endcomment %}
+      {% if request.user.role == 0 %}
+        <div class="role__form--container">
+          {% comment %} Role assignement form {% endcomment %}
+          <form method="POST" class="role__form">
+            <h3 class="role__form--title">Assign role:</h3>
+            {% csrf_token %}
+            {{ form|crispy }}
+            {% comment %} Role Form Confirm button {% endcomment %}
+            <div class="role__button">
+              <button type="submit" class="profile__form--btn profile__btn role__confirm--btn">
+                <div class="profile__btn--text">Save</div>
+                <i class="fas fa-save"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      {% endif %}
+      <a href="{% url 'new_applications' username=request.user %}" aria-label="Go to All New applications page"
+        class="application__link">
+        <div class="application__link--text">Go to other application</div>
+        <i class="fas fa-long-arrow-alt-right"></i>
+      </a>
+    {% else %}
+      <p class="applications__number">Application is not found</p>
+    {% endif %}
+  </div>
 {% endblock %}
