@@ -268,6 +268,62 @@ class TestViews(TestCase):
         # logout as a boss
         self.client.logout()
 
+    def test_new_applications_view_get(self):
+        """Test the new_applications view."""
+        # login as a boss
+        self.client.force_login(self.user_boss)
+        self.new_applications_url = self.new_applications_url.replace('username', self.user_boss.username)
+        response = self.client.get(self.new_applications_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/new_applications.html')
+        # logout as a boss
+        self.client.logout()
+
+        # login as a teacher
+        self.client.force_login(self.user_teacher)
+        self.new_applications_url = self.new_applications_url.replace('username', self.user_teacher.username)
+        response = self.client.get(self.new_applications_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a teacher
+        self.client.logout()
+
+        # login as a sales manager
+        self.client.force_login(self.user_sales_manager)
+        self.new_applications_url = self.new_applications_url.replace('username', self.user_sales_manager.username)
+        response = self.client.get(self.new_applications_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/new_applications.html')
+        # logout as a sales manager
+        self.client.logout()
+
+        # login as a receptionist
+        self.client.force_login(self.user_receptionist)
+        self.new_applications_url = self.new_applications_url.replace('username', self.user_receptionist.username)
+        response = self.client.get(self.new_applications_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a receptionist
+        self.client.logout()
+        
+        # login as a parent
+        self.client.force_login(self.user_parent)
+        self.new_applications_url = self.new_applications_url.replace('username', self.user_parent.username)
+        response = self.client.get(self.new_applications_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a parent
+        self.client.logout()
+        
+        # login as a potential
+        self.client.force_login(self.potential)
+        self.new_applications_url = self.new_applications_url.replace('username', self.potential.username)
+        response = self.client.get(self.new_applications_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a potential
+        self.client.logout()
+
     def test_search_members_view(self):
         """Test the search_members view."""
         # Login as boss

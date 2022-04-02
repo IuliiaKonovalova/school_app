@@ -175,11 +175,17 @@ class NewApplicationsView(View):
     """New Applications"""
     def get(self, request, *args, **kwargs):
         """Receive new applications"""
-        new_applications = CustomUser.objects.filter(role=5)
-        return render(
-            request, 'profiles/new_applications.html',
-            {'new_applications': new_applications}
-        )
+        if request.user.is_authenticated:
+            if request.user.role == 0 or request.user.role == 2: 
+                new_applications = CustomUser.objects.filter(role=5)
+                return render(
+                    request, 'profiles/new_applications.html',
+                    {'new_applications': new_applications}
+                )
+            else:
+                return render(
+                    request, 'profiles/access_limitation.html'
+                )
 
 
 class NewApplicationsDetailView(View):
