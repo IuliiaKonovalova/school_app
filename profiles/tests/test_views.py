@@ -1,4 +1,5 @@
 import email
+from multiprocessing import parent_process
 from django.test import TestCase, Client
 from django.urls import reverse
 from profiles.models import (
@@ -8,6 +9,7 @@ from profiles.models import (
     SalesManager,
     Parent
 )
+from students.models import Student
 import json
 
 
@@ -89,6 +91,9 @@ class TestViews(TestCase):
             role = CustomUser.ROLES[4][0],
         )
 
+
+            
+
         self.potential = CustomUser.objects.create(
             username='potential',
             email = 'potential@gmail.com',
@@ -98,6 +103,32 @@ class TestViews(TestCase):
             phone = '1234567890',
             role = CustomUser.ROLES[5][0],
         )
+
+
+        self.parent_member = Parent.objects.create(
+            # get the parent user from the CustomUser model
+            user = CustomUser.objects.get(id = self.user_parent.id),
+            relation = Parent.GUARDIAN_RELATION[4][0],
+        )
+        self.sales_manager_member = SalesManager.objects.create(
+            # get the sales manager user from the CustomUser model
+            id = 1,
+            user = CustomUser.objects.get(id = self.user_sales_manager.id),
+            total_sold = 0,
+        )
+        sales_manager_pk = SalesManager.objects.get(pk=1)
+
+        self.student = Student.objects.create(
+            first_name = 'student1FirstName',
+            last_name = 'student1Surname',
+            birthday = '2000-01-01',
+            address = 'student1Address',
+            enrolled = '01/01/2000',
+            classes_left = 50,
+            notes = 'student1Notes',
+        )
+        self.student.parent.add(Parent.objects.get(id=1))
+        self.student.sales_manager.add(sales_manager_pk)
 
 
 
@@ -116,6 +147,43 @@ class TestViews(TestCase):
         response = self.client.get(self.user_profile_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/user_profile.html')
+        # logout as a teacher
+        self.client.logout()
+        # login as a sales manager
+        self.client.force_login(self.user_sales_manager)
+        self.user_profile_url = self.user_profile_url.replace('username', self.user_sales_manager.username)
+        response = self.client.get(self.user_profile_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/user_profile.html')
+        # logout as a sales manager
+        self.client.logout()
+        # login as a receptionist
+        self.client.force_login(self.user_receptionist)
+        self.user_profile_url = self.user_profile_url.replace('username', self.user_receptionist.username)
+        response = self.client.get(self.user_profile_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/user_profile.html')
+        # logout as a receptionist
+        self.client.logout()
+        # login as a parent
+        self.client.force_login(self.user_parent)
+        self.user_profile_url = self.user_profile_url.replace('username', self.user_parent.username)
+        response = self.client.get(self.user_profile_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/user_profile.html')
+        # check that this view sends context with the user's profile
+        self.assertEquals(response.context['user'], self.user_parent)
+        # logout as a parent
+        self.client.logout()
+        # login as a potential
+        self.client.force_login(self.potential)
+        self.user_profile_url = self.user_profile_url.replace('username', self.potential.username)
+        response = self.client.get(self.user_profile_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/user_profile.html')
+        # logout as a potential
+        self.client.logout()
+
 
 
     def test_user_profile_edit_view(self):
