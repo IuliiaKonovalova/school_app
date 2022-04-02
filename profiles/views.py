@@ -307,6 +307,7 @@ class SearchMembersView(ListView):
                 )
 
 
+
 class DeleteMemberView(View):
     """Delete Member"""
     def get(self, request, *args, **kwargs):
