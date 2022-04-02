@@ -170,4 +170,30 @@ class TestViews(TestCase):
         response = self.client.get(self.delete_member_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a teacher
+        self.client.logout()
+        # login as a sales_manager
+        self.client.force_login(self.user_sales_manager)
+        self.delete_member_url = self.delete_member_url.replace('username', self.user_sales_manager.username)
+        response = self.client.get(self.delete_member_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a sales_manager
+        self.client.logout()
+        # login as a receptionist
+        self.client.force_login(self.user_receptionist)
+        self.delete_member_url = self.delete_member_url.replace('username', self.user_receptionist.username)
+        response = self.client.get(self.delete_member_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a receptionist
+        self.client.logout()
+        # login as a parent
+        self.client.force_login(self.user_parent)
+        self.delete_member_url = self.delete_member_url.replace('username', self.user_parent.username)
+        response = self.client.get(self.delete_member_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a parent
+        self.client.logout()
 
