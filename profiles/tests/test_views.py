@@ -134,6 +134,7 @@ class TestViews(TestCase):
 
     def test_user_profile_view(self):
         """Test the user_profile view."""
+        # login as a boss
         self.client.force_login(self.user_boss)
         self.user_profile_url = self.user_profile_url.replace('username', self.user_boss.username)
         response = self.client.get(self.user_profile_url)
@@ -188,9 +189,84 @@ class TestViews(TestCase):
 
     def test_user_profile_edit_view(self):
         """Test the user_profile_edit view."""
-        # response = self.client.get(self.user_profile_edit_url)
-        # self.assertEquals(response.status_code, 200)
-        # self.assertTemplateUsed(response, 'profiles/user_profile_edit.html')
+        # login as a boss
+        self.client.force_login(self.user_boss)
+        self.user_profile_edit_url = self.user_profile_edit_url.replace('username', self.user_boss.username)
+        response = self.client.get(self.user_profile_edit_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/user_profile_edit.html')
+        # logout as a boss
+        self.client.logout()
+
+        # login as a teacher
+        self.client.force_login(self.user_teacher)
+        self.user_profile_edit_url = self.user_profile_edit_url.replace('username', self.user_teacher.username)
+        response = self.client.get(self.user_profile_edit_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/user_profile_edit.html')
+        # logout as a teacher
+        self.client.logout()
+
+        # login as a sales manager
+        self.client.force_login(self.user_sales_manager)
+        self.user_profile_edit_url = self.user_profile_edit_url.replace('username', self.user_sales_manager.username)
+        response = self.client.get(self.user_profile_edit_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/user_profile_edit.html')
+        # logout as a sales manager
+        self.client.logout()
+
+        # login as a receptionist
+        self.client.force_login(self.user_receptionist)
+        self.user_profile_edit_url = self.user_profile_edit_url.replace('username', self.user_receptionist.username)
+        response = self.client.get(self.user_profile_edit_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/user_profile_edit.html')
+        # logout as a receptionist
+        self.client.logout()
+
+        # login as a parent
+        self.client.force_login(self.user_parent)
+        self.user_profile_edit_url = self.user_profile_edit_url.replace('username', self.user_parent.username)
+        response = self.client.get(self.user_profile_edit_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/user_profile_edit.html')
+        # logout as a parent
+        self.client.logout()
+
+        # login as a potential
+        self.client.force_login(self.potential)
+        self.user_profile_edit_url = self.user_profile_edit_url.replace('username', self.potential.username)
+        response = self.client.get(self.user_profile_edit_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/user_profile_edit.html')
+        # logout as a potential
+        self.client.logout()
+
+
+
+    def test_user_profile_edit_view_post(self):
+        """Test the user_profile_edit view."""
+        # login as a boss
+        self.client.force_login(self.user_boss)
+        self.user_profile_edit_url = self.user_profile_edit_url.replace('username', self.user_boss.username)
+        response = self.client.post(self.user_profile_edit_url, {
+            'username': self.user_boss.username,
+            'email': self.user_boss.email,
+            'first_name': 'newBossName',
+            'last_name': 'newBossLastName',
+            'phone': '1234567890',
+            'role': self.user_boss.role,
+        })
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(response.url, '/profiles/boss/')
+        self.assertEquals(CustomUser.objects.get(id=self.user_boss.id).first_name, 'newBossName')
+        self.assertEquals(CustomUser.objects.get(id=self.user_boss.id).last_name, 'newBossLastName')
+        self.assertEquals(CustomUser.objects.get(id=self.user_boss.id).email, 'boss@gmail.com')
+        self.assertEquals(CustomUser.objects.get(id=self.user_boss.id).phone, '1234567890')
+        self.assertEquals(CustomUser.objects.get(id=self.user_boss.id).role, CustomUser.ROLES[0][0])
+        # logout as a boss
+        self.client.logout()
 
     def test_search_members_view(self):
         """Test the search_members view."""

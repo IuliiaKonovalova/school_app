@@ -114,8 +114,7 @@ class UserProfileEditView(View):
                     print('form is not valid')
         return render(
             request,
-            'profiles/user_profile_edit.html',
-            {'user_profile': user_profile, 'form': form}
+            'profiles/access_limitation.html'
         )
 
 
