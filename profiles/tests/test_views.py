@@ -89,6 +89,16 @@ class TestViews(TestCase):
             role = CustomUser.ROLES[4][0],
         )
 
+        self.potential = CustomUser.objects.create(
+            username='potential',
+            email = 'potential@gmail.com',
+            password = 'potential',
+            first_name = 'potential',
+            last_name = 'potential',
+            phone = '1234567890',
+            role = CustomUser.ROLES[5][0],
+        )
+
 
 
     def test_user_profile_view(self):
@@ -148,12 +158,22 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, 'profiles/search_members.html')
         # logout user_parent
         self.client.logout()
+        # login as potential
+        self.client.force_login(self.potential)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/search_members.html')
 
     def test_search_members_POST(self):
         """Test the search_members view."""
         response = self.client.post(self.search_members_url, {'search_term': 'role'})
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/search_members.html')
+
+
+
+
+
+
 
     def test_delete_member_view(self):
         """Test the delete_member view."""
@@ -197,3 +217,46 @@ class TestViews(TestCase):
         # logout as a parent
         self.client.logout()
 
+    def test_delete_member_POST(self):
+        """Test the delete_member view."""
+        self.client.force_login(self.user_boss)
+        self.delete_member_url = self.delete_member_url.replace('username', self.user.username)
+        response = self.client.post(self.delete_member_url, {'delete_member': 'delete'})
+        self.assertEquals(response.status_code, 302)
+        self.search_members_url = self.search_members_url.replace('username', self.user_boss.username)
+        self.assertRedirects(response, self.search_members_url)
+        # logout as a boss
+        self.client.logout()
+        # login as a teacher
+        self.client.force_login(self.user_teacher)
+        self.delete_member_url = self.delete_member_url.replace('username', self.user.username)
+        response = self.client.post(self.delete_member_url, {'delete_member': 'delete'})
+        self.assertEquals(response.status_code, 404)
+        # logout as a teacher
+        self.client.logout()
+        # login as a sales_manager
+        self.client.force_login(self.user_sales_manager)
+        self.delete_member_url = self.delete_member_url.replace('username', self.user.username)
+        response = self.client.post(self.delete_member_url, {'delete_member': 'delete'})
+        self.assertEquals(response.status_code, 404)
+        # logout as a sales_manager
+        self.client.logout()
+        # login as a receptionist
+        self.client.force_login(self.user_receptionist)
+        self.delete_member_url = self.delete_member_url.replace('username', self.user.username)
+        response = self.client.post(self.delete_member_url, {'delete_member': 'delete'})
+        self.assertEquals(response.status_code, 404)
+        # logout as a receptionist
+        self.client.logout()
+        # login as a parent
+        self.client.force_login(self.user_parent)
+        self.delete_member_url = self.delete_member_url.replace('username', self.user.username)
+        response = self.client.post(self.delete_member_url, {'delete_member': 'delete'})
+        self.assertEquals(response.status_code, 404)
+        # logout as a parent
+        self.client.logout()
+        # login as a potential
+        self.client.force_login(self.potential)
+        self.delete_member_url = self.delete_member_url.replace('username', self.user.username)
+        response = self.client.post(self.delete_member_url, {'delete_member': 'delete'})
+        self.assertEquals(response.status_code, 404)

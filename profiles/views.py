@@ -321,12 +321,18 @@ class DeleteMemberView(View):
         member = get_object_or_404(
             CustomUser, username=kwargs['username']
         )
-        member.delete()
-        return HttpResponseRedirect(
-            reverse(
-                'search_members',
-                args=[request.user.username]
-                )
+        if request.user.is_authenticated:
+            if request.user.role == 0:
+                member.delete()
+                return HttpResponseRedirect(
+                    reverse(
+                        'search_members',
+                        args=[request.user.username]
+                        )
+                    )
+            return render(
+                request,
+                'profiles/access_limitation.html',
             )
 
 
