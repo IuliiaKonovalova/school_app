@@ -61,6 +61,7 @@ class UserProfileView(View):
             'profiles/user_profile.html',
             {'user_profile': user_profile}
             )
+
     def post(self, request, *args, **kwargs):
         """Receive user profile"""
         user_profile = get_object_or_404(
