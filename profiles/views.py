@@ -195,17 +195,23 @@ class NewApplicationsDetailView(View):
         new_application = get_object_or_404(CustomUser, pk=pk)
         form = NewApplicationForm(instance=new_application)
         if request.user.is_authenticated:
-            if request.user.role == 0:
-                return render(
-                    request,
-                    'profiles/application_detail.html',
-                    {'new_application': new_application, 'form': form}
+            if request.user.role == 0 or request.user.role == 2:
+                if request.user.role == 0:
+                    return render(
+                        request,
+                        'profiles/application_detail.html',
+                        {'new_application': new_application, 'form': form}
+                        )
+                else:
+                    return render(
+                        request,
+                        'profiles/application_detail.html',
+                        {'new_application': new_application,}
                     )
-        return render(
-            request,
-            'profiles/application_detail.html',
-            {'new_application': new_application,}
-        )
+            else:
+                return render(
+                    request, 'profiles/access_limitation.html'
+                )
 
     def post(self, request, pk, *args, **kwargs):
         """Update new applications"""
