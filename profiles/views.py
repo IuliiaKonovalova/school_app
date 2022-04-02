@@ -305,7 +305,15 @@ class SearchMembersView(ListView):
                     'profiles/search_members.html',
                     {'members': members}
                 )
-
+            else:
+                return render(
+                    request,
+                    'profiles/access_limitation.html',
+                )
+        return render(
+            request,
+            'profiles/access_limitation.html',
+        )
 
 
 class DeleteMemberView(View):
