@@ -6,46 +6,25 @@
 
 {% block content %}
   {% comment %} New applications page with access only by bosses or managers {% endcomment %}
-  {% if request.user.role == 0 or request.user.role == 2 %}
-    <div class="applications">
-      <h2 class="applications__title">New application</h2>
-      {% comment %} Amount of new applications {% endcomment %}
-      <div class="applications__number">{{ new_applications|length }} new applications found</div>
-      {% comment %} All applications {% endcomment %}
-        <div class="applications__results">
-          {% for application in new_applications %}
-            <div class="links">
-              <a href="{% url 'application_detail' username=request.user pk=application.pk %}"
-                aria-label="Go back to application Detail page" class="links__btn links__btn--name">
-                <div class="profile__btn--text">
-                  <div>{{ application.first_name }}</div>
-                  <div>{{ application.last_name }}</div>
-                </div>
-                <i class="fas fa-external-link-alt profile__btn--icon"></i>
-              </a>
-            </div>
-          {% endfor %}
-        </div>
+  <div class="applications">
+    <h2 class="applications__title">New application</h2>
+    {% comment %} Amount of new applications {% endcomment %}
+    <div class="applications__number">{{ new_applications|length }} new applications found</div>
+    {% comment %} All applications {% endcomment %}
+      <div class="applications__results">
+        {% for application in new_applications %}
+          <div class="links">
+            <a href="{% url 'application_detail' username=request.user pk=application.pk %}"
+              aria-label="Go back to application Detail page" class="links__btn links__btn--name">
+              <div class="profile__btn--text">
+                <div>{{ application.first_name }}</div>
+                <div>{{ application.last_name }}</div>
+              </div>
+              <i class="fas fa-external-link-alt profile__btn--icon"></i>
+            </a>
+          </div>
+        {% endfor %}
       </div>
     </div>
-  {% else %}
-    {% comment %} Access limitation, access only to bosses and managers {% endcomment %}
-    <div class="access">
-      <div class="access__error">
-        <div class="access__error--image">
-          <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
-        </div>
-        <p class="access__error--text">You are not authorized to view this page!</p>
-        <div class="links">
-          <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to Your Profile page"
-            class="links__btn links__btn--name links__btn--content">
-            <div class="profile__btn--text">
-              Back to your profile
-            </div>
-            <i class="fas fa-external-link-alt profile__btn--icon"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  {% endif %}
+  </div>
 {% endblock %}
