@@ -311,6 +311,10 @@ class DeleteMemberView(View):
                     'profiles/delete_member.html',
                     {'member': member}
                 )
+        return render(
+            request,
+            'profiles/access_limitation.html',
+        )
 
     def post(self, request, *args, **kwargs):
         """Delete member"""

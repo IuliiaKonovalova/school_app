@@ -6,64 +6,45 @@
 
 {% block content %}
   {% comment %} Limit access to student deletion page {% endcomment %}
-  {% if request.user.role == 0 %}
-    <div class="profile">
-      <div class="profile__form--container">
-        <div class="profile__form">
-          <h2 class="profile__form--title">Delete Member</h2>
-          {% comment %} Delete Member form {% endcomment %}
-          <form method="POST" class="profile__form">
-            {% csrf_token %}
-            {% comment %} Member deletion warning {% endcomment %}
-            <div class="profile__form--suggestions">
-              <div>Are you sure you want to delete this member?</div>
-              <div class="links">
-                <a href="{% url 'user_profile' username=member.username %}"
-                  aria-label="Go back to Profile page" class="links__btn links__btn--content links__btn--name">
-                  <div class="profile__btn--text">
-                    {{ member.first_name }} {{ member.last_name}}
-                  </div>
-                  <i class="fas fa-external-link-alt profile__btn--icon"></i>
-                </a>
-              </div>
-              <div>This Member will be permanently deleted from database.</div>
-            </div>
-            <div class="profile__buttons">
-              {% comment %} Go back to member profile page {% endcomment %}
+
+  <div class="profile">
+    <div class="profile__form--container">
+      <div class="profile__form">
+        <h2 class="profile__form--title">Delete Member</h2>
+        {% comment %} Delete Member form {% endcomment %}
+        <form method="POST" class="profile__form">
+          {% csrf_token %}
+          {% comment %} Member deletion warning {% endcomment %}
+          <div class="profile__form--suggestions">
+            <div>Are you sure you want to delete this member?</div>
+            <div class="links">
               <a href="{% url 'user_profile' username=member.username %}"
-                class="profile__form--btn profile__btn profile__back--btn">
-                <div class=" profile__btn--text">
-                  Go back
+                aria-label="Go back to Profile page" class="links__btn links__btn--content links__btn--name">
+                <div class="profile__btn--text">
+                  {{ member.first_name }} {{ member.last_name}}
                 </div>
-                <i class="far fa-window-close  profile__btn--icon"></i>
+                <i class="fas fa-external-link-alt profile__btn--icon"></i>
               </a>
-              {% comment %} Submit member's deletion {% endcomment %}
-              <button type="submit" name="delete" class="profile__form--btn profile__btn profile__confirm--btn">
-                <div class="profile__btn--text">Delete</div>
-                <i class="fas fa-trash-alt profile__btn--icon"></i>
-              </button>
             </div>
-          </form>
-        </div>
+            <div>This Member will be permanently deleted from database.</div>
+          </div>
+          <div class="profile__buttons">
+            {% comment %} Go back to member profile page {% endcomment %}
+            <a href="{% url 'user_profile' username=member.username %}"
+              class="profile__form--btn profile__btn profile__back--btn">
+              <div class=" profile__btn--text">
+                Go back
+              </div>
+              <i class="far fa-window-close  profile__btn--icon"></i>
+            </a>
+            {% comment %} Submit member's deletion {% endcomment %}
+            <button type="submit" name="delete" class="profile__form--btn profile__btn profile__confirm--btn">
+              <div class="profile__btn--text">Delete</div>
+              <i class="fas fa-trash-alt profile__btn--icon"></i>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
-  {% else %}
-    {% comment %} Access limitation for all users except bosses and sales managers {% endcomment %}
-    <div class="access">
-      <div class="access__error">
-        <div class="access__error--image">
-          <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
-        </div>
-        <p class="access__error--text">You are not authorized to view this page!</p>
-        <div class="links">
-          <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
-            <div class="profile__btn--text">
-              Back to your profile
-            </div>
-            <i class="fas fa-external-link-alt profile__btn--icon"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  {% endif %}
+  </div>
 {% endblock %}

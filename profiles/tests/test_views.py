@@ -94,9 +94,25 @@ class TestViews(TestCase):
     def test_user_profile_view(self):
         """Test the user_profile view."""
         self.client.force_login(self.user_boss)
+        self.user_profile_url = self.user_profile_url.replace('username', self.user_boss.username)
         response = self.client.get(self.user_profile_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/user_profile.html')
+        # logout as a boss
+        self.client.logout()
+        # login as a teacher
+        self.client.force_login(self.user_teacher)
+        self.user_profile_url = self.user_profile_url.replace('username', self.user_teacher.username)
+        response = self.client.get(self.user_profile_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/user_profile.html')
+
+
+    def test_user_profile_edit_view(self):
+        """Test the user_profile_edit view."""
+        response = self.client.get(self.user_profile_edit_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/user_profile_edit.html')
 
     def test_search_members_view(self):
         """Test the search_members view."""
@@ -138,3 +154,20 @@ class TestViews(TestCase):
         response = self.client.post(self.search_members_url, {'search_term': 'role'})
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/search_members.html')
+
+    def test_delete_member_view(self):
+        """Test the delete_member view."""
+        self.client.force_login(self.user_boss)
+        self.delete_member_url = self.delete_member_url.replace('username', self.user_boss.username)
+        response = self.client.get(self.delete_member_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/delete_member.html')
+        # logout as a boss
+        self.client.logout()
+        # login as a teacher
+        self.client.force_login(self.user_teacher)
+        self.delete_member_url = self.delete_member_url.replace('username', self.user_teacher.username)
+        response = self.client.get(self.delete_member_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+
