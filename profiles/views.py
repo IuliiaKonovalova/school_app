@@ -217,33 +217,33 @@ class NewApplicationsDetailView(View):
         """Update new applications"""
         new_application = get_object_or_404(CustomUser, pk=pk)
         form = NewApplicationForm(request.POST, instance=new_application)
-        if form.is_valid():
-            new_application = form.save(commit=False)
-            if new_application.role == 1:
-                new_teacher = Teacher.objects.create(
-                  user=new_application,
+        if request.user.role == 0:
+            if form.is_valid():
+                new_application = form.save(commit=False)
+                if new_application.role == 1:
+                    new_teacher = Teacher.objects.create(
+                      user=new_application,
+                    )
+                    new_teacher.save()
+                if new_application.role == 2:
+                    new_manager = SalesManager.objects.create(
+                        user=new_application,
+                    )
+                    new_manager.save()
+                if new_application.role == 4:
+                    new_parent = Parent.objects.create(
+                        user=new_application,
+                    )
+                    new_parent.save()
+                new_application.save()
+                return render(
+                    request,
+                    'profiles/application_detail.html',
+                    {'new_application': new_application, 'form': form}
                 )
-                new_teacher.save()
-            if new_application.role == 2:
-                new_manager = SalesManager.objects.create(
-                    user=new_application,
-                )
-                new_manager.save()
-            if new_application.role == 4:
-                new_parent = Parent.objects.create(
-                    user=new_application,
-                )
-                new_parent.save()
-            new_application.save()
-            return render(
-                request,
-                'profiles/application_detail.html',
-                {'new_application': new_application, 'form': form}
-            )
         return render(
             request,
-            'profiles/application_detail.html',
-            {'new_application': new_application, 'form': form}
+            'profiles/access_limitation.html',
         )
 
 

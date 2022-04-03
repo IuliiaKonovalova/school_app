@@ -385,16 +385,19 @@ class TestViews(TestCase):
         # login as a boss
         self.client.force_login(self.user_boss)
         self.application_detail_url = self.application_detail_url.replace('username', self.user_boss.username)
-        response = self.client.post(self.application_detail_url, {'status': 'accepted'})
-        self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'profiles/application_detail.html')
+        response1 = self.client.post(self.application_detail_url, {'role': 'teacher'})
+        self.assertEquals(response1.status_code, 200)
+        self.assertTemplateUsed(response1, 'profiles/access_limitation.html')
+        response2 = self.client.post(self.application_detail_url, {'role': 1})
+        self.assertEquals(response2.status_code, 200)
+        self.assertTemplateUsed(response2, 'profiles/application_detail.html')
         # logout as a boss
         self.client.logout()
 
         # login as a teacher
         self.client.force_login(self.user_teacher)
         self.application_detail_url = self.application_detail_url.replace('username', self.user_teacher.username)
-        response = self.client.post(self.application_detail_url, {'status': 'accepted'})
+        response = self.client.post(self.application_detail_url, {'role': 1})
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout as a teacher
@@ -403,16 +406,16 @@ class TestViews(TestCase):
         # login as a sales manager
         self.client.force_login(self.user_sales_manager)
         self.application_detail_url = self.application_detail_url.replace('username', self.user_sales_manager.username)
-        response = self.client.post(self.application_detail_url, {'status': 'accepted'})
+        response = self.client.post(self.application_detail_url, {'role': 1})
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'profiles/application_detail.html')
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout as a sales manager
         self.client.logout()
 
         # login as a receptionist
         self.client.force_login(self.user_receptionist)
         self.application_detail_url = self.application_detail_url.replace('username', self.user_receptionist.username)
-        response = self.client.post(self.application_detail_url, {'status': 'accepted'})
+        response = self.client.post(self.application_detail_url, {'role': 1})
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout as a receptionist
@@ -421,7 +424,7 @@ class TestViews(TestCase):
         # login as a parent
         self.client.force_login(self.user_parent)
         self.application_detail_url = self.application_detail_url.replace('username', self.user_parent.username)
-        response = self.client.post(self.application_detail_url, {'status': 'accepted'})
+        response = self.client.post(self.application_detail_url, {'role': 1})
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout as a parent
@@ -430,7 +433,7 @@ class TestViews(TestCase):
         # login as a potential
         self.client.force_login(self.potential)
         self.application_detail_url = self.application_detail_url.replace('username', self.potential.username)
-        response = self.client.post(self.application_detail_url, {'status': 'accepted'})
+        response = self.client.post(self.application_detail_url, {'role': 1})
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout as a potential
