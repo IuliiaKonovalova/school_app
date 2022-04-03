@@ -117,7 +117,7 @@ class TestLessonForm(TestCase):
         )
         self.student.parent.add(Parent.objects.get(id=1))
         self.student.sales_manager.add(sales_manager_pk)
-
+        # create lesson
         self.lesson_first = Lesson.objects.create(
             date = '2019-01-01',
             time= TIME_PERIODS[0][0],
@@ -131,51 +131,51 @@ class TestLessonForm(TestCase):
         # login as a boss
         self.client.force_login(self.user_boss)
         response = self.client.get(self.lessons_list_url)
-        self.assertEqual(response.status_code, 200)
+        self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'lessons/lessons_list.html')
-        self.assertEqual(response.context['lessons_time_0'].count(), 1)
-        self.assertEqual(response.context['lessons_time_1'].count(), 0)
-        self.assertEqual(response.context['lessons_time_2'].count(), 0)
-        self.assertEqual(response.context['lessons_time_3'].count(), 0)
-        self.assertEqual(response.context['lessons_time_4'].count(), 0)
-        self.assertEqual(response.context['lessons_time_5'].count(), 0)
-        self.assertEqual(response.context['lessons_time_6'].count(), 0)
-        self.assertEqual(response.context['lessons_time_7'].count(), 0)
-        self.assertEqual(response.context['lessons_time_0'].first().id, 1)
-        self.assertEqual(response.context['lessons_time_0'].first().subject, SUBJECTS[0][0])
+        self.assertEquals(response.context['lessons_time_0'].count(), 1)
+        self.assertEquals(response.context['lessons_time_1'].count(), 0)
+        self.assertEquals(response.context['lessons_time_2'].count(), 0)
+        self.assertEquals(response.context['lessons_time_3'].count(), 0)
+        self.assertEquals(response.context['lessons_time_4'].count(), 0)
+        self.assertEquals(response.context['lessons_time_5'].count(), 0)
+        self.assertEquals(response.context['lessons_time_6'].count(), 0)
+        self.assertEquals(response.context['lessons_time_7'].count(), 0)
+        self.assertEquals(response.context['lessons_time_0'].first().id, 1)
+        self.assertEquals(response.context['lessons_time_0'].first().subject, SUBJECTS[0][0])
         # logout and login as a teacher
         self.client.logout()
         self.client.force_login(self.user_teacher)
         response = self.client.get(self.lessons_list_url)
-        self.assertEqual(response.status_code, 200)
+        self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'lessons/lessons_list.html')
-        self.assertEqual(response.context['lessons_time_0'].count(), 1)
+        self.assertEquals(response.context['lessons_time_0'].count(), 1)
         #  logout and login as a receptionist
         self.client.logout()
         self.client.force_login(self.user_receptionist)
         response = self.client.get(self.lessons_list_url)
-        self.assertEqual(response.status_code, 200)
+        self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'lessons/lessons_list.html')
-        self.assertEqual(response.context['lessons_time_0'].count(), 1)
+        self.assertEquals(response.context['lessons_time_0'].count(), 1)
         # logout and login as a parent
         self.client.logout()
         self.client.force_login(self.user_parent)
         response = self.client.get(self.lessons_list_url)
-        self.assertEqual(response.status_code, 200)
+        self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'lessons/lessons_list.html')
-        self.assertEqual(response.context['lessons_time_0'].count(), 1)
+        self.assertEquals(response.context['lessons_time_0'].count(), 1)
         # logout and login as a sales manager
         self.client.logout()
         self.client.force_login(self.user_sales_manager)
         response = self.client.get(self.lessons_list_url)
-        self.assertEqual(response.status_code, 200)
+        self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'lessons/lessons_list.html')
-        self.assertEqual(response.context['lessons_time_0'].count(), 1)
+        self.assertEquals(response.context['lessons_time_0'].count(), 1)
         # logout and login as a potential
         self.client.logout()
         self.client.force_login(self.potential)
         response = self.client.get(self.lessons_list_url)
-        self.assertEqual(response.status_code, 200)
+        self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
 
     def test_teacher_schedule_view(self):
@@ -183,49 +183,179 @@ class TestLessonForm(TestCase):
         # login as a boss
         self.client.force_login(self.user_boss)
         response = self.client.get(self.teacher_schedule_url)
-        self.assertEqual(response.status_code, 200)
+        self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout and login as a teacher
         self.client.logout()
         self.client.force_login(self.user_teacher)
         response = self.client.get(self.teacher_schedule_url)
-        self.assertEqual(response.status_code, 200)
+        self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'lessons/teacher_schedule.html')
-        self.assertEqual(response.context['lessons_time_0'].count(), 1)
-        self.assertEqual(response.context['lessons_time_1'].count(), 0)
-        self.assertEqual(response.context['lessons_time_2'].count(), 0)
-        self.assertEqual(response.context['lessons_time_3'].count(), 0)
-        self.assertEqual(response.context['lessons_time_4'].count(), 0)
-        self.assertEqual(response.context['lessons_time_5'].count(), 0)
-        self.assertEqual(response.context['lessons_time_6'].count(), 0)
-        self.assertEqual(response.context['lessons_time_7'].count(), 0)
-        self.assertEqual(response.context['lessons_time_0'].first().id, 1)
-        self.assertEqual(response.context['lessons_time_0'].first().subject, SUBJECTS[0][0])
+        self.assertEquals(response.context['lessons_time_0'].count(), 1)
+        self.assertEquals(response.context['lessons_time_1'].count(), 0)
+        self.assertEquals(response.context['lessons_time_2'].count(), 0)
+        self.assertEquals(response.context['lessons_time_3'].count(), 0)
+        self.assertEquals(response.context['lessons_time_4'].count(), 0)
+        self.assertEquals(response.context['lessons_time_5'].count(), 0)
+        self.assertEquals(response.context['lessons_time_6'].count(), 0)
+        self.assertEquals(response.context['lessons_time_7'].count(), 0)
+        self.assertEquals(response.context['lessons_time_0'].first().id, 1)
+        self.assertEquals(response.context['lessons_time_0'].first().subject, SUBJECTS[0][0])
         #  logout and login as a receptionist
         self.client.logout()
         self.client.force_login(self.user_receptionist)
         response = self.client.get(self.teacher_schedule_url)
-        self.assertEqual(response.status_code, 200)
+        self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout and login as a parent
         self.client.logout()
         self.client.force_login(self.user_parent)
         response = self.client.get(self.teacher_schedule_url)
-        self.assertEqual(response.status_code, 200)
+        self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout and login as a sales manager
         self.client.logout()
         self.client.force_login(self.user_sales_manager)
         response = self.client.get(self.teacher_schedule_url)
-        self.assertEqual(response.status_code, 200)
+        self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout and login as a potential
         self.client.logout()
         self.client.force_login(self.potential)
         response = self.client.get(self.teacher_schedule_url)
-        self.assertEqual(response.status_code, 200)
+        self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.client.logout()
+
+    def test_lesson_add_get_view(self):
+        """Test the lesson add get view."""
+        # login as a boss
+        self.client.force_login(self.user_boss)
+        response = self.client.get(self.lesson_add_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a teacher
+        self.client.logout()
+        self.client.force_login(self.user_teacher)
+        response = self.client.get(self.lesson_add_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        #  logout and login as a receptionist
+        self.client.logout()
+        self.client.force_login(self.user_receptionist)
+        response = self.client.get(self.lesson_add_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'lessons/lesson_add.html')
+        # logout and login as a parent
+        self.client.logout()
+        self.client.force_login(self.user_parent)
+        response = self.client.get(self.lesson_add_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a sales manager
+        self.client.logout()
+        self.client.force_login(self.user_sales_manager)
+        response = self.client.get(self.lesson_add_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a potential
+        self.client.logout()
+        self.client.force_login(self.potential)
+        response = self.client.get(self.lesson_add_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.client.logout()
+
+    def test_lesson_add_post_view(self):
+        # login as a receptionist
+        self.client.force_login(self.user_receptionist)
+        self.assertEquals(Lesson.objects.count(), 1)
+        response = self.client.post(self.lesson_add_url, {
+            'date': '2022-01-01',
+            'time': TIME_PERIODS[0][0],
+            'subject': SUBJECTS[0][0],
+            'teachers': [1],
+            'students': [1],
+        })
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(response.url, '/lessons/')
+        self.assertEquals(Lesson.objects.count(), 2)
+        self.assertEquals(Lesson.objects.last().time, TIME_PERIODS[0][0])
+        self.assertEquals(Lesson.objects.last().subject, SUBJECTS[0][0])
+        self.assertEquals(Lesson.objects.last().teachers.count(), 1)
+        self.assertEquals(Lesson.objects.last().teachers.first().id, 1)
+        self.assertEquals(Lesson.objects.last().students.count(), 1)
+        self.assertEquals(Lesson.objects.last().students.first().id, 1)
+        # logout and login as a boss
+        self.client.logout()
+        self.client.force_login(self.user_boss)
+        response = self.client.post(self.lesson_add_url, {
+            'date': '2023-01-01',
+            'time': TIME_PERIODS[0][0],
+            'subject': SUBJECTS[0][0],
+            'teachers': [1],
+            'students': [1],
+        })
+        self.assertEquals(Lesson.objects.count(), 2)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a teacher
+        self.client.logout()
+        self.client.force_login(self.user_teacher)
+        response = self.client.post(self.lesson_add_url, {
+            'date': '2024-01-01',
+            'time': TIME_PERIODS[0][0],
+            'subject': SUBJECTS[0][0],
+            'teachers': [1],
+            'students': [1],
+        })
+        self.assertEquals(Lesson.objects.count(), 2)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a parent
+        self.client.logout()
+        self.client.force_login(self.user_parent)
+        response = self.client.post(self.lesson_add_url, {
+            'date': '2025-01-01',
+            'time': TIME_PERIODS[0][0],
+            'subject': SUBJECTS[0][0],
+            'teachers': [1],
+            'students': [1],
+        })
+        self.assertEquals(Lesson.objects.count(), 2)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a sales manager
+        self.client.logout()
+        self.client.force_login(self.user_sales_manager)
+        response = self.client.post(self.lesson_add_url, {
+            'date': '2026-01-01',
+            'time': TIME_PERIODS[0][0],
+            'subject': SUBJECTS[0][0],
+            'teachers': [1],
+            'students': [1],
+        })
+        self.assertEquals(Lesson.objects.count(), 2)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a potential
+        self.client.logout()
+        self.client.force_login(self.potential)
+        response = self.client.post(self.lesson_add_url, {
+            'date': '2027-01-01',
+            'time': TIME_PERIODS[0][0],
+            'subject': SUBJECTS[0][0],
+            'teachers': [1],
+            'students': [1],
+        })
+        self.assertEquals(Lesson.objects.count(), 2)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.client.logout()
+        
+
+
+        
 
         # self.assertEqual(response.context['lessons'][0].id, 1)
         # self.assertEqual(response.context['lessons'][0].date, '2019-01-01')

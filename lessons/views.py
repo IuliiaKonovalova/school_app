@@ -94,46 +94,58 @@ class LessonAddView(View):
     """Lesson Add View"""
     def get(self, request):
         """Receive lesson add form"""
-        if request.user.is_authenticated and request.user.role == 3:
-            form = LessonForm()
-            return render(
-                request,
-                'lessons/lesson_add.html',
-                {'form': form}
+        if request.user.is_authenticated:
+            if request.user.role == 3:
+                form = LessonForm()
+                return render(
+                    request,
+                    'lessons/lesson_add.html',
+                    {'form': form}
+                    )
+            else:
+                return render(
+                    request,
+                    'profiles/access_limitation.html',
                 )
 
     def post(self, request):
         """Receive lesson add form"""
-        if request.user.is_authenticated and request.user.role == 3:
-            form = LessonForm(request.POST)
-            if form.is_valid():
-                lesson = form.save(commit=False)
-                students = form.cleaned_data['students']
-                messages1 = []
-                for student in students:
-                    student.classes_left -= 1
-                    if student.classes_left < 0:
-                        messages1.append(
-                            'Unfortunately, ' +
-                            student.first_name +
-                            ' ' +
-                            student.last_name +
-                            ' Does not have enough classes left. ' +
-                            'However, proceed with caution and notify ' +
-                            'Sales Department.'
-                        )
-                    student.save()
-                lesson.save()
-                form.save_m2m()
-                lesson.save()
-                request.session['messages1'] = messages1
-                return HttpResponseRedirect(
-                    reverse('lessons_list'),
-                )
-            return render(
-                request,
-                'lessons/lesson_add.html',
-                {'form': form}
+        if request.user.is_authenticated:
+            if request.user.role == 3:
+                form = LessonForm(request.POST)
+                if form.is_valid():
+                    lesson = form.save(commit=False)
+                    students = form.cleaned_data['students']
+                    messages1 = []
+                    for student in students:
+                        student.classes_left -= 1
+                        if student.classes_left < 0:
+                            messages1.append(
+                                'Unfortunately, ' +
+                                student.first_name +
+                                ' ' +
+                                student.last_name +
+                                ' Does not have enough classes left. ' +
+                                'However, proceed with caution and notify ' +
+                                'Sales Department.'
+                            )
+                        student.save()
+                    lesson.save()
+                    form.save_m2m()
+                    lesson.save()
+                    request.session['messages1'] = messages1
+                    return HttpResponseRedirect(
+                        reverse('lessons_list'),
+                    )
+                return render(
+                    request,
+                    'lessons/lesson_add.html',
+                    {'form': form}
+                    )
+            else:
+                return render(
+                    request,
+                    'profiles/access_limitation.html',
                 )
 
 
@@ -141,13 +153,19 @@ class LessonEditView(View):
     """Lesson Edit View"""
     def get(self, request, pk):
         """Receive lesson edit form"""
-        if request.user.is_authenticated and request.user.role == 3:
-            lesson = get_object_or_404(Lesson, pk=pk)
-            form = LessonForm(instance=lesson)
-            return render(
-                request,
-                'lessons/lesson_edit.html',
-                {'form': form, 'lesson': lesson}
+        if request.user.is_authenticated:
+            if request.user.role == 3:
+                lesson = get_object_or_404(Lesson, pk=pk)
+                form = LessonForm(instance=lesson)
+                return render(
+                    request,
+                    'lessons/lesson_edit.html',
+                    {'form': form, 'lesson': lesson}
+                    )
+            else:
+                return render(
+                    request,
+                    'profiles/access_limitation.html',
                 )
 
     def post(self, request, pk):
