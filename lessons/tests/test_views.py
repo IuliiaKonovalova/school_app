@@ -178,7 +178,54 @@ class TestLessonForm(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
 
-
+    def test_teacher_schedule_view(self):
+        """Test the teacher schedule view."""
+        # login as a boss
+        self.client.force_login(self.user_boss)
+        response = self.client.get(self.teacher_schedule_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a teacher
+        self.client.logout()
+        self.client.force_login(self.user_teacher)
+        response = self.client.get(self.teacher_schedule_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'lessons/teacher_schedule.html')
+        self.assertEqual(response.context['lessons_time_0'].count(), 1)
+        self.assertEqual(response.context['lessons_time_1'].count(), 0)
+        self.assertEqual(response.context['lessons_time_2'].count(), 0)
+        self.assertEqual(response.context['lessons_time_3'].count(), 0)
+        self.assertEqual(response.context['lessons_time_4'].count(), 0)
+        self.assertEqual(response.context['lessons_time_5'].count(), 0)
+        self.assertEqual(response.context['lessons_time_6'].count(), 0)
+        self.assertEqual(response.context['lessons_time_7'].count(), 0)
+        self.assertEqual(response.context['lessons_time_0'].first().id, 1)
+        self.assertEqual(response.context['lessons_time_0'].first().subject, SUBJECTS[0][0])
+        #  logout and login as a receptionist
+        self.client.logout()
+        self.client.force_login(self.user_receptionist)
+        response = self.client.get(self.teacher_schedule_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a parent
+        self.client.logout()
+        self.client.force_login(self.user_parent)
+        response = self.client.get(self.teacher_schedule_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a sales manager
+        self.client.logout()
+        self.client.force_login(self.user_sales_manager)
+        response = self.client.get(self.teacher_schedule_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a potential
+        self.client.logout()
+        self.client.force_login(self.potential)
+        response = self.client.get(self.teacher_schedule_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.client.logout()
 
         # self.assertEqual(response.context['lessons'][0].id, 1)
         # self.assertEqual(response.context['lessons'][0].date, '2019-01-01')
