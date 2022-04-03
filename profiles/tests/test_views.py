@@ -439,6 +439,63 @@ class TestViews(TestCase):
         # logout as a potential
         self.client.logout()
 
+    def test_application_delete_view_get(self):
+        """Test the application_delete view."""
+        # login as a boss
+        self.client.force_login(self.user_boss)
+        self.application_delete_url = self.application_delete_url.replace('username', self.user_boss.username)
+        response = self.client.get(self.application_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/application_delete.html')
+        # logout as a boss
+        self.client.logout()
+
+        # login as a teacher
+        self.client.force_login(self.user_teacher)
+        self.application_delete_url = self.application_delete_url.replace('username', self.user_teacher.username)
+        response = self.client.get(self.application_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a teacher
+        self.client.logout()
+
+        # login as a sales manager
+        self.client.force_login(self.user_sales_manager)
+        self.application_delete_url = self.application_delete_url.replace('username', self.user_sales_manager.username)
+        response = self.client.get(self.application_delete_url)
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(response.url, '/profiles/sales_manager/applications/1/')
+        # logout as a sales manager
+        self.client.logout()
+
+        # login as a receptionist
+        self.client.force_login(self.user_receptionist)
+        self.application_delete_url = self.application_delete_url.replace('username', self.user_receptionist.username)
+        response = self.client.get(self.application_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a receptionist
+        self.client.logout()
+
+        # login as a parent
+        self.client.force_login(self.user_parent)
+        self.application_delete_url = self.application_delete_url.replace('username', self.user_parent.username)
+        response = self.client.get(self.application_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a parent
+        self.client.logout()
+
+        # login as a potential
+        self.client.force_login(self.potential)
+        self.application_delete_url = self.application_delete_url.replace('username', self.potential.username)
+        response = self.client.get(self.application_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a potential
+        self.client.logout()
+
+
     def test_search_members_view(self):
         """Test the search_members view."""
         # Login as boss

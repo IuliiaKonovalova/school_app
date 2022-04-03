@@ -259,13 +259,8 @@ class NewApplicationsDeleteView(View):
                     'profiles/application_delete.html',
                     {'new_application': new_application}
                 )
-        else:
-            return HttpResponseRedirect(
-                reverse(
-                    'application_detail',
-                    args=[request.user.username, new_application.pk]
-                )
-            )
+
+
 
     def post(self, request, pk, *args, **kwargs):
         """Delete new applications"""
