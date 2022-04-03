@@ -1,6 +1,13 @@
 """Urls for the lessons app."""
 from django.urls import path
-from .views import LessonsView, LessonAddView, LessonEditView, LessonDeleteView, LessonDetailView, TeacherScheduleView
+from .views import (
+  LessonsView,
+  LessonAddView,
+  LessonEditView,
+  LessonDeleteView,
+  LessonDetailView,
+  TeacherScheduleView
+)
 
 
 urlpatterns = [

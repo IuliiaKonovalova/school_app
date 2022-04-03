@@ -1,6 +1,4 @@
-import email
-from logging import RootLogger
-from multiprocessing import parent_process
+"""Tests for the views."""
 from django.test import TestCase, Client
 from django.urls import reverse
 from profiles.models import (

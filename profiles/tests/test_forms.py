@@ -1,4 +1,5 @@
-from django.test import SimpleTestCase, TestCase
+"""Test for the forms in profiles app."""
+from django.test import TestCase
 from profiles.forms import (
     SimpleSignupForm,
     NewApplicationForm,

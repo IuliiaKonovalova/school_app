@@ -11,7 +11,7 @@ from profiles.views import (
     SearchMembersView,
     DeleteMemberView,
     AddRelationToParentView,
-    )
+)
 
 
 class TestUrls(SimpleTestCase):
