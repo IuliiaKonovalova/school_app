@@ -495,6 +495,8 @@ class TestViews(TestCase):
         # logout as a potential
         self.client.logout()
 
+    def test_application_delete_view_post(self):
+
 
     def test_search_members_view(self):
         """Test the search_members view."""

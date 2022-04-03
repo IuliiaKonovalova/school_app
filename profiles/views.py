@@ -259,7 +259,21 @@ class NewApplicationsDeleteView(View):
                     'profiles/application_delete.html',
                     {'new_application': new_application}
                 )
-
+            elif request.user.role == 2:
+                return HttpResponseRedirect(
+                    reverse(
+                        'application_detail',
+                        args=[request.user.username, new_application.pk]
+                    )
+                )
+            else:
+                return render(
+                    request, 'profiles/access_limitation.html'
+                )
+        else:
+            return render(
+                    request, 'profiles/access_limitation.html'
+                )
 
 
     def post(self, request, pk, *args, **kwargs):
