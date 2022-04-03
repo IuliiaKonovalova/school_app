@@ -211,7 +211,7 @@ body {
   flex-direction: column;
   align-items: center;
   color: var(--clr-neutral--900);
-  padding: 0 2em;
+  padding: 2em;
 }
 
 .home {
@@ -702,10 +702,6 @@ body {
   background-color: unset;
   max-width: 120rem;
   justify-content: start;
-}
-
-.student {
-  margin: 2em 0;
 }
 
 .students__header,
