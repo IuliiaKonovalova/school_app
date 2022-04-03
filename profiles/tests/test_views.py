@@ -215,70 +215,43 @@ class TestViews(TestCase):
         response = self.client.get(self.user_profile_edit_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/user_profile_edit.html')
-        # logout as a boss
         self.client.logout()
-
-        # login as a teacher
-        self.client.force_login(self.user_teacher)
         self.user_profile_edit_url = self.user_profile_edit_url.replace(
             'username',
             self.user_teacher.username
         )
         response = self.client.get(self.user_profile_edit_url)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'profiles/user_profile_edit.html')
-        # logout as a teacher
-        self.client.logout()
-
-        # login as a sales manager
-        self.client.force_login(self.user_sales_manager)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.user_profile_edit_url = self.user_profile_edit_url.replace(
             'username',
             self.user_sales_manager.username
         )
         response = self.client.get(self.user_profile_edit_url)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'profiles/user_profile_edit.html')
-        # logout as a sales manager
-        self.client.logout()
-
-        # login as a receptionist
-        self.client.force_login(self.user_receptionist)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.user_profile_edit_url = self.user_profile_edit_url.replace(
             'username',
             self.user_receptionist.username
         )
         response = self.client.get(self.user_profile_edit_url)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'profiles/user_profile_edit.html')
-        # logout as a receptionist
-        self.client.logout()
-
-        # login as a parent
-        self.client.force_login(self.user_parent)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.user_profile_edit_url = self.user_profile_edit_url.replace(
             'username',
             self.user_parent.username
         )
         response = self.client.get(self.user_profile_edit_url)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'profiles/user_profile_edit.html')
-        # logout as a parent
-        self.client.logout()
-
-        # login as a potential
-        self.client.force_login(self.potential)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.user_profile_edit_url = self.user_profile_edit_url.replace(
             'username',
             self.potential.username
         )
         response = self.client.get(self.user_profile_edit_url)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'profiles/user_profile_edit.html')
-        # logout as a potential
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.client.logout()
-
-
 
     def test_user_profile_edit_view_post(self):
         """Test the user_profile_edit view."""

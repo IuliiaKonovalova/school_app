@@ -1,3 +1,4 @@
+"""Testing cases for the profiles' models."""
 from django.test import TestCase
 from profiles.models import (
     CustomUser,
@@ -107,13 +108,16 @@ class TestModels(TestCase):
         self.assertEquals(self.user.role, CustomUser.ROLES[1][0])
         self.assertEquals(self.teacher_member.user, self.user_teacher)
         self.assertEquals(Teacher.objects.count(), 1)
-    
+
     def test_receptionist_model(self):
         """Test the receptionist model."""
         self.user.role = CustomUser.ROLES[2][0]
         self.user.save()
         self.assertEquals(self.user.role, CustomUser.ROLES[2][0])
-        self.assertEquals(self.receptionist_member.user, self.user_receptionist)
+        self.assertEquals(
+            self.receptionist_member.user,
+            self.user_receptionist
+        )
         self.assertEquals(Receptionist.objects.count(), 1)
 
     def test_sales_manager_model(self):
@@ -122,7 +126,10 @@ class TestModels(TestCase):
         self.user.save()
         self.assertEquals(self.user.role, CustomUser.ROLES[3][0])
         self.assertEquals(self.sales_manager_member.total_sold, 0)
-        self.assertEquals(self.sales_manager_member.user, self.user_sales_manager)
+        self.assertEquals(
+            self.sales_manager_member.user,
+            self.user_sales_manager
+        )
         self.assertEquals(SalesManager.objects.count(), 1)
 
     def test_parent_model(self):
@@ -131,6 +138,8 @@ class TestModels(TestCase):
         self.user.save()
         self.assertEquals(self.user.role, CustomUser.ROLES[4][0])
         self.assertEquals(self.parent_member.user, self.user_parent)
-        self.assertEquals(self.parent_member.relation, Parent.GUARDIAN_RELATION[4][0])
+        self.assertEquals(
+            self.parent_member.relation,
+            Parent.GUARDIAN_RELATION[4][0]
+        )
         self.assertEquals(Parent.objects.count(), 1)
-

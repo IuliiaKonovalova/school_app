@@ -5,58 +5,37 @@
 {% block extra_title %}Applications{% endblock %}
 
 {% block content %}
-  {% if request.user.role == 0 %}
-    <div class="profile">
-      <div class="profile__form--container">
-        <div class="profile__form">
-          <h2 class="profile__form--title">Delete Application</h2>
-          <form method="POST" class="profile__form">
-            {% csrf_token %}
-            <div class="profile__form--suggestions">
-              <div>Are you sure you want to delete this client?</div>
-              <div class="delete__form--warning">
-                {{ new_application.first_name }} {{ new_application.last_name }}</div>
-              <div>The application will be <strong>permanently</strong> deleted.</div>
+  <div class="profile">
+    <div class="profile__form--container">
+      <div class="profile__form">
+        <h2 class="profile__form--title">Delete Application</h2>
+        <form method="POST" class="profile__form">
+          {% csrf_token %}
+          <div class="profile__form--suggestions">
+            <div>Are you sure you want to delete this client?</div>
+            <div class="delete__form--warning">
+              {{ new_application.first_name }} {{ new_application.last_name }}</div>
+            <div>The application will be <strong>permanently</strong> deleted.</div>
+          </div>
+          <div>
+            <div class="profile__buttons">
+              {% comment %} Go back to application detail page {% endcomment %}
+              <a href="{% url 'application_detail' username=request.user pk=new_application.pk %}"
+                aria-label="Go Back to appllication page" class="profile__form--btn profile__btn profile__back--btn">
+                <div class=" profile__btn--text">
+                  Go back
+                </div>
+                <i class="far fa-window-close  profile__btn--icon"></i>
+              </a>
+              {% comment %} Submit application's deletion {% endcomment %}
+              <button type="submit" name="delete" class="profile__form--btn profile__btn profile__confirm--btn">
+                <div class="profile__btn--text">Delete</div>
+                <i class="fas fa-trash-alt profile__btn--icon"></i>
+              </button>
             </div>
-            <div>
-              <div class="profile__buttons">
-                {% comment %} Go back to application detail page {% endcomment %}
-                <a href="{% url 'application_detail' username=request.user pk=new_application.pk %}"
-                  aria-label="Go Back to appllication page" class="profile__form--btn profile__btn profile__back--btn">
-                  <div class=" profile__btn--text">
-                    Go back
-                  </div>
-                  <i class="far fa-window-close  profile__btn--icon"></i>
-                </a>
-                {% comment %} Submit application's deletion {% endcomment %}
-                <button type="submit" name="delete" class="profile__form--btn profile__btn profile__confirm--btn">
-                  <div class="profile__btn--text">Delete</div>
-                  <i class="fas fa-trash-alt profile__btn--icon"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
-  {% else %}
-    {% comment %} Access limitation for all users except bosses {% endcomment %}
-    <div class="access">
-      <div class="access__error">
-        <div class="access__error--image">
-          <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
-        </div>
-        <p class="access__error--text">You are not authorized to view this page!</p>
-        <div class="links">
-          <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to You Profile page"
-            class="links__btn links__btn--name links__btn--content">
-            <div class="profile__btn--text">
-              Back to your profile
-            </div>
-            <i class="fas fa-external-link-alt profile__btn--icon"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  {% endif %}
+  </div>
 {% endblock %}

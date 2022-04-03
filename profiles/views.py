@@ -87,13 +87,19 @@ class UserProfileEditView(View):
         user_profile = get_object_or_404(
             CustomUser, username=kwargs['username']
         )
-        form = UserProfileEditForm(instance=user_profile)
-        form.fields['role'].initial = request.user.role
-        return render(
-            request,
-            'profiles/user_profile_edit.html',
-            {'user_profile': user_profile, 'form': form}
-        )
+        if request.user == user_profile:
+            form = UserProfileEditForm(instance=user_profile)
+            form.fields['role'].initial = request.user.role
+            return render(
+                request,
+                'profiles/user_profile_edit.html',
+                {'user_profile': user_profile, 'form': form}
+            )
+        else:
+            return render(
+                request,
+                'profiles/access_limitation.html'
+            )
 
     def post(self, request, *args, **kwargs):
         """Receive user profile edit form"""
