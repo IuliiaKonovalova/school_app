@@ -468,6 +468,92 @@ class TestLessonForm(TestCase):
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.client.logout()
 
+    def test_lesson_delete_get_view(self):
+        # login as a receptionist
+        self.client.force_login(self.user_receptionist)
+        response = self.client.get(self.lesson_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'lessons/lesson_delete.html')
+        # logout and login as a boss
+        self.client.logout()
+        self.client.force_login(self.user_boss)
+        response = self.client.get(self.lesson_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a teacher
+        self.client.logout()
+        self.client.force_login(self.user_teacher)
+        response = self.client.get(self.lesson_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a parent
+        self.client.logout()
+        self.client.force_login(self.user_parent)
+        response = self.client.get(self.lesson_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a sales manager
+        self.client.logout()
+        self.client.force_login(self.user_sales_manager)
+        response = self.client.get(self.lesson_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a potential
+        self.client.logout()
+        self.client.force_login(self.potential)
+        response = self.client.get(self.lesson_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.client.logout()
+
+    def test_lesson_delete_post_view(self):
+        # login as a receptionist
+        self.client.force_login(self.user_receptionist)
+        response = self.client.post(self.lesson_delete_url)
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(response.url, '/lessons/')
+        self.assertEquals(Lesson.objects.count(), 0)
+        # create lesson
+        self.lesson_first = Lesson.objects.create(
+            date = '2019-01-01',
+            time= TIME_PERIODS[0][0],
+            subject = SUBJECTS[0][0],
+        )
+        self.lesson_first.teachers.add(Teacher.objects.get(id=1))
+        self.lesson_first.students.add(Student.objects.get(id=1))
+        # logout and login as a boss
+        self.client.logout()
+        self.client.force_login(self.user_boss)
+        response = self.client.post(self.lesson_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.assertEquals(Lesson.objects.count(), 1)
+        # logout and login as a teacher
+        self.client.logout()
+        self.client.force_login(self.user_teacher)
+        response = self.client.post(self.lesson_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.assertEquals(Lesson.objects.count(), 1)
+        # logout and login as a parent
+        self.client.logout()
+        self.client.force_login(self.user_parent)
+        response = self.client.post(self.lesson_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.assertEquals(Lesson.objects.count(), 1)
+        # logout and login as a sales manager
+        self.client.logout()
+        self.client.force_login(self.user_sales_manager)
+        response = self.client.post(self.lesson_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.assertEquals(Lesson.objects.count(), 1)
+        # logout and login as a potential
+        self.client.logout()
+        self.client.force_login(self.potential)
+        response = self.client.post(self.lesson_delete_url)
+
         # self.assertEqual(response.context['lessons'][0].id, 1)
         # self.assertEqual(response.context['lessons'][0].date, '2019-01-01')
         # self.assertEqual(response.context['lessons'][0].time, '08:00:00')

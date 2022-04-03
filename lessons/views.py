@@ -218,25 +218,37 @@ class LessonDeleteView(View):
     """Lesson Delete View"""
     def get(self, request, pk):
         """Receive lesson delete form"""
-        if request.user.is_authenticated and request.user.role == 3:
-            lesson = get_object_or_404(Lesson, pk=pk)
-            return render(
-                request,
-                'lessons/lesson_delete.html',
-                {'lesson': lesson}
+        if request.user.is_authenticated:
+            if request.user.role == 3:
+                lesson = get_object_or_404(Lesson, pk=pk)
+                return render(
+                    request,
+                    'lessons/lesson_delete.html',
+                    {'lesson': lesson}
+                    )
+            else:
+                return render(
+                    request,
+                    'profiles/access_limitation.html',
                 )
 
     def post(self, request, pk):
         """Receive lesson delete form"""
-        if request.user.is_authenticated and request.user.role == 3:
-            lesson = get_object_or_404(Lesson, pk=pk)
-            students = lesson.students.all()
-            for student in students:
-                student.classes_left += 1
-                student.save()
-            lesson.delete()
-            return HttpResponseRedirect(
-                reverse('lessons_list')
+        if request.user.is_authenticated:
+            if request.user.role == 3:
+                lesson = get_object_or_404(Lesson, pk=pk)
+                students = lesson.students.all()
+                for student in students:
+                    student.classes_left += 1
+                    student.save()
+                lesson.delete()
+                return HttpResponseRedirect(
+                    reverse('lessons_list')
+                    )
+            else:
+                return render(
+                    request,
+                    'profiles/access_limitation.html',
                 )
 
 
