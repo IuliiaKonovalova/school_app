@@ -362,7 +362,79 @@ class TestViews(TestCase):
         # logout as a receptionist
         self.client.logout()
 
+        # login as a parent
+        self.client.force_login(self.user_parent)
+        self.application_detail_url = self.application_detail_url.replace('username', self.user_parent.username)
+        response = self.client.get(self.application_detail_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a parent
+        self.client.logout()
 
+        # login as a potential
+        self.client.force_login(self.potential)
+        self.application_detail_url = self.application_detail_url.replace('username', self.potential.username)
+        response = self.client.get(self.application_detail_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a potential
+        self.client.logout()
+
+    def test_new_application_view_post(self):
+        """Test the new_application view."""
+        # login as a boss
+        self.client.force_login(self.user_boss)
+        self.application_detail_url = self.application_detail_url.replace('username', self.user_boss.username)
+        response = self.client.post(self.application_detail_url, {'status': 'accepted'})
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/application_detail.html')
+        # logout as a boss
+        self.client.logout()
+
+        # login as a teacher
+        self.client.force_login(self.user_teacher)
+        self.application_detail_url = self.application_detail_url.replace('username', self.user_teacher.username)
+        response = self.client.post(self.application_detail_url, {'status': 'accepted'})
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a teacher
+        self.client.logout()
+
+        # login as a sales manager
+        self.client.force_login(self.user_sales_manager)
+        self.application_detail_url = self.application_detail_url.replace('username', self.user_sales_manager.username)
+        response = self.client.post(self.application_detail_url, {'status': 'accepted'})
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/application_detail.html')
+        # logout as a sales manager
+        self.client.logout()
+
+        # login as a receptionist
+        self.client.force_login(self.user_receptionist)
+        self.application_detail_url = self.application_detail_url.replace('username', self.user_receptionist.username)
+        response = self.client.post(self.application_detail_url, {'status': 'accepted'})
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a receptionist
+        self.client.logout()
+
+        # login as a parent
+        self.client.force_login(self.user_parent)
+        self.application_detail_url = self.application_detail_url.replace('username', self.user_parent.username)
+        response = self.client.post(self.application_detail_url, {'status': 'accepted'})
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a parent
+        self.client.logout()
+        
+        # login as a potential
+        self.client.force_login(self.potential)
+        self.application_detail_url = self.application_detail_url.replace('username', self.potential.username)
+        response = self.client.post(self.application_detail_url, {'status': 'accepted'})
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a potential
+        self.client.logout()
 
     def test_search_members_view(self):
         """Test the search_members view."""
