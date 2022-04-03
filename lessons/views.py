@@ -12,37 +12,43 @@ class LessonsView(View):
     """Lessons View"""
     def get(self, request, *args, **kwargs):
         """Receive lessons list"""
-        if request.user.is_authenticated and request.user.role != 5:
-            lessons = Lesson.objects.all()
-            # get lessons by time:
-            lessons_time_0 = lessons.filter(time=0)
-            lessons_time_1 = lessons.filter(time=1)
-            lessons_time_2 = lessons.filter(time=2)
-            lessons_time_3 = lessons.filter(time=3)
-            lessons_time_4 = lessons.filter(time=4)
-            lessons_time_5 = lessons.filter(time=5)
-            lessons_time_6 = lessons.filter(time=6)
-            lessons_time_7 = lessons.filter(time=7)
-            messages1 = []
-            if request.session.has_key('messages1'):
-                messages1 = request.session['messages1']
-                del request.session['messages1']
-            context = {
-                'lessons_time_0': lessons_time_0,
-                'lessons_time_1': lessons_time_1,
-                'lessons_time_2': lessons_time_2,
-                'lessons_time_3': lessons_time_3,
-                'lessons_time_4': lessons_time_4,
-                'lessons_time_5': lessons_time_5,
-                'lessons_time_6': lessons_time_6,
-                'lessons_time_7': lessons_time_7,
-                'messages1': messages1,
-            }
-            return render(
-                request,
-                'lessons/lessons_list.html',
-                context
-            )
+        if request.user.is_authenticated:
+            if request.user.role == 5:
+                return render(
+                    request,
+                    'profiles/access_limitation.html',
+                )
+            else:
+                lessons = Lesson.objects.all()
+                # get lessons by time:
+                lessons_time_0 = lessons.filter(time=0)
+                lessons_time_1 = lessons.filter(time=1)
+                lessons_time_2 = lessons.filter(time=2)
+                lessons_time_3 = lessons.filter(time=3)
+                lessons_time_4 = lessons.filter(time=4)
+                lessons_time_5 = lessons.filter(time=5)
+                lessons_time_6 = lessons.filter(time=6)
+                lessons_time_7 = lessons.filter(time=7)
+                messages1 = []
+                if request.session.has_key('messages1'):
+                    messages1 = request.session['messages1']
+                    del request.session['messages1']
+                context = {
+                    'lessons_time_0': lessons_time_0,
+                    'lessons_time_1': lessons_time_1,
+                    'lessons_time_2': lessons_time_2,
+                    'lessons_time_3': lessons_time_3,
+                    'lessons_time_4': lessons_time_4,
+                    'lessons_time_5': lessons_time_5,
+                    'lessons_time_6': lessons_time_6,
+                    'lessons_time_7': lessons_time_7,
+                    'messages1': messages1,
+                }
+                return render(
+                    request,
+                    'lessons/lessons_list.html',
+                    context
+                )
         return HttpResponseRedirect(reverse('home'))
 
 
