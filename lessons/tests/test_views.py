@@ -270,6 +270,7 @@ class TestLessonForm(TestCase):
         # login as a receptionist
         self.client.force_login(self.user_receptionist)
         self.assertEquals(Lesson.objects.count(), 1)
+        self.assertEquals(Student.objects.get(id=1).classes_left, 50)
         response = self.client.post(self.lesson_add_url, {
             'date': '2022-01-01',
             'time': TIME_PERIODS[0][0],
@@ -286,6 +287,7 @@ class TestLessonForm(TestCase):
         self.assertEquals(Lesson.objects.last().teachers.first().id, 1)
         self.assertEquals(Lesson.objects.last().students.count(), 1)
         self.assertEquals(Lesson.objects.last().students.first().id, 1)
+        self.assertEquals(Student.objects.get(id=1).classes_left, 49)
         # logout and login as a boss
         self.client.logout()
         self.client.force_login(self.user_boss)
@@ -472,6 +474,7 @@ class TestLessonForm(TestCase):
         # login as a receptionist
         self.client.force_login(self.user_receptionist)
         response = self.client.get(self.lesson_delete_url)
+        self.assertEquals(Student.objects.get(id=1).classes_left, 50)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'lessons/lesson_delete.html')
         # logout and login as a boss
@@ -509,10 +512,16 @@ class TestLessonForm(TestCase):
     def test_lesson_delete_post_view(self):
         # login as a receptionist
         self.client.force_login(self.user_receptionist)
-        response = self.client.post(self.lesson_delete_url)
+        self.assertEquals(Student.objects.get(id=1).classes_left, 50)
+        response = self.client.post(self.lesson_delete_url, {
+            'pk': 'delete',
+        })
         self.assertEquals(response.status_code, 302)
         self.assertEquals(response.url, '/lessons/')
         self.assertEquals(Lesson.objects.count(), 0)
+        self.assertEquals(Student.objects.get(id=1).classes_left, 51)
+        # logout and login as a boss
+        self.client.logout()
         # create lesson
         self.lesson_first = Lesson.objects.create(
             date = '2019-01-01',
@@ -521,8 +530,6 @@ class TestLessonForm(TestCase):
         )
         self.lesson_first.teachers.add(Teacher.objects.get(id=1))
         self.lesson_first.students.add(Student.objects.get(id=1))
-        # logout and login as a boss
-        self.client.logout()
         self.client.force_login(self.user_boss)
         response = self.client.post(self.lesson_delete_url)
         self.assertEquals(response.status_code, 200)
