@@ -275,17 +275,18 @@ class NewApplicationsDeleteView(View):
                     request, 'profiles/access_limitation.html'
                 )
 
-
     def post(self, request, pk, *args, **kwargs):
         """Delete new applications"""
         new_application = get_object_or_404(CustomUser, pk=pk)
-        new_application.delete()
-        return HttpResponseRedirect(
-            reverse(
-                'new_applications',
-                args=[request.user.username]
-            )
-        )
+        if request.user.is_authenticated:
+            if request.user.role == 0:
+                new_application.delete()
+                return HttpResponseRedirect(
+                    reverse(
+                        'new_applications',
+                        args=[request.user.username]
+                    )
+                )
 
 
 class SearchMembersView(ListView):

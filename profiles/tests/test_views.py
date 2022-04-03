@@ -1,4 +1,5 @@
 import email
+from logging import RootLogger
 from multiprocessing import parent_process
 from django.test import TestCase, Client
 from django.urls import reverse
@@ -496,6 +497,67 @@ class TestViews(TestCase):
         self.client.logout()
 
     def test_application_delete_view_post(self):
+        """Test the application_delete view."""
+        # login as a boss
+        self.client.force_login(self.user_boss)
+        self.application_delete_url = self.application_delete_url.replace('username', self.user_boss.username)
+        self.assertEquals(CustomUser.objects.filter(role=5).count(), 2)
+        response = self.client.post(self.application_delete_url, {'pk': 1})
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(response.url, '/profiles/boss/applications/')
+        self.assertEquals(CustomUser.objects.filter(role=5).count(), 1)
+        # logout as a boss
+        self.client.logout()
+
+        self.user = CustomUser.objects.create(
+            username='testuser',
+            email='testuser@potential.com',
+            password='Testuser123',
+            first_name='test',
+            last_name='user',
+            phone='1234567890',
+            role = CustomUser.ROLES[5][0],
+        )
+        self.assertEquals(CustomUser.objects.filter(role=5).count(), 2)
+        # login as a teacher
+        self.client.force_login(self.user_teacher)
+        self.application_delete_url = self.application_delete_url.replace('username', self.user_teacher.username)
+        response = self.client.post(self.application_delete_url, {'pk': 1})
+        self.assertEquals(response.status_code, 404)
+        # logout as a teacher
+        self.client.logout()
+
+        # login as a sales manager
+        self.client.force_login(self.user_sales_manager)
+        self.application_delete_url = self.application_delete_url.replace('username', self.user_sales_manager.username)
+        response = self.client.post(self.application_delete_url, {'pk': 1})
+        self.assertEquals(response.status_code, 404)
+        # logout as a sales manager
+        self.client.logout()
+
+        # login as a receptionist
+        self.client.force_login(self.user_receptionist)
+        self.application_delete_url = self.application_delete_url.replace('username', self.user_receptionist.username)
+        response = self.client.post(self.application_delete_url, {'pk': 1})
+        self.assertEquals(response.status_code, 404)
+        # logout as a receptionist
+        self.client.logout()
+
+        # login as a parent
+        self.client.force_login(self.user_parent)
+        self.application_delete_url = self.application_delete_url.replace('username', self.user_parent.username)
+        response = self.client.post(self.application_delete_url, {'pk': 1})
+        self.assertEquals(response.status_code, 404)
+        # logout as a parent
+        self.client.logout()
+
+        # login as a potential
+        self.client.force_login(self.potential)
+        self.application_delete_url = self.application_delete_url.replace('username', self.potential.username)
+        response = self.client.post(self.application_delete_url, {'pk': 1})
+        self.assertEquals(response.status_code, 404)
+        # logout as a potential
+        self.client.logout()
 
 
     def test_search_members_view(self):
