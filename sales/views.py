@@ -54,9 +54,7 @@ class SalesView(View):
 def sales_form(request):
     """Sales form"""
     if request.method == 'GET':
-        if request.user.is_authenticated and (
-            request.user.role == 0 or request.user.role == 2
-        ):
+        if request.user.is_authenticated and request.user.role == 2:
             form = SalesForm()
             form.fields['sold_to'].queryset = Parent.objects.all()
             form.fields['student'].queryset = Student.objects.all()
@@ -64,26 +62,38 @@ def sales_form(request):
                 request,
                 'sales/sales_form.html',
                 {'form': form}
-                )
-    if request.method == "POST":
-        form = SalesForm(request.POST)
-        if form.is_valid():
-            seller = SalesManager.objects.get(user=request.user)
-            buyer = form.cleaned_data['sold_to']
-            amount = form.cleaned_data['amount']
-            child = form.cleaned_data['student']
-            student = Student.objects.get(id=child.id)
-            student.classes_left += amount
-            student.save()
-            new_sale = Sales.objects.create(
-                sold_by=seller,
-                sold_to=buyer,
-                amount=amount,
-                student_id=child.id
             )
-            new_sale.save()
-            return HttpResponseRedirect(
-                reverse('sales_list')
+        else:
+            return render(
+                request,
+                'profiles/access_limitation.html'
+            )
+
+    if request.method == "POST":
+        if request.user.is_authenticated and request.user.role == 2:
+            form = SalesForm(request.POST)
+            if form.is_valid():
+                seller = SalesManager.objects.get(user=request.user)
+                buyer = form.cleaned_data['sold_to']
+                amount = form.cleaned_data['amount']
+                child = form.cleaned_data['student']
+                student = Student.objects.get(id=child.id)
+                student.classes_left += amount
+                student.save()
+                new_sale = Sales.objects.create(
+                    sold_by=seller,
+                    sold_to=buyer,
+                    amount=amount,
+                    student_id=child.id
+                )
+                new_sale.save()
+                return HttpResponseRedirect(
+                    reverse('sales_list')
+                )
+        else:
+            return render(
+                request,
+                'profiles/access_limitation.html'
             )
 
 
@@ -103,28 +113,45 @@ def edit_sales(request, pk):
                 'sales/edit_sales.html',
                 {'form': form}
                 )
+        else:
+            return render(
+                request,
+                'profiles/access_limitation.html'
+            )
     if request.method == "POST":
-        sales = Sales.objects.get(id=pk)
-        student = Student.objects.get(id=sales.student_id)
-        amount_of_classes = sales.amount
-        student.classes_left -= amount_of_classes
-        student.save()
-        form = SalesForm(request.POST, instance=sales)
-        if form.is_valid():
-            seller = SalesManager.objects.get(user=request.user)
-            buyer = form.cleaned_data['sold_to']
-            amount = form.cleaned_data['amount']
-            child = form.cleaned_data['student']
-            student = Student.objects.get(id=child.id)
-            student.classes_left += amount
+        if request.user.is_authenticated and request.user.role == 2:
+            sales = Sales.objects.get(id=pk)
+            student = Student.objects.get(id=sales.student_id)
+            amount_of_classes = sales.amount
+            student.classes_left -= amount_of_classes
             student.save()
-            sales.sold_by = seller
-            sales.sold_to = buyer
-            sales.amount = amount
-            sales.student_id = child.id
-            sales.save()
-            return HttpResponseRedirect(
-                reverse('sales_list')
+            form = SalesForm(request.POST, instance=sales)
+            if form.is_valid():
+                seller = SalesManager.objects.get(user=request.user)
+                buyer = form.cleaned_data['sold_to']
+                amount = form.cleaned_data['amount']
+                child = form.cleaned_data['student']
+                student = Student.objects.get(id=child.id)
+                student.classes_left += amount
+                student.save()
+                sales.sold_by = seller
+                sales.sold_to = buyer
+                sales.amount = amount
+                sales.student_id = child.id
+                sales.save()
+                return HttpResponseRedirect(
+                    reverse('sales_list')
+                )
+            else:
+                return render(
+                    request,
+                    'sales/edit_sales.html',
+                    {'form': form}
+                )
+        else:
+            return render(
+                request,
+                'profiles/access_limitation.html'
             )
 
 
@@ -139,6 +166,12 @@ def delete_sales(request, pk):
                 'sales/delete_sales.html',
                 {'sales': sales, 'student': student}
                 )
+        else:
+            return render(
+                request,
+                'profiles/access_limitation.html'
+            )
+
     if request.method == "POST":
         if request.user.is_authenticated and request.user.role == 2:
             sales = Sales.objects.get(id=pk)
@@ -149,4 +182,9 @@ def delete_sales(request, pk):
             sales.delete()
             return HttpResponseRedirect(
                 reverse('sales_list')
+            )
+        else:
+            return render(
+                request,
+                'profiles/access_limitation.html'
             )

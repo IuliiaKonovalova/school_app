@@ -1,8 +1,8 @@
 """Tests for the views of the sales app."""
+from urllib import response
 from django.test import TestCase, Client
 from django.urls import reverse
 from sales.models import Sales
-from sales.views import SalesView, sales_form, edit_sales, delete_sales
 from profiles.models import (
     CustomUser,
     SalesManager,
@@ -19,8 +19,8 @@ class SalesViewTest(TestCase):
         self.client = Client()
         self.sales_list_url = reverse('sales_list')
         self.sales_form_url = reverse('sales_form')
-        self.edit_sales_url = reverse('edit_sales', kwargs={'pk': 1})
-        self.delete_sales_url = reverse('delete_sales', kwargs={'pk': 1})
+        self.edit_sales_url = reverse('edit_sales', args=[1])
+        self.delete_sales_url = reverse('delete_sales', args=[1])
         # create users
         self.user = CustomUser.objects.create(
             username='testuser',
@@ -169,10 +169,10 @@ class SalesViewTest(TestCase):
             'todate': self.todate,
         }
         response = self.client.post(self.sales_list_url, self.data)
-        self.search_items = Sales.objects.filter(
+        self.search_date = Sales.objects.filter(
             date__range=[self.fromdate, self.todate]
         )
-        self.assertEquals(len(response.context['sales']), self.search_items.count())
+        self.assertEquals(len(response.context['sales']), self.search_date.count())
         # logout as a boss and login as a sales manager
         self.client.logout()
         self.client.force_login(self.user_sales_manager)
@@ -196,8 +196,7 @@ class SalesViewTest(TestCase):
         self.client.force_login(self.user_parent)
         response = self.client.post(self.sales_list_url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed
-        (response, 'profiles/access_limitation.html')
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout as a parent and login as a potential
         self.client.logout()
         self.client.force_login(self.potential)
@@ -206,5 +205,136 @@ class SalesViewTest(TestCase):
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.client.logout()
 
-    def test_sales_form_view(self):
+    def test_sales_form_get_view(self):
         """Test the sales form view."""
+        # login as a boss
+        self.client.force_login(self.user_boss)
+        response = self.client.get(self.sales_form_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a boss and login as a sales manager
+        self.client.logout()
+        self.client.force_login(self.user_sales_manager)
+        response = self.client.get(self.sales_form_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'sales/sales_form.html')
+        # logout as a sales manager and login as a teacher
+        self.client.logout()
+        self.client.force_login(self.user_teacher)
+        response = self.client.get(self.sales_form_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a teacher and login as a receptionist
+        self.client.logout()
+        self.client.force_login(self.user_receptionist)
+        response = self.client.get(self.sales_form_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a receptionist and login as a parent
+        self.client.logout()
+        self.client.force_login(self.user_parent)
+        response = self.client.get(self.sales_form_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a parent and login as a potential
+        self.client.logout()
+        self.client.force_login(self.potential)
+        response = self.client.get(self.sales_form_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.client.logout()
+
+    def test_edit_sales_get_view(self):
+        """Test the edit sales view."""
+        # login as a boss
+        self.client.force_login(self.user_boss)
+        self.edit_sales_url = self.edit_sales_url.replace(
+            'username',
+            self.user_boss.username
+        )
+        response = self.client.get(self.edit_sales_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a boss and login as a sales manager
+        self.client.logout()
+        self.client.force_login(self.user_sales_manager)
+        self.edit_sales_url = self.edit_sales_url.replace(
+            'username',
+            self.user_sales_manager.username
+        )
+        response = self.client.post(self.edit_sales_url, {
+            'sold_by': 1,
+            'sold_to': 1,
+            'amount': 15,
+            'student_id': 1,
+            'date': '2019-01-01',
+        })
+        self.assertEquals(response.status_code, 200)
+        # self.assertEquals(response, '/sales/sales_list/')
+
+    def test_delete_sale_post(self):
+        """Test the delete_sale"""
+        # login as a sales manager
+        self.client.force_login(self.user_sales_manager)
+        self.assertEquals(Student.objects.get(id=1).classes_left, 50)
+        self.delete_sales_url = self.delete_sales_url.replace(
+            'username',
+            self.user_sales_manager.username
+        )
+        response = self.client.post(self.delete_sales_url, {'sale_id': 1})
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(response.url, '/sales/sales/')
+        self.assertEquals(Sales.objects.count(), 0)
+        # check classes left reduced
+        self.assertEquals(Student.objects.get(id=1).classes_left, 40)
+        # logout as a sales manager and login as a boss
+        self.client.logout()
+        self.client.force_login(self.user_boss)
+        self.delete_sales_url = self.delete_sales_url.replace(
+            'username',
+            self.user_boss.username
+        )
+        response = self.client.post(self.delete_sales_url, {'sale_id': 1})
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a boss and login as a teacher
+        self.client.logout()
+        self.client.force_login(self.user_teacher)
+        self.delete_sales_url = self.delete_sales_url.replace(
+            'username',
+            self.user_teacher.username
+        )
+        response = self.client.post(self.delete_sales_url, {'sale_id': 1})
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a teacher and login as a receptionist
+        self.client.logout()
+        self.client.force_login(self.user_receptionist)
+        self.delete_sales_url = self.delete_sales_url.replace(
+            'username',
+            self.user_receptionist.username
+        )
+        response = self.client.post(self.delete_sales_url, {'sale_id': 1})
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a receptionist and login as a parent
+        self.client.logout()
+        self.client.force_login(self.user_parent)
+        self.delete_sales_url = self.delete_sales_url.replace(
+            'username',
+            self.user_parent.username
+        )
+        response = self.client.post(self.delete_sales_url, {'sale_id': 1})
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout as a parent and login as a potential
+        self.client.logout()
+        self.client.force_login(self.potential)
+        self.delete_sales_url = self.delete_sales_url.replace(
+            'username',
+            self.potential.username
+        )
+        response = self.client.post(self.delete_sales_url, {'sale_id': 1})
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.client.logout()
