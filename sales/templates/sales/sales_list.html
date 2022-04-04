@@ -24,144 +24,124 @@
 
 {% block content %}
   {% comment %} Main content to sales page only for bosses and sales managers {% endcomment %}
-  {% if request.user.role == 0 or request.user.role == 2 %}
-    <div class="sales">
-      <div class="sales__header">
-        <h2 class="sales__title">Sales</h2>
-        {% comment %} Add sales button only for sales managers {% endcomment %}
-        {% if request.user.role == 2 %}
-          <a href="{% url 'sales_form' %}" aria-label="Go to Add Sale page"
-            class="sales__btn sales__add--btn sales__btn--custom">
-            <div class="student__btn--text">
-              Add new Sale
-            </div>
-            <i class="fas fa-plus-circle student__btn--icon"></i>
-          </a>
-        {% endif %}
-      </div>
-      {% comment %} Form to search sales by time period {% endcomment %}
-      <form method="POST" class="sales__form">
-      <h4 class="sales__form--heading">Search sales by date</h4>
-        {% csrf_token %}
-        <div class="sales__form--settings">
-          <div class="datepicker__container">
-            <div class="datepicker__container--title">From:</div>
-            <input type="text" id="datepicker1" name="from_date" placeholder="mm-dd-yyyy">
+  <div class="sales">
+    <div class="sales__header">
+      <h2 class="sales__title">Sales</h2>
+      {% comment %} Add sales button only for sales managers {% endcomment %}
+      {% if request.user.role == 2 %}
+        <a href="{% url 'sales_form' %}" aria-label="Go to Add Sale page"
+          class="sales__btn sales__add--btn sales__btn--custom">
+          <div class="student__btn--text">
+            Add new Sale
           </div>
-          <div  class="datepicker__container">
-            <div class="datepicker__container--title">To:</div>
-            <input type="text" id="datepicker2" name="to_date" placeholder="mm-dd-yyyy">
-          </div>
-          <button type="submit" value="search" class="search__btn classes__form--btn">
-            <div class=" profile__btn--text">Search</div>
-            <i class="fas fa-search  profile__btn--icon"></i>
-          </button>
+          <i class="fas fa-plus-circle student__btn--icon"></i>
+        </a>
+      {% endif %}
+    </div>
+    {% comment %} Form to search sales by time period {% endcomment %}
+    <form method="POST" class="sales__form">
+    <h4 class="sales__form--heading">Search sales by date</h4>
+      {% csrf_token %}
+      <div class="sales__form--settings">
+        <div class="datepicker__container">
+          <div class="datepicker__container--title">From:</div>
+          <input type="text" id="datepicker1" name="from_date" placeholder="mm-dd-yyyy">
         </div>
-        {% comment %} Sales results {% endcomment %}
-        <div class="sales__results">
-          <div class="sales__results--summary">
-            <strong>{{ sales|length }}</strong> sales found
-          </div>
-          <table class="sales__results--container">
-            {% comment %} Sales Table Header {% endcomment %}
-            <tr>
-              <th>ID</th>
-              <th>Date</th>
-              <th>Total</th>
-              <th>Manager</th>
-              <th>Client</th>
-              <th>Student</th>
-              {% comment %} Limit access to render sale only for sales managers {% endcomment %}
-              {% if request.user.role == 2 %}
-                <th>Edit</th>
-                <th>Delete</th>
+        <div  class="datepicker__container">
+          <div class="datepicker__container--title">To:</div>
+          <input type="text" id="datepicker2" name="to_date" placeholder="mm-dd-yyyy">
+        </div>
+        <button type="submit" value="search" class="search__btn classes__form--btn">
+          <div class=" profile__btn--text">Search</div>
+          <i class="fas fa-search  profile__btn--icon"></i>
+        </button>
+      </div>
+      {% comment %} Sales results {% endcomment %}
+      <div class="sales__results">
+        <div class="sales__results--summary">
+          <strong>{{ sales|length }}</strong> sales found
+        </div>
+        <table class="sales__results--container">
+          {% comment %} Sales Table Header {% endcomment %}
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Manager</th>
+            <th>Client</th>
+            <th>Student</th>
+            {% comment %} Limit access to render sale only for sales managers {% endcomment %}
+            {% if request.user.role == 2 %}
+              <th>Edit</th>
+              <th>Delete</th>
+            {% endif %}
+          </tr>
+          {% comment %} Sales table data {% endcomment %}
+          {% for sale in sales %}
+            <tr class="sales__results--item">
+              <td>{{ sale.id }}</td>
+              <td>{{ sale.date|date:'m/d/Y' }}</td>
+              <td>{{ sale.amount }}</td>
+              {% comment %} Link to sales manager profile {% endcomment %}
+              <td>
+                <div class="links">
+                  <a href="{% url 'user_profile' username=sale.sold_by.user.username %}"
+                    aria-label="Go to Profile page" class="links__btn links__btn--name">
+                    <div class="student__btn--text">
+                      {{ sale.sold_by|title }}
+                    </div>
+                    <i class="fas fa-external-link-alt student__btn--icon"></i>
+                  </a>
+                </div>
+              </td>
+              {% comment %} Link to parent profile {% endcomment %}
+              <td>
+                <div class="links">
+                  <a href="{% url 'user_profile' username=sale.sold_to.user.username %}"
+                    aria-label="Go to Profile page" class="links__btn links__btn--name">
+                    <div class="student__btn--text">
+                      {{ sale.sold_to|title }}
+                    </div>
+                    <i class="fas fa-external-link-alt student__btn--icon"></i>
+                  </a>
+                </div>
+              </td>
+              {% comment %} Link to student profile {% endcomment %}
+              <td>
+                <div class="links">
+                  <a href="{% url 'student_detail' pk=sale.student_id %}" aria-label="Go to Student's Detail page"
+                    class="links__btn links__btn--name">
+                    <div class="student__btn--text">
+                      {{ sale.student_name}}
+                    </div>
+                    <i class="fas fa-external-link-alt student__btn--icon"></i>
+                  </a>
+                </div>
+              </td>
+              {% comment %} Limit access of rendering sales, only for manager who conducted a deal {% endcomment %}
+              {% if request.user.role == 2 and request.user.username == sale.sold_by.user.username %}
+                <td>
+                  <a href="{% url 'edit_sales' pk=sale.pk %}" aria-label="Go to Edit Sale page"
+                    class="sales__btn sales__edit--btn">
+                    <div class=" sales__btn--text">Edit</div>
+                    <i class="fas fa-edit  sales__btn--icon"></i>
+                  </a>
+                </td>
+                <td>
+                  <a href="{% url 'delete_sales' pk=sale.pk %}" aria-label="Go to Delete Sales page"
+                    class="sales__btn sales__delete--btn">
+                    <div class="sales__btn--text">Delete</div>
+                    <i class="fas fa-trash-alt sales__btn--icon"></i>
+                  </a>
+                </td>
+              {% else %}
+                <td></td>
+                <td></td>
               {% endif %}
             </tr>
-            {% comment %} Sales table data {% endcomment %}
-            {% for sale in sales %}
-              <tr class="sales__results--item">
-                <td>{{ sale.id }}</td>
-                <td>{{ sale.date|date:'m/d/Y' }}</td>
-                <td>{{ sale.amount }}</td>
-                {% comment %} Link to sales manager profile {% endcomment %}
-                <td>
-                  <div class="links">
-                    <a href="{% url 'user_profile' username=sale.sold_by.user.username %}"
-                      aria-label="Go to Profile page" class="links__btn links__btn--name">
-                      <div class="student__btn--text">
-                        {{ sale.sold_by|title }}
-                      </div>
-                      <i class="fas fa-external-link-alt student__btn--icon"></i>
-                    </a>
-                  </div>
-                </td>
-                {% comment %} Link to parent profile {% endcomment %}
-                <td>
-                  <div class="links">
-                    <a href="{% url 'user_profile' username=sale.sold_to.user.username %}"
-                      aria-label="Go to Profile page" class="links__btn links__btn--name">
-                      <div class="student__btn--text">
-                        {{ sale.sold_to|title }}
-                      </div>
-                      <i class="fas fa-external-link-alt student__btn--icon"></i>
-                    </a>
-                  </div>
-                </td>
-                {% comment %} Link to student profile {% endcomment %}
-                <td>
-                  <div class="links">
-                    <a href="{% url 'student_detail' pk=sale.student_id %}" aria-label="Go to Student's Detail page"
-                      class="links__btn links__btn--name">
-                      <div class="student__btn--text">
-                        {{ sale.student_name}}
-                      </div>
-                      <i class="fas fa-external-link-alt student__btn--icon"></i>
-                    </a>
-                  </div>
-                </td>
-                {% comment %} Limit access of rendering sales, only for manager who conducted a deal {% endcomment %}
-                {% if request.user.role == 2 and request.user.username == sale.sold_by.user.username %}
-                  <td>
-                    <a href="{% url 'edit_sales' pk=sale.pk %}" aria-label="Go to Edit Sale page"
-                      class="sales__btn sales__edit--btn">
-                      <div class=" sales__btn--text">Edit</div>
-                      <i class="fas fa-edit  sales__btn--icon"></i>
-                    </a>
-                  </td>
-                  <td>
-                    <a href="{% url 'delete_sales' pk=sale.pk %}" aria-label="Go to Delete Sales page"
-                      class="sales__btn sales__delete--btn">
-                      <div class="sales__btn--text">Delete</div>
-                      <i class="fas fa-trash-alt sales__btn--icon"></i>
-                    </a>
-                  </td>
-                {% else %}
-                  <td></td>
-                  <td></td>
-                {% endif %}
-              </tr>
-            {% endfor %}
-          </table>
-        </div>
-      </form>
-    </div>
-  {% else %}
-    {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
-    <div class="access">
-      <div class="access__error">
-        <div class="access__error--image">
-          <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
-        </div>
-        <p class="access__error--text">You are not authorized to view this page!</p>
-        <div class="links">
-          <a href="{% url 'user_profile' username=request.user %}" class="links__btn links__btn--name links__btn--content">
-            <div class="profile__btn--text">
-              Back to your profile
-            </div>
-            <i class="fas fa-external-link-alt profile__btn--icon"></i>
-          </a>
-        </div>
+          {% endfor %}
+        </table>
       </div>
-    </div>
-  {% endif %}
+    </form>
+  </div>
 {% endblock %}

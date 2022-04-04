@@ -1,5 +1,4 @@
 """Tests for the views of the sales app."""
-from urllib import response
 from django.test import TestCase, Client
 from django.urls import reverse
 from sales.models import Sales
