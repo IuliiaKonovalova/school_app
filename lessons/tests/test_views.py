@@ -1,4 +1,4 @@
-"""Tests for the forms of the lessons app."""
+"""Tests for the views of the lessons app."""
 from django.test import TestCase, Client
 from django.urls import reverse
 from lessons.models import Lesson

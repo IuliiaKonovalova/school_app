@@ -32,8 +32,6 @@ class SalesFormTest(TestCase):
             phone = '1234567890',
             role = CustomUser.ROLES[4][0],
         )
-
-
         self.parent_member = Parent.objects.create(
             user = CustomUser.objects.get(id = self.user_parent.id),
             relation = Parent.GUARDIAN_RELATION[4][0],
