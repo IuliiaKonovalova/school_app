@@ -37,13 +37,16 @@ class SalesView(View):
         ):
             fromdate=request.POST.get('from_date')
             todate=request.POST.get('to_date')
-            print(fromdate, todate)
-            print(fromdate, todate)
             search_items = Sales.objects.filter(date__range=[fromdate, todate])
             return render(
                 request,
                 'sales/sales_list.html',
                 {'sales': search_items}
+            )
+        else:
+            return render(
+                request,
+                'profiles/access_limitation.html'
             )
 
 
