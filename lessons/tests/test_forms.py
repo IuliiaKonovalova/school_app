@@ -118,7 +118,7 @@ class TestLessonForm(TestCase):
         )
         self.student.parent.add(Parent.objects.get(id=1))
         self.student.sales_manager.add(sales_manager_pk)
-    
+
     def test_form_has_fields(self):
         """Test the form has the correct fields."""
         form = LessonForm()
