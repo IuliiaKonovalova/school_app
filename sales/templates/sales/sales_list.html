@@ -134,7 +134,7 @@
                     <i class="fas fa-trash-alt sales__btn--icon"></i>
                   </a>
                 </td>
-              {% else %}
+              {% elif not request.user.username == sale.sold_by.user.username and request.user.role == 2 %}
                 <td></td>
                 <td></td>
               {% endif %}
