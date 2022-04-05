@@ -117,3 +117,57 @@ class TestStudentsViews(TestCase):
         response=self.client.get(self.student_add_url, )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'students/student_add.html')
+        # logout and login as a sales manager
+        self.client.logout()
+        self.client.force_login(self.user_sales_manager)
+        self.student_add_url = self.student_add_url.replace(
+            'username',
+            self.user_sales_manager.username
+        )
+        response=self.client.get(self.student_add_url, )
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'students/student_add.html')
+        # logout and login as a receptionist
+        self.client.logout()
+        self.client.force_login(self.user_receptionist)
+        self.student_add_url = self.student_add_url.replace(
+            'username',
+            self.user_receptionist.username
+        )
+        response=self.client.get(self.student_add_url, )
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a teacher
+        self.client.logout()
+        self.client.force_login(self.user_teacher)
+        self.student_add_url = self.student_add_url.replace(
+            'username',
+            self.user_teacher.username
+        )
+        response=self.client.get(self.student_add_url, )
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a parent
+        self.client.logout()
+        self.client.force_login(self.user_parent)
+        self.student_add_url = self.student_add_url.replace(
+            'username',
+            self.user_parent.username
+        )
+        response=self.client.get(self.student_add_url, )
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a potential
+        self.client.logout()
+        self.client.force_login(self.potential)
+        self.student_add_url = self.student_add_url.replace(
+            'username',
+            self.potential.username
+        )
+        response=self.client.get(self.student_add_url, )
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.client.logout()
+
+
+
