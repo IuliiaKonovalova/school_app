@@ -197,17 +197,31 @@ class StudentDeleteView(View):
     """Student Delete View"""
     def get(self, request, pk, *args, **kwargs):
         """Receive student delete form"""
-        student = get_object_or_404(Student, pk=pk)
-        return render(
-            request,
-            'students/student_delete.html',
-            {'student': student}
-            )
+        if request.user.is_authenticated:
+            if request.user.role == 0 or request.user.role == 2:
+                student = get_object_or_404(Student, pk=pk)
+                return render(
+                    request,
+                    'students/student_delete.html',
+                    {'student': student}
+                )
+            else:
+                return render(
+                    request,
+                    'profiles/access_limitation.html'
+                )
 
     def post(self, request, pk, *args, **kwargs):
         """Receive student delete form"""
-        student = get_object_or_404(Student, pk=pk)
-        student.delete()
-        return HttpResponseRedirect(
-            reverse('students')
-            )
+        if request.user.is_authenticated:
+            if request.user.role == 0 or request.user.role == 2:
+                student = get_object_or_404(Student, pk=pk)
+                student.delete()
+                return HttpResponseRedirect(
+                    reverse('students')
+                )
+            else:
+                return render(
+                    request,
+                    'profiles/access_limitation.html'
+                )

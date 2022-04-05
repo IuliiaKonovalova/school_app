@@ -746,6 +746,44 @@ class TestStudentsViews(TestCase):
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.client.logout()
 
-    
+    def test_delete_student_get_view(self):
+      # login as a teacher
+        self.client.force_login(self.user_teacher)
+        self.student_delete_url = self.student_delete_url.replace(
+            'username',
+            self.user_teacher.username
+        )
+        self.assertEqual(Student.objects.count(), 1)
+        response=self.client.get(self.student_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertEqual(Student.objects.count(), 1)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a teacher
+        self.client.logout()
+        self.client.force_login(self.user_teacher)
+        self.student_delete_url = self.student_delete_url.replace(
+            'username',
+            self.user_teacher.username
+        )
+        self.assertEqual(Student.objects.count(), 1)
+        response=self.client.get(self.student_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertEqual(Student.objects.count(), 1)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a parent
+        self.client.logout()
+        self.client.force_login(self.user_parent)
+        self.student_delete_url = self.student_delete_url.replace(
+            'username',
+            self.user_parent.username
+        )
+        self.assertEqual(Student.objects.count(), 1)
+        response=self.client.get(self.student_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertEqual(Student.objects.count(), 1)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a potential
+        self.client.logout()
+        self.client.force_login(self.potential)
 
 
