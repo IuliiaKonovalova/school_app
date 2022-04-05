@@ -24,7 +24,7 @@ class StudentAddView(View):
         if form.is_valid():
             print(form.cleaned_data)
             student = form.save(commit=False)
-            sales_manager= form.cleaned_data['sales_manager'][0]
+            sales_manager = form.cleaned_data['sales_manager'][0]
             parent = form.cleaned_data['parent'][0]
             student.save()
             form.save_m2m()
@@ -54,6 +54,7 @@ class StudentsView(View):
             'students/students.html',
             context
             )
+
     def post(self, request, *args, **kwargs):
         """Receive students list"""
         if request.user.is_authenticated:
@@ -85,11 +86,12 @@ class StudentView(View):
             'students/student_detail.html',
             {'student': student, 'lessons': lessons}
             )
+
     def post(self, request, pk, *args, **kwargs):
         """Receive student edit form"""
         student = get_object_or_404(Student, pk=pk)
-        fromdate=request.POST.get('from_date')
-        todate=request.POST.get('to_date')
+        fromdate = request.POST.get('from_date')
+        todate = request.POST.get('to_date')
         student = get_object_or_404(Student, pk=pk)
         lessons = Lesson.objects.filter(students__in=[student])
         search_items = lessons.filter(date__range=[fromdate, todate])
@@ -119,7 +121,7 @@ class StudentEditView(View):
         if form.is_valid():
             print(form.cleaned_data)
             student = form.save(commit=False)
-            sales_manager= form.cleaned_data['sales_manager'][0]
+            sales_manager = form.cleaned_data['sales_manager'][0]
             parent = form.cleaned_data['parent'][0]
             student.save()
             form.save_m2m()
