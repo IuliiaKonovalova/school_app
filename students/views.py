@@ -106,27 +106,41 @@ class StudentView(View):
     """Student View"""
     def get(self, request, pk, *args, **kwargs):
         """Receive student detail"""
-        student = get_object_or_404(Student, pk=pk)
-        lessons = Lesson.objects.filter(students__in=[student])
-        return render(
-            request,
-            'students/student_detail.html',
-            {'student': student, 'lessons': lessons}
-            )
+        if request.user.is_authenticated:
+            if request.user.role == 5:
+                return render(
+                    request,
+                    'profiles/access_limitation.html'
+                )
+            else:
+                student = get_object_or_404(Student, pk=pk)
+                lessons = Lesson.objects.filter(students__in=[student])
+                return render(
+                    request,
+                    'students/student_detail.html',
+                    {'student': student, 'lessons': lessons}
+                )
 
     def post(self, request, pk, *args, **kwargs):
         """Receive student edit form"""
-        student = get_object_or_404(Student, pk=pk)
-        fromdate = request.POST.get('from_date')
-        todate = request.POST.get('to_date')
-        student = get_object_or_404(Student, pk=pk)
-        lessons = Lesson.objects.filter(students__in=[student])
-        search_items = lessons.filter(date__range=[fromdate, todate])
-        return render(
-            request,
-            'students/student_detail.html',
-            {'student': student, 'lessons': search_items}
-            )
+        if request.user.is_authenticated:
+            if request.user.role == 5:
+                return render(
+                    request,
+                    'profiles/access_limitation.html'
+                )
+            else:
+                student = get_object_or_404(Student, pk=pk)
+                fromdate = request.POST.get('from_date')
+                todate = request.POST.get('to_date')
+                student = get_object_or_404(Student, pk=pk)
+                lessons = Lesson.objects.filter(students__in=[student])
+                search_items = lessons.filter(date__range=[fromdate, todate])
+                return render(
+                    request,
+                    'students/student_detail.html',
+                    {'student': student, 'lessons': search_items}
+                )
 
 
 class StudentEditView(View):

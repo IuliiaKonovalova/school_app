@@ -373,46 +373,77 @@ class TestStudentsViews(TestCase):
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.client.logout()
 
-    def test_students_view_post(self):
-        """Test the students_view_post."""
+    def test_student_detail_view_get(self):
+        """Test the student_detail_view_get."""
         # login as a boss
         self.client.force_login(self.user_boss)
-        self.students_url = self.students_url.replace(
+        self.student_detail_url = self.student_detail_url.replace(
             'username',
             self.user_boss.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.post(self.students_url, {
-            'first_name': 'student1FirstName',
-            'last_name': 'student1Surname',
-            'birthday': '2000-01-01',
-            'address': 'student1Address',
-            'classes_left': 50,
-            'notes': 'student1Notes',
-            'parent': [1],
-            'sales_manager': [1],
-        })
+        response=self.client.get(self.student_detail_url)
         self.assertEquals(Student.objects.count(), 1)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'students/students.html')
+        self.assertTemplateUsed(response, 'students/student_detail.html')
         # logout and login as a sales manager
         self.client.logout()
         self.client.force_login(self.user_sales_manager)
-        self.students_url = self.students_url.replace(
+        self.student_detail_url = self.student_detail_url.replace(
             'username',
             self.user_sales_manager.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.post(self.students_url, {
-            'first_name': 'student2FirstName',
-            'last_name': 'student2Surname',
-            'birthday': '2000-01-01',
-            'address': 'student2Address',
-            'classes_left': 50,
-            'notes': 'student2Notes',
-            'parent': [1],
-            'sales_manager': [1],
-        })
+        response=self.client.get(self.student_detail_url)
         self.assertEquals(Student.objects.count(), 1)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'students/students.html')
+        self.assertTemplateUsed(response, 'students/student_detail.html')
+        # logout and login as a receptionist
+        self.client.logout()
+        self.client.force_login(self.user_receptionist)
+        self.student_detail_url = self.student_detail_url.replace(
+            'username',
+            self.user_receptionist.username
+        )
+        self.assertEqual(Student.objects.count(), 1)
+        response=self.client.get(self.student_detail_url)
+        self.assertEquals(Student.objects.count(), 1)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'students/student_detail.html')
+        # logout and login as a teacher
+        self.client.logout()
+        self.client.force_login(self.user_teacher)
+        self.student_detail_url = self.student_detail_url.replace(
+            'username',
+            self.user_teacher.username
+        )
+        self.assertEqual(Student.objects.count(), 1)
+        response=self.client.get(self.student_detail_url)
+        self.assertEquals(Student.objects.count(), 1)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'students/student_detail.html')
+        # logout and login as a parent
+        self.client.logout()
+        self.client.force_login(self.user_parent)
+        self.student_detail_url = self.student_detail_url.replace(
+            'username',
+            self.user_parent.username
+        )
+        self.assertEqual(Student.objects.count(), 1)
+        response=self.client.get(self.student_detail_url)
+        self.assertEquals(Student.objects.count(), 1)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'students/student_detail.html')
+        # logout and login as a potential
+        self.client.logout()
+        self.client.force_login(self.potential)
+        self.student_detail_url = self.student_detail_url.replace(
+            'username',
+            self.potential.username
+        )
+        self.assertEqual(Student.objects.count(), 1)
+        response=self.client.get(self.student_detail_url)
+        self.assertEquals(Student.objects.count(), 1)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.client.logout()
