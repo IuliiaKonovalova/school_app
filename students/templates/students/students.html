@@ -5,99 +5,78 @@
 {% block extra_title %}Students{% endblock %}
 
 {% block content %}
-  {% if request.user.role == 4 or request.user.role == 5 %}
-  {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
-    <div class="access">
-      <div class="access__error">
-        <div class="access__error--image">
-          <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
-        </div>
-        <p class="access__error--text">You are not authorized to view this page!</p>
-        <div class="links">
-          <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to Your Profile page"
-            class="links__btn links__btn--name links__btn--content">
-            <div class="profile__btn--text">
-              Back to your profile
-            </div>
-            <i class="fas fa-external-link-alt profile__btn--icon"></i>
-          </a>
+  {% comment %} Students search page with limited access only for school staff {% endcomment %}
+  <div class=students>
+    {% comment %} Limit access for adding student only for bosses and sales managers {% endcomment %}
+    <div class="students__header">
+      <h2 class="students__title">All students:</h2>
+      {% if request.user.role == 0 or request.user.role == 2 %}
+        <a href="{% url 'student_add' %}" aria-label="Go to Add Student page"
+          class="student__btn student__add--btn students__btn">
+          <div class="sales__btn--text">
+            Add new student
+          </div>
+          <i class="fas fa-plus-circle student__btn--icon"></i>
+        </a>
+      {% endif %}
+    </div>    
+    {% comment %} Search and sort students form {% endcomment %}
+    <form method="POST" class="students__form">
+      {% csrf_token %}
+      {% comment %} Students Search by name {% endcomment %}
+      <div class="students__search">
+        <input type="text" id="student-search_here" class="from-control" placeholder="Type a name">
+        <div value="search" class="search__btn students__undo--btn" id="students-search-undo">
+          <i class="fas fa-undo-alt  profile__btn--icon"></i>
         </div>
       </div>
-    </div>
-  {% else %}
-    {% comment %} Students search page with limited access only for school staff {% endcomment %}
-    <div class=students>
-      {% if request.user.role == 0 or request.user.role == 2 %}
-        {% comment %} Limit access for adding student only for bosses and sales managers {% endcomment %}
-        <div class="students__header">
-          <h2 class="students__title">All students:</h2>
-          <a href="{% url 'student_add' %}" aria-label="Go to Add Student page"
-            class="student__btn student__add--btn students__btn">
-            <div class="sales__btn--text">
-              Add new student
-            </div>
-            <i class="fas fa-plus-circle student__btn--icon"></i>
-          </a>
+      <div class="students__search--instructions">
+        <strong>* </strong>Remember: search is case-insensitive.
+      </div>
+      {% comment %} Students Sort by urgent call {% endcomment %}
+      <div class="students__sort">
+        <div class="students__sort--item">
+          <input type="radio" class="" name="classes" value="all" id="all" checked>
+          <label class="" for="all">
+            <div class="students__sort--name">all students</div>
+          </label>
         </div>
-      {% endif %}
-      {% comment %} Search and sort students form {% endcomment %}
-      <form method="POST" class="students__form">
-        {% csrf_token %}
-        {% comment %} Students Search by name {% endcomment %}
-        <div class="students__search">
-          <input type="text" id="student-search_here" class="from-control" placeholder="Type a name">
-          <div value="search" class="search__btn students__undo--btn" id="students-search-undo">
-            <i class="fas fa-undo-alt  profile__btn--icon"></i>
-          </div>
+        <div class="students__sort--item">
+          <input type="radio" class="" name="classes" value="urgent" id="urgent">
+          <label class="" for="urgent">
+            <div class="students__sort--name">urgent call</div>
+          </label>
         </div>
-        <div class="students__search--instructions">
-          <strong>* </strong>Remember: search is case-insensitive.
-        </div>
-        {% comment %} Students Sort by urgent call {% endcomment %}
-        <div class="students__sort">
-          <div class="students__sort--item">
-            <input type="radio" class="" name="classes" value="all" id="all" checked>
-            <label class="" for="all">
-              <div class="students__sort--name">all students</div>
-            </label>
-          </div>
-          <div class="students__sort--item">
-            <input type="radio" class="" name="classes" value="urgent" id="urgent">
-            <label class="" for="urgent">
-              <div class="students__sort--name">urgent call</div>
-            </label>
-          </div>
-          <button type="submit" value="search" class="search__btn students__search--btn">
-              <div class=" profile__btn--text">Search</div>
-              <i class="fas fa-search  profile__btn--icon"></i>
-          </button>
-        </div>
-        <div class="students__sort--instructions">
-          <strong>* </strong>Select icon to sort students and click search.
-        </div>
-        <div class="students__summary">
-          {{ students|length }} students found
-        </div>
-        {% comment %} Students data results {% endcomment %}
-        <div id="box" class="students__results">
-          {% for student in students %}
-            <div class="students__student students__results--item">
-              <a href="{% url 'student_detail' pk=student.pk %}" aria-label="Go to Student's Detail page"
-                class="links__btn links__btn--name">
-                <div class="profile__btn--text">
-                  {{ student.first_name }} {{ student.last_name }}
+        <button type="submit" value="search" class="search__btn students__search--btn">
+            <div class=" profile__btn--text">Search</div>
+            <i class="fas fa-search  profile__btn--icon"></i>
+        </button>
+      </div>
+      <div class="students__sort--instructions">
+        <strong>* </strong>Select icon to sort students and click search.
+      </div>
+      <div class="students__summary">
+        {{ students|length }} students found
+      </div>
+      {% comment %} Students data results {% endcomment %}
+      <div id="box" class="students__results">
+        {% for student in students %}
+          <div class="students__student students__results--item">
+            <a href="{% url 'student_detail' pk=student.pk %}" aria-label="Go to Student's Detail page"
+              class="links__btn links__btn--name">
+              <div class="profile__btn--text">
+                {{ student.first_name }} {{ student.last_name }}
+              </div>
+              <i class="fas fa-external-link-alt profile__btn--icon"></i>
+              {% if student.has_classes_left %}
+                <div class="students__label">
+                  <i class="fas fa-exclamation-circle"></i>
                 </div>
-                <i class="fas fa-external-link-alt profile__btn--icon"></i>
-                {% if student.has_classes_left %}
-                  <div class="students__label">
-                    <i class="fas fa-exclamation-circle"></i>
-                  </div>
-                {% endif %}
-              </a>
-            </div>
-          {% endfor %}
-        </div>
-      </form>
-    </div>
-  {% endif %}
+              {% endif %}
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </form>
+  </div>
 {% endblock %}
