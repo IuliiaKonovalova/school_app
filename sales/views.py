@@ -18,7 +18,11 @@ class SalesView(View):
             sales = Sales.objects.all()
             for sale in sales:
                 student = Student.objects.get(id=sale.student_id)
-                sale.student_name = student.first_name + ' ' + student.last_name
+                sale.student_name = (
+                    student.first_name +
+                    ' ' +
+                    student.last_name
+                )
             return render(
                 request,
                 'sales/sales_list.html',
@@ -35,8 +39,8 @@ class SalesView(View):
         if request.user.is_authenticated and (
             request.user.role == 0 or request.user.role == 2
         ):
-            fromdate=request.POST.get('from_date')
-            todate=request.POST.get('to_date')
+            fromdate = request.POST.get('from_date')
+            todate = request.POST.get('to_date')
             search_items = Sales.objects.filter(date__range=[fromdate, todate])
             return render(
                 request,
@@ -48,7 +52,6 @@ class SalesView(View):
                 request,
                 'profiles/access_limitation.html'
             )
-
 
 
 def sales_form(request):
@@ -158,7 +161,7 @@ def edit_sales(request, pk):
 def delete_sales(request, pk):
     """Delete sales"""
     if request.method == 'GET':
-        if request.user.is_authenticated and request.user.role ==2:
+        if request.user.is_authenticated and request.user.role == 2:
             sales = Sales.objects.get(id=pk)
             student = Student.objects.get(id=sales.student_id)
             return render(
