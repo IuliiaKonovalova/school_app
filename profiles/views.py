@@ -68,8 +68,8 @@ class UserProfileView(View):
             CustomUser,  username=kwargs['username']
         )
         if request.user.is_authenticated and user_profile.role == 1:
-            fromdate=request.POST.get('from_date')
-            todate=request.POST.get('to_date')
+            fromdate = request.POST.get('from_date')
+            todate = request.POST.get('to_date')
             teacher = Teacher.objects.get(user=user_profile)
             lessons = Lesson.objects.filter(teachers__in=[teacher]).distinct()
             search_items = lessons.filter(date__range=[fromdate, todate])
@@ -182,7 +182,7 @@ class NewApplicationsView(View):
     def get(self, request, *args, **kwargs):
         """Receive new applications"""
         if request.user.is_authenticated:
-            if request.user.role == 0 or request.user.role == 2: 
+            if request.user.role == 0 or request.user.role == 2:
                 new_applications = CustomUser.objects.filter(role=5)
                 return render(
                     request, 'profiles/new_applications.html',
@@ -212,7 +212,7 @@ class NewApplicationsDetailView(View):
                     return render(
                         request,
                         'profiles/application_detail.html',
-                        {'new_application': new_application,}
+                        {'new_application': new_application}
                     )
             else:
                 return render(
