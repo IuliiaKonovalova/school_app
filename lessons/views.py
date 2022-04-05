@@ -7,7 +7,6 @@ from .forms import LessonForm
 from profiles.models import Teacher
 
 
-
 class LessonsView(View):
     """Lessons View"""
     def get(self, request, *args, **kwargs):
@@ -30,7 +29,7 @@ class LessonsView(View):
                 lessons_time_6 = lessons.filter(time=6)
                 lessons_time_7 = lessons.filter(time=7)
                 messages1 = []
-                if request.session.has_key('messages1'):
+                if 'messages1' in request.session:
                     messages1 = request.session['messages1']
                     del request.session['messages1']
                 context = {
@@ -59,7 +58,8 @@ class TeacherScheduleView(View):
         if request.user.is_authenticated:
             if request.user.role == 1:
                 teacher = get_object_or_404(Teacher, user=request.user)
-                lessons = Lesson.objects.filter(teachers__in=[teacher]).distinct()
+                lessons = Lesson.objects.filter(
+                    teachers__in=[teacher]).distinct()
                 lessons_time_0 = lessons.filter(time=0)
                 lessons_time_1 = lessons.filter(time=1)
                 lessons_time_2 = lessons.filter(time=2)
@@ -89,6 +89,7 @@ class TeacherScheduleView(View):
                     'profiles/access_limitation.html',
                 )
         return HttpResponseRedirect(reverse('home'))
+
 
 class LessonAddView(View):
     """Lesson Add View"""

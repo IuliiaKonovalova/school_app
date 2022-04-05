@@ -30,6 +30,7 @@ SUBJECTS = (
     (10, 'infants'),
 )
 
+
 class Lesson(models.Model):
     """Lesson model"""
     date = models.DateField()

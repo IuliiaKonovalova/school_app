@@ -23,7 +23,7 @@ class TestModels(TestCase):
             first_name='test',
             last_name='user',
             phone='1234567890',
-            role = CustomUser.ROLES[5][0],
+            role=CustomUser.ROLES[5][0],
         )
         self.user_boss = CustomUser.objects.create(
             username='boss',
@@ -32,88 +32,88 @@ class TestModels(TestCase):
             first_name='boss',
             last_name='boss',
             phone='1234567890',
-            role = CustomUser.ROLES[0][0],
+            role=CustomUser.ROLES[0][0],
         )
         self.user_teacher = CustomUser.objects.create(
             username='teacher',
-            email = 'teacher@gmail.com',
-            password = 'teacher',
-            first_name = 'teacher',
-            last_name = 'teacher',
-            phone = '1234567890',
-            role = CustomUser.ROLES[1][0],
+            email='teacher@gmail.com',
+            password='teacher',
+            first_name='teacher',
+            last_name='teacher',
+            phone='1234567890',
+            role=CustomUser.ROLES[1][0],
         )
         self.user_sales_manager = CustomUser.objects.create(
             username='sales_manager',
-            email = 'salesmanager@gmail.com',
-            password = 'salesmanager',
-            first_name = 'salesmanager',
-            last_name = 'salesmanager',
-            phone = '1234567890',
-            role = CustomUser.ROLES[2][0],
+            email='salesmanager@gmail.com',
+            password='salesmanager',
+            first_name='salesmanager',
+            last_name='salesmanager',
+            phone='1234567890',
+            role=CustomUser.ROLES[2][0],
         )
         self.user_receptionist = CustomUser.objects.create(
             username='receptionist',
-            email = 'receptionist@gmail.com',
-            password = 'receptionist',
-            first_name = 'receptionist',
-            last_name = 'receptionist',
-            phone = '1234567890',
-            role = CustomUser.ROLES[3][0],
+            email='receptionist@gmail.com',
+            password='receptionist',
+            first_name='receptionist',
+            last_name='receptionist',
+            phone='1234567890',
+            role=CustomUser.ROLES[3][0],
         )
         self.user_parent = CustomUser.objects.create(
             username='parent',
-            email = 'parent@gmail.com',
-            password = 'parent',
-            first_name = 'parent',
-            last_name = 'parent',
-            phone = '1234567890',
-            role = CustomUser.ROLES[4][0],
+            email='parent@gmail.com',
+            password='parent',
+            first_name='parent',
+            last_name='parent',
+            phone='1234567890',
+            role=CustomUser.ROLES[4][0],
         )
         self.potential = CustomUser.objects.create(
             username='potential',
-            email = 'potential@gmail.com',
-            password = 'potential',
-            first_name = 'potential',
-            last_name = 'potential',
-            phone = '1234567890',
-            role = CustomUser.ROLES[5][0],
+            email='potential@gmail.com',
+            password='potential',
+            first_name='potential',
+            last_name='potential',
+            phone='1234567890',
+            role=CustomUser.ROLES[5][0],
         )
         self.teacher_member = Teacher.objects.create(
-            user = CustomUser.objects.get(id=self.user_teacher.id),
+            user=CustomUser.objects.get(id=self.user_teacher.id),
         )
         self.receptionist_member = Receptionist.objects.create(
-            user = CustomUser.objects.get(id=self.user_receptionist.id),
+            user=CustomUser.objects.get(id=self.user_receptionist.id),
         )
         self.parent_member = Parent.objects.create(
-            user = CustomUser.objects.get(id = self.user_parent.id),
-            relation = Parent.GUARDIAN_RELATION[4][0],
+            user=CustomUser.objects.get(id=self.user_parent.id),
+            relation=Parent.GUARDIAN_RELATION[4][0],
         )
         self.sales_manager_member = SalesManager.objects.create(
-            id = 1,
-            user = CustomUser.objects.get(id = self.user_sales_manager.id),
-            total_sold = 0,
+            id=1,
+            user=CustomUser.objects.get(id=self.user_sales_manager.id),
+            total_sold=0,
         )
         sales_manager_pk = SalesManager.objects.get(pk=1)
         # create student
         self.student = Student.objects.create(
-            first_name = 'student1FirstName',
-            last_name = 'student1Surname',
-            birthday = '2000-01-01',
-            address = 'student1Address',
-            enrolled = '01/01/2000',
-            classes_left = 50,
-            notes = 'student1Notes',
+            first_name='student1FirstName',
+            last_name='student1Surname',
+            birthday='2000-01-01',
+            address='student1Address',
+            enrolled='01/01/2000',
+            classes_left=50,
+            notes='student1Notes',
         )
 
         self.student2 = Student.objects.create(
-            first_name = 'student1FirstName',
-            last_name = 'student1Surname',
-            birthday = '2000-01-01',
-            address = 'student1Address',
-            enrolled = '01/01/2000',
-            classes_left = 50,
-            notes = 'student1Notes',
+            first_name='student1FirstName',
+            last_name='student1Surname',
+            birthday='2000-01-01',
+            address='student1Address',
+            enrolled='01/01/2000',
+            classes_left=50,
+            notes='student1Notes',
         )
         self.student.parent.add(Parent.objects.get(id=1))
         self.student.sales_manager.add(sales_manager_pk)

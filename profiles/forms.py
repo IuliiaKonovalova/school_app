@@ -25,8 +25,9 @@ class SimpleSignupForm(SignupForm):
         max_length=30,
         label='Phone Number',
         widget=forms.TextInput(attrs={'placeholder': 'Phone Number'})
-    ) 
+    )
     role = forms.IntegerField(widget=forms.HiddenInput(), initial=5)
+
     def save(self, request):
         print(self.cleaned_data)
         user = super(SimpleSignupForm, self).save(request)

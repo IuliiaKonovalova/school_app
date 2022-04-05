@@ -16,5 +16,9 @@ urlpatterns = [
     path('<int:pk>/edit/', LessonEditView.as_view(), name='lesson_edit'),
     path('<int:pk>/delete/', LessonDeleteView.as_view(), name='lesson_delete'),
     path('<int:pk>/', LessonDetailView.as_view(), name='lesson_detail'),
-    path('teacher_schedule/', TeacherScheduleView.as_view(), name='teacher_schedule'),
+    path(
+        'teacher_schedule/',
+        TeacherScheduleView.as_view(),
+        name='teacher_schedule'
+    ),
 ]
