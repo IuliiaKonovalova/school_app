@@ -18,12 +18,12 @@ class StudentAddView(View):
                     request,
                     'students/student_add.html',
                     {'form': form}
-                    )
+                )
             else:
                 return render(
                     request,
                     'profiles/access_limitation.html'
-                    )
+                )
 
     def post(self, request):
         """Receive student add form"""
@@ -42,50 +42,63 @@ class StudentAddView(View):
                     student.save()
                     return HttpResponseRedirect(
                         reverse('students')
-                        )
+                    )
                 return render(
                     request,
                     'students/student_add.html',
                     {'form': form}
-                    )
+                )
             else:
                 return render(
                     request,
                     'profiles/access_limitation.html'
-                    )
+                )
 
 
 class StudentsView(View):
     """Students View"""
     def get(self, request, *args, **kwargs):
         """Receive students list"""
-        students = Student.objects.all()
-        context = {
-          'students': students,
-        }
-        return render(
-            request,
-            'students/students.html',
-            context
-            )
+        if request.user.is_authenticated:
+            if request.user.role == 4 or request.user.role == 5:
+                return render(
+                    request,
+                    'profiles/access_limitation.html'
+                )
+            else:
+                students = Student.objects.all()
+                context = {
+                  'students': students,
+                }
+                return render(
+                    request,
+                    'students/students.html',
+                    context
+                )
 
     def post(self, request, *args, **kwargs):
         """Receive students list"""
         if request.user.is_authenticated:
-            classes = request.POST.get('classes')
-            if classes == 'all':
-                students = Student.objects.all()
+            if request.user.role == 4 or request.user.role == 5:
+                return render(
+                    request,
+                    'profiles/access_limitation.html'
+                )
             else:
-                students_urgent = []
-                students = Student.objects.all()
-                for student in students:
-                    if student.has_classes_left():
-                        students_urgent.append(student)
-                students = students_urgent
-            return render(
-                request,
-                'students/students.html',
-                {'students': students}
+                classes = request.POST.get('classes')
+                if classes == 'all':
+                    students = Student.objects.all()
+                else:
+                    students_urgent = []
+                    students = Student.objects.all()
+                    for student in students:
+                        if student.has_classes_left():
+                            students_urgent.append(student)
+                    students = students_urgent
+                return render(
+                    request,
+                    'students/students.html',
+                    {'students': students}
                 )
 
 
