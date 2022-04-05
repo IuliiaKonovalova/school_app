@@ -387,6 +387,7 @@ body {
   font-size: 1.1rem;
   transition: background-color 150ms ease-in-out;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  cursor: pointer;
 }
 
 .links__btn--name {
@@ -425,6 +426,7 @@ body {
 .student__add--btn,
 .sales__add--btn,
 .sales__delete--btn,
+.lesson__add--btn,
 .sale__confirm--btn,
 .role__confirm--btn,
 .application__delete--btn {
@@ -463,6 +465,7 @@ body {
 .student__add--btn:hover,
 .sales__add--btn:hover,
 .sales__delete--btn:hover,
+.lesson__add--btn:hover,
 .sale__confirm--btn:hover,
 .role__confirm--btn:hover,
 .application__delete--btn:hover {
@@ -745,7 +748,8 @@ body {
 }
 
 .student__add--btn,
-.sales__add--btn {
+.sales__add--btn,
+.lesson__add--btn {
   font-size: 1.4rem
 }
 

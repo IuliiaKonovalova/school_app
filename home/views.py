@@ -1,3 +1,4 @@
+"""View for the home page"""
 from django.shortcuts import render
 
 

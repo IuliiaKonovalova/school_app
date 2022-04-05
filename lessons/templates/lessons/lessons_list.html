@@ -23,7 +23,7 @@
         {% comment %} Add lessson button with access only by receptionists {% endcomment %}
         {% if request.user.role == 3 %}
           <a href="{% url 'lesson_add' %}" aria-label="Go to Edit Lesson page"
-            class="lesson__btn sales__add--btn lesson__btn--custom">
+            class="lesson__btn lesson__add--btn lesson__btn--custom">
             <div class="lesson__btn--text">
               Add lesson
             </div>
