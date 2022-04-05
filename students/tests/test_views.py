@@ -114,7 +114,7 @@ class TestStudentsViews(TestCase):
             'username',
             self.user_boss.username
         )
-        response=self.client.get(self.student_add_url, )
+        response = self.client.get(self.student_add_url, )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'students/student_add.html')
         # logout and login as a sales manager
@@ -124,7 +124,7 @@ class TestStudentsViews(TestCase):
             'username',
             self.user_sales_manager.username
         )
-        response=self.client.get(self.student_add_url, )
+        response = self.client.get(self.student_add_url, )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'students/student_add.html')
         # logout and login as a receptionist
@@ -134,7 +134,7 @@ class TestStudentsViews(TestCase):
             'username',
             self.user_receptionist.username
         )
-        response=self.client.get(self.student_add_url, )
+        response = self.client.get(self.student_add_url, )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout and login as a teacher
@@ -144,7 +144,7 @@ class TestStudentsViews(TestCase):
             'username',
             self.user_teacher.username
         )
-        response=self.client.get(self.student_add_url, )
+        response = self.client.get(self.student_add_url, )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout and login as a parent
@@ -154,7 +154,7 @@ class TestStudentsViews(TestCase):
             'username',
             self.user_parent.username
         )
-        response=self.client.get(self.student_add_url, )
+        response = self.client.get(self.student_add_url, )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout and login as a potential
@@ -164,7 +164,7 @@ class TestStudentsViews(TestCase):
             'username',
             self.potential.username
         )
-        response=self.client.get(self.student_add_url, )
+        response = self.client.get(self.student_add_url, )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.client.logout()
@@ -178,7 +178,7 @@ class TestStudentsViews(TestCase):
             self.user_boss.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.post(self.student_add_url, {
+        response = self.client.post(self.student_add_url, {
             'first_name': 'student2FirstName',
             'last_name': 'student2Surname',
             'birthday': '2000-01-01',
@@ -199,7 +199,7 @@ class TestStudentsViews(TestCase):
             self.user_sales_manager.username
         )
         self.assertEqual(Student.objects.count(), 2)
-        response=self.client.post(self.student_add_url, {
+        response = self.client.post(self.student_add_url, {
             'first_name': 'student3FirstName',
             'last_name': 'student3Surname',
             'birthday': '2010-01-01',
@@ -220,7 +220,7 @@ class TestStudentsViews(TestCase):
             self.user_receptionist.username
         )
         self.assertEqual(Student.objects.count(), 3)
-        response=self.client.post(self.student_add_url, {
+        response = self.client.post(self.student_add_url, {
             'first_name': 'student4FirstName',
             'last_name': 'student4Surname',
             'birthday': '2000-01-01',
@@ -241,7 +241,7 @@ class TestStudentsViews(TestCase):
             self.user_teacher.username
         )
         self.assertEqual(Student.objects.count(), 3)
-        response=self.client.post(self.student_add_url, {
+        response = self.client.post(self.student_add_url, {
             'first_name': 'student5FirstName',
             'last_name': 'student5Surname',
             'birthday': '2000-01-01',
@@ -262,7 +262,7 @@ class TestStudentsViews(TestCase):
             self.user_parent.username
         )
         self.assertEqual(Student.objects.count(), 3)
-        response=self.client.post(self.student_add_url, {
+        response = self.client.post(self.student_add_url, {
             'first_name': 'student6FirstName',
             'last_name': 'student6Surname',
             'birthday': '2000-01-01',
@@ -283,7 +283,7 @@ class TestStudentsViews(TestCase):
             self.potential.username
         )
         self.assertEqual(Student.objects.count(), 3)
-        response=self.client.post(self.student_add_url, {
+        response = self.client.post(self.student_add_url, {
             'first_name': 'student7FirstName',
             'last_name': 'student7Surname',
             'birthday': '2000-01-01',
@@ -307,7 +307,7 @@ class TestStudentsViews(TestCase):
             self.user_boss.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.students_url)
+        response = self.client.get(self.students_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'students/students.html')
         # logout and login as a sales manager
@@ -318,7 +318,7 @@ class TestStudentsViews(TestCase):
             self.user_sales_manager.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.students_url)
+        response = self.client.get(self.students_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'students/students.html')
         # logout and login as a receptionist
@@ -329,7 +329,7 @@ class TestStudentsViews(TestCase):
             self.user_receptionist.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.students_url)
+        response = self.client.get(self.students_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'students/students.html')
         # logout and login as a teacher
@@ -340,7 +340,7 @@ class TestStudentsViews(TestCase):
             self.user_teacher.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.students_url)
+        response = self.client.get(self.students_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'students/students.html')
         # logout and login as a parent
@@ -351,7 +351,7 @@ class TestStudentsViews(TestCase):
             self.user_parent.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.students_url)
+        response = self.client.get(self.students_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout and login as a potential
@@ -362,7 +362,7 @@ class TestStudentsViews(TestCase):
             self.potential.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.students_url)
+        response = self.client.get(self.students_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.client.logout()
@@ -376,7 +376,7 @@ class TestStudentsViews(TestCase):
             self.user_boss.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.student_detail_url)
+        response = self.client.get(self.student_detail_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'students/student_detail.html')
         # logout and login as a sales manager
@@ -387,7 +387,7 @@ class TestStudentsViews(TestCase):
             self.user_sales_manager.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.student_detail_url)
+        response = self.client.get(self.student_detail_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'students/student_detail.html')
         # logout and login as a receptionist
@@ -398,7 +398,7 @@ class TestStudentsViews(TestCase):
             self.user_receptionist.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.student_detail_url)
+        response = self.client.get(self.student_detail_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'students/student_detail.html')
         # logout and login as a teacher
@@ -409,7 +409,7 @@ class TestStudentsViews(TestCase):
             self.user_teacher.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.student_detail_url)
+        response = self.client.get(self.student_detail_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'students/student_detail.html')
         # logout and login as a parent
@@ -420,7 +420,7 @@ class TestStudentsViews(TestCase):
             self.user_parent.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.student_detail_url)
+        response = self.client.get(self.student_detail_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'students/student_detail.html')
         # logout and login as a potential
@@ -431,7 +431,7 @@ class TestStudentsViews(TestCase):
             self.potential.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.student_detail_url)
+        response = self.client.get(self.student_detail_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.client.logout()
@@ -445,7 +445,7 @@ class TestStudentsViews(TestCase):
             self.user_boss.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.student_edit_url)
+        response = self.client.get(self.student_edit_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'students/student_edit.html')
         # logout and login as a sales manager
@@ -456,7 +456,7 @@ class TestStudentsViews(TestCase):
             self.user_sales_manager.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.student_edit_url)
+        response = self.client.get(self.student_edit_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'students/student_edit.html')
         # logout and login as a receptionist
@@ -467,7 +467,7 @@ class TestStudentsViews(TestCase):
             self.user_receptionist.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.student_edit_url)
+        response = self.client.get(self.student_edit_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout and login as a teacher
@@ -478,7 +478,7 @@ class TestStudentsViews(TestCase):
             self.user_teacher.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.student_edit_url)
+        response = self.client.get(self.student_edit_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout and login as a parent
@@ -489,7 +489,7 @@ class TestStudentsViews(TestCase):
             self.user_parent.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.student_edit_url)
+        response = self.client.get(self.student_edit_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout and login as a potential
@@ -500,7 +500,7 @@ class TestStudentsViews(TestCase):
             self.potential.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.student_edit_url)
+        response = self.client.get(self.student_edit_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.client.logout()
@@ -514,7 +514,7 @@ class TestStudentsViews(TestCase):
             self.user_boss.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.post(self.student_edit_url, {
+        response = self.client.post(self.student_edit_url, {
             'first_name': 'student2FirstName',
             'last_name': 'student2Surname',
             'birthday': '2000-01-01',
@@ -567,7 +567,7 @@ class TestStudentsViews(TestCase):
             Student.objects.get(id=self.student.id).notes,
             'student2Notes'
         )
-        response=self.client.post(self.student_edit_url, {
+        response = self.client.post(self.student_edit_url, {
             'first_name': 'student3FirstName',
             'last_name': 'student3Surname',
             'birthday': '2000-01-01',
@@ -604,7 +604,7 @@ class TestStudentsViews(TestCase):
             self.user_receptionist.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.post(self.student_edit_url, {
+        response = self.client.post(self.student_edit_url, {
             'first_name': 'student4FirstName',
             'last_name': 'student4Surname',
             'birthday': '2000-01-01',
@@ -641,7 +641,7 @@ class TestStudentsViews(TestCase):
             self.user_teacher.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.post(self.student_edit_url, {
+        response = self.client.post(self.student_edit_url, {
             'first_name': 'student4FirstName',
             'last_name': 'student4Surname',
             'birthday': '2000-01-01',
@@ -678,7 +678,7 @@ class TestStudentsViews(TestCase):
             self.user_parent.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.post(self.student_edit_url, {
+        response = self.client.post(self.student_edit_url, {
             'first_name': 'student4FirstName',
             'last_name': 'student4Surname',
             'birthday': '2000-01-01',
@@ -715,7 +715,7 @@ class TestStudentsViews(TestCase):
             self.potential.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.post(self.student_edit_url, {
+        response = self.client.post(self.student_edit_url, {
             'first_name': 'student4FirstName',
             'last_name': 'student4Surname',
             'birthday': '2000-01-01',
@@ -747,17 +747,27 @@ class TestStudentsViews(TestCase):
         self.client.logout()
 
     def test_delete_student_get_view(self):
-      # login as a teacher
-        self.client.force_login(self.user_teacher)
+        # login as a boss
+        self.client.force_login(self.user_boss)
         self.student_delete_url = self.student_delete_url.replace(
             'username',
-            self.user_teacher.username
+            self.user_boss.username
         )
-        self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.student_delete_url)
+        response = self.client.get(self.student_delete_url)
         self.assertEquals(response.status_code, 200)
         self.assertEqual(Student.objects.count(), 1)
-        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.assertTemplateUsed(response, 'students/student_delete.html')
+        # logout and login as a sales manager
+        self.client.logout()
+        self.client.force_login(self.user_sales_manager)
+        self.student_delete_url = self.student_delete_url.replace(
+            'username',
+            self.user_sales_manager.username
+        )
+        response = self.client.get(self.student_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertEqual(Student.objects.count(), 1)
+        self.assertTemplateUsed(response, 'students/student_delete.html')
         # logout and login as a teacher
         self.client.logout()
         self.client.force_login(self.user_teacher)
@@ -765,8 +775,7 @@ class TestStudentsViews(TestCase):
             'username',
             self.user_teacher.username
         )
-        self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.student_delete_url)
+        response = self.client.get(self.student_delete_url)
         self.assertEquals(response.status_code, 200)
         self.assertEqual(Student.objects.count(), 1)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
@@ -778,12 +787,86 @@ class TestStudentsViews(TestCase):
             self.user_parent.username
         )
         self.assertEqual(Student.objects.count(), 1)
-        response=self.client.get(self.student_delete_url)
+        response = self.client.get(self.student_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a potential
+        self.client.logout()
+        self.client.force_login(self.potential)
+        self.student_delete_url = self.student_delete_url.replace(
+            'username',
+            self.potential.username
+        )
+        self.assertEqual(Student.objects.count(), 1)
+        response = self.client.get(self.student_delete_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.client.logout()
+
+    def test_delete_student_post_view(self):
+        # login as a boss
+        self.client.force_login(self.user_boss)
+        self.student_delete_url = self.student_delete_url.replace(
+            'username',
+            self.user_boss.username
+        )
+        self.assertEquals(Student.objects.count(), 1)
+        response = self.client.post(
+            self.student_delete_url,
+            {'pk': self.student.id}
+        )
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(Student.objects.count(), 0)
+        self.assertEquals(response.url, '/students/students/')
+        # create student
+        self.student1 = Student.objects.create(
+            first_name='student1FirstName',
+            last_name='student1Surname',
+            birthday='2000-01-01',
+            address='student1Address',
+            enrolled='01/01/2000',
+            classes_left=50,
+            notes='student1Notes',
+        )
+        # logout and login as a teacher
+        self.client.logout()
+        self.client.force_login(self.user_teacher)
+        self.student_delete_url = self.student_delete_url.replace(
+            'username',
+            self.user_teacher.username
+        )
+        response = self.client.post(
+            self.student_delete_url,
+            {'pk': self.student.id}
+        )
+        self.assertEquals(response.status_code, 200)
+        self.assertEqual(Student.objects.count(), 1)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a parent
+        self.client.logout()
+        self.client.force_login(self.user_parent)
+        self.student_delete_url = self.student_delete_url.replace(
+            'username',
+            self.user_parent.username
+        )
+        response = self.client.post(
+            self.student_delete_url,
+            {'pk': self.student.id}
+        )
         self.assertEquals(response.status_code, 200)
         self.assertEqual(Student.objects.count(), 1)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout and login as a potential
         self.client.logout()
         self.client.force_login(self.potential)
-
-
+        self.student_delete_url = self.student_delete_url.replace(
+            'username',
+            self.potential.username
+        )
+        response = self.client.post(
+            self.student_delete_url,
+            {'pk': self.student.id}
+        )
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.client.logout()
