@@ -169,5 +169,132 @@ class TestStudentsViews(TestCase):
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.client.logout()
 
-
+    def test_students_add_post_view(self):
+        """Test the students_add_post_view."""
+        # login as a boss
+        self.client.force_login(self.user_boss)
+        self.student_add_url = self.student_add_url.replace(
+            'username',
+            self.user_boss.username
+        )
+        self.assertEqual(Student.objects.count(), 1)
+        response=self.client.post(self.student_add_url, {
+            'first_name': 'student2FirstName',
+            'last_name': 'student2Surname',
+            'birthday': '2000-01-01',
+            'address': 'student2Address',
+            'classes_left': 50,
+            'notes': 'student2Notes',
+            'parent': [1],
+            'sales_manager': [1],
+        })
+        self.assertEquals(Student.objects.count(), 2)
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(response.url, '/students/students/')
+        # logout and login as a sales manager
+        self.client.logout()
+        self.client.force_login(self.user_sales_manager)
+        self.student_add_url = self.student_add_url.replace(
+            'username',
+            self.user_sales_manager.username
+        )
+        self.assertEqual(Student.objects.count(), 2)
+        response=self.client.post(self.student_add_url, {
+            'first_name': 'student3FirstName',
+            'last_name': 'student3Surname',
+            'birthday': '2010-01-01',
+            'address': 'student3Address',
+            'classes_left': 50,
+            'notes': 'student3Notes',
+            'parent': [1],
+            'sales_manager': [1],
+        })
+        self.assertEquals(Student.objects.count(), 3)
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(response.url, '/students/students/')
+        # logout and login as a receptionist
+        self.client.logout()
+        self.client.force_login(self.user_receptionist)
+        self.student_add_url = self.student_add_url.replace(
+            'username',
+            self.user_receptionist.username
+        )
+        self.assertEqual(Student.objects.count(), 3)
+        response=self.client.post(self.student_add_url, {
+            'first_name': 'student4FirstName',
+            'last_name': 'student4Surname',
+            'birthday': '2000-01-01',
+            'address': 'student4Address',
+            'classes_left': 50,
+            'notes': 'student4Notes',
+            'parent': [1],
+            'sales_manager': [1],
+        })
+        self.assertEquals(Student.objects.count(), 3)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a teacher
+        self.client.logout()
+        self.client.force_login(self.user_teacher)
+        self.student_add_url = self.student_add_url.replace(
+            'username',
+            self.user_teacher.username
+        )
+        self.assertEqual(Student.objects.count(), 3)
+        response=self.client.post(self.student_add_url, {
+            'first_name': 'student5FirstName',
+            'last_name': 'student5Surname',
+            'birthday': '2000-01-01',
+            'address': 'student5Address',
+            'classes_left': 50,
+            'notes': 'student5Notes',
+            'parent': [1],
+            'sales_manager': [1],
+        })
+        self.assertEquals(Student.objects.count(), 3)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a parent
+        self.client.logout()
+        self.client.force_login(self.user_parent)
+        self.student_add_url = self.student_add_url.replace(
+            'username',
+            self.user_parent.username
+        )
+        self.assertEqual(Student.objects.count(), 3)
+        response=self.client.post(self.student_add_url, {
+            'first_name': 'student6FirstName',
+            'last_name': 'student6Surname',
+            'birthday': '2000-01-01',
+            'address': 'student6Address',
+            'classes_left': 50,
+            'notes': 'student6Notes',
+            'parent': [1],
+            'sales_manager': [1],
+        })
+        self.assertEquals(Student.objects.count(), 3)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # logout and login as a potential
+        self.client.logout()
+        self.client.force_login(self.potential)
+        self.student_add_url = self.student_add_url.replace(
+            'username',
+            self.potential.username
+        )
+        self.assertEqual(Student.objects.count(), 3)
+        response=self.client.post(self.student_add_url, {
+            'first_name': 'student7FirstName',
+            'last_name': 'student7Surname',
+            'birthday': '2000-01-01',
+            'address': 'student7Address',
+            'classes_left': 50,
+            'notes': 'student7Notes',
+            'parent': [1],
+            'sales_manager': [1],
+        })
+        self.assertEquals(Student.objects.count(), 3)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.client.logout()
 
