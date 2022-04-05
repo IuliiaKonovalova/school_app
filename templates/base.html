@@ -49,7 +49,7 @@
           {% if request.user.is_authenticated %}
           <li class="navbar__item">
             <div id="dropdown-profile" class="dropdown navbar__item--dropdown">Menu</div>
-            <ul class="account__options">
+            <div class="account__options">
               <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to Profile page"
                 class="account__option">
                 Profile
@@ -75,7 +75,7 @@
                 class="account__option account__option--logout">
                 Logout
               </a>
-            </ul>
+            </div>
           </li>
           {% comment %} Links acccessable to every member {% endcomment %}
           {% else %}

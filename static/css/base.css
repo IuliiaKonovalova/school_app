@@ -744,6 +744,10 @@ body {
   justify-content: center;
 }
 
+.student__add--btn {
+  font-size: 1.4rem
+}
+
 .students__search,
 .members__search {
   position: relative;
@@ -861,6 +865,10 @@ body {
   text-align: center;
 }
 
+.search__btn--icon {
+  margin-left: 0.5em;
+}
+
 .students__summary,
 .members__summary {
   margin: 1em 0;
@@ -875,14 +883,15 @@ body {
 .students__results {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-auto-flow: dense;
   gap: 0.5rem;
 }
 
 .students__results--item a,
 .members__results--item a {
-  font-size: 1.7rem;
+  font-size: 1.2rem;
+  padding: 0.2em;
 }
 
 .students__label {

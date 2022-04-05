@@ -26,8 +26,8 @@
       {% comment %} Students Search by name {% endcomment %}
       <div class="students__search">
         <input type="text" id="student-search_here" class="from-control" placeholder="Type a name">
-        <div value="search" class="search__btn students__undo--btn" id="students-search-undo">
-          <i class="fas fa-undo-alt  profile__btn--icon"></i>
+        <div class="search__btn students__undo--btn" id="students-search-undo">
+          <i class="fas fa-undo-alt profile__btn--icon"></i>
         </div>
       </div>
       <div class="students__search--instructions">
@@ -37,19 +37,14 @@
       <div class="students__sort">
         <div class="students__sort--item">
           <input type="radio" class="" name="classes" value="all" id="all" checked>
-          <label class="" for="all">
-            <div class="students__sort--name">all students</div>
-          </label>
+          <label class="students__sort--name" for="all">all students</label>
         </div>
         <div class="students__sort--item">
           <input type="radio" class="" name="classes" value="urgent" id="urgent">
-          <label class="" for="urgent">
-            <div class="students__sort--name">urgent call</div>
-          </label>
+          <label class="students__sort--name" for="urgent">urgent call</label>
         </div>
         <button type="submit" value="search" class="search__btn students__search--btn">
-            <div class=" profile__btn--text">Search</div>
-            <i class="fas fa-search  profile__btn--icon"></i>
+          Search <i class="fas fa-search search__btn--icon"></i>
         </button>
       </div>
       <div class="students__sort--instructions">

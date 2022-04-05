@@ -100,10 +100,12 @@ LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'school_application.wsgi.application'
 
+# PostgreSQL
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
+# Local database: sqlite3
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',

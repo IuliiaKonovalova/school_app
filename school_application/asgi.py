@@ -1,12 +1,4 @@
-"""
-ASGI config for school_application project.
-
-It exposes the ASGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/3.2/howto/deployment/asgi/
-"""
-
+"""Default ASGI config for school_application project."""
 import os
 
 from django.core.asgi import get_asgi_application
