@@ -27,47 +27,26 @@
 
 {% block content %}
   {% comment %} Edit student profile with limited access {% endcomment %}
-  {% if request.user.role == 0 or request.user.role == 2 %}
-    <div class="student">
-      <div class="student__form--container">
-        <h2 class="student__form--title">Editing Student's data</h2>
-        <form method="POST" class="student__form">
-          {{ form|crispy }}
-          {% csrf_token %}
-          <div class="student__buttons">
-            {% comment %} Go back to student profile page {% endcomment %}
-            <a href="{% url 'student_detail' pk=student.pk %}" aria-label="Go Back to Student page"
-              class="student__buttons--btn student__btn student__back--btn">
-              <div class="student__btn--text">Go back</div>
-              <i class="far fa-window-close  student__btn--icon"></i>
-            </a>
-            {% comment %} Submit student changes button {% endcomment %}
-            <button type="submit" class="student__buttons--btn student__btn student__confirm--btn">
-              <div class="student__btn--text">Submit</div>
-              <i class="fas fa-save"></i>
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  {% else %}
-    {% comment %} Access limitation for all users accept bosses and sales managers {% endcomment %}
-    <div class="access">
-      <div class="access__error">
-        <div class="access__error--image">
-          <img src="{% static 'images/foxy_emoji.svg' %}" alt="Access error">
-        </div>
-        <p class="access__error--text">You are not authorized to view this page!</p>
-        <div class="links">
-          <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to Your Profile page"
-            class="links__btn links__btn--name links__btn--content">
-            <div class="profile__btn--text">
-              Back to your profile
-            </div>
-            <i class="fas fa-external-link-alt profile__btn--icon"></i>
+  <div class="student">
+    <div class="student__form--container">
+      <h2 class="student__form--title">Editing Student's data</h2>
+      <form method="POST" class="student__form">
+        {{ form|crispy }}
+        {% csrf_token %}
+        <div class="student__buttons">
+          {% comment %} Go back to student profile page {% endcomment %}
+          <a href="{% url 'student_detail' pk=student.pk %}" aria-label="Go Back to Student page"
+            class="student__buttons--btn student__btn student__back--btn">
+            <div class="student__btn--text">Go back</div>
+            <i class="far fa-window-close  student__btn--icon"></i>
           </a>
+          {% comment %} Submit student changes button {% endcomment %}
+          <button type="submit" class="student__buttons--btn student__btn student__confirm--btn">
+            <div class="student__btn--text">Submit</div>
+            <i class="fas fa-save"></i>
+          </button>
         </div>
-      </div>
+      </form>
     </div>
-  {% endif %}
+  </div>
 {% endblock %}
