@@ -2,49 +2,48 @@
 {% load static %}
 
 {% block extra_js %}
-  {% comment %} jquery iu library select2 {% endcomment %}
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('select').addClass('js-example-basic-single');
+{% comment %} jquery iu library select2 {% endcomment %}
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('select').addClass('js-example-basic-single');
 
-      $('.js-example-basic-single').select2({
-        placeholder: 'Type name to search',
-      });
-      $('#div_id_assigned_to').css('width', '100%');
-      $('.select2').css('width', '100%');
+    $('.js-example-basic-single').select2({
+      placeholder: 'Type name to search',
     });
-  </script>
+    $('#div_id_assigned_to').css('width', '100%');
+    $('.select2').css('width', '100%');
+  });
+</script>
 {% endblock%}
 
 {% comment %} Extra Title {% endcomment %}
 {% block extra_title %}Sales{% endblock %}
 
 {% block content %}
-  <div class="sale">
-    <div class="sale__form--container">
-      <form method="POST" class="sale__form">
-        <h2 class="sale__form--title">Add Sale</h2>
-        {% csrf_token %}
-        {{ form|crispy }}
-        <div class="sale__buttons">
-          {% comment %} Go back to sales {% endcomment %}
-          <a href="{% url 'sales_list' %}" aria-label="Go back to Sales page"
-            class="sale__form--btn sale__btn sale__back--btn">
-            <div class=" sale__btn--text">Cancel</div>
-            <i class="far fa-window-close  sale__btn--icon"></i>
-          </a>
-          {% comment %} Submit changes {% endcomment %}
-          <button type="submit" class="sale__form--btn sale__btn sale__confirm--btn">
-            <div class="sale__btn--text">save</div>
-            <i class="fas fa-save sale__btn--icon"></i>
-          </button>
-        </div>
-      </form>
-    </div>
+<div class="sale">
+  <div class="sale__form--container">
+    <form method="POST" class="sale__form">
+      <h2 class="sale__form--title">Add Sale</h2>
+      {% csrf_token %}
+      {{ form|crispy }}
+      <div class="sale__buttons">
+        {% comment %} Go back to sales {% endcomment %}
+        <a href="{% url 'sales_list' %}" aria-label="Go back to Sales page"
+          class="sale__form--btn sale__btn sale__back--btn">
+          <div class=" sale__btn--text">Cancel</div>
+          <i class="far fa-window-close  sale__btn--icon"></i>
+        </a>
+        {% comment %} Submit changes {% endcomment %}
+        <button type="submit" class="sale__form--btn sale__btn sale__confirm--btn">
+          Save<i class="fas fa-save search__btn--icon"></i>
+        </button>
+      </div>
+    </form>
   </div>
+</div>
 {% endblock %}
