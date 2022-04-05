@@ -11,34 +11,48 @@ class StudentAddView(View):
     """Student Add View"""
     def get(self, request):
         """Receive student add form"""
-        form = AddStudentForm()
-        return render(
-            request,
-            'students/student_add.html',
-            {'form': form}
-            )
+        if request.user.is_authenticated:
+            if request.user.role == 0 or request.user.role == 2:
+                form = AddStudentForm()
+                return render(
+                    request,
+                    'students/student_add.html',
+                    {'form': form}
+                    )
+            else:
+                return render(
+                    request,
+                    'profiles/access_limitation.html'
+                    )
 
     def post(self, request):
         """Receive student add form"""
-        form = AddStudentForm(request.POST)
-        if form.is_valid():
-            print(form.cleaned_data)
-            student = form.save(commit=False)
-            sales_manager = form.cleaned_data['sales_manager'][0]
-            parent = form.cleaned_data['parent'][0]
-            student.save()
-            form.save_m2m()
-            student.sales_manager.add(sales_manager)
-            student.parent.add(parent)
-            student.save()
-            return HttpResponseRedirect(
-                reverse('students')
-                )
-        return render(
-            request,
-            'students/student_add.html',
-            {'form': form}
-            )
+        if request.user.is_authenticated:
+            if request.user.role == 0 or request.user.role == 2:
+                form = AddStudentForm(request.POST)
+                if form.is_valid():
+                    print(form.cleaned_data)
+                    student = form.save(commit=False)
+                    sales_manager = form.cleaned_data['sales_manager'][0]
+                    parent = form.cleaned_data['parent'][0]
+                    student.save()
+                    form.save_m2m()
+                    student.sales_manager.add(sales_manager)
+                    student.parent.add(parent)
+                    student.save()
+                    return HttpResponseRedirect(
+                        reverse('students')
+                        )
+                return render(
+                    request,
+                    'students/student_add.html',
+                    {'form': form}
+                    )
+            else:
+                return render(
+                    request,
+                    'profiles/access_limitation.html'
+                    )
 
 
 class StudentsView(View):
