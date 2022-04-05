@@ -744,7 +744,8 @@ body {
   justify-content: center;
 }
 
-.student__add--btn {
+.student__add--btn,
+.sales__add--btn {
   font-size: 1.4rem
 }
 
