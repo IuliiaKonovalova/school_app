@@ -822,10 +822,10 @@ body {
   background-color: var(--clr-primary--900);
   color: white;
   font-weight: 900;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.3rem;
+  height: 2.3rem;
   position: absolute;
-  top: 2.2rem;
+  top: 2.07rem;
   right: 0.4rem;
   display: none;
   align-items: center;
@@ -2044,6 +2044,8 @@ input[type=date]:focus {
 }
 
 @media all and (max-width: 1292px) {
+
+  /* Styling members Page */
   .members__sort {
     width: 100%;
   }
@@ -2086,6 +2088,12 @@ input[type=date]:focus {
 
   .members__results {
     margin: 0.5em auto;
+  }
+
+  .students__undo--btn,
+  .members__undo--btn {
+    top: 0.85rem;
+    right: 0.4rem;
   }
 
 }
