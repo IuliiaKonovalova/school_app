@@ -988,7 +988,7 @@ body {
   gap: 0.5rem;
 }
 
-.members__results--item {
+.member {
   font-size: 1.4rem;
   margin: 0;
   width: 100%;
