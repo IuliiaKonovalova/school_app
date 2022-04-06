@@ -369,13 +369,20 @@ body {
   align-items: center;
   justify-content: center;
   background-color: var(--clr-primary--300);
-  padding: 3em;
+  padding: 2em 2em 2.5em 2em;
+  font-size: 1.6rem;
 }
 
 .contact__content {
-  margin-bottom: 5vh;
+  margin-bottom: 1.5em;
+  max-width: 30rem;
+  text-align: center;
+  font-weight: 600;
 }
 
+.contact__button .home__hero--button {
+  font-size: 1.5rem;
+}
 
 
 /* ----- Main Content ----- */
