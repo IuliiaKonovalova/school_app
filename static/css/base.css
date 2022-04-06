@@ -2063,6 +2063,11 @@ input[type=date]:focus {
   }
 
 
+  .profile__title,
+  .student__title,
+  .classes__title {
+    font-size: 1.8rem;
+  }
 
   .account__title,
   .profile__form--title,
@@ -2108,7 +2113,16 @@ input[type=date]:focus {
   .applications,
   .lesson__new {
     padding: 0.5em 0.5em 1em 0.5em;
+    font-size: 1.2rem;
   }
+
+  .profile__title,
+  .student__title,
+  .classes__title {
+    font-size: 1.8rem;
+    margin-top: 1.7em;
+  }
+
 
   .profile__buttons,
   .student__buttons,
