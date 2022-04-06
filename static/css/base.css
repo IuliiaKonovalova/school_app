@@ -279,6 +279,7 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 5vh;
 }
 
 .benefits__card {
@@ -295,7 +296,7 @@ body {
 }
 
 .benefits__card:not(:last-child) {
-  margin-right: 2em;
+  margin-right: 5vw;
 }
 
 
@@ -317,19 +318,33 @@ body {
   font-size: 1.8rem;
 }
 
-.incentive {
+.incentive,
+.personnel,
+.health {
   max-width: 120rem;
   margin: 0 auto;
-  padding: 3em 2em;
+  padding: 2em;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: #b0cd2f;
+  margin-bottom: 5vh;
+  font-size: 1.6rem;
 }
 
+.contact {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-primary--300);
+  padding: 3em;
+}
 
+.contact__content {
+  margin-bottom: 5vh;
+}
 
 
 
