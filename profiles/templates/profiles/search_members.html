@@ -15,38 +15,27 @@
       <div class="members__sort">
         <div class="members__sort--item">
           <input type="radio" class="" name="role" value="all" id="all" checked>
-          <label class="" for="all">
-            <div class="members__sort--name">all members</div>
-          </label>
+          <label class="members__sort--name" for="all">all members</label>
         </div>
         <div class="members__sort--item">
           <input type="radio" class="" name="role" value="4" id="parents">
-          <label class="" for="parents">
-            <div class="members__sort--name">Parents</div>
-          </label>
+          <label class="members__sort--name" for="parents">Parents</label>
         </div>
         <div class="members__sort--item">
           <input type="radio" class="" name="role" value="1" id="teachers">
-          <label class="" for="teachers">
-            <div class="members__sort--name">Teachers</div>
-          </label>
+          <label class="members__sort--name" for="teachers">Teachers</label>
         </div>
         <div class="members__sort--item">
           <input type="radio" class="" name="role" value="2" id="sales">
-          <label class="" for="sales">
-            <div class="members__sort--name">Sales Managers</div>
-          </label>
+          <label class="members__sort--name" for="sales">Sales Managers</label>
         </div>
         <div class="members__sort--item">
           <input type="radio" class="" name="role" value="3" id="receptionists">
-          <label class="" for="receptionists">
-            <div class="members__sort--name">Receptionists</div>
-          </label>
+          <label class="members__sort--name" for="receptionists">Receptionists</label>
         </div>
         {% comment %} Submit selection button {% endcomment %}
         <button type="submit" value="search" class="search__btn members__search--btn">
-          <div class=" profile__btn--text">Search</div>
-          <i class="fas fa-search  profile__btn--icon"></i>
+          Search<i class="fas fa-search  search__btn--icon"></i>
         </button>
       </div>
       <div class="members__sort--instructions">
@@ -57,7 +46,7 @@
       </div>
       <div class="members__search">
         <input type="text" id="members-search-here" class="from-control" placeholder="Type name or phone number...">
-        <div value="search" class="search__btn members__undo--btn" id="members-search-undo">
+        <div class="search__btn members__undo--btn" id="members-search-undo">
           <i class="fas fa-undo-alt  profile__btn--icon"></i>
         </div>
       </div>
@@ -68,7 +57,7 @@
       <div id="box" class="members__results">
         {% for member in members %}
           <a href="{% url 'user_profile' username=member.username %}"
-            aria-label="Go to User Profile page" class="links__btn links__btn--name members__results--item">
+            aria-label="Go to User Profile page" class=" member links__btn links__btn--name members__results--item">
             <div class="profile__btn--text">
               <div class="">
                 {{ member.first_name }} {{ member.last_name }}
