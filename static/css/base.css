@@ -277,6 +277,7 @@ body {
   max-width: 120rem;
   margin: 0 auto;
   display: flex;
+  padding: 0 2em;
   justify-content: space-between;
   width: 100%;
   margin-bottom: 10vh;
@@ -406,6 +407,7 @@ body {
   align-items: center;
   font-size: 2rem;
   position: relative;
+  margin: 0 2em 1.5em 2em;
 }
 
 /* Profile */
@@ -1372,6 +1374,7 @@ td {
 
 .account {
   margin: 0 auto;
+  margin-bottom: 2em;
   padding: 1.5em;
   background-color: var(--clr-primary--900);
   border-radius: var(--br);
@@ -1398,7 +1401,7 @@ td {
 .profile__form--title,
 .student__form--title,
 .sale__form--title {
-  margin: 0.9em 0;
+  margin-bottom: 0.9em;
 }
 
 .profile__form--subtitle {
@@ -1460,9 +1463,9 @@ td {
 .lesson__form input {
   border: 1px solid #ffffff8c;
   border-radius: var(--br);
-  padding: 0.8em 1em 0.6em 1em;
+  padding: 0.6em 0.8em 0.4em 0.8em;
   min-width: 25rem;
-  margin: 1em 0;
+  margin: 0.6em 0;
   background-color: #ffffff;
   font-size: 1.2rem;
 }
@@ -1573,9 +1576,9 @@ td {
 .lesson__form label[for='id_teachers']~div::before,
 .lesson__form label[for='id_students']~div::before {
   position: absolute;
-  top: 0.55rem;
+  top: 0.4rem;
   left: 0.4rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
@@ -2038,4 +2041,125 @@ input[type=date]:focus {
 
 .message__container {
   padding: 0.2em;
+}
+
+@media all and (max-width: 980px) {
+
+  .profile,
+  .student,
+  .access,
+  .classes,
+  .students,
+  .sales,
+  .sale,
+  .applications,
+  .lesson__new {
+    background-color: pink;
+    /* max-width: 55rem; */
+    width: 90%;
+    padding: 1.5em;
+    font-size: 1.6rem;
+    margin-bottom: 1.5em;
+  }
+
+
+
+  .account__title,
+  .profile__form--title,
+  .student__form--title,
+  .sale__form--title,
+  .lesson__form--title,
+  .lesson__form__delete--title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .profile__form,
+  .student__form,
+  .sale__form,
+  .lesson__form {
+    font-size: 1.6rem;
+    width: 100%;
+  }
+
+  .profile__buttons,
+  .student__buttons,
+  .sale__buttons {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .profile__form--btn,
+  .student__buttons--btn,
+  .sale__form--btn {
+    font-size: 1.2rem;
+  }
+}
+
+@media all and (max-width: 680px) {
+
+  .profile,
+  .student,
+  .access,
+  .classes,
+  .students,
+  .sales,
+  .sale,
+  .applications,
+  .lesson__new {
+    padding: 0.5em 0.5em 1em 0.5em;
+  }
+
+  .profile__buttons,
+  .student__buttons,
+  .sale__buttons {
+
+    width: 100%;
+  }
+
+  .profile__form,
+  .student__form,
+  .sale__form,
+  .lesson__form {
+    font-size: 1.2rem;
+    width: 90%;
+  }
+
+
+  .account__title,
+  .profile__form--title,
+  .student__form--title,
+  .sale__form--title,
+  .lesson__form--title,
+  .lesson__form__delete--title {
+    font-size: 1.6rem;
+  }
+
+  .profile__form--title,
+  .student__form--title,
+  .sale__form--title {
+    margin-top: 0.6em;
+  }
+
+
+  .account input,
+  .profile__form input,
+  .student__form input,
+  .students input,
+  .members input,
+  .sale input,
+  .lesson__form input {
+    min-width: 100%;
+  }
+
+  .profile__btn,
+  .student__btn,
+  .links__btn,
+  .label__btn,
+  .search__btn,
+  .sales__btn,
+  .sale__btn,
+  .lesson__btn {
+    font-size: 0.9rem;
+  }
 }
