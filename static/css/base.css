@@ -2110,6 +2110,10 @@ input[type=date]:focus {
     font-size: 1.4rem;
   }
 
+  .application__buttons--delete {
+    width: 50vw;
+  }
+
   /* Styling footer */
 
   .footer__content {
@@ -2256,6 +2260,10 @@ input[type=date]:focus {
 
   .application .application__data {
     font-size: 1.5rem;
+  }
+
+  .application__buttons--delete {
+    width: 90vw;
   }
 
 }
