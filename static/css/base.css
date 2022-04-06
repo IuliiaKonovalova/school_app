@@ -2043,6 +2043,53 @@ input[type=date]:focus {
   padding: 0.2em;
 }
 
+@media all and (max-width: 1292px) {
+  .members__sort {
+    width: 100%;
+  }
+
+  .members__sort--item {
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .members__sort--name {
+    font-size: 1rem;
+  }
+
+  [type="radio"]:checked+label:before,
+  [type="radio"]:not(:checked)+label:before {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  [type="radio"]:checked+label:after,
+  [type="radio"]:not(:checked)+label:after {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    top: 0.362rem;
+    left: 0.362rem;
+  }
+
+  .members__summary {
+    margin: 0.3em 0;
+    font-size: 1.2rem;
+  }
+
+  .members input {
+    margin-top: 0.5em;
+  }
+
+  .members__results {
+    margin: 0.5em auto;
+  }
+
+}
+
 @media all and (max-width: 980px) {
 
   .profile,
@@ -2105,7 +2152,7 @@ input[type=date]:focus {
     font-size: 1.2rem;
   }
 
-  /* Styling New Applications Page */
+  /* Styling New Applications Pages */
   .applications__results .links .links__btn--name .profile__btn--text {
     font-size: 1.4rem;
   }
@@ -2113,6 +2160,8 @@ input[type=date]:focus {
   .application__buttons--delete {
     width: 50vw;
   }
+
+
 
   /* Styling footer */
 
@@ -2152,6 +2201,18 @@ input[type=date]:focus {
 
   .footer__info--item:last-child {
     margin-top: 1em;
+  }
+}
+
+@media all and (max-width: 804px) {
+
+  /* Styling Members Page */
+  .members__sort {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 1rem;
+    margin-bottom: 0.5em;
   }
 }
 
@@ -2239,8 +2300,7 @@ input[type=date]:focus {
     font-size: 0.9rem;
   }
 
-  /* Styling New Applications Page */
-
+  /* Styling New Applications Pages */
   .applications {
     width: fit-content;
   }
