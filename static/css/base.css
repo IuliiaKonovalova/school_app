@@ -2109,6 +2109,46 @@ input[type=date]:focus {
   .applications__results .links .links__btn--name .profile__btn--text {
     font-size: 1.4rem;
   }
+
+  /* Styling footer */
+
+  .footer__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer__content--logo {
+    justify-content: center;
+    align-content: center;
+  }
+
+  .footer__content--info {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+
+  .footer__content--creator {
+    grid-column: 3/4;
+    grid-row: 2/3;
+  }
+
+  .footer__content--info,
+  .footer__content--creator {
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    max-width: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer__info--item:last-child {
+    margin-top: 1em;
+  }
 }
 
 @media all and (max-width: 680px) {
