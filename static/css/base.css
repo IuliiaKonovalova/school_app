@@ -2065,7 +2065,12 @@ input[type=date]:focus {
 
   .profile__title,
   .student__title,
-  .classes__title {
+  .classes__title,
+  .students__title,
+  .members__title,
+  .sales__title,
+  .applications__title,
+  .lessons__title {
     font-size: 1.8rem;
   }
 
@@ -2099,6 +2104,11 @@ input[type=date]:focus {
   .sale__form--btn {
     font-size: 1.2rem;
   }
+
+  /* Styling New Applications Page */
+  .applications__results .links .links__btn--name .profile__btn--text {
+    font-size: 1.4rem;
+  }
 }
 
 @media all and (max-width: 680px) {
@@ -2121,6 +2131,14 @@ input[type=date]:focus {
   .classes__title {
     font-size: 1.8rem;
     margin-top: 1.7em;
+  }
+
+  .students__title,
+  .members__title,
+  .sales__title,
+  .applications__title,
+  .lessons__title {
+    font-size: 1.8rem;
   }
 
 
@@ -2175,5 +2193,19 @@ input[type=date]:focus {
   .sale__btn,
   .lesson__btn {
     font-size: 0.9rem;
+  }
+
+  /* Styling New Applications Page */
+
+  .applications {
+    width: fit-content;
+  }
+
+  .applications__results {
+    gap: 1rem;
+  }
+
+  .applications__results .links .links__btn--name .profile__btn--text {
+    font-size: 1rem;
   }
 }
