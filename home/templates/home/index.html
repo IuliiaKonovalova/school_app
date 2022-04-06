@@ -18,19 +18,87 @@
       </a>
     </div>
   </section>
-  <section class="benefits">
-    <div class="benefits__content">
-      <h3 class="benefits__content--title">What is important?</h3>
-      <p class="benefits__content--text">
-        Each child is unique! And each child has unique learning abilities, preferences, and interests.
-      </p>
-      <p class="benefits__content--text">We offer a wide range of activities to help your little baby to become a
-        confident and eager learner. We assist each of our students on their way to pick their own path in the future.
-      </p>
-    </div>
-    <div class="benefits__image">
-      <img src="{% static 'images/benefits.svg' %}" alt="">
+  <div class="benefits">
+
+    <div class="benefits__card">
+      <div class="benefits__card--image">
+
+      </div>
+      <div class="benefits__card--content">
+        <p class="benefits__card--text">
+          Fostering a supportive learning environment.
+        </p>
+      </div>
     </div>
 
-  </section>
+    <div class="benefits__card">
+      <div class="benefits__card--image">
+
+      </div>
+      <div class="benefits__card--content">
+        <p class="benefits__card--text">
+          Grow fundamental values and personal
+        </p>
+      </div>
+    </div>
+
+    <div class="benefits__card">
+      <div class="benefits__card--image">
+
+      </div>
+      <div class="benefits__card--content">
+        <p class="benefits__card--text">
+          Most trusted teachers among all country!
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="incentive">
+    <div class="incentive__content">
+      <p class="incentive__content--text">
+        Each child is unique! And each child has unique learning abilities, preferences, and interests.
+        We offer a wide range of activities to help your little baby to become a confident and eager learner. We assist
+        each of our students on their way to pick their own path in the future.
+      </p>
+    </div>
+    <div class="incentive__image">
+      <img src="" alt="">
+    </div>
+  </div>
+  <div class="personnel">
+    <div class="incentive__image">
+      <img src="" alt="">
+    </div>
+    <div class="incentive__content">
+      <p class="incentive__content--text">
+        The wellbeing and education of your child is our highest priority!
+        All our personnel has been regularly put into extra-training in order to keep up with all upcoming changes
+        in the field of education. Our childcare experts are able to provide up-to-date knowledge to each student.
+      </p>
+    </div>
+  </div>
+  <div class="incentive">
+    <div class="incentive__content">
+      <p class="incentive__content--text">
+        We do care about children's health as it is fundamental part of their development. That is why we regularly
+        serve healthy and nutritionally balanced meals, which prepared out of the freshest produce. Moreover, we
+        organize everyday physical activities in order to deter children from developing sedentary life habits.
+      </p>
+    </div>
+    <div class="incentive__image">
+      <img src="" alt="">
+    </div>
+  </div>
+  <div class="contact">
+    <div class="contact__content">
+      <p class="contact__content--text">
+        Do not hesitate to make your child a part of our community!
+      </p>
+    </div>
+    <div class="contact__button">
+      <a href="{% url 'account_signup' %}" class="home__hero--button">
+        Get started
+      </a>
+    </div>
+  </div>
   {% endblock %}
