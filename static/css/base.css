@@ -2130,6 +2130,12 @@ input[type=date]:focus {
     font-size: 1.8rem;
   }
 
+  .profile__students,
+  .profile__sales,
+  .profile__children {
+    font-size: 1.6rem;
+  }
+
   .account__title,
   .profile__form--title,
   .student__form--title,
@@ -2247,6 +2253,12 @@ input[type=date]:focus {
     margin-top: 1.7em;
   }
 
+  .profile__students,
+  .profile__sales,
+  .profile__children {
+    font-size: 1.4rem;
+  }
+
   .students__title,
   .members__title,
   .sales__title,
@@ -2255,6 +2267,21 @@ input[type=date]:focus {
     font-size: 1.8rem;
   }
 
+  .profile__data {
+    margin-left: 0.5em;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    font-size: 1rem;
+  }
+
+  .profile__data--heading {
+    margin-right: 0.2em;
+  }
+
+  .profile__data--info {
+    word-break: break-all;
+  }
 
   .profile__buttons,
   .student__buttons,
