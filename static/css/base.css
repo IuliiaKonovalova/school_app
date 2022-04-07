@@ -1796,7 +1796,7 @@ button.select2-selection__choice__remove {
   resize: vertical;
   height: 10vh;
   min-height: 3rem;
-  border: 1px solid #aaa;
+  border: none;
   border-radius: var(--br);
   font-size: 1.2rem;
   color: #001d82;
@@ -2411,7 +2411,9 @@ input[type=date]:focus {
     min-width: 100%;
   }
 
-
+  .student__form input[type="text"] {
+    max-width: 20rem;
+  }
 
   .profile__btn,
   .student__btn,
