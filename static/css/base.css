@@ -1277,7 +1277,7 @@ td {
 
 /* Styling Lesson Detail Page */
 .lesson__details {
-  width: 100%;
+  width: 90%;
   max-width: 70rem;
   display: flex;
   flex-direction: column;
@@ -1325,8 +1325,9 @@ td {
 
 .lesson__details--subtitle,
 .lesson__details--content {
-  padding: 0.5em;
+  padding: 0.2em;
   background-color: var(--clr-neutral--100);
+  flex-wrap: wrap;
 }
 
 .lesson__details--subtitle {
@@ -1662,7 +1663,7 @@ td {
   position: absolute;
   top: 1.2rem;
   left: 0.4rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
@@ -2459,8 +2460,13 @@ input[type=date]:focus {
     min-width: 100%;
   }
 
-  .student__form input[type="text"] {
+  .student__form input[type="text"],
+  .lesson__form input[type="text"] {
     max-width: 20rem;
+  }
+
+  .lesson__form--title {
+    padding-top: 1em;
   }
 
   .profile__btn,
