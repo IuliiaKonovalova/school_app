@@ -2529,7 +2529,9 @@ input[type=date]:focus {
     top: 0.3rem;
   }
 
-  .student__form .select2-container--default .select2-selection--multiple {
+  .student__form .select2-container--default .select2-selection--multiple,
+  .lesson__form .select2-container--default .select2-selection--multiple,
+  .lesson__form .select2-container--default .select2-selection--single {
     width: 100%;
     min-width: 16.05rem;
   }
