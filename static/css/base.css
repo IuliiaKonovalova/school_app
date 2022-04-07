@@ -1792,14 +1792,15 @@ button.select2-selection__choice__remove {
 /* Styling Forms Textarea */
 
 .student__form .textarea {
-  width: 35rem;
+  width: 25rem;
   resize: vertical;
-  min-height: 7rem;
+  height: 10vh;
+  min-height: 3rem;
   border: 1px solid #aaa;
   border-radius: var(--br);
   font-size: 1.2rem;
   color: #001d82;
-  margin: 1em 0 0.5em 0;
+  margin: 0.6em 0 0.5em 0;
   padding: 1em;
 }
 
@@ -2459,8 +2460,37 @@ input[type=date]:focus {
     padding: 0.5em;
   }
 
+  /* Styling Adding Page */
+  .profile__form label[for='id_first_name']~div::before,
+  .profile__form label[for='id_last_name']~div::before,
+  .profile__form label[for='id_phone']~div::before,
+  .profile__form label[for='id_old_password']~div::before,
+  .profile__form label[for='id_new_password1']~div::before,
+  .profile__form label[for='id_new_password2']~div::before,
+  .student__form label[for='id_first_name']~div::before,
+  .student__form label[for='id_last_name']~div::before,
+  .student__form label[for='id_parent']~div::before,
+  .student__form label[for='id_birthday']~div::before,
+  .student__form label[for='id_address']~div::before,
+  .student__form label[for='id_classes_left']~div::before,
+  .student__form label[for='id_sales_manager']~div::before,
+  .student__form label[for='id_notes']~div::before,
   .sale__form label[for='id_amount']~div::before {
     top: 0.3rem;
+  }
+
+  .student__form .select2-container--default .select2-selection--multiple {
+    width: 100%;
+    min-width: 16.05rem;
+  }
+
+  .students input[name="birthday"] {
+    width: 16.05rem;
+    background-color: red;
+  }
+
+  .student__form .textarea {
+    width: 16.05rem;
   }
 
 }
