@@ -1206,6 +1206,7 @@ td {
   gap: 0.4em;
   margin: 2em auto;
   padding: 0.4em;
+  /* background-color: red; */
 }
 
 .schedule__section {
@@ -1217,10 +1218,9 @@ td {
 }
 
 .schedule__section--time {
-  /* background-color: var(--clr-neutral--100); */
   color: var(--clr-neutral--100);
   border-radius: 0.3em;
-  padding: 0.5em;
+  padding: 0.4em;
   font-size: 1.6rem;
   font-weight: 900;
   align-self: center;
@@ -1229,11 +1229,11 @@ td {
 }
 
 .schedule__section--lessons {
-  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   background-color: var(--clr-neutral--100);
   border-radius: 0.3em;
-  padding: 0.5em;
+  padding: 0.1em 0.4em 0.6em 0.4em;
 
 }
 
@@ -1255,6 +1255,7 @@ td {
   background-color: var(--clr-accent--900);
   border: 1px solid var(--clr-accent--900);
   text-transform: capitalize;
+  margin-top: 0.4em;
 }
 
 .schedule__section--lesson:hover {
@@ -2550,14 +2551,6 @@ input[type=date]:focus {
 
   }
 
-  .schedule__section--lessons {
-    width: 100%;
-    display: flex;
-    background-color: var(--clr-neutral--100);
-    border-radius: 0.3em;
-    padding: 0.5em;
-
-  }
 
   .schedule__section--lesson:not(:last-child) {
     margin-right: 0.5em;
