@@ -2353,7 +2353,8 @@ input[type=date]:focus {
     font-size: 1.8rem;
   }
 
-  .profile__data {
+  .profile__data,
+  .student__data {
     margin-left: 0.5em;
     display: flex;
     justify-content: start;
@@ -2522,14 +2523,16 @@ input[type=date]:focus {
     border-radius: 0.2em;
   }
 
-  .sales__form .classes__form--btn {
+  .sales__form .classes__form--btn,
+  .classes__form .classes__form--btn {
     color: transparent;
     width: 3rem;
     position: relative;
 
   }
 
-  .sales__form .classes__form--btn i {
+  .sales__form .classes__form--btn i,
+  .classes__form .classes__form--btn i {
     color: var(--clr-neutral--100);
     position: absolute;
     left: 17%;
