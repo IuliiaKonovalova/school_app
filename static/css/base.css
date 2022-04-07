@@ -1155,6 +1155,11 @@ td {
 }
 
 /* Styling lessons list page (Schedule page) */
+.lessons {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
 .lessons__title {
   text-transform: unset;
   color: var(--clr-neutral--900);
@@ -2138,7 +2143,8 @@ input[type=date]:focus {
   }
 
   .student__add--btn,
-  .sales__add--btn {
+  .sales__add--btn,
+  .lesson__add--btn {
     padding: 0.2em 0.6em;
     font-size: 1.2rem;
   }
