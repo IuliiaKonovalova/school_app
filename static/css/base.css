@@ -2363,6 +2363,13 @@ input[type=date]:focus {
     gap: 1rem;
     margin-bottom: 0.5em;
   }
+
+  /* Styling Lesson Detail Page */
+  .lesson__details--subtitle {
+    font-weight: 900;
+    font-size: 1.2rem;
+  }
+
 }
 
 @media all and (max-width: 680px) {
@@ -2560,6 +2567,19 @@ input[type=date]:focus {
   .schedule__section--lesson:not(:last-child) {
     margin-right: 0.2em;
   }
+
+  .lesson__details--container {
+    padding: 0.3em;
+  }
+
+  .lesson__details--data:not(:last-child) {
+    margin-bottom: 0.2em;
+  }
+
+  .lesson__details--data {
+    grid-template-columns: 1fr 2.5fr;
+    gap: 0.2rem;
+  }
 }
 
 @media all and (max-width: 575px) {
@@ -2654,5 +2674,11 @@ input[type=date]:focus {
   /* Styling Students list Page */
   .students__sort {
     gap: 0;
+  }
+
+  /* Styling Lesson Detail Page */
+  .lesson__details--data {
+    grid-template-columns: 1fr 2fr;
+    gap: 0.2rem;
   }
 }
