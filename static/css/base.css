@@ -1706,7 +1706,7 @@ td {
   border-radius: var(--br);
   padding: 0.4em 1em 0.5em 1em;
   min-width: 25rem;
-  margin: 1em 0;
+  margin: 0.7em 0;
   background-color: #ffffff;
   font-size: 1.2rem;
   color: #001d82;
@@ -1773,7 +1773,7 @@ button.select2-selection__choice__remove {
 .sale__form .select2-container--default .select2-selection--single,
 .role__form .select2-container--default .select2-selection--single,
 .lesson__form .select2-container--default .select2-selection--single {
-  height: 3rem;
+  height: 2.8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1794,7 +1794,7 @@ button.select2-selection__choice__remove {
 .student__form .textarea {
   width: 35rem;
   resize: vertical;
-  min-height: 10rem;
+  min-height: 7rem;
   border: 1px solid #aaa;
   border-radius: var(--br);
   font-size: 1.2rem;
@@ -2123,7 +2123,6 @@ input[type=date]:focus {
   .applications,
   .lesson__new {
     background-color: pink;
-    /* max-width: 55rem; */
     width: 90%;
     padding: 1.5em;
     font-size: 1.6rem;
@@ -2398,6 +2397,8 @@ input[type=date]:focus {
     min-width: 100%;
   }
 
+
+
   .profile__btn,
   .student__btn,
   .links__btn,
@@ -2433,6 +2434,20 @@ input[type=date]:focus {
 
   .application__buttons--delete {
     width: 90vw;
+  }
+
+  /* Styling Add Sale Page */
+  .sale__form .select2-container--default .select2-selection--single {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .sale input {
+    padding: 0.5em;
+  }
+
+  .sale__form label[for='id_amount']~div::before {
+    top: 0.3rem;
   }
 
 }
