@@ -1043,6 +1043,10 @@ td {
   font-size: 1.4rem;
 }
 
+.sales__results--container .sales__edit--btn {
+  margin-right: 0;
+}
+
 .sale__form--warning {
   margin-bottom: 0.5em;
 }
@@ -2097,6 +2101,14 @@ input[type=date]:focus {
     right: 0.4rem;
   }
 
+  .sales__results--summary {
+    font-size: 1.4rem;
+  }
+
+  .sales__results--container tr th,
+  .sales__results--container tr td {
+    font-size: 1rem;
+  }
 }
 
 @media all and (max-width: 980px) {
@@ -2174,6 +2186,67 @@ input[type=date]:focus {
 
   .application__buttons--delete {
     width: 50vw;
+  }
+
+  /* Styling Sales List Page */
+  .sales__add--btn {
+    font-size: 1.2rem;
+  }
+
+  .sales__form {
+    margin: 0.2em auto;
+  }
+
+  .classes__form--heading,
+  .sales__form--heading {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .classes__form--settings,
+  .sales__form--settings {
+    width: 100%;
+    max-width: 30rem;
+  }
+
+  .datepicker__container {
+    margin-right: 0.4em;
+  }
+
+  .datepicker__container--title {
+    font-size: 1rem;
+    margin-right: 0.2em;
+  }
+
+  .hasDatepicker {
+    max-width: 6rem;
+    font-size: 0.8rem;
+    border: 1.5px solid var(--clr-primary--900);
+    border-radius: 0.2em;
+  }
+
+  .sales__form .classes__form--btn {
+    font-size: 1rem;
+    padding: 0.2em 0.5em;
+  }
+
+  .sales__results--summary {
+    font-size: 1.4rem;
+  }
+
+  .sales__results--container tr th,
+  .sales__results--container tr td {
+    font-size: 1rem;
+  }
+
+  .sales__results--container .links__btn {
+    padding: 0.1em 0.2em;
+    font-size: 0.8rem;
+  }
+
+  .sales__results--container .sales__edit--btn .sales__btn--text,
+  .sales__results--container .sales__delete--btn .sales__btn--text {
+    display: none;
   }
 
 
@@ -2362,4 +2435,84 @@ input[type=date]:focus {
     width: 90vw;
   }
 
+}
+
+@media all and (max-width: 575px) {
+
+  /* Styling Sales List Page */
+  .classes__form--settings,
+  .sales__form--settings {
+    width: 100%;
+    max-width: 30rem;
+  }
+
+  .datepicker__container {
+    margin-right: 0.4em;
+  }
+
+  .datepicker__container--title {
+    font-size: 1rem;
+    margin-right: 0.2em;
+  }
+
+  .hasDatepicker {
+    max-width: 6rem;
+    font-size: 0.8rem;
+    border: 1.5px solid var(--clr-primary--900);
+    border-radius: 0.2em;
+  }
+
+  .sales__form .classes__form--btn {
+    color: transparent;
+    width: 3rem;
+    position: relative;
+
+  }
+
+  .sales__form .classes__form--btn i {
+    color: var(--clr-neutral--100);
+    position: absolute;
+    left: 17%;
+  }
+
+
+  .sales__results {
+    position: relative;
+  }
+
+  .sales__results--summary {
+    margin-bottom: 2.5rem;
+  }
+
+  .sales__results--summary::before {
+    content: "*For more data on sales, consider open the app on desktop";
+    position: absolute;
+    top: 1.7rem;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--clr-accent--700);
+    font-weight: 900;
+    font-style: italic;
+    font-size: 1rem;
+    margin: 0 auto;
+  }
+
+  .sales__results--container .hidden {
+    display: none;
+  }
+}
+
+@media all and (max-width: 387px) {
+  .datepicker__container--title {
+    font-size: 0.8rem;
+  }
+
+  .hasDatepicker {
+    max-width: 4rem;
+    font-size: 0.5rem;
+  }
 }

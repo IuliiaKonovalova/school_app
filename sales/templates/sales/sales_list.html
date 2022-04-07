@@ -66,9 +66,9 @@
             <th>ID</th>
             <th>Date</th>
             <th>Total</th>
-            <th>Manager</th>
-            <th>Client</th>
-            <th>Student</th>
+            <th class="hidden">Manager</th>
+            <th class="hidden">Client</th>
+            <th class="hidden">Student</th>
             {% comment %} Limit access to render sale only for sales managers {% endcomment %}
             {% if request.user.role == 2 %}
               <th>Edit</th>
@@ -82,7 +82,7 @@
               <td>{{ sale.date|date:'m/d/Y' }}</td>
               <td>{{ sale.amount }}</td>
               {% comment %} Link to sales manager profile {% endcomment %}
-              <td>
+              <td class="hidden">
                 <div class="links">
                   <a href="{% url 'user_profile' username=sale.sold_by.user.username %}"
                     aria-label="Go to Profile page" class="links__btn links__btn--name">
@@ -94,7 +94,7 @@
                 </div>
               </td>
               {% comment %} Link to parent profile {% endcomment %}
-              <td>
+              <td class="hidden">
                 <div class="links">
                   <a href="{% url 'user_profile' username=sale.sold_to.user.username %}"
                     aria-label="Go to Profile page" class="links__btn links__btn--name">
@@ -106,7 +106,7 @@
                 </div>
               </td>
               {% comment %} Link to student profile {% endcomment %}
-              <td>
+              <td  class="hidden">
                 <div class="links">
                   <a href="{% url 'student_detail' pk=sale.student_id %}" aria-label="Go to Student's Detail page"
                     class="links__btn links__btn--name">
@@ -122,7 +122,7 @@
                 <td>
                   <a href="{% url 'edit_sales' pk=sale.pk %}" aria-label="Go to Edit Sale page"
                     class="sales__btn sales__edit--btn">
-                    <div class=" sales__btn--text">Edit</div>
+                    <div class="sales__btn--text">Edit</div>
                     <i class="fas fa-edit  sales__btn--icon"></i>
                   </a>
                 </td>
