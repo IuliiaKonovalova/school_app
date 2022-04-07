@@ -2055,7 +2055,8 @@ input[type=date]:focus {
     width: 100%;
   }
 
-  .members__sort--item {
+  .members__sort--item,
+  .students__sort--item {
     justify-self: center;
     align-self: center;
     display: flex;
@@ -2063,7 +2064,8 @@ input[type=date]:focus {
     align-items: center;
   }
 
-  .members__sort--name {
+  .members__sort--name,
+  .students__sort--name {
     font-size: 1rem;
   }
 
@@ -2109,6 +2111,11 @@ input[type=date]:focus {
   .sales__results--container tr td {
     font-size: 1rem;
   }
+
+  /* Styling Students list Page */
+  .students__sort {
+    gap: 1rem;
+  }
 }
 
 @media all and (max-width: 980px) {
@@ -2127,6 +2134,12 @@ input[type=date]:focus {
     padding: 1.5em;
     font-size: 1.6rem;
     margin-bottom: 1.5em;
+  }
+
+  .student__add--btn,
+  .sales__add--btn {
+    padding: 0.2em 0.6em;
+    font-size: 1.2rem;
   }
 
 
@@ -2519,6 +2532,14 @@ input[type=date]:focus {
   .sales__results--container .hidden {
     display: none;
   }
+
+  .students__results {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-flow: dense;
+    gap: 0.5rem;
+  }
 }
 
 @media all and (max-width: 387px) {
@@ -2529,5 +2550,10 @@ input[type=date]:focus {
   .hasDatepicker {
     max-width: 4rem;
     font-size: 0.5rem;
+  }
+
+  /* Styling Students list Page */
+  .students__sort {
+    gap: 0;
   }
 }
