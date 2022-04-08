@@ -42,6 +42,13 @@ document.addEventListener("DOMContentLoaded", function () {
     })
   );
 
+
+  setTimeout(function () {
+    let messages = document.getElementById('messages-notes');
+    messages.style.display = "none";
+  }, 2500);
+
+
   // If student search input is on the page, listen for input
   studentSearchInput?.addEventListener("keyup", searchStudent)
   memberSearchInput?.addEventListener("keyup", searchMembers);
