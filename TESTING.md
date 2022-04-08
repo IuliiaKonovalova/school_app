@@ -1,5 +1,7 @@
 # Testing
 
-# HTML Validation:
+## HTML Validation:
 
 [Full HTML Validation](documentation/validation/html_validation.pdf)
+
+
