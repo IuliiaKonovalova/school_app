@@ -300,7 +300,7 @@ class SearchMembersView(ListView):
     """Search Members"""
     def get(self, request, *args, **kwargs):
         """Receive members"""
-        p = Paginator(CustomUser.objects.all().exclude(role=5), 5)
+        p = Paginator(CustomUser.objects.all().exclude(role=5), 20)
         page = request.GET.get('page')
         members = p.get_page(page)
         if request.user.is_authenticated:
