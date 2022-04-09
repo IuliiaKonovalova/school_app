@@ -74,23 +74,32 @@
     </form>
     <div class="pagination">
       <div class="pagination__navigation">
-        {% if members.has_previous %}
-          <div class="pagination__navigation--btns">
+        {% if members.has_previous and not members.has_next %}
             {% comment %} <a href="?page=1" class="members__pagination--btn">
               &laquo First
             </a> {% endcomment %}
             <a href="?page={{ members.previous_page_number }}" class="pagination__navigation--btn">
               <i class="fas fa-chevron-left"></i>
             </a>
-          </div>
-        {% endif %}
+            <div href="" class="pagination__navigation--fake">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+
         
-        {% if members.has_next %}
-          <div class="pagination__navigation--btns">
+        {% elif members.has_next and not members.has_previous %}
+            <div href="" class="pagination__navigation--fake">
+              <i class="fas fa-chevron-left"></i>
+            </div>
             <a href="?page={{ members.next_page_number }}" class="pagination__navigation--btn">
               <i class="fas fa-chevron-right"></i>
             </a>
-          </div>
+        {% else %}
+          <a href="?page={{ members.previous_page_number }}" class="pagination__navigation--btn">
+            <i class="fas fa-chevron-left"></i>
+          </a>
+          <a href="?page={{ members.next_page_number }}" class="pagination__navigation--btn">
+            <i class="fas fa-chevron-right"></i>
+          </a>
         {% endif %}
       </div>
       <div class="pagination__location">

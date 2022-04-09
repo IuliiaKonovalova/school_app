@@ -2016,6 +2016,15 @@ button.select2-selection__choice__remove {
   background-color: var(--clr-accent--800);
 }
 
+.pagination__navigation--fake {
+  background-color: #2fcd986b;
+  padding: 0.2em 1em;
+  border-radius: var(--br);
+  color: var(--clr-neutral--100);
+  font-size: 1.6rem;
+  font-weight: 900;
+}
+
 
 /* Access Error */
 
