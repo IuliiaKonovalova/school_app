@@ -229,7 +229,7 @@ body {
   align-items: center;
   justify-content: center;
   padding-top: 15vh;
-  padding-bottom: 15vh;
+  padding-bottom: 20vh;
 }
 
 .home__hero--content {
@@ -243,7 +243,7 @@ body {
 
 .home__hero--title {
   font-weight: 900;
-  font-size: 5rem;
+  font-size: 3.5rem;
   letter-spacing: 0.2rem;
   align-items: center;
   display: flex;
@@ -259,7 +259,7 @@ body {
 }
 
 .home__hero--subtitle {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   margin-top: 1vh;
 }
 
@@ -2409,11 +2409,12 @@ input[type=date]:focus {
   .home__hero {
     width: 90%;
     padding-top: 10vh;
-    /* padding-bottom: 10vh; */
+    padding-bottom: 15vh;
   }
 
   .home__hero--content {
     max-width: 30rem;
+
   }
 
   .home__hero--title {
@@ -2437,7 +2438,7 @@ input[type=date]:focus {
 
   .benefits {
     position: relative;
-    padding-bottom: 9rem;
+    padding-bottom: 10rem;
   }
 
   .benefits__card {
@@ -2461,17 +2462,41 @@ input[type=date]:focus {
     font-size: 1.1rem;
   }
 
+  .incentive,
+  .health {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 2em;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10vh;
+    font-size: 1.6rem;
+  }
+
+  .personnel {
+    flex-direction: column;
+  }
+
   .subsection__image {
     padding: 0;
-    width: 53%;
+    width: 100%;
+  }
+
+  .subsection__content {
+    width: 100%;
+    text-align: center;
+    margin-top: 3em;
   }
 
   .subsection__content--left {
-    margin-right: 5vw;
+    margin-right: 0;
   }
 
   .subsection__content--right {
-    margin-left: 5vw;
+    margin-left: 0;
   }
 
   /* Styling Members Page */
