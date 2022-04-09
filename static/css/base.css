@@ -2079,6 +2079,15 @@ input[type=date]:focus {
     font-size: 1.4rem;
   }
 
+  .subsection__content {
+    padding: 1.5em;
+    font-size: 1.2rem;
+  }
+
+  .subsection__image {
+    padding: 1em;
+  }
+
   /* Styling members Page */
   .members__sort {
     width: 100%;
@@ -2148,6 +2157,26 @@ input[type=date]:focus {
 }
 
 @media all and (max-width: 980px) {
+
+  /* Styling Home Page */
+  .benefits__card--image {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-bottom: 0.3em;
+  }
+
+  .benefits__card--content {
+    font-size: 1.2rem;
+  }
+
+  .subsection__content {
+    padding: 1.5em;
+    font-size: 1.1rem;
+  }
+
+  .subsection__image {
+    padding: 0;
+  }
 
   .profile,
   .student,
@@ -2375,6 +2404,44 @@ input[type=date]:focus {
 }
 
 @media all and (max-width: 804px) {
+
+  /* Styling Home Page */
+  .benefits__card {
+    padding: 0.5em;
+  }
+
+  .benefits__card:not(:last-child) {
+    margin-right: 2vw;
+  }
+
+  .benefits__card--image {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 0.3em;
+  }
+
+  .benefits__card--content {
+    font-size: 1rem;
+  }
+
+  .subsection__content {
+    width: 47%;
+    padding: 1.5em;
+    font-size: 1.1rem;
+  }
+
+  .subsection__image {
+    padding: 0;
+    width: 53%;
+  }
+
+  .subsection__content--left {
+    margin-right: 5vw;
+  }
+
+  .subsection__content--right {
+    margin-left: 5vw;
+  }
 
   /* Styling Members Page */
   .members__sort {
