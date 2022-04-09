@@ -2058,6 +2058,27 @@ input[type=date]:focus {
 
 @media all and (max-width: 1292px) {
 
+  /* Styling Index Page */
+
+  .benefits__card {
+    padding: 1em;
+  }
+
+  .benefits__card:not(:last-child) {
+    margin-right: 2vw;
+  }
+
+
+  .benefits__card--image {
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 0.5em;
+  }
+
+  .benefits__card--content {
+    font-size: 1.4rem;
+  }
+
   /* Styling members Page */
   .members__sort {
     width: 100%;
