@@ -72,5 +72,23 @@
         {% endfor %}
       </div>
     </form>
+    {% if members.has_previous %}
+      <div class="members__pagination">
+        <a href="?page=1" class="members__pagination--btn">
+          &laquo First
+        </a>
+        <a href="?page={{ members.previous_page_number }}" class="members__pagination--btn">
+          <i class="fas fa-chevron-left"></i>
+        </a>
+      </div>
+    {% endif %}
+    Page {{ members.number }} of {{ members.paginator.num_pages }}
+    {% if members.has_next %}
+      <div class="members__pagination">
+        <a href="?page={{ members.next_page_number }}" class="members__pagination--btn">
+          <i class="fas fa-chevron-right"></i>
+        </a>
+      </div>
+    {% endif %}
   </div>
 {% endblock %}

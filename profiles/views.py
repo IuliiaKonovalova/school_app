@@ -10,6 +10,7 @@ from students.models import Student
 from sales.models import Sales
 from .models import CustomUser, Parent, SalesManager, Teacher
 from .forms import NewApplicationForm, UserProfileEditForm
+from django.core.paginator import Paginator
 
 
 class UserProfileView(View):
@@ -299,7 +300,9 @@ class SearchMembersView(ListView):
     """Search Members"""
     def get(self, request, *args, **kwargs):
         """Receive members"""
-        members = CustomUser.objects.all().exclude(role=5)
+        p = Paginator(CustomUser.objects.all().exclude(role=5), 5)
+        page = request.GET.get('page')
+        members = p.get_page(page)
         if request.user.is_authenticated:
             if request.user.role != 4 and request.user.role != 5:
                 return render(
