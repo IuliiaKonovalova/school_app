@@ -2406,22 +2406,24 @@ input[type=date]:focus {
 @media all and (max-width: 804px) {
 
   /* Styling Home Page */
+  .benefits {
+    position: relative;
+    padding-bottom: 9rem;
+  }
+
   .benefits__card {
-    padding: 0.5em;
+    width: 42vw;
+  }
+
+  .benefits__card:last-child {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%);
   }
 
   .benefits__card:not(:last-child) {
-    margin-right: 2vw;
-  }
-
-  .benefits__card--image {
-    width: 3rem;
-    height: 3rem;
-    margin-bottom: 0.3em;
-  }
-
-  .benefits__card--content {
-    font-size: 1rem;
+    margin-right: 0;
   }
 
   .subsection__content {
