@@ -75,7 +75,8 @@
     <div class="pagination">
       <div class="pagination__navigation">
         {% if members.has_previous and not members.has_next %}
-          <a href="?page={{ members.previous_page_number }}" class="pagination__navigation--btn">
+          <a href="?page={{ members.previous_page_number }}" class="pagination__navigation--btn"
+            aria-label="Go to previous page results">
             <i class="fas fa-chevron-left"></i>
           </a>
           <div class="pagination__navigation--fake">
@@ -85,14 +86,17 @@
           <div class="pagination__navigation--fake">
             <i class="fas fa-chevron-left"></i>
           </div>
-          <a href="?page={{ members.next_page_number }}" class="pagination__navigation--btn">
+          <a href="?page={{ members.next_page_number }}" class="pagination__navigation--btn"
+            aria-label="Go to next page results">
             <i class="fas fa-chevron-right"></i>
           </a>
         {% elif members.has_next and members.has_previous %}
-          <a href="?page={{ members.previous_page_number }}" class="pagination__navigation--btn">
+          <a href="?page={{ members.previous_page_number }}" class="pagination__navigation--btn"
+            aria-label="Go to previous page results">
             <i class="fas fa-chevron-left"></i>
           </a>
-          <a href="?page={{ members.next_page_number }}" class="pagination__navigation--btn">
+          <a href="?page={{ members.next_page_number }}" class="pagination__navigation--btn"
+            aria-label="Go to next page results">
             <i class="fas fa-chevron-right"></i>
           </a>
         {% else %}
