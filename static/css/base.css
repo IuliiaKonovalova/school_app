@@ -2464,6 +2464,19 @@ input[type=date]:focus {
 
 @media all and (max-width: 680px) {
 
+  /* Styling Home Page */
+  .benefits {
+    justify-content: space-around;
+  }
+
+  .benefits__card {
+    width: 37vw;
+  }
+
+  .benefits__card--content {
+    font-size: 1rem;
+  }
+
   .profile,
   .student,
   .access,
@@ -2673,6 +2686,15 @@ input[type=date]:focus {
 }
 
 @media all and (max-width: 575px) {
+
+  /* Styling Home Page */
+  .benefits__card {
+    padding: 0.7em;
+  }
+
+  .benefits__card--content {
+    font-size: 1rem;
+  }
 
   /* Styling Sales List Page */
   .classes__form--settings,
