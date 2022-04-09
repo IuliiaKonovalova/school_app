@@ -326,9 +326,13 @@ class SearchMembersView(ListView):
             if request.user.role != 4 and request.user.role != 5:
                 role = request.POST.get('role')
                 if role == 'all':
-                    members = CustomUser.objects.all().exclude(role=5)
+                    p = Paginator(CustomUser.objects.all().exclude(role=5), 20)
+                    page = request.GET.get('page')
+                    members = p.get_page(page)
                 else:
-                    members = CustomUser.objects.filter(role=role)
+                    p = Paginator(CustomUser.objects.filter(role=role), 20)
+                    page = request.GET.get('page')
+                    members = p.get_page(page)
                 return render(
                     request,
                     'profiles/search_members.html',
