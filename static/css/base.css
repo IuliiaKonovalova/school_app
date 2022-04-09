@@ -2406,6 +2406,35 @@ input[type=date]:focus {
 @media all and (max-width: 804px) {
 
   /* Styling Home Page */
+  .home__hero {
+    width: 90%;
+    padding-top: 10vh;
+    /* padding-bottom: 10vh; */
+  }
+
+  .home__hero--content {
+    max-width: 30rem;
+  }
+
+  .home__hero--title {
+    font-size: 2.3rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .home__hero--title .logo__image {
+    height: 4rem;
+    width: 4rem;
+  }
+
+  .home__hero--subtitle {
+    font-size: 1.2rem;
+    margin-top: 1vh;
+  }
+
+  .home__hero--button {
+    font-size: 1.2rem;
+  }
+
   .benefits {
     position: relative;
     padding-bottom: 9rem;
