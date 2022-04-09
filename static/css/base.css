@@ -1972,6 +1972,50 @@ button.select2-selection__choice__remove {
   color: #ffffffa8;
 }
 
+/* Pagination */
+
+.pagination {
+  max-width: 12rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  padding: 1em 0;
+}
+
+.pagination__navigation,
+.pagination__location {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+}
+
+.pagination__navigation {
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.pagination__location {
+  color: var(--clr-neutral--900);
+}
+
+.pagination__navigation--btn {
+  background-color: var(--clr-accent--900);
+  padding: 0.2em 1em;
+  border-radius: var(--br);
+  color: var(--clr-neutral--100);
+  font-size: 1.6rem;
+  font-weight: 900;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pagination__navigation--btn:hover {
+  background-color: var(--clr-accent--800);
+}
+
 
 /* Access Error */
 

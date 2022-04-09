@@ -72,23 +72,30 @@
         {% endfor %}
       </div>
     </form>
-    {% if members.has_previous %}
-      <div class="members__pagination">
-        <a href="?page=1" class="members__pagination--btn">
-          &laquo First
-        </a>
-        <a href="?page={{ members.previous_page_number }}" class="members__pagination--btn">
-          <i class="fas fa-chevron-left"></i>
-        </a>
+    <div class="pagination">
+      <div class="pagination__navigation">
+        {% if members.has_previous %}
+          <div class="pagination__navigation--btns">
+            {% comment %} <a href="?page=1" class="members__pagination--btn">
+              &laquo First
+            </a> {% endcomment %}
+            <a href="?page={{ members.previous_page_number }}" class="pagination__navigation--btn">
+              <i class="fas fa-chevron-left"></i>
+            </a>
+          </div>
+        {% endif %}
+        
+        {% if members.has_next %}
+          <div class="pagination__navigation--btns">
+            <a href="?page={{ members.next_page_number }}" class="pagination__navigation--btn">
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          </div>
+        {% endif %}
       </div>
-    {% endif %}
-    Page {{ members.number }} of {{ members.paginator.num_pages }}
-    {% if members.has_next %}
-      <div class="members__pagination">
-        <a href="?page={{ members.next_page_number }}" class="members__pagination--btn">
-          <i class="fas fa-chevron-right"></i>
-        </a>
+      <div class="pagination__location">
+        Page {{ members.number }} of {{ members.paginator.num_pages }}
       </div>
-    {% endif %}
+    </div>
   </div>
 {% endblock %}
