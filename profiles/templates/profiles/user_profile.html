@@ -177,8 +177,144 @@
     </div>
     {% endif %}
     </div>
+    {% comment %} Profile additional Data for Teacher's profile {% endcomment %}
+    {% if user_profile.role == 1 and user_profile == request.user or user_profile.role == 1 and request.user.role == 0 %}
+    {% comment %} Access limitation to teachers classes data, only for bosess and the teacher {% endcomment %}
+      <div class="classes">
+        <h3 class="classes__title">Classes given:</h3>
+        {% comment %} Get classes by time period for a teacher {% endcomment %}
+        <form method="POST" class="classes__form">
+          <h4 class="classes__form--heading">Search classes by date</h4>
+          {% csrf_token %}
+          <div class="classes__form--settings">
+            <div class="datepicker__container">
+              <div class="datepicker__container--title">From:</div>
+              <input type="text" id="datepicker1" name="from_date" placeholder="mm-dd-yyyy">
+            </div>
+            <div class="datepicker__container">
+              <div class="datepicker__container--title">To:</div>
+              <input type="text" id="datepicker2" name="to_date" placeholder="mm-dd-yyyy">
+            </div>
+            <button type="submit" value="search" class="search__btn classes__form--btn">
+              <div class=" profile__btn--text">Search</div>
+              <i class="fas fa-search  profile__btn--icon"></i>
+            </button>
+          </div>
+          {% comment %} Classes Results recieved {% endcomment %}
+          <div class="classes__results">
+            <div class="classes__results--summary">
+              <strong>{{ lessons|length }}</strong> classes found
+            </div>
+            <div class="classes__results--container">
+              {% for lesson in lessons %}
+                <div class="classes__results--item">
+                  <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
+                    class="links__btn links__btn--name links__btn--classes">
+                    <div class="profile__btn--text">
+                      <div>{{ lesson.date|date:'m/d/Y' }}</div>
+                      <div>{{ lesson.get_subject }}</div>
+                    </div>
+                    <i class="fas fa-external-link-alt profile__btn--icon"></i>
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </form>
+      </div>
+    {% endif %}
+    {% comment %} Profile additional Data for Sales Manager's profile {% endcomment %}
+    {% if user_profile.role == 2 %}
+      <div class="sales__profile--summary">
+        <h3 class="profile__students">Students:</h3>
+        <div class="profile__students--amount">
+          In charge of <strong>{{ children|length }}</strong> students
+        </div>
+        <div class="profile__students--data">
+          {% for child in children %}
+          <div class="profile__student--data">
+            <div class="links">
+              <a href="{% url 'student_detail' pk=child.pk%}" aria-label="Go to Student's page"
+                class="links__btn links__btn--name">
+                <div class="profile__btn--text">
+                  {{ child.first_name }} {{ child.last_name }}
+                </div>
+                <i class="fas fa-external-link-alt profile__btn--icon"></i>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% if user_profile.role == 2 and user_profile == request.user or request.user.role == 0 %}
+          <h3 class="profile__sales">Sales made:</h3>
+          <div class="profile__sales--amount"><strong>{{ sold_all }}</strong> classes sold</div>
+          <div class="links">
+            <a href="{% url 'sales_list' %}" aria-label="Go to Sales page"
+              class="links__btn links__btn--page">
+              <div class="profile__btn--text">Open sales</div>
+              <i class="fas fa-external-link-alt profile__btn--icon"></i>
+            </a>
+          </div>
+          <div class="profile__sales--data">
+            {% for sale in sales %}
+              <div class="profile__student--data">
+                <div class="links">
+                  <div class="links__btn links__btn--name">
+                    <div class="profile__data--text">
+                      {{ sale.date|date:'m/d/Y' }}
+                      <br>
+                      ({{ sale.amount }} classes)
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="pagination">
+            <div class="pagination__navigation">
+              {% if sales.has_previous and not sales.has_next %}
+                <a href="?page={{ sales.previous_page_number }}" class="pagination__navigation--btn"
+                  aria-label="Go to previous page results">
+                  <i class="fas fa-chevron-left"></i>
+                </a>
+                <div class="pagination__navigation--fake">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              {% elif sales.has_next and not sales.has_previous %}
+                <div class="pagination__navigation--fake">
+                  <i class="fas fa-chevron-left"></i>
+                </div>
+                <a href="?page={{ sales.next_page_number }}" class="pagination__navigation--btn"
+                  aria-label="Go to next page results">
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              {% elif sales.has_next and sales.has_previous %}
+                <a href="?page={{ sales.previous_page_number }}" class="pagination__navigation--btn"
+                  aria-label="Go to previous page results">
+                  <i class="fas fa-chevron-left"></i>
+                </a>
+                <a href="?page={{ sales.next_page_number }}" class="pagination__navigation--btn"
+                  aria-label="Go to next page results">
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              {% else %}
+                <div class="pagination__navigation--fake">
+                  <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="pagination__navigation--fake">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              {% endif %}
+            </div>
+            <div class="pagination__location">
+              Page {{ sales.number }} of {{ sales.paginator.num_pages }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
   {% else %}
-    {% comment %} Access limitation for all not authenticated users {% endcomment %}
+  {% comment %} Access limitation for all not authenticated users {% endcomment %}
     <div class="access">
       <div class="access__error">
         <div class="access__error--image">
@@ -195,142 +331,6 @@
           </a>
         </div>
       </div>
-    </div>
-  {% endif %}
-  {% comment %} Profile additional Data for Teacher's profile {% endcomment %}
-  {% if user_profile.role == 1 and user_profile == request.user or user_profile.role == 1 and request.user.role == 0 %}
-  {% comment %} Access limitation to teachers classes data, only for bosess and the teacher {% endcomment %}
-    <div class="classes">
-      <h3 class="classes__title">Classes given:</h3>
-      {% comment %} Get classes by time period for a teacher {% endcomment %}
-      <form method="POST" class="classes__form">
-        <h4 class="classes__form--heading">Search classes by date</h4>
-        {% csrf_token %}
-        <div class="classes__form--settings">
-          <div class="datepicker__container">
-            <div class="datepicker__container--title">From:</div>
-            <input type="text" id="datepicker1" name="from_date" placeholder="mm-dd-yyyy">
-          </div>
-          <div class="datepicker__container">
-            <div class="datepicker__container--title">To:</div>
-            <input type="text" id="datepicker2" name="to_date" placeholder="mm-dd-yyyy">
-          </div>
-          <button type="submit" value="search" class="search__btn classes__form--btn">
-            <div class=" profile__btn--text">Search</div>
-            <i class="fas fa-search  profile__btn--icon"></i>
-          </button>
-        </div>
-        {% comment %} Classes Results recieved {% endcomment %}
-        <div class="classes__results">
-          <div class="classes__results--summary">
-            <strong>{{ lessons|length }}</strong> classes found
-          </div>
-          <div class="classes__results--container">
-            {% for lesson in lessons %}
-              <div class="classes__results--item">
-                <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to Lesson Detail page"
-                  class="links__btn links__btn--name links__btn--classes">
-                  <div class="profile__btn--text">
-                    <div>{{ lesson.date|date:'m/d/Y' }}</div>
-                    <div>{{ lesson.get_subject }}</div>
-                  </div>
-                  <i class="fas fa-external-link-alt profile__btn--icon"></i>
-                </a>
-              </div>
-            {% endfor %}
-          </div>
-        </div>
-      </form>
-    </div>
-  {% endif %}
-  {% comment %} Profile additional Data for Sales Manager's profile {% endcomment %}
-  {% if user_profile.role == 2 %}
-    <div class="sales__profile--summary">
-      <h3 class="profile__students">Students:</h3>
-      <div class="profile__students--amount">
-        In charge of <strong>{{ children|length }}</strong> students
-      </div>
-      <div class="profile__students--data">
-        {% for child in children %}
-        <div class="profile__student--data">
-          <div class="links">
-            <a href="{% url 'student_detail' pk=child.pk%}" aria-label="Go to Student's page"
-              class="links__btn links__btn--name">
-              <div class="profile__btn--text">
-                {{ child.first_name }} {{ child.last_name }}
-              </div>
-              <i class="fas fa-external-link-alt profile__btn--icon"></i>
-            </a>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-      {% if user_profile.role == 2 and user_profile == request.user or request.user.role == 0 %}
-        <h3 class="profile__sales">Sales made:</h3>
-        <div class="profile__sales--amount"><strong>{{ sold_all }}</strong> sales made</div>
-        <div class="links">
-          <a href="{% url 'sales_list' %}" aria-label="Go to Sales page"
-            class="links__btn links__btn--page">
-            <div class="profile__btn--text">Open sales</div>
-            <i class="fas fa-external-link-alt profile__btn--icon"></i>
-          </a>
-        </div>
-        <div class="profile__sales--data">
-          {% for sale in sales %}
-            <div class="profile__student--data">
-              <div class="links">
-                <div class="links__btn links__btn--name">
-                  <div class="profile__data--text">
-                    {{ sale.date|date:'m/d/Y' }}
-                    <br>
-                    ({{ sale.amount }} classes)
-                  </div>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-        <div class="pagination">
-          <div class="pagination__navigation">
-            {% if sales.has_previous and not sales.has_next %}
-              <a href="?page={{ sales.previous_page_number }}" class="pagination__navigation--btn"
-                aria-label="Go to previous page results">
-                <i class="fas fa-chevron-left"></i>
-              </a>
-              <div class="pagination__navigation--fake">
-                <i class="fas fa-chevron-right"></i>
-              </div>
-            {% elif sales.has_next and not sales.has_previous %}
-              <div class="pagination__navigation--fake">
-                <i class="fas fa-chevron-left"></i>
-              </div>
-              <a href="?page={{ sales.next_page_number }}" class="pagination__navigation--btn"
-                aria-label="Go to next page results">
-                <i class="fas fa-chevron-right"></i>
-              </a>
-            {% elif sales.has_next and sales.has_previous %}
-              <a href="?page={{ sales.previous_page_number }}" class="pagination__navigation--btn"
-                aria-label="Go to previous page results">
-                <i class="fas fa-chevron-left"></i>
-              </a>
-              <a href="?page={{ sales.next_page_number }}" class="pagination__navigation--btn"
-                aria-label="Go to next page results">
-                <i class="fas fa-chevron-right"></i>
-              </a>
-            {% else %}
-              <div class="pagination__navigation--fake">
-                <i class="fas fa-chevron-left"></i>
-              </div>
-              <div class="pagination__navigation--fake">
-                <i class="fas fa-chevron-right"></i>
-              </div>
-            {% endif %}
-          </div>
-          <div class="pagination__location">
-            Page {{ sales.number }} of {{ sales.paginator.num_pages }}
-          </div>
-        </div>
-      {% endif %}
     </div>
   {% endif %}
 {% endblock %}
