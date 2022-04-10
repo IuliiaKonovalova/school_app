@@ -395,7 +395,8 @@ body {
 .sales,
 .sale,
 .applications,
-.lesson__new {
+.lesson__new,
+.sales__profile--summary {
   background-color: var(--clr-primary--300);
   max-width: 55rem;
   width: 100%;
@@ -620,6 +621,10 @@ body {
   margin-bottom: 0.5em;
 }
 
+.profile__students--data {
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
 .profile__data--text {
   width: 100%;
   text-align: center;
@@ -664,7 +669,8 @@ body {
 }
 
 /* Styling Classes Section */
-.classes {
+.classes,
+.sales__profile--summary {
   padding-top: 0;
   max-width: 100%;
   background-color: unset;
@@ -2208,7 +2214,8 @@ button.select2-selection__choice__remove {
   .sales,
   .sale,
   .applications,
-  .lesson__new {
+  .lesson__new,
+  .sales__profile--summary {
     background-color: pink;
     width: 90%;
     padding: 1.5em;

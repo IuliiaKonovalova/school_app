@@ -131,54 +131,7 @@
           </div>
         </div>
       </div>
-      {% comment %} Profile additional Data for Sales Manager's profile {% endcomment %}
-      {% if user_profile.role == 2 %}
-        <h3 class="profile__students">Students:</h3>
-        <div class="profile__students--amount">
-          In charge of <strong>{{ children|length }}</strong> students
-        </div>
-        <div class="profile__students--data">
-          {% for child in children %}
-          <div class="profile__student--data">
-            <div class="links">
-              <a href="{% url 'student_detail' pk=child.pk%}" aria-label="Go to Student's page"
-                class="links__btn links__btn--name">
-                <div class="profile__btn--text">
-                  {{ child.first_name }} {{ child.last_name }}
-                </div>
-                <i class="fas fa-external-link-alt profile__btn--icon"></i>
-              </a>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      {% if user_profile.role == 2 and user_profile == request.user or request.user.role == 0 %}
-        <h3 class="profile__sales">Sales made:</h3>
-        <div class="profile__sales--amount"><strong>{{ sales|length }}</strong> sales made</div>
-        <div class="links">
-          <a href="{% url 'sales_list' %}" aria-label="Go to Sales page"
-            class="links__btn links__btn--page">
-            <div class="profile__btn--text">Open sales</div>
-            <i class="fas fa-external-link-alt profile__btn--icon"></i>
-          </a>
-        </div>
-        <div class="profile__sales--data">
-          {% for sale in sales %}
-            <div class="profile__student--data">
-              <div class="links">
-                <div class="links__btn links__btn--name">
-                  <div class="profile__data--text">
-                    {{ sale.date|date:'m/d/Y' }}
-                    <br>
-                    ({{ sale.amount }} classes)
-                  </div>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-      {% endif %}
-    {% endif %}
+
     {% comment %} Profile additional Data for Parent's profile {% endcomment %}
     {% if user_profile.role == 4 %}
       <h3 class="profile__children">Children:</h3>
@@ -288,6 +241,56 @@
           </div>
         </div>
       </form>
+    </div>
+  {% endif %}
+  {% comment %} Profile additional Data for Sales Manager's profile {% endcomment %}
+  {% if user_profile.role == 2 %}
+    <div class="sales__profile--summary">
+      <h3 class="profile__students">Students:</h3>
+      <div class="profile__students--amount">
+        In charge of <strong>{{ children|length }}</strong> students
+      </div>
+      <div class="profile__students--data">
+        {% for child in children %}
+        <div class="profile__student--data">
+          <div class="links">
+            <a href="{% url 'student_detail' pk=child.pk%}" aria-label="Go to Student's page"
+              class="links__btn links__btn--name">
+              <div class="profile__btn--text">
+                {{ child.first_name }} {{ child.last_name }}
+              </div>
+              <i class="fas fa-external-link-alt profile__btn--icon"></i>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% if user_profile.role == 2 and user_profile == request.user or request.user.role == 0 %}
+        <h3 class="profile__sales">Sales made:</h3>
+        <div class="profile__sales--amount"><strong>{{ sales|length }}</strong> sales made</div>
+        <div class="links">
+          <a href="{% url 'sales_list' %}" aria-label="Go to Sales page"
+            class="links__btn links__btn--page">
+            <div class="profile__btn--text">Open sales</div>
+            <i class="fas fa-external-link-alt profile__btn--icon"></i>
+          </a>
+        </div>
+        <div class="profile__sales--data">
+          {% for sale in sales %}
+            <div class="profile__student--data">
+              <div class="links">
+                <div class="links__btn links__btn--name">
+                  <div class="profile__data--text">
+                    {{ sale.date|date:'m/d/Y' }}
+                    <br>
+                    ({{ sale.amount }} classes)
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
   {% endif %}
 {% endblock %}

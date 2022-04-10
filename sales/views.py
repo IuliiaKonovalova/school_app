@@ -16,7 +16,7 @@ class SalesView(View):
         if request.user.is_authenticated and (
             request.user.role == 0 or request.user.role == 2
         ):
-            p = Paginator(Sales.objects.all(), 5)
+            p = Paginator(Sales.objects.all(), 10)
             page = request.GET.get('page')
             sales = p.get_page(page)
             for sale in sales:
@@ -46,7 +46,7 @@ class SalesView(View):
             todate = request.POST.get('to_date')
             p = Paginator(
                 Sales.objects.filter(date__range=[fromdate, todate]),
-                5
+                10
             )
             page = request.GET.get('page')
             search_items = p.get_page(page)
