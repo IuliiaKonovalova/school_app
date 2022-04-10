@@ -2815,6 +2815,13 @@ button.select2-selection__choice__remove {
     grid-template-columns: 1fr 2.5fr;
     gap: 0.2rem;
   }
+
+  .classes__results,
+  .sales__results,
+  .profile__sales--container {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 @media all and (max-width: 575px) {
