@@ -121,7 +121,12 @@ class StudentView(View):
                 )
             else:
                 student = get_object_or_404(Student, pk=pk)
-                lessons = Lesson.objects.filter(students__in=[student])
+                p = Paginator(
+                    Lesson.objects.filter(students__in=[student]),
+                    20
+                )
+                page = request.GET.get('page')
+                lessons = p.get_page(page)
                 return render(
                     request,
                     'students/student_detail.html',
@@ -142,7 +147,12 @@ class StudentView(View):
                 todate = request.POST.get('to_date')
                 student = get_object_or_404(Student, pk=pk)
                 lessons = Lesson.objects.filter(students__in=[student])
-                search_items = lessons.filter(date__range=[fromdate, todate])
+                p = Paginator(
+                    lessons.filter(date__range=[fromdate, todate]),
+                    20
+                )
+                page = request.GET.get('page')
+                search_items = p.get_page(page)
                 return render(
                     request,
                     'students/student_detail.html',

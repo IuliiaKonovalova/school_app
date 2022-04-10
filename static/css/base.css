@@ -735,6 +735,8 @@ body {
 .classes__results,
 .sales__results {
   width: 100%;
+  max-width: 120rem;
+  padding: 0 2em;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
