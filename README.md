@@ -229,7 +229,42 @@ Web application has the following pages:
 - delete lesson page
 - teacher's personal schedule page
 
+### Access to pages according to the user role:
 
+| Page Name     | Boss  | Teacher    | Sales Manager | Receptionist | Parent | Potential Client |
+| ------------- | ------------- | ------------- | ---------- | ------------- | ------------- | ------------- |
+| home page                   | Y | Y | Y | Y | Y | Y |
+| login page                  | Y | Y | Y | Y | Y | Y |
+| registration page           | Y | Y | Y | Y | Y | Y |
+| logout page                 | Y | Y | Y | Y | Y | Y |
+| user's profile page         | Y | Y | Y | Y | Y | Y |
+| other user's profile page   | Y (all data + delete member functionality) | Y (all data except sales made by a sales manager and other teachers' classes) | Y (all data except teachers' classes and other sales managers' sales ) | Y (all data except teachers's classes and sales of the sales managers) | Y (only name, phone number and email) | Y (only name, phone number and email) |
+| edit profile page           | Y | Y | Y | Y | Y | Y |
+| delete member         | Y | N | N | N | N | N |
+| change password page        | Y | Y | Y | Y | Y | Y |
+| members page                | Y | Y | Y | Y | N | N |
+| new applications page       | Y | N | Y | N | N | N |
+| application detail page     | Y (plus assign role and delete application) | N | Y | N | N | N |
+| delete application page     | Y | N | N | N | N | N |
+| sales page                  | Y | N | Y (plus add sale and edit or delete personal sales only) | N | N | N |
+| add sale page               | N | N | Y | N | N | N |
+| edit sale page              | N | N | Y | N | N | N |
+| delete sale page            | N | N | Y | N | N | N |
+| students page               | Y (plus add student button) | Y | Y (plus add student button) | Y | N | N |
+| student detail page         | Y (plus delete and edit functionality) | Y | Y (plus delete and edit functionality) | Y | Y (only their own children) | N |
+| add student page            | Y | N | Y | N | N | N |
+| edit student page           | Y | N | Y | N | N | N |
+| delete student page         | Y | N | Y | N | N | N |
+| schedule page               | Y | Y (plus view personal schedule functionality) | Y | Y (plus add lesson functionality) | Y | Y |
+| lesson page                 | Y | Y | Y | Y | Y (except view other students' profiles) | Y (except view students' profiles functionality) |
+| add lesson page             | N | N | N | Y | N | N |
+| edit lesson page            | N | N | N | Y | N | N |
+| delete lesson page          | N | N | N | Y | N | N |
+| teacher's personal schedule page | N | Y | N | N | N | N |
+
+Each page has a navbar and footer
+
+**Navbar**
 
 
 
