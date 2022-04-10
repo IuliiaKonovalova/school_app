@@ -200,6 +200,40 @@ The app was developed for all members of the early childhood school.
 
 ## Features
 
+Web application has the following pages:
+- home page
+- login page
+- registration page
+- logout page
+- profile page
+- edit profile page
+- change password page
+- delete member page
+- members page
+- new applications page
+- application detail page
+- delete application page
+- sales page
+- add sale page
+- edit sale page
+- delete sale page
+- students page
+- student detail page
+- add student page
+- edit student page
+- delete student page
+- schedule page
+- lesson page
+- add lesson page
+- edit lesson page
+- delete lesson page
+- teacher's personal schedule page
+
+
+
+
+
+
 [Back to contents](#contents)
 
 ---
