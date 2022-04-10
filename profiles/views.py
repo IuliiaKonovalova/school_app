@@ -184,7 +184,9 @@ class NewApplicationsView(View):
         """Receive new applications"""
         if request.user.is_authenticated:
             if request.user.role == 0 or request.user.role == 2:
-                new_applications = CustomUser.objects.filter(role=5)
+                p = Paginator(CustomUser.objects.filter(role=5), 12)
+                page = request.GET.get('page')
+                new_applications = p.get_page(page)
                 return render(
                     request, 'profiles/new_applications.html',
                     {'new_applications': new_applications}

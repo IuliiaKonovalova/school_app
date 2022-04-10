@@ -25,5 +25,45 @@
       </div>
       {% endfor %}
     </div>
+    <div class="pagination">
+      <div class="pagination__navigation">
+        {% if new_applications.has_previous and not new_applications.has_next %}
+          <a href="?page={{ new_applications.previous_page_number }}" class="pagination__navigation--btn"
+            aria-label="Go to previous page results">
+            <i class="fas fa-chevron-left"></i>
+          </a>
+          <div class="pagination__navigation--fake">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        {% elif new_applications.has_next and not new_applications.has_previous %}
+          <div class="pagination__navigation--fake">
+            <i class="fas fa-chevron-left"></i>
+          </div>
+          <a href="?page={{ new_applications.next_page_number }}" class="pagination__navigation--btn"
+            aria-label="Go to next page results">
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        {% elif new_applications.has_next and new_applications.has_previous %}
+          <a href="?page={{ new_applications.previous_page_number }}" class="pagination__navigation--btn"
+            aria-label="Go to previous page results">
+            <i class="fas fa-chevron-left"></i>
+          </a>
+          <a href="?page={{ new_applications.next_page_number }}" class="pagination__navigation--btn"
+            aria-label="Go to next page results">
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        {% else %}
+          <div class="pagination__navigation--fake">
+            <i class="fas fa-chevron-left"></i>
+          </div>
+          <div class="pagination__navigation--fake">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        {% endif %}
+      </div>
+      <div class="pagination__location">
+        Page {{ new_applications.number }} of {{ new_applications.paginator.num_pages }}
+      </div>
+    </div>
   </div>
 {% endblock %}

@@ -67,7 +67,7 @@ class StudentsView(View):
                     'profiles/access_limitation.html'
                 )
             else:
-                p = Paginator(Student.objects.all(), 2)
+                p = Paginator(Student.objects.all(), 20)
                 page = request.GET.get('page')
                 students = p.get_page(page)
                 context = {
@@ -90,7 +90,7 @@ class StudentsView(View):
             else:
                 classes = request.POST.get('classes')
                 if classes == 'all':
-                    p = Paginator(Student.objects.all(), 2)
+                    p = Paginator(Student.objects.all(), 20)
                     page = request.GET.get('page')
                     students = p.get_page(page)
                 else:
@@ -99,7 +99,7 @@ class StudentsView(View):
                     for student in students:
                         if student.has_classes_left():
                             students_urgent.append(student)
-                    p = Paginator(students_urgent, 1)
+                    p = Paginator(students_urgent, 20)
                     page = request.GET.get('page')
                     students = p.get_page(page)
                 return render(
