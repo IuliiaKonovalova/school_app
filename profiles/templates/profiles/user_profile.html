@@ -265,6 +265,46 @@
         </div>
         {% endfor %}
       </div>
+      <div class="pagination">
+      <div class="pagination__navigation">
+        {% if children.has_previous and not children.has_next %}
+          <a href="?page={{ children.previous_page_number }}" class="pagination__navigation--btn"
+            aria-label="Go to previous page results">
+            <i class="fas fa-chevron-left"></i>
+          </a>
+          <div class="pagination__navigation--fake">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        {% elif children.has_next and not children.has_previous %}
+          <div class="pagination__navigation--fake">
+            <i class="fas fa-chevron-left"></i>
+          </div>
+          <a href="?page={{ children.next_page_number }}" class="pagination__navigation--btn"
+            aria-label="Go to next page results">
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        {% elif children.has_next and children.has_previous %}
+          <a href="?page={{ children.previous_page_number }}" class="pagination__navigation--btn"
+            aria-label="Go to previous page results">
+            <i class="fas fa-chevron-left"></i>
+          </a>
+          <a href="?page={{ children.next_page_number }}" class="pagination__navigation--btn"
+            aria-label="Go to next page results">
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        {% else %}
+          <div class="pagination__navigation--fake">
+            <i class="fas fa-chevron-left"></i>
+          </div>
+          <div class="pagination__navigation--fake">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        {% endif %}
+      </div>
+      <div class="pagination__location">
+        Page {{ children.number }} of {{ children.paginator.num_pages }}
+      </div>
+    </div>
       {% if user_profile.role == 2 and user_profile == request.user or request.user.role == 0 %}
         <h3 class="profile__sales">Sales made:</h3>
         <div class="profile__sales--amount"><strong>{{ sales|length }}</strong> sales made</div>
