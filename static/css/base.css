@@ -733,7 +733,9 @@ body {
 }
 
 .classes__results,
-.sales__results {
+.sales__results,
+.profile__sales--container,
+.profile__sales--container {
   width: 100%;
   max-width: 120rem;
   padding: 0 2em;
