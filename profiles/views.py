@@ -30,12 +30,7 @@ class UserProfileView(View):
             )
 
         if user_profile.role == 2:
-            p_children = Paginator(
-                Student.objects.filter(sales_manager__user=user_profile),
-                2
-            )
-            page = request.GET.get('page')
-            children = p_children.get_page(page)
+            children = Student.objects.filter(sales_manager__user=user_profile)
             p_sales = Paginator(
                 Sales.objects.filter(sold_by__user=user_profile),
                 2
