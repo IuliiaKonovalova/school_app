@@ -203,7 +203,7 @@
           {% comment %} Classes Results recieved {% endcomment %}
           <div class="classes__results">
             <div class="classes__results--summary">
-              <strong>{{ lessons|length }}</strong> classes found
+              <strong>{{ lessons_number }}</strong> classes found
             </div>
             <div class="classes__results--container">
               {% for lesson in lessons %}
@@ -221,6 +221,46 @@
             </div>
           </div>
         </form>
+        <div class="pagination">
+          <div class="pagination__navigation">
+            {% if lessons.has_previous and not lessons.has_next %}
+              <a href="?page={{ lessons.previous_page_number }}" class="pagination__navigation--btn"
+                aria-label="Go to previous page results">
+                <i class="fas fa-chevron-left"></i>
+              </a>
+              <div class="pagination__navigation--fake">
+                <i class="fas fa-chevron-right"></i>
+              </div>
+            {% elif lessons.has_next and not lessons.has_previous %}
+              <div class="pagination__navigation--fake">
+                <i class="fas fa-chevron-left"></i>
+              </div>
+              <a href="?page={{ lessons.next_page_number }}" class="pagination__navigation--btn"
+                aria-label="Go to next page results">
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            {% elif lessons.has_next and lessons.has_previous %}
+              <a href="?page={{ lessons.previous_page_number }}" class="pagination__navigation--btn"
+                aria-label="Go to previous page results">
+                <i class="fas fa-chevron-left"></i>
+              </a>
+              <a href="?page={{ lessons.next_page_number }}" class="pagination__navigation--btn"
+                aria-label="Go to next page results">
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            {% else %}
+              <div class="pagination__navigation--fake">
+                <i class="fas fa-chevron-left"></i>
+              </div>
+              <div class="pagination__navigation--fake">
+                <i class="fas fa-chevron-right"></i>
+              </div>
+            {% endif %}
+          </div>
+          <div class="pagination__location">
+            Page {{ lessons.number }} of {{ lessons.paginator.num_pages }}
+          </div>
+        </div>
       </div>
     {% endif %}
     {% comment %} Profile additional Data for Sales Manager's profile {% endcomment %}

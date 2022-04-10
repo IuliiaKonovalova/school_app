@@ -22,12 +22,21 @@ class UserProfileView(View):
         )
         if user_profile.role == 1:
             teacher = Teacher.objects.get(user=user_profile)
-            lessons = Lesson.objects.filter(teachers__in=[teacher]).distinct()
-            return render(
-                request,
-                'profiles/user_profile.html',
-                {'user_profile': user_profile, 'lessons': lessons}
+            p = Paginator(Lesson.objects.filter(
+                teachers__in=[teacher]).distinct(),
+                20
             )
+            page = request.GET.get('page')
+            lessons = p.get_page(page)
+            lessons_number = Lesson.objects.filter(
+                teachers__in=[teacher]
+            ).distinct().count()
+            context = {
+                'user_profile': user_profile,
+                'lessons': lessons,
+                'lessons_number': lessons_number
+            }
+            return render(request, 'profiles/user_profile.html', context)
 
         if user_profile.role == 2:
             children = Student.objects.filter(sales_manager__user=user_profile)
@@ -37,7 +46,6 @@ class UserProfileView(View):
             )
             page = request.GET.get('page')
             sales = p_sales.get_page(page)
-            # get total sales from sales manager model
             sold_all = SalesManager.objects.get(user=user_profile).total_sold
             return render(
                 request,
@@ -81,12 +89,19 @@ class UserProfileView(View):
             todate = request.POST.get('to_date')
             teacher = Teacher.objects.get(user=user_profile)
             lessons = Lesson.objects.filter(teachers__in=[teacher]).distinct()
-            search_items = lessons.filter(date__range=[fromdate, todate])
-            return render(
-                request,
-                'profiles/user_profile.html',
-                {'user_profile': user_profile, 'lessons': search_items}
-            )
+            p = Paginator(lessons.filter(date__range=[fromdate, todate]), 20)
+            page = request.GET.get('page')
+            search_items = p.get_page(page)
+            # get number of all lessons
+            lessons_number = Lesson.objects.filter(
+                teachers__in=[teacher]
+            ).distinct().count()
+            context = {
+                'user_profile': user_profile,
+                'lessons': search_items,
+                'lessons_number': lessons_number
+            }
+            return render(request, 'profiles/user_profile.html', context)
 
 
 class UserProfileEditView(View):

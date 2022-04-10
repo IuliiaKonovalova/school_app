@@ -411,6 +411,11 @@ body {
   margin: 0 2em 1.5em 2em;
 }
 
+.sales__profile--summary,
+.classes {
+  margin: 0 2em;
+}
+
 /* Profile */
 /* Profile buttons */
 .profile__delete {
