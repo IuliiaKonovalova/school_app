@@ -37,13 +37,16 @@ class UserProfileView(View):
             )
             page = request.GET.get('page')
             sales = p_sales.get_page(page)
+            # get total sales from sales manager model
+            sold_all = SalesManager.objects.get(user=user_profile).total_sold
             return render(
                 request,
                 'profiles/user_profile.html',
                 {
                     'user_profile': user_profile,
                     'sales': sales,
-                    'children': children
+                    'children': children,
+                    'sold_all': sold_all
                 }
             )
 

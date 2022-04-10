@@ -91,6 +91,8 @@ def sales_form(request):
                 student = Student.objects.get(id=child.id)
                 student.classes_left += amount
                 student.save()
+                seller.total_sold += amount
+                seller.save()
                 new_sale = Sales.objects.create(
                     sold_by=seller,
                     sold_to=buyer,
@@ -136,6 +138,9 @@ def edit_sales(request, pk):
             amount_of_classes = sales.amount
             student.classes_left -= amount_of_classes
             student.save()
+            seller = SalesManager.objects.get(user=request.user)
+            seller.total_sold -= amount_of_classes
+            seller.save()
             form = SalesForm(request.POST, instance=sales)
             if form.is_valid():
                 seller = SalesManager.objects.get(user=request.user)
@@ -145,6 +150,8 @@ def edit_sales(request, pk):
                 student = Student.objects.get(id=child.id)
                 student.classes_left += amount
                 student.save()
+                seller.total_sold += amount
+                seller.save()
                 sales.sold_by = seller
                 sales.sold_to = buyer
                 sales.amount = amount
@@ -190,6 +197,9 @@ def delete_sales(request, pk):
             amount_of_classes = sales.amount
             student.classes_left -= amount_of_classes
             student.save()
+            seller = SalesManager.objects.get(user=request.user)
+            seller.total_sold -= amount_of_classes
+            seller.save()
             sales.delete()
             return HttpResponseRedirect(
                 reverse('sales_list')
