@@ -2,6 +2,7 @@
 from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
 from django.views import View
+from django.core.paginator import Paginator
 from profiles.models import Parent, SalesManager
 from students.models import Student
 from .forms import SalesForm
@@ -15,7 +16,9 @@ class SalesView(View):
         if request.user.is_authenticated and (
             request.user.role == 0 or request.user.role == 2
         ):
-            sales = Sales.objects.all()
+            p = Paginator(Sales.objects.all(), 5)
+            page = request.GET.get('page')
+            sales = p.get_page(page)
             for sale in sales:
                 student = Student.objects.get(id=sale.student_id)
                 sale.student_name = (
@@ -41,7 +44,12 @@ class SalesView(View):
         ):
             fromdate = request.POST.get('from_date')
             todate = request.POST.get('to_date')
-            search_items = Sales.objects.filter(date__range=[fromdate, todate])
+            p = Paginator(
+                Sales.objects.filter(date__range=[fromdate, todate]),
+                5
+            )
+            page = request.GET.get('page')
+            search_items = p.get_page(page)
             return render(
                 request,
                 'sales/sales_list.html',
