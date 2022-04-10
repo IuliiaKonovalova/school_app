@@ -70,8 +70,10 @@ class StudentsView(View):
                 p = Paginator(Student.objects.all(), 20)
                 page = request.GET.get('page')
                 students = p.get_page(page)
+                students_number = Student.objects.all().count()
                 context = {
                   'students': students,
+                  'students_number': students_number
                 }
                 return render(
                     request,

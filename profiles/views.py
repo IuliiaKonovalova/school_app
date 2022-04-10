@@ -195,9 +195,18 @@ class NewApplicationsView(View):
                 p = Paginator(CustomUser.objects.filter(role=5), 12)
                 page = request.GET.get('page')
                 new_applications = p.get_page(page)
+                # total new applications number
+                new_applications_number = CustomUser.objects.filter(
+                    role=5
+                ).count()
+                context = {
+                    'new_applications': new_applications,
+                    'new_applications_number': new_applications_number
+                }
                 return render(
-                    request, 'profiles/new_applications.html',
-                    {'new_applications': new_applications}
+                    request,
+                    'profiles/new_applications.html',
+                    context
                 )
             else:
                 return render(
@@ -310,15 +319,20 @@ class SearchMembersView(ListView):
     """Search Members"""
     def get(self, request, *args, **kwargs):
         """Receive members"""
-        p = Paginator(CustomUser.objects.all().exclude(role=5), 20)
-        page = request.GET.get('page')
-        members = p.get_page(page)
         if request.user.is_authenticated:
             if request.user.role != 4 and request.user.role != 5:
+                p = Paginator(CustomUser.objects.all().exclude(role=5), 20)
+                page = request.GET.get('page')
+                members = p.get_page(page)
+                members_num = CustomUser.objects.all().exclude(role=5).count()
+                context = {
+                    'members': members,
+                    'members_number': members_num
+                }
                 return render(
                     request,
                     'profiles/search_members.html',
-                    {'members': members}
+                    context
                 )
             else:
                 return render(
@@ -339,14 +353,18 @@ class SearchMembersView(ListView):
                     p = Paginator(CustomUser.objects.all().exclude(role=5), 20)
                     page = request.GET.get('page')
                     members = p.get_page(page)
+                    members_num = CustomUser.objects.all().exclude(
+                        role =5
+                    ).count()
                 else:
                     p = Paginator(CustomUser.objects.filter(role=role), 20)
                     page = request.GET.get('page')
                     members = p.get_page(page)
+                    members_num = CustomUser.objects.filter(role=role).count()
                 return render(
                     request,
                     'profiles/search_members.html',
-                    {'members': members}
+                    {'members': members, 'members_number': members_num}
                 )
             else:
                 return render(

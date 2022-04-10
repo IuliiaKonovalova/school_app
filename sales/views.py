@@ -26,10 +26,11 @@ class SalesView(View):
                     ' ' +
                     student.last_name
                 )
+                sales_number = Sales.objects.all().count()
             return render(
                 request,
                 'sales/sales_list.html',
-                {'sales': sales}
+                {'sales': sales, 'sales_number': sales_number}
                 )
         else:
             return render(
@@ -50,10 +51,13 @@ class SalesView(View):
             )
             page = request.GET.get('page')
             search_items = p.get_page(page)
+            sales_number = Sales.objects.filter(
+                date__range=[fromdate, todate]
+            ).count()
             return render(
                 request,
                 'sales/sales_list.html',
-                {'sales': search_items}
+                {'sales': search_items, 'sales_number': sales_number}
             )
         else:
             return render(
