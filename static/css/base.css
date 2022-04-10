@@ -614,7 +614,8 @@ body {
 .profile__sales--data {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  grid-auto-flow: dense;
   gap: 0.5rem;
   margin-bottom: 0.5em;
 }
@@ -743,7 +744,8 @@ body {
 .sales__results--container {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  grid-auto-flow: dense;
   gap: 0.5rem;
 }
 
@@ -948,7 +950,7 @@ body {
 .students__results {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   grid-auto-flow: dense;
   gap: 0.5rem;
 }
@@ -2563,6 +2565,7 @@ button.select2-selection__choice__remove {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    grid-auto-flow: dense;
     gap: 1rem;
     margin-bottom: 0.5em;
   }

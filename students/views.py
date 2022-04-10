@@ -2,6 +2,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.http import HttpResponseRedirect
 from django.views import View
+from django.core.paginator import Paginator
 from lessons.models import Lesson
 from .models import Student
 from .forms import AddStudentForm
@@ -66,7 +67,9 @@ class StudentsView(View):
                     'profiles/access_limitation.html'
                 )
             else:
-                students = Student.objects.all()
+                p = Paginator(Student.objects.all(), 2)
+                page = request.GET.get('page')
+                students = p.get_page(page)
                 context = {
                   'students': students,
                 }
@@ -87,14 +90,18 @@ class StudentsView(View):
             else:
                 classes = request.POST.get('classes')
                 if classes == 'all':
-                    students = Student.objects.all()
+                    p = Paginator(Student.objects.all(), 2)
+                    page = request.GET.get('page')
+                    students = p.get_page(page)
                 else:
                     students_urgent = []
                     students = Student.objects.all()
                     for student in students:
                         if student.has_classes_left():
                             students_urgent.append(student)
-                    students = students_urgent
+                    p = Paginator(students_urgent, 1)
+                    page = request.GET.get('page')
+                    students = p.get_page(page)
                 return render(
                     request,
                     'students/students.html',

@@ -73,5 +73,45 @@
         {% endfor %}
       </div>
     </form>
+    <div class="pagination">
+      <div class="pagination__navigation">
+        {% if students.has_previous and not students.has_next %}
+          <a href="?page={{ students.previous_page_number }}" class="pagination__navigation--btn"
+            aria-label="Go to previous page results">
+            <i class="fas fa-chevron-left"></i>
+          </a>
+          <div class="pagination__navigation--fake">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        {% elif students.has_next and not students.has_previous %}
+          <div class="pagination__navigation--fake">
+            <i class="fas fa-chevron-left"></i>
+          </div>
+          <a href="?page={{ students.next_page_number }}" class="pagination__navigation--btn"
+            aria-label="Go to next page results">
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        {% elif students.has_next and students.has_previous %}
+          <a href="?page={{ students.previous_page_number }}" class="pagination__navigation--btn"
+            aria-label="Go to previous page results">
+            <i class="fas fa-chevron-left"></i>
+          </a>
+          <a href="?page={{ students.next_page_number }}" class="pagination__navigation--btn"
+            aria-label="Go to next page results">
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        {% else %}
+          <div class="pagination__navigation--fake">
+            <i class="fas fa-chevron-left"></i>
+          </div>
+          <div class="pagination__navigation--fake">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        {% endif %}
+      </div>
+      <div class="pagination__location">
+        Page {{ students.number }} of {{ students.paginator.num_pages }}
+      </div>
+    </div>
   </div>
 {% endblock %}

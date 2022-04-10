@@ -5,12 +5,12 @@ from django.views.generic import ListView
 from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
+from django.core.paginator import Paginator
 from lessons.models import Lesson
 from students.models import Student
 from sales.models import Sales
 from .models import CustomUser, Parent, SalesManager, Teacher
 from .forms import NewApplicationForm, UserProfileEditForm
-from django.core.paginator import Paginator
 
 
 class UserProfileView(View):
