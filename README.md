@@ -262,11 +262,65 @@ Web application has the following pages:
 | delete lesson page          | N | N | N | Y | N | N |
 | teacher's personal schedule page | N | Y | N | N | N | N |
 
-Each page has a navbar and footer
+- Each page has a navbar and footer
 
 **Navbar**
 
+![Navbar](documentation/features/navbar/navbar.png)
 
+Navbar has the following links:
+- home page
+- button "get started", which leads to the registration page and login page
+- ![Get Started button](documentation/features/navbar/get_started_button.png)
+- It also has a logo of the school
+- ![Logo](documentation/features/navbar/main_logo.png)
+
+The simplistic design of the navbar is based on the decision to make the use of the webapp easy for the user.
+
+When the user clicks on the get started button, the menu opens and the user can choose to register or login.
+
+- ![Get Started menu](documentation/features/navbar/navbar_logout.png) 
+
+When the user is logged in, the navbar looks as following.
+
+- ![Navbar User logged in](documentation/features/navbar/navbar_logged_in.png)
+
+It has only one button "Menu", which opens the menu.
+
+- ![Menu Button](documentation/features/navbar/navbar_menu.png)
+
+If the user is a boss or a sales manager, the menu has the following links:
+
+- ![Menu Boss or Manager View](documentation/features/navbar/menu_admin_view.png)
+
+Menu has the following buttons:
+- Profile (which leads to the user profile page)
+- New applications (which leads to the new applications page)
+- Sales (which leads to the sales page)
+- Members (which leads to the members page)
+- Students (which leads to the students page)
+- Schedule (which leads to the schedule page)
+- Logout (which leads to the logout page)
+
+If the user is a teacher or receptionist, the menu has the following look:
+
+- ![Menu Teacher or Receptionist View](documentation/features/navbar/menu_receptionists.png)
+
+Menu has the following buttons:
+- Profile (which leads to the user profile page)
+- Members (which leads to the members page)
+- Students (which leads to the students page)
+- Schedule (which leads to the schedule page)
+- Logout (which leads to the logout page)
+
+if the user is a parent or a potential client, the menu has the following look:
+
+- ![Menu Parent or Potential Client View](documentation/features/navbar/navbar_limited_access.png)
+
+Menu has the following buttons:
+- Profile (which leads to the user profile page)
+- Schedule (which leads to the schedule page)
+- Logout (which leads to the logout page)
 
 
 [Back to contents](#contents)
