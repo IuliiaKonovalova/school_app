@@ -524,14 +524,30 @@ Types of the relation:
 
   ![Profile page edit button](documentation/features/profile_page/relation_save.png)
 
+If the user is a teacher, the profile has the following look:
+
+  ![Profile page teacher](documentation/features/profile_page/profile_page_teacher.png)
+
+Underneath the profile box, there is additional data of the classes given to the students.
+
+  ![Profile page teacher classes](documentation/features/profile_page/profile_page_teacher_classes_box.png)
+
+This box is only visible for the teacher and the bosses.
+
+In this box there are datepickers, which allows the teacher or the boss to sort classes during the particular time period.
+
+  ![Profile page teacher classes](documentation/features/profile_page/profile_page_teacher_datepicker.png)
+
+Here the teacher or the boss will be able to pick a data and the summery of the classes will be displayed.
 
 
+Needless to say, that the pagination functionality has been implemented in case that there are more than 20 classes.
 
+  ![Profile page teacher classes](documentation/features/profile_page/page_navigation1.png)
 
+The buttons for the page navigation have different appearances to guide the user whether there are more classes or not.
 
-
-
-
+  ![Profile page teacher classes](documentation/features/profile_page/page_navigation2.png):
 
 
 
