@@ -42,7 +42,7 @@ class UserProfileView(View):
             children = Student.objects.filter(sales_manager__user=user_profile)
             p_sales = Paginator(
                 Sales.objects.filter(sold_by__user=user_profile),
-                15
+                20
             )
             page = request.GET.get('page')
             sales = p_sales.get_page(page)
