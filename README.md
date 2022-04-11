@@ -631,6 +631,25 @@ Under the warning message there are 2 buttons "Go Back" and "Delete". If the use
 
   ![Profile delete page](documentation/features/profile_delete_page/back_delete_buttons.png)
 
+**Profile Change Password Page**
+
+  ![Profile change password page](documentation/features/profile_change_password_page/profile_password.png)
+
+It has a header with the title "Change Password" and a subtitle to guide the user what to do next. Underneath, there are 3 fieldto be field:
+
+- Old Password;
+- New Password;
+- Confirm New Password.
+
+  ![Profile change password page](documentation/features/profile_change_password_page/change_password_fields.png)
+
+If there any errors in the fields, the user will see the error message.
+
+Under the fields there are 2 buttons "Go Back" and "Submit". If the user doesn't want to change the password, he/she can click on "Go Back" button and will be redirected to the profile page. If the user wants to change the password, he/she can click on "Change Password" button and will be redirected to the profile page and the password will be change if all conditions were met.
+
+  ![Profile change password page](documentation/features/profile_change_password_page/back_submit_buttons.png)
+
+
 
 
 
