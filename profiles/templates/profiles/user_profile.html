@@ -281,6 +281,11 @@
                     {{ child.first_name }} {{ child.last_name }}
                   </div>
                   <i class="fas fa-external-link-alt profile__btn--icon"></i>
+                  {% if child.has_classes_left %}
+                    <div class="students__label">
+                      <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                  {% endif %}
                 </a>
               </div>
             </div>
