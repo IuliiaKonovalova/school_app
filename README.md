@@ -459,6 +459,27 @@ Under this button there is a button "Forgot password?", which leads to the forgo
 
   ![Login page forgot password button](documentation/features/login_page/login_page_forgot_password.png)
 
+**Logout page**
+
+  ![Logout page](documentation/features/logout_page/logout_page.png)
+
+This page has a dark-blue container with a logout form which has a header and a button "Logout", which leads to the home page.
+
+  ![Logout page header](documentation/features/logout_page/logout_page_box.png)
+
+It has a title "Logout" and a subtitle "Are you sure you want to logout?"
+Underneath, there is a button "Sign Out".
+
+  ![Logout page buttons](documentation/features/logout_page/logout_page_signout_button.png) 
+
+
+
+
+
+
+
+
+
 [Back to contents](#contents)
 
 ---
