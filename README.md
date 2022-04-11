@@ -383,6 +383,48 @@ After the subsections, there is an immediate contact section, which has an incen
 
   ![Home page Contact section](documentation/features/home_page/home_page_contact_now.png)
 
+**Registration page**
+
+  ![Registration page](documentation/features/register_page/signup_page.png)
+
+This page has a dark-blue container with a sign up form which has a header and input fields for the user to fill in.
+
+In the header of the form, there is a title "Sign up" and a subtitle "Please Fill out all information", which the seriousness of the company towards the user.
+
+  ![Registration page header](documentation/features/register_page/signup_page_header.png)
+
+Underneath, there is a subtitle "Already have an account?." and a button "Login", which leads to the login page.
+
+  ![Registration page header](documentation/features/register_page/signup_page_login.png)
+
+Under the forms's header, there are the following fields:
+
+  ![Registration page fields](documentation/features/register_page/signup_page_fields.png)
+
+These fields are are required for the user to be filled out.
+- Email address (to let sales managers and bosses contact the user)
+- Username (to let the user have a personal profile)
+- First name (to let the user have a personal profile)
+- Last name (to let the user have a personal profile)
+- Phone number (to let sales managers and bosses contact the user)
+- Password (to let the user login)
+- Password confirmation (to let the user login)
+
+If the user typed a wrong email address, the email field will be highlighted.
+
+  ![Registration page email field](documentation/features/register_page/signup_page_error_email.png)
+
+If the user left an empty field, the field will be highlighted.
+
+  ![Registration page empty field](documentation/features/register_page/signup_page_error_empty_field.png)
+
+If the user typed a not save password or the confirmation password didn't match, the password field will be highlighted.
+
+  ![Registration page password field](documentation/features/register_page/signup_page_error_password.png)
+
+If the user typed a not save username, the username field will be highlighted.
+
+  ![Registration page username field](documentation/features/register_page/signup_page_error_username.png)
 
 
 [Back to contents](#contents)
