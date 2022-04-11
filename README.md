@@ -472,7 +472,7 @@ Underneath, there is a button "Sign Out".
 
   ![Logout page buttons](documentation/features/logout_page/logout_page_signout_button.png)
 
-**Reset password page**
+**Forgot password page**
 
   ![Reset password page](documentation/features/reset_password_page/reset_password_page.png)
 
@@ -598,6 +598,35 @@ It has a header with the total amount of sales made by the sales manager and a l
 Under the header there are recent sales made with limited data (date on which the sale was made and an amount of classes sold). Since the pagination functionality has been implemented, there are only 20 recent sales could be seen and there are 2 buttons for the page navigation at the bottom of the table.
 
   ![Profile page sales manager sales](documentation/features/profile_page/page_navigation1.png)
+
+**Edit profile page**
+
+  ![Edit profile page](documentation/features/profile_edit_page/profile_edit.png)
+
+It has a container where the user can edit:
+
+- First Name;
+- Last Name;
+- Phone Number;
+
+There are 3 fields with prefilled data for the user. This data could be changed by the user if he/she wants.
+
+  ![Edit profile page](documentation/features/profile_edit_page/profile_edit_fields.png)
+
+Underneath the fields there are to buttons "Go Back" and "Save". If user doesn't want to save changes, he/she can click on "Go Back" button and will be redirected to the profile page. If user wants to save changes, he/she can click on "Save" button and will be redirected to the profile page.
+
+  ![Edit profile page](documentation/features/profile_edit_page/back_submit_buttons.png)
+
+
+
+
+
+
+
+
+
+
+
 
 [Back to contents](#contents)
 
