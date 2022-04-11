@@ -470,7 +470,65 @@ This page has a dark-blue container with a logout form which has a header and a 
 It has a title "Logout" and a subtitle "Are you sure you want to logout?"
 Underneath, there is a button "Sign Out".
 
-  ![Logout page buttons](documentation/features/logout_page/logout_page_signout_button.png) 
+  ![Logout page buttons](documentation/features/logout_page/logout_page_signout_button.png)
+
+**Profile page**
+
+  ![Profile page](documentation/features/profile_page/profile_page_admin.png)
+
+The Profile Page has a container where the user can see his personal information.
+
+  ![Profile page](documentation/features/profile_page/profile_page_not_admin.png)
+
+It has 2 buttons in top right corner: "Edit" and "Password". The "Edit" button leads to the edit profile page. The "Password" button leads to the change password page.
+
+  ![Profile page buttons](documentation/features/profile_page/edit_password_buttons.png)
+
+If the user is the boss, there is an additional button in the top left corner "Delete".
+
+  ![Profile page buttons](documentation/features/profile_page/profile_page_admin.png)
+
+The button "Delete" leads to the delete profile page.
+
+  ![Profile page buttons](documentation/features/profile_page/profile_page_delete_button.png)
+
+This button has presence for all other profiles that the boss may visit; thus only a boss can delete a profile.
+
+  ![Profile page buttons](documentation/features/profile_page/profile_page_other_user.png)
+
+As a comparison, the profile page of the user that the boss visited on the previous screenshot has no "Delete" button.
+
+  ![Profile page buttons](documentation/features/profile_page/profile_page_not_admin.png)
+
+If the user is a parent, the profile has the following look:
+
+  ![Profile page parent](documentation/features/profile_page/profile_parent.png)
+
+There is an addition field where the parent may assign their relation to a kid as it will be displayed for the school's members.
+
+  ![Profile page parent relation field](documentation/features/profile_page/profile_edit_role.png)
+
+When the user clicks on the button "Edit", the dropdown menu appears, where she or he may choose the relation to their children:
+
+Types of the relation:
+
+- Mother;
+- Father;
+- Grandmother;
+- Grandfather;
+- Other.
+
+  ![Profile page edit button](documentation/features/profile_page/profile_role_choice.png)
+
+  After making a choice and clicking save button, the relation will be assigned.
+
+  ![Profile page edit button](documentation/features/profile_page/relation_save.png)
+
+
+
+
+
+
 
 
 
