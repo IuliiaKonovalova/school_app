@@ -617,9 +617,19 @@ Underneath the fields there are to buttons "Go Back" and "Save". If user doesn't
 
   ![Edit profile page](documentation/features/profile_edit_page/back_submit_buttons.png)
 
+**Profile Delete Page**
 
+  ![Profile delete page](documentation/features/profile_delete_page/profile_delete.png)
 
+Only the bosses have access to this page as only they are able to delete any profile.
 
+This page has a box with warning message and a link to the profile page of the user that is about to be deleted:
+  
+  ![Profile delete page](documentation/features/profile_delete_page/member_delete_link.png)
+
+Under the warning message there are 2 buttons "Go Back" and "Delete". If the user doesn't want to delete the profile, he/she can click on "Go Back" button and will be redirected to the profile page. If the user wants to delete the profile, he/she can click on "Delete" button and will be redirected to the profile page and the school member will be permanently deleted.
+
+  ![Profile delete page](documentation/features/profile_delete_page/back_delete_buttons.png)
 
 
 
