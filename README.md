@@ -472,6 +472,28 @@ Underneath, there is a button "Sign Out".
 
   ![Logout page buttons](documentation/features/logout_page/logout_page_signout_button.png)
 
+**Reset password page**
+
+  ![Reset password page](documentation/features/reset_password_page/reset_password_page.png)
+
+  It has a dark-blue container with a reset password form which has a header and input fields for the user to fill in and a reset button.
+
+  ![Reset password page header](documentation/features/reset_password_page/reset_password_page_box.png)
+
+  The header has a title "Reset Password" and a subtitle, which guide the user what actions should be done in order to regain the access to the user's account.
+
+  ![Reset password page header](documentation/features/reset_password_page/reset_password_page_box_header.png)
+
+  Underneath, there is a fields, where the user can type in his email address.
+
+  ![Reset password page fields](documentation/features/reset_password_page/reset_password_page_field.png)
+
+  If the user typed a wrong email address, the email field will be highlighted.
+
+  Underneath, there is a button "Reset My Password", which leads to the home page. The user will receive an email with a link to reset his password.
+
+  ![Reset password page button](documentation/features/reset_password_page/reset_password_page_button.png)
+  
 **Profile page**
 
   ![Profile page](documentation/features/profile_page/profile_page_admin.png)
