@@ -322,6 +322,29 @@ Menu has the following buttons:
 - Schedule (which leads to the schedule page)
 - Logout (which leads to the logout page)
 
+**Footer**
+
+![Footer](documentation/features/footer/footer.png)
+
+Footer has the following sections:
+
+- Logo in the top left corner:
+
+  ![Logo](documentation/features/footer/footer_logo.png)
+
+- School information in the middle with the school email, phone number and address:
+
+  ![School Information](documentation/features/footer/footer_school_data.png)
+
+- Information about the coder in the right side with links to the github and linkedin and email:
+
+  ![Coder Information](documentation/features/footer/footer_creator_data.png)
+
+
+For the mobile version of the website, the footer looks as following:
+
+  ![Footer Mobile](documentation/features/footer/footer_mobile.png)
+
 
 [Back to contents](#contents)
 
