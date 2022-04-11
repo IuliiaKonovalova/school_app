@@ -346,6 +346,11 @@ For the mobile version of the website, the footer looks as following:
   ![Footer Mobile](documentation/features/footer/footer_mobile.png)
 
 
+**Home page**
+
+![Home page](documentation/features/home_page/home_page.png)
+
+
 [Back to contents](#contents)
 
 ---
