@@ -426,6 +426,38 @@ If the user typed a not save username, the username field will be highlighted.
 
   ![Registration page username field](documentation/features/register_page/signup_page_error_username.png)
 
+**Login page**
+
+  ![Login page](documentation/features/login_page/login_page.png)
+
+Login Page has a dark-blue container with a login form which has a header and input fields for the user to fill in. Plus it has a button "Sign In" and "Forgot password?", which leads to the forgot password page.
+
+  ![Login page header](documentation/features/login_page/login_page_header.png)
+
+The header has a title "Log in" and a subtitle "If you have not created an account yet, then please sign up first."
+
+When the user clicks on the button, he is redirected to the registration page.
+
+  ![Login page header](documentation/features/login_page/login_page_signup_button.png)
+
+Underneath, there are two fields, which have to be filled out in order to log in:
+
+- Username or email address
+- Password
+
+  ![Login page fields](documentation/features/login_page/login_page_fields.png)
+
+If the user made a mistake in the username or password, the field will be highlighted.
+
+  ![Login page error field](documentation/features/login_page/login_page_error.png)
+
+Under the fields, there is a button "Sign in", which leads to the schedule page.
+
+  ![Login page sign in button](documentation/features/login_page/login_page_button.png)
+
+Under this button there is a button "Forgot password?", which leads to the forgot password page.
+
+  ![Login page forgot password button](documentation/features/login_page/login_page_forgot_password.png)
 
 [Back to contents](#contents)
 
