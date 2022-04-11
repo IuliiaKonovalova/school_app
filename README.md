@@ -549,10 +549,33 @@ The buttons for the page navigation have different appearances to guide the user
 
   ![Profile page teacher classes](documentation/features/profile_page/page_navigation2.png):
 
+If the user is a Sales Manager, the profile has the following look:
 
+  ![Profile page sales manager](documentation/features/profile_page/profile_page_sales.png)
 
+It has 2 addition sections: Students for which this sales manager is in charge of (visible to all users) and "Sales made" (visible to the sales manager her/himself and the boss)
 
+  ![Profile page sales manager Subsections](documentation/features/profile_page/profile_page_sales_subsections.png)
 
+The "Students" section has a table with the students that this sales manager is in charge of.
+
+  ![Profile page sales manager students](documentation/features/profile_page/profile_page_sales_students.png)
+
+There the Sales manager or the user can see all students. Moreover, the students whose parents should be contacted urgently has an orange label to make them more distinguishable.
+
+  ![Profile page sales manager students](documentation/features/profile_page/profile_page_sales_urgent.png)
+
+Underneath the "Students" section, there is a table with the "Sales made" by the sales manager.
+
+  ![Profile page sales manager sales](documentation/features/profile_page/profile_page_sales_sales.png)
+
+It has a header with the total amount of sales made by the sales manager and a link to the sales page, where the whole statistics stored.
+
+  ![Profile page sales manager sales](documentation/features/profile_page/profile_page_sales_header.png)
+
+Under the header there are recent sales made with limited data (date on which the sale was made and an amount of classes sold). Since the pagination functionality has been implemented, there are only 20 recent sales could be seen and there are 2 buttons for the page navigation at the bottom of the table.
+
+  ![Profile page sales manager sales](documentation/features/profile_page/page_navigation1.png)
 
 [Back to contents](#contents)
 
