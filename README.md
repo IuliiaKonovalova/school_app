@@ -18,7 +18,7 @@
 * [Technologies used](#Technologies-used)
 * [Features](#Features)
 * [Design](#Design)
-  * [Colour Scheme](#Colour-Scheme)
+  * [Color Scheme](#Colour-Scheme)
   * [Typography](#Typography)
   * [Imagery](#Imagery)
   * [Wireframes](#Wireframes)
@@ -831,6 +831,8 @@ Under the fields there 2 buttons: "Save" and "Cancel". If the sales manager clic
   ![Edit sale page. Form Buttons](documentation/features/edit_sale_page/cancel_back_buttons.png)
 
 **Delete Sale Page**
+
+This page is accessible only by the sales manager.
 
   ![Delete sale page.](documentation/features/delete_sale_page/delete_sale_page.png)
 
