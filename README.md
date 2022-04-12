@@ -734,21 +734,21 @@ This page is accessible only by the sales manager and the boss. However, the loo
 
 For the sales managers the sales page looks as following:
 
-  ![Sales page](documentation/features/sales_page/sales_page_sales_view.png)
+  ![Sales page. Sales Manager View](documentation/features/sales_page/sales_page_sales_view.png)
 
 It has a button "Add new sale" in the top right corner of the page. If the sales manager wants to add a new sale, he/she can click on the "Add new sale" button and will be redirected to the add new sale page.
 
-  ![Sales page](documentation/features/sales_page/sales_page_add_sale_button.png)
+  ![Sales page. Add New Sale Button](documentation/features/sales_page/sales_page_add_sale_button.png)
 
 It has a title "Sales", datepicker sorting bar and a table with the sales.
 
 The sorting bar has 2 datepickers, one for the start date and one for the end date. The sales are sorted by the start date. There is a button "Search" on the right side of the sorting bar. after picking dates and clicking on the "Search" button, the sales will be filtered by the dates.
 
-  ![Sales page](documentation/features/sales_page/datepicker_menu.png)
+  ![Sales page. Sorting Bar](documentation/features/sales_page/datepicker_menu.png)
 
 Under the sorting bar, there is the summary of sales found:
 
-  ![Sales page](documentation/features/sales_page/sales_page_summary.png)
+  ![Sales page. Summary](documentation/features/sales_page/sales_page_summary.png)
 
 The table has the following columns:
 
@@ -761,14 +761,33 @@ The table has the following columns:
 - Edit, which will redirect the sales manager to the edit sale page;
 - Delete, which will redirect the sales manager to the delete sale page.
 
-  ![Sales page](documentation/features/sales_page/sales_page_edit_delete_limitations.png)
+  ![Sales page. Table](documentation/features/sales_page/sales_page_edit_delete_limitations.png)
 
 As it is shown in the picture, only the sales manager, who conducted the sale, is able to edit or delete the sale. The user in the picture is Annie Green, and only she is able to edit or delete the sale, which she conducted. She has no access to render or delete the sales made by another Sales Manager, Kate Peterson.
 
 Under the table there is a navigation bar for the table. It has a "Previous" button and a "Next" button. The "Previous" button will redirect the sales manager to the previous page of the table. The "Next" button will redirect the sales manager to the next page of the table.
 
-  ![Sales page](documentation/features/sales_page/page_navigation1.png)
-  ![Sales page](documentation/features/sales_page/page_navigation2.png)
+  ![Sales page. Navigation1](documentation/features/sales_page/page_navigation1.png)
+  ![Sales page. Navigation2](documentation/features/sales_page/page_navigation2.png)
+
+On the mobile screens the table has only following columns:
+
+- ID of the sale;
+- Date of the sale;
+- Total amount of classes sold;
+- Edit, which will redirect the sales manager to the edit sale page;
+- Delete, which will redirect the sales manager to the delete sale page.
+
+  ![Sales page. Mobile Table](documentation/features/sales_page/sales_page_mobile.png)
+
+  It also has a friendly message, which will suggest to the user open the sales on page to view the whole data on sales on the wider devices.
+
+Additionally, the sales page has a different look for the boss. It has no "Add new sale" button in the top right corner of the page. It has not Edit and Delete columns as only sales managers are able to edit or delete their own sales.
+
+  ![Sales page. Boss View](documentation/features/sales_page/sales_page_admin_view.png)
+
+**Add New Sale Page**
+
 
 
 
