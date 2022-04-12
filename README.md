@@ -720,7 +720,13 @@ It also has 2 buttons "Go Back" and "Delete". If the boss doesn't want to delete
 
   ![Application delete page](documentation/features/application_delete_page/back_delete_buttons.png)
 
+**Limited Access Page**
 
+  ![Limited access page](documentation/features/limited_access_page/limited_access_page.png)
+
+  This page is applicable to the users that are not allowed to access the page that they want to enter manually in the address bar. it has a box with a friendly message, pointing that the user has no access to a particular page. It also has a link to the user's profile page.
+
+  ![Limited access page. Link to Personal Profile](documentation/features/limited_access_page/limit_access_link.png)
 
 
 [Back to contents](#contents)
