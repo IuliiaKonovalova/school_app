@@ -814,6 +814,22 @@ Underneath the form there is a button "Save" and a button "Cancel". If the sales
 
 **Edit Sale Page**
 
+This page is accessible only by the sales manager.
+
+  ![Edit sale page.](documentation/features/edit_sale_page/edit_sale_page.png)
+
+ It has a title "Edit Sale" and a form with the following fields with pre-filled data:
+
+  ![Edit sale page. Fields](documentation/features/edit_sale_page/edit_sale_page_fields.png)
+
+The dropdown menus are pre-filled with the data from the sale that is being edited and the previously chosen client highlighted with the orange background. Same come to the dropdown menus for the students.
+
+  ![Edit sale page. Dropdown](documentation/features/edit_sale_page/edit_sale_page_dropdown.png)
+
+Under the fields there 2 buttons: "Save" and "Cancel". If the sales manager clicks on the "Save" button, the form will be validated and if it is valid, the sale will be updated in the database. If the form is not valid, the user will be redirected to the same page and the form will be filled with the data that was entered before. If the sales manager clicks on the "Cancel" button, he/she will be redirected to the sales page.
+
+  ![Edit sale page. Form Buttons](documentation/features/edit_sale_page/cancel_back_buttons.png)
+
 
 
 
