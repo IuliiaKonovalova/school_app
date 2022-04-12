@@ -673,35 +673,39 @@ Underneath the table, there is navigation buttons. If the user wants to see the 
 This page is accessible to the boss and sales manager.
 For the boss, the page has a following look:
 
-  ![Application detail page](documentation/features/application_detail_page/application_detail_admin_view.png)
+  ![Application detail page. Boss View](documentation/features/application_detail_page/application_detail_admin_view.png)
 
 It has 2 boxes. The first box consist the information about the applicant including the name, the email, the phone number.
 
-  ![Application detail page](documentation/features/application_detail_page/application_detail_data.png)
+  ![Application detail page. Applicant Data Box](documentation/features/application_detail_page/application_detail_data.png)
 
 It also has a "Delete" button in the top right corner of the page. If the boss wants to delete the application, he/she can click on the "Delete" button and will be redirected to the delete application page.
 
-  ![Application detail page](documentation/features/application_detail_page/application_detail_delete_button.png)
+  ![Application detail page. Delete Button](documentation/features/application_detail_page/application_detail_delete_button.png)
 
 The second box provides the boss with the assigning role functionality, which will give an access to the applicant to the application according to the role the boss assigns.
 
-  ![Application detail page](documentation/features/application_detail_page/application_detail_role.png)
+  ![Application detail page. Role Assignment Box](documentation/features/application_detail_page/application_detail_role.png)
 
 When the boss click on the dropdown menu, the following choices will be shown:
 
-  ![Application detail page](documentation/features/application_detail_page/application_detail_role_choice.png)
+  ![Application detail page. Role Choices](documentation/features/application_detail_page/application_detail_role_choice.png)
 
 After choosing the role the boss wants to assign, he/she can click on the "Save" button.
 
-  ![Application detail page](documentation/features/application_detail_page/application_detail_save_role_button.png)
+  ![Application detail page. Save Role Button](documentation/features/application_detail_page/application_detail_save_role_button.png)
 
 When the boss clicks on "save" button, the role will be assigned to the applicant. However, it will not redirect the boss to any page, in order to prevent the boss from accidentally assigning wrong role to an applicant.
 
-  ![Application detail page](documentation/features/application_detail_page/application_detail_save_role_button_2.png)
-
 To go back to the applications page, the boss may click on the link underneath the boxes "Go to other applications". And the user will be redirected to the applications page.
 
-  ![Application detail page](documentation/features/application_detail_page/application_detail_back.png)
+  ![Application detail page. Go back to applications](documentation/features/application_detail_page/application_detail_back.png)
+
+For the sales manager, the page has a following look:
+
+  ![Application detail page. Sales Manager View](documentation/features/application_detail_page/application_detail_sale_view.png)
+
+The page has no "Delete" button as it is not accessible to the sales manager. Moreover, the page has no  box with the assigning role to the new applicant as it is accessible only to the boss.
 
 **Application Delete Page**
 
