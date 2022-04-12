@@ -709,7 +709,16 @@ The page has no "Delete" button as it is not accessible to the sales manager. Mo
 
 **Application Delete Page**
 
+  ![Application delete page](documentation/features/application_delete_page/application_delete_page.png)
 
+This page is only accessible to the boss. Thus, only boss is empowered to delete any applications.
+It has a warning message with the applicant's name.
+
+  ![Application delete page](documentation/features/application_delete_page/application_delete_warning.png)
+
+It also has 2 buttons "Go Back" and "Delete". If the boss doesn't want to delete the application, he/she can click on "Go Back" button and will be redirected to the application detail page. If the boss wants to delete the application, he/she can click on "Delete" button and will be redirected to the new applications page page and the application will be permanently deleted.
+
+  ![Application delete page](documentation/features/application_delete_page/back_delete_buttons.png)
 
 
 
