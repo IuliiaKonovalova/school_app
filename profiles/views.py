@@ -140,8 +140,6 @@ class UserProfileEditView(View):
                             'user_profile',
                             kwargs={'username': user_profile.username})
                             )
-                else:
-                    print('form is not valid')
         return render(
             request,
             'profiles/access_limitation.html'
@@ -386,10 +384,6 @@ class SearchMembersView(ListView):
                     request,
                     'profiles/access_limitation.html',
                 )
-        return render(
-            request,
-            'profiles/access_limitation.html',
-        )
 
 
 class DeleteMemberView(View):

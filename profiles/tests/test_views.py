@@ -1,6 +1,7 @@
 """Tests for the views."""
 from django.test import TestCase, Client
 from django.urls import reverse
+from lessons.models import Lesson
 from profiles.models import (
     CustomUser,
     Teacher,
@@ -9,6 +10,9 @@ from profiles.models import (
     Parent
 )
 from students.models import Student
+from sales.models import Sales
+from lessons.models import Lesson
+from lessons.models import TIME_PERIODS, SUBJECTS
 
 
 class TestViews(TestCase):
@@ -132,6 +136,22 @@ class TestViews(TestCase):
         )
         self.student.parent.add(Parent.objects.get(id=1))
         self.student.sales_manager.add(sales_manager_pk)
+        # create a sale
+        self.sales_deal = Sales.objects.create(
+            sold_by=self.sales_manager_member,
+            sold_to=self.parent_member,
+            amount=10,
+            date='2020-01-01',
+            student_id=self.student.id,
+        )
+        # create lesson
+        self.lesson_first = Lesson.objects.create(
+            date='2019-01-01',
+            time=TIME_PERIODS[0][0],
+            subject=SUBJECTS[0][0],
+        )
+        self.lesson_first.teachers.add(Teacher.objects.get(id=1))
+        self.lesson_first.students.add(Student.objects.get(id=1))
 
     def test_user_profile_view(self):
         """Test the user_profile view."""
@@ -149,29 +169,53 @@ class TestViews(TestCase):
         # login as a teacher
         self.client.force_login(self.user_teacher)
         self.user_profile_url = self.user_profile_url.replace(
-            'username',
+            'boss',
             self.user_teacher.username
         )
         response = self.client.get(self.user_profile_url)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'profiles/user_profile.html')
-        # logout as a teacher
+        self.assertEquals(response.context['user'], self.user_teacher)
+        self.assertEquals(
+            response.context['user_profile'], self.user_teacher
+        )
+        self.assertEquals(len(response.context['lessons']), 1)
+        self.assertEquals(response.context['lessons_number'], 1)
+        self.assertEquals(
+            response.context['lessons'].number,
+            response.context['lessons'].paginator.page(1).number
+        )
         self.client.logout()
         # login as a sales manager
         self.client.force_login(self.user_sales_manager)
         self.user_profile_url = self.user_profile_url.replace(
-            'username',
+            'teacher',
             self.user_sales_manager.username
         )
         response = self.client.get(self.user_profile_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/user_profile.html')
+        self.assertEquals(response.context['user'], self.user_sales_manager)
+        self.assertEquals(
+            response.context['user_profile'], self.user_sales_manager
+        )
+        self.assertEquals(
+            response.context['children'][0],
+            Student.objects.filter(
+                sales_manager__user=self.user_sales_manager
+            )[0]
+        )
+        self.assertEquals(len(response.context['sales']), 1)
+        self.assertEquals(
+            response.context['sales'].number,
+            response.context['sales'].paginator.page(1).number
+        )
+        self.assertEquals(response.context['sold_all'], 0)
         # logout as a sales manager
         self.client.logout()
         # login as a receptionist
         self.client.force_login(self.user_receptionist)
         self.user_profile_url = self.user_profile_url.replace(
-            'username',
+            'sales_manager',
             self.user_receptionist.username
         )
         response = self.client.get(self.user_profile_url)
@@ -181,20 +225,25 @@ class TestViews(TestCase):
         self.client.logout()
         # login as a parent
         self.client.force_login(self.user_parent)
+        self.user_profile_url = self.user_profile_url
         self.user_profile_url = self.user_profile_url.replace(
-            'username',
+            'receptionist',
             self.user_parent.username
         )
         response = self.client.get(self.user_profile_url)
         self.assertEquals(response.status_code, 200)
+
         self.assertTemplateUsed(response, 'profiles/user_profile.html')
         self.assertEquals(response.context['user'], self.user_parent)
+        self.assertEquals(response.context['user_profile'], self.user_parent)
+        self.assertEquals(response.context['children'][0], self.student)
+        self.assertEquals(response.context['relation'], 'other')
         # logout as a parent
         self.client.logout()
         # login as a potential
         self.client.force_login(self.potential)
         self.user_profile_url = self.user_profile_url.replace(
-            'username',
+            'parent',
             self.potential.username
         )
         response = self.client.get(self.user_profile_url)
@@ -202,6 +251,7 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, 'profiles/user_profile.html')
         # logout as a potential
         self.client.logout()
+
 
     def test_user_profile_edit_view(self):
         """Test the user_profile_edit view."""
@@ -292,6 +342,27 @@ class TestViews(TestCase):
         )
         # logout as a boss
         self.client.logout()
+        # login as a teacher
+        self.client.force_login(self.user_teacher)
+        self.user_profile_edit_url = self.user_profile_edit_url.replace( 
+            'username',
+            self.user_teacher.username
+        )
+        response = self.client.post(self.user_profile_edit_url, {
+            'username': self.user_teacher.username,
+            'email': self.user_teacher.email,
+            'first_name': 'newTeacherName',
+            'last_name': 'newTeacherLastName',
+            'phone': '1234567890',
+            'role': self.user_teacher.role,
+        })
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        self.assertEquals(
+            CustomUser.objects.get(id=self.user_teacher.id).first_name,
+            'teacher'
+        )
+
 
     def test_new_applications_view_get(self):
         """Test the new_applications view."""
@@ -596,6 +667,8 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout as a potential
         self.client.logout()
+        self.application_delete_url
+        self.assertTemplateUsed(response, 'profiles/access_limitation.html')
 
     def test_application_delete_view_post(self):
         """Test the application_delete view."""
@@ -761,6 +834,12 @@ class TestViews(TestCase):
         )
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/search_members.html')
+        self.assertEquals(len(response.context['members']), 0)
+        self.assertEquals(response.context['members_number'], 0)
+        self.assertEquals(
+            response.context['members'].number,
+            response.context['members'].paginator.page(1).number
+        )
         # logout user_boss
         self.client.logout()
         # login as teacher

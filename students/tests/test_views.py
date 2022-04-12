@@ -189,8 +189,31 @@ class TestStudentsViews(TestCase):
             'sales_manager': [1],
         })
         self.assertEquals(Student.objects.count(), 2)
+        response = self.client.post(self.student_add_url, {
+            'first_name': 'student3FirstName',
+            'last_name': 'student3Surname',
+            'birthday': '2000-01-01',
+            'address': 'student2Address',
+            'classes_left': 50,
+            'notes': 'student2Notes',
+            'parent': [1],
+            'sales_manager': [1],
+        })
+        self.assertEquals(Student.objects.count(), 3)
         self.assertEquals(response.status_code, 302)
         self.assertEquals(response.url, '/students/students/')
+        response = self.client.post(self.student_add_url, {
+            'first_name': '',
+            'last_name': 'student3Surname',
+            'birthday': '2000-01-01',
+            'address': 'student2Address',
+            'classes_left': 50,
+            'notes': 'student2Notes',
+            'parent': [1],
+            'sales_manager': [1],
+        })
+        self.assertEquals(Student.objects.count(), 3)
+        self.assertTemplateUsed(response, 'students/student_add.html')
         # logout and login as a sales manager
         self.client.logout()
         self.client.force_login(self.user_sales_manager)
@@ -198,7 +221,7 @@ class TestStudentsViews(TestCase):
             'username',
             self.user_sales_manager.username
         )
-        self.assertEqual(Student.objects.count(), 2)
+        self.assertEqual(Student.objects.count(), 3)
         response = self.client.post(self.student_add_url, {
             'first_name': 'student3FirstName',
             'last_name': 'student3Surname',
@@ -209,7 +232,7 @@ class TestStudentsViews(TestCase):
             'parent': [1],
             'sales_manager': [1],
         })
-        self.assertEquals(Student.objects.count(), 3)
+        self.assertEquals(Student.objects.count(), 4)
         self.assertEquals(response.status_code, 302)
         self.assertEquals(response.url, '/students/students/')
         # logout and login as a receptionist
@@ -219,7 +242,7 @@ class TestStudentsViews(TestCase):
             'username',
             self.user_receptionist.username
         )
-        self.assertEqual(Student.objects.count(), 3)
+        self.assertEqual(Student.objects.count(), 4)
         response = self.client.post(self.student_add_url, {
             'first_name': 'student4FirstName',
             'last_name': 'student4Surname',
@@ -230,7 +253,7 @@ class TestStudentsViews(TestCase):
             'parent': [1],
             'sales_manager': [1],
         })
-        self.assertEquals(Student.objects.count(), 3)
+        self.assertEquals(Student.objects.count(), 4)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout and login as a teacher
@@ -240,7 +263,7 @@ class TestStudentsViews(TestCase):
             'username',
             self.user_teacher.username
         )
-        self.assertEqual(Student.objects.count(), 3)
+        self.assertEqual(Student.objects.count(), 4)
         response = self.client.post(self.student_add_url, {
             'first_name': 'student5FirstName',
             'last_name': 'student5Surname',
@@ -251,7 +274,7 @@ class TestStudentsViews(TestCase):
             'parent': [1],
             'sales_manager': [1],
         })
-        self.assertEquals(Student.objects.count(), 3)
+        self.assertEquals(Student.objects.count(), 4)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout and login as a parent
@@ -261,7 +284,7 @@ class TestStudentsViews(TestCase):
             'username',
             self.user_parent.username
         )
-        self.assertEqual(Student.objects.count(), 3)
+        self.assertEqual(Student.objects.count(), 4)
         response = self.client.post(self.student_add_url, {
             'first_name': 'student6FirstName',
             'last_name': 'student6Surname',
@@ -272,7 +295,7 @@ class TestStudentsViews(TestCase):
             'parent': [1],
             'sales_manager': [1],
         })
-        self.assertEquals(Student.objects.count(), 3)
+        self.assertEquals(Student.objects.count(), 4)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         # logout and login as a potential
@@ -282,7 +305,7 @@ class TestStudentsViews(TestCase):
             'username',
             self.potential.username
         )
-        self.assertEqual(Student.objects.count(), 3)
+        self.assertEqual(Student.objects.count(), 4)
         response = self.client.post(self.student_add_url, {
             'first_name': 'student7FirstName',
             'last_name': 'student7Surname',
@@ -293,7 +316,7 @@ class TestStudentsViews(TestCase):
             'parent': [1],
             'sales_manager': [1],
         })
-        self.assertEquals(Student.objects.count(), 3)
+        self.assertEquals(Student.objects.count(), 4)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.client.logout()
