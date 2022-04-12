@@ -126,7 +126,7 @@ class LessonAddView(View):
                                 student.first_name +
                                 ' ' +
                                 student.last_name +
-                                ' Does not have enough classes left. ' +
+                                ' does not have enough classes left. ' +
                                 'However, proceed with caution and notify ' +
                                 'Sales Department.'
                             )
@@ -191,7 +191,7 @@ class LessonEditView(View):
                                 student.first_name +
                                 ' ' +
                                 student.last_name +
-                                ' Does not have enough classes left. ' +
+                                ' does not have enough classes left. ' +
                                 'However, proceed with caution and notify ' +
                                 'Sales Department.'
                             )

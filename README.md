@@ -844,6 +844,25 @@ Under the warning message there 2 buttons: "Delete" and "Cancel". If the sales m
 
   ![Delete sale page. Form Buttons](documentation/features/delete_sale_page/cancel_back_buttons.png)
 
+**MembersPage**
+
+This page is accessible only by the school personnel (bosses, teachers, sales managers, receptionists).
+
+  ![Members page.](documentation/features/members_page/members_page.png)
+
+  It has a title "Members" and sorting bar. The sorting bar has the following choices:
+
+- All Members;
+- Parents;
+- Teachers;
+- Sales Managers;
+- Receptionists;
+
+  ![Members page. Sorting bar](documentation/features/members_page/members_page_sorting_bar.png)
+
+
+
+
 
 
 

@@ -179,6 +179,11 @@ class TestLessonForm(TestCase):
         response = self.client.get(self.lessons_list_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
+        # if user is not authenticated
+        self.client.logout()
+        response = self.client.get(self.lessons_list_url)
+        self.assertEquals(response.status_code, 302)
+        self.assertRedirects(response, '/')
 
     def test_teacher_schedule_view(self):
         """Test the teacher schedule view."""
@@ -230,6 +235,11 @@ class TestLessonForm(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/access_limitation.html')
         self.client.logout()
+        # if user is not authenticated
+        self.client.logout()
+        response = self.client.get(self.lessons_list_url)
+        self.assertEquals(response.status_code, 302)
+        self.assertRedirects(response, '/')
 
     def test_lesson_add_get_view(self):
         """Test the lesson add get view."""
@@ -275,12 +285,24 @@ class TestLessonForm(TestCase):
         self.client.force_login(self.user_receptionist)
         self.assertEquals(Lesson.objects.count(), 1)
         self.assertEquals(Student.objects.get(id=1).classes_left, 50)
+        # create student
+        self.student2 = Student.objects.create(
+            first_name='Sam',
+            last_name='Ray',
+            birthday='2000-01-01',
+            address='student1Address',
+            enrolled='01/01/2000',
+            classes_left=0,
+            notes='student1Notes',
+        )
+        self.student.parent.add(Parent.objects.get(id=1))
+        self.student.sales_manager.add(SalesManager.objects.get(id=1))
         response = self.client.post(self.lesson_add_url, {
             'date': '2022-01-01',
             'time': TIME_PERIODS[0][0],
             'subject': SUBJECTS[0][0],
             'teachers': [1],
-            'students': [1],
+            'students': [1, 2],
         })
         self.assertEquals(response.status_code, 302)
         self.assertEquals(response.url, '/lessons/')
@@ -289,9 +311,32 @@ class TestLessonForm(TestCase):
         self.assertEquals(Lesson.objects.last().subject, SUBJECTS[0][0])
         self.assertEquals(Lesson.objects.last().teachers.count(), 1)
         self.assertEquals(Lesson.objects.last().teachers.first().id, 1)
-        self.assertEquals(Lesson.objects.last().students.count(), 1)
-        self.assertEquals(Lesson.objects.last().students.first().id, 1)
+        self.assertEquals(Lesson.objects.last().students.count(), 2)
+        self.assertEquals(Lesson.objects.last().students.first().id, 2)
         self.assertEquals(Student.objects.get(id=1).classes_left, 49)
+        self.assertEquals(Student.objects.get(id=2).classes_left, -1)
+        self.assertEquals(
+            self.client.session['messages1'],
+            (
+                [
+                    'Unfortunately, ' +
+                    Student.objects.get(id=2).first_name +
+                    ' ' +
+                    Student.objects.get(id=2).last_name +
+                    ' does not have enough classes left. ' +
+                    'However, proceed with caution and notify ' +
+                    'Sales Department.'
+                ]
+            )
+        )
+        response = self.client.post(self.lesson_add_url, {
+            'date': '2022-02-01',
+            'time': '',
+            'subject': '',
+            'teachers': [1],
+            'students': [1, 2],
+        })
+        self.assertTemplateUsed(response, 'lessons/lesson_add.html')
         # logout and login as a boss
         self.client.logout()
         self.client.force_login(self.user_boss)
@@ -397,16 +442,48 @@ class TestLessonForm(TestCase):
     def test_lesson_edit_post_view(self):
         # login as a receptionist
         self.client.force_login(self.user_receptionist)
+        self.student2 = Student.objects.create(
+            first_name='Sam',
+            last_name='Ray',
+            birthday='2000-01-01',
+            address='student1Address',
+            enrolled='01/01/2000',
+            classes_left=0,
+            notes='student1Notes',
+        )
         response = self.client.post(self.lesson_edit_url, {
             'date': '2028-01-01',
             'time': TIME_PERIODS[0][0],
             'subject': SUBJECTS[0][0],
             'teachers': [1],
-            'students': [1],
+            'students': [1, 2],
         })
+        self.assertEquals(Student.objects.get(id=2).classes_left, -1)
+        self.assertEquals(
+            self.client.session['messages1'],
+            (
+                [
+                    'Unfortunately, ' +
+                    Student.objects.get(id=2).first_name +
+                    ' ' +
+                    Student.objects.get(id=2).last_name +
+                    ' does not have enough classes left. ' +
+                    'However, proceed with caution and notify ' +
+                    'Sales Department.'
+                ]
+            )
+        )
         self.assertEquals(Lesson.objects.count(), 1)
         self.assertEquals(response.status_code, 302)
         self.assertEquals(response.url, '/lessons/')
+        response = self.client.post(self.lesson_add_url, {
+            'date': '2022-02-01',
+            'time': '',
+            'subject': '',
+            'teachers': [1],
+            'students': 3,
+        })
+        self.assertTemplateUsed(response, 'lessons/lesson_add.html')
         # logout and login as a boss
         self.client.logout()
         self.client.force_login(self.user_boss)
