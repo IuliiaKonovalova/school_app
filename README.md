@@ -830,6 +830,18 @@ Under the fields there 2 buttons: "Save" and "Cancel". If the sales manager clic
 
   ![Edit sale page. Form Buttons](documentation/features/edit_sale_page/cancel_back_buttons.png)
 
+**Delete Sale Page**
+
+  ![Delete sale page.](documentation/features/delete_sale_page/delete_sale_page.png)
+
+ It has a title "Delete Sale" and a warning message with info og the sale that is about to be deleted.
+
+  ![Delete sale page. Warning Message](documentation/features/delete_sale_page/delete_sale_page_warning.png)
+
+Under the warning message there 2 buttons: "Delete" and "Cancel". If the sales manager clicks on the "Delete" button, the sale will be deleted from the database. If the sales manager clicks on the "Cancel" button, he/she will be redirected to the sales page.
+
+  ![Delete sale page. Form Buttons](documentation/features/delete_sale_page/cancel_back_buttons.png)
+
 
 
 
