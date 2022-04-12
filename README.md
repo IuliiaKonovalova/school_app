@@ -649,6 +649,28 @@ Under the fields there are 2 buttons "Go Back" and "Submit". If the user doesn't
 
   ![Profile change password page](documentation/features/profile_change_password_page/back_submit_buttons.png)
 
+**New Applications Page**
+
+This page is only visible to the boss and sales manager.
+  
+![New applications page](documentation/features/new_applications_page/new_applications.png)
+
+This page has a title and the number of the new applications left.
+
+  ![New applications page](documentation/features/new_applications_page/new_applications_summary.png)
+
+It also has a table with the new applications, where each application has a link. After clicking on the application in a table, the user will be redirected to the application detail page.
+
+  ![New applications page](documentation/features/new_applications_page/new_applications_data.png)
+
+Underneath the table, there is navigation buttons. If the user wants to see the next page of the applications, he/she can click on the "Next" button. If the user wants to see the previous page of the applications, he/she can click on the "Previous" button.
+
+  ![New applications page](documentation/features/new_applications_page/page_navigation1.png)
+  ![New applications page](documentation/features/new_applications_page/page_navigation2.png)
+
+**Application Detail Page**
+
+
 
 
 
