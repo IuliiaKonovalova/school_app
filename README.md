@@ -788,8 +788,29 @@ Additionally, the sales page has a different look for the boss. It has no "Add n
 
 **Add New Sale Page**
 
+This page is accessible only by the sales manager.
 
+  ![Add new sale page](documentation/features/add_sale_page/add_sale_page.png)
 
+ It has a title "Add New Sale" and a form with the following fields:
+
+  ![Add new sale page](documentation/features/add_sale_page/add_sale_page_fields.png) 
+
+- Client Name (with dropdown menu, where all clients are listed);
+- Amount (for the amount of classes that the client is buying);
+- Student (with dropdown menu, where all students are listed);
+
+When a Sales Manager clicks on the "Client Name" dropdown menu, it will show all the clients with an option to type a name for a search:
+
+  ![Add new sale page](documentation/features/add_sale_page/add_sale_dropdown.png)
+
+When a Sales Manager clicks on the "Student" dropdown menu, it will show all the students with an option to type a name for a search:
+
+  ![Add new sale page](documentation/features/add_sale_page/add_sale_page_dropdown_students.png)
+
+Underneath the form there is a button "Save" and a button "Cancel". If the sales manager clicks on the "Save" button, the form will be validated and if it is valid, the sale will be added to the database. If the form is not valid, the user will be redirected to the same page and the form will be filled with the data that was entered before. If the sales manager clicks on the "Cancel" button, he/she will be redirected to the sales page.
+
+  ![Add new sale page](documentation/features/add_sale_page/cancel_back_buttons.png)
 
 
 
