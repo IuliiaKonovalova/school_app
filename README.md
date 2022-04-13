@@ -886,19 +886,64 @@ Then the redo button will be displayed. When the user clicks on the redo button,
 
 Underneath, there is a table of the results. It has the links to the pages of each member.
 
-At the bottom of the page there us a page navigation with 2 buttons
+Under the table there is a navigation bar for the table. It has a "Previous" button and a "Next" button. The "Previous" button will redirect the sales manager to the previous page of the table. The "Next" button will redirect the sales manager to the next page of the table.
 
-![Member Page. Page Navigation](documentation/features/members_page/page_navigation1.png)
-![Member Page. Page Navigation](documentation/features/members_page/page_navigation2.png)
+  ![Sales page. Navigation1](documentation/features/members_page/page_navigation1.png)
+  ![Sales page. Navigation2](documentation/features/members_page/page_navigation2.png)
+
 
 **Student Page**
 
 This page is accessible only by the school personnel (bosses, teachers, sales managers, receptionists).
 
-  ![Student Page]()
+  ![Student Page](documentation/features/students_page/students_page_admin_view.png)
 
+There is a button "add new student", which visible only to sales managers and bosses as only they are empowered to add any students. 
 
+  ![Student Page. Add New Student Button](documentation/features/students_page/add_student_button.png)
 
+When the sales manager or a boss click on this button, he/she will be redirected to add new student page.
+
+In the top of the age there is a title "All Students", and under this title there is a search bar with instructions underneath this input bar.
+
+  ![Student Page. Search Input](documentation/features/students_page/students_page_search_input.png)
+
+Here the user may type the name in order to find a particular student. As the user starts typing, the undo button appears in the search bar.
+
+  ![Student Page. Undo Button](documentation/features/students_page/undo_button.png)
+
+When the user clicks on the undo button or delete the input manually, the undo button disappears.
+
+Under the search bar, there is a sorting bar where the user may sort students according to the urgent call needs. It has to options: All students sort and Urgent Class Sort. Plus, there is search button on the right side. There are also the instructions under the sorting bar.
+
+  ![Student Page. Sorting Bar](documentation/features/students_page/students_page_sort.png)
+
+If student has fewer than 10 classes left, this student will have an urgent label on the right side of their names.
+
+  ![Student Page. Urgent Label](documentation/features/students_page/students_student_urgent_call.png)
+
+After all there is sorting results summary:
+
+  ![Student Page. Sort Summary](documentation/features/students_page/students_page_summary.png)
+
+The following image will display how the urgent sort works:
+
+  ![Student Page. Urgent Sort](documentation/features/students_page/students_sort_urgent_results.png)
+
+The main part of this page is devoted to the students table, where all students are displayed. The users can see students' names, urgent call labels, and a link to students' profiles. If the user clicks on the student, he/she will be redirected to this student's profile.
+
+  ![Student Page. Students Table](documentation/features/students_page/students_page_table.png)
+
+  Under the table, there is a page navigation. 
+
+Under the table there is a navigation bar for the table. It has a "Previous" button and a "Next" button. The "Previous" button will redirect the sales manager to the previous page of the table. The "Next" button will redirect the sales manager to the next page of the table.
+
+  ![Student page. Navigation1](documentation/features/students_page/page_navigation1.png)
+  ![Student page. Navigation2](documentation/features/students_page/page_navigation2.png)
+
+Students Page looks differently for teachers and receptionists as there is no "add new student" button in the top right corner:
+
+  ![Student Page. Teachers and Receptionists View](documentation/features/students_page/students_page.png)
 
 
 [Back to contents](#contents)
