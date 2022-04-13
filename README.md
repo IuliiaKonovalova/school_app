@@ -985,7 +985,7 @@ Underneath the form there is a button "Save" and a button "Cancel". If the sales
 
 **Edit Student Page**
 
-This page is accessible only by the sales manager.
+This page is accessible only by the sales manager or the boss.
 
   ![Edit Student Page.](documentation/features/edit_student_page/edit_students_page.png)
 
@@ -998,6 +998,26 @@ The fields are pre-filled with the data from the data on the student that been p
 Under the fields there 2 buttons: "Save" and "Cancel". If the sales manager or the boss clicks on the "Save" button, the form will be validated and if it is valid, the sale will be updated in the database and he/she will be redirected to the Student's Detail page.. If the form is not valid, the user will be redirected to the same page and the form will be filled with the data that was entered before. If the sales manager clicks on the "Cancel" button, he/she will be redirected to the Student's Detail page.
 
   ![Edit Student Page. Form Buttons](documentation/features/edit_student_page/cancel_save_buttons.png)
+
+**Delete Student Page**
+
+This page is accessible only by the sales manager or the boss.
+
+  ![Delete Student Page.](documentation/features/delete_student_page/delete_student_page.png)
+
+ It has a title "Delete Student's data" and a warning message with the name of the student.
+
+  ![Delete Student Page. Warning Message](documentation/features/delete_student_page/delete_student_warning.png)
+
+The student's name has a link to his/her profile. Thus if the sales manager or a boss wants to open the student's profile, they may directly go to the student's profile.
+
+  ![Delete Student Page. Link to student's profile](documentation/features/delete_student_page/delete_student_page_link.png)
+
+Under the warning message there 2 buttons: "Delete" and "Cancel". If the sales manager clicks on the "Delete" button, the sale will be deleted from the database. If the sales manager clicks on the "Cancel" button, he/she will be redirected to the sales page.
+
+  ![Delete Student Page. Form Buttons](documentation/features/delete_student_page/cancel_delete_buttons.png)
+
+
 
 
 
