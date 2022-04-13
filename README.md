@@ -601,7 +601,7 @@ Under the header there are recent sales made with limited data (date on which th
 
 **Edit profile page**
 
-  ![Edit profile page](documentation/features/profile_edit_page/profile_edit.png)
+  ![Edit profile page](documentation/features/profile_edit_page/profile_edit_page.png)
 
 It has a container where the user can edit:
 
@@ -615,11 +615,11 @@ There are 3 fields with prefilled data for the user. This data could be changed 
 
 Underneath the fields there are to buttons "Go Back" and "Save". If user doesn't want to save changes, he/she can click on "Go Back" button and will be redirected to the profile page. If user wants to save changes, he/she can click on "Save" button and will be redirected to the profile page.
 
-  ![Edit profile page](documentation/features/profile_edit_page/back_submit_buttons.png)
+  ![Edit profile page](documentation/features/profile_edit_page/cancel_save_buttons.png)
 
 **Profile Delete Page**
 
-  ![Profile delete page](documentation/features/profile_delete_page/profile_delete.png)
+  ![Profile delete page](documentation/features/profile_delete_page/profile_delete_page.png)
 
 Only the bosses have access to this page as only they are able to delete any profile.
 
@@ -629,11 +629,11 @@ This page has a box with warning message and a link to the profile page of the u
 
 Under the warning message there are 2 buttons "Go Back" and "Delete". If the user doesn't want to delete the profile, he/she can click on "Go Back" button and will be redirected to the profile page. If the user wants to delete the profile, he/she can click on "Delete" button and will be redirected to the profile page and the school member will be permanently deleted.
 
-  ![Profile delete page](documentation/features/profile_delete_page/back_delete_buttons.png)
+  ![Profile delete page](documentation/features/profile_delete_page/cancel_delete_buttons.png)
 
 **Profile Change Password Page**
 
-  ![Profile change password page](documentation/features/profile_change_password_page/profile_password.png)
+  ![Profile change password page](documentation/features/profile_change_password_page/profile_password_page.png)
 
 It has a header with the title "Change Password" and a subtitle to guide the user what to do next. Underneath, there are 3 fieldto be field:
 
@@ -647,7 +647,7 @@ If there any errors in the fields, the user will see the error message.
 
 Under the fields there are 2 buttons "Go Back" and "Submit". If the user doesn't want to change the password, he/she can click on "Go Back" button and will be redirected to the profile page. If the user wants to change the password, he/she can click on "Change Password" button and will be redirected to the profile page and the password will be change if all conditions were met.
 
-  ![Profile change password page](documentation/features/profile_change_password_page/back_submit_buttons.png)
+  ![Profile change password page](documentation/features/profile_change_password_page/cancel_delete_buttons.png)
 
 **New Applications Page**
 
@@ -718,7 +718,7 @@ It has a warning message with the applicant's name.
 
 It also has 2 buttons "Go Back" and "Delete". If the boss doesn't want to delete the application, he/she can click on "Go Back" button and will be redirected to the application detail page. If the boss wants to delete the application, he/she can click on "Delete" button and will be redirected to the new applications page page and the application will be permanently deleted.
 
-  ![Application delete page](documentation/features/application_delete_page/back_delete_buttons.png)
+  ![Application delete page](documentation/features/application_delete_page/cancel_delete_buttons.png)
 
 **Limited Access Page**
 
@@ -842,7 +842,7 @@ This page is accessible only by the sales manager.
 
 Under the warning message there 2 buttons: "Delete" and "Cancel". If the sales manager clicks on the "Delete" button, the sale will be deleted from the database. If the sales manager clicks on the "Cancel" button, he/she will be redirected to the sales page.
 
-  ![Delete sale page. Form Buttons](documentation/features/delete_sale_page/cancel_back_buttons.png)
+  ![Delete sale page. Form Buttons](documentation/features/delete_sale_page/cancel_delete_buttons.png)
 
 **MembersPage**
 

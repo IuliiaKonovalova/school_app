@@ -16,12 +16,12 @@
           {% comment %} Go back to user profile page {% endcomment %}
           <a href="{% url 'user_profile' username=request.user %}"
             aria-label="Go Back to Profile page" class="profile__form--btn profile__btn profile__back--btn">
-            <div class=" profile__btn--text">Go back</div>
+            <div class=" profile__btn--text">Cancel</div>
             <i class="far fa-window-close  profile__btn--icon"></i>
           </a>
           {% comment %} Submit profile changes button {% endcomment %}
           <button type="submit" class="profile__form--btn profile__btn profile__confirm--btn">
-            Submit<i class="fas fa-trash-alt search__btn--icon"></i>
+            Save<i class="fas fa-save search__btn--icon"></i>
           </button>
         </div>
       </form>
