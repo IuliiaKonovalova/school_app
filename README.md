@@ -1021,6 +1021,65 @@ Under the warning message there 2 buttons: "Delete" and "Cancel". If the sales m
 
 This page is accessible by everyone except potential clients. However, parents can see only their own children's profiles. If they will try to enter other students' profiles they will be redirected to the Access Limitation page.
 
+The page has the following look for the bosses and sales managers:
+
+  ![Student Detail Page](documentation/features/student_detail_page/student_detail_page_admin_view.png)
+
+It has additional editing and deletion functionality for the bosses and sales managers. If the user clicks on the "Delete" button, he/she will be redirected to the Student Delete Page. If the user clicks on the "Edit" button, he/she will be redirected to Student Edit Page.
+
+  ![Student Detail Page. Buttons](documentation/features/student_detail_page/edit_delete_buttons.png)
+
+For the rest of the users this page looks as following:
+
+  ![Student Detail Page. Others users view](documentation/features/student_detail_page/student_detail_page_others_view.png)
+
+It has a students data box with a name of a student as a title and a role under neath the name (Student). If a parent opens his/her child's profile, there will be additional line, pointing that this student is related to the user 
+
+  ![Student Detail Page. Relation to the parent](documentation/features/student_detail_page/students_detail_relation.png)
+
+Then the user may see the student's data:
+
+  ![Student Detail Page. Data Box](documentation/features/student_detail_page/student_detail_page_data_box.png)
+
+- Full Name;
+- Birthday;
+- Address;
+- Parents;
+
+  ![Student Detail Page. Parents](documentation/features/student_detail_page/student_detail_page_parents.png)
+
+  *If the school wants to contact student's relatives, they simply need to click on the parents' link and they will be redirected to parents' profiles where they will their emails and phone numbers data*
+
+- Notes;
+- Classes left;
+- Sales Manager;
+
+  ![Student Detail Page. Sales Manager](documentation/features/student_detail_page/student_detail_page_sales_manager.png)
+
+- Enrolled date;
+
+Underneath data box, the user will find the information on the student's attendance.
+
+  ![Student Detail Page. Attendance](documentation/features/student_detail_page/student_detail_attendance.png)
+
+There is a sorting by date bar and a search button on the right side of the bar. The sorting bar has 2 datepickers, one for the start date and one for the end date. The sales are sorted by the start date. There is a button "Search" on the right side of the sorting bar. after picking dates and clicking on the "Search" button, the classes will be filtered by the dates. Then the user may see the summary of the results found.
+
+  ![Student Detail Page. Attendance Summary](documentation/features/student_detail_page/student_detail_summary.png)
+
+Each class has in the attendance section has a date, name of the subject and a link to view class's details. If the user click on the class, he/she will be redirected to the class details page.
+
+  ![Student Detail Page. Attendance Classes](documentation/features/student_detail_page/student_detail_page_classes.png)
+
+Under the table there is a navigation bar for the table. It has a "Previous" button and a "Next" button. The "Previous" button will redirect the user to the previous page of the table. The "Next" button will redirect the user to the next page of the table.
+
+  ![Student page. Navigation1](documentation/features/student_detail_page/page_navigation1.png)
+  ![Student page. Navigation2](documentation/features/student_detail_page/page_navigation2.png)
+
+**Schedule Page**
+
+
+
+
 
 
 
