@@ -983,6 +983,12 @@ Underneath the form there is a button "Save" and a button "Cancel". If the sales
 
   ![Add Student Page. Form Buttons](documentation/features/add_student_page/cancel_save_buttons.png)
 
+**Edit Student Page**
+
+
+
+
+
 
 
 
