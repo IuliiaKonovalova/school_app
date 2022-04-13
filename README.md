@@ -627,7 +627,7 @@ This page has a box with warning message and a link to the profile page of the u
   
   ![Profile delete page](documentation/features/profile_delete_page/member_delete_link.png)
 
-Under the warning message there are 2 buttons "Go Back" and "Delete". If the user doesn't want to delete the profile, he/she can click on "Go Back" button and will be redirected to the profile page. If the user wants to delete the profile, he/she can click on "Delete" button and will be redirected to the profile page and the school member will be permanently deleted.
+Under the warning message there are 2 buttons "Cancel" and "Delete". If the user doesn't want to delete the profile, he/she can click on "Cancel" button and will be redirected to the profile page. If the user wants to delete the profile, he/she can click on "Delete" button and will be redirected to the profile page and the school member will be permanently deleted.
 
   ![Profile delete page](documentation/features/profile_delete_page/cancel_delete_buttons.png)
 
@@ -1209,6 +1209,18 @@ Under the fields there 2 buttons: "Save" and "Cancel". If the receptionist click
 This page is accessible only by receptionists as only they have rights to make ony changes in the schedule.
 
   ![Delete Lesson Page](documentation/features/delete_lesson_page/delete_lesson_page.png)
+
+This page has a title "Lesson Deletion" and a warning message of the permanently deletion of the lesson.
+
+  ![Delete Lesson Page. Warning](documentation/features/delete_lesson_page/delete_lesson_page_warning.png)
+
+Inside this warning message is the link to the lesson that is about to be deleted, so the the receptionist may double check which class he/she wants to delete:
+
+  ![Delete Lesson Page. Lesson Link](documentation/features/delete_lesson_page/delete_lesson_page_link.png)
+
+Under the warning message there are 2 buttons "Cancel" and "Delete". If the receptionist doesn't want to delete the lesson, he/she can click on "Cancel" button and will be redirected to the lesson detail page. If the receptionist wants to delete the lesson, he/she can click on "Delete" button and will be redirected to the schedule page and this lesson will be permanently deleted.
+
+  ![Profile delete page](documentation/features/delete_lesson_page/cancel_delete_buttons.png)
 
 
 **Lesson Detail Page**
