@@ -1017,7 +1017,9 @@ Under the warning message there 2 buttons: "Delete" and "Cancel". If the sales m
 
   ![Delete Student Page. Form Buttons](documentation/features/delete_student_page/cancel_delete_buttons.png)
 
+**Student Detail Page**
 
+This page is accessible by everyone except potential clients. However, parents can see only their own children's profiles. If they will try to enter other students' profiles they will be redirected to the Access Limitation page
 
 
 
