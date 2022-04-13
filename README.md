@@ -1141,6 +1141,52 @@ Here is the teacher's personal schedule:
 
 **Add Lesson Page**
 
+This page is accessible only by receptionists as only they have rights to make ony changes in the schedule.
+
+  ![Add Lesson Page](documentation/features/add_lesson_page/add_lesson_page.png)
+
+It has a title "Adding lesson" and the following fields:
+
+  ![Add Lesson Page. Form fields.](documentation/features/add_lesson_page/add_lesson_fields.png)
+
+- Date (to pick a day on which the class will be given);
+
+  ![Add Lesson Page. Form fields. Date](documentation/features/add_lesson_page/add_lesson_date_field.png)
+
+  *The datepicker functionality was implemented to ease choosing of the day*
+
+- Time Period;
+
+  ![Add Lesson Page. Form fields. Time Period](documentation/features/add_lesson_page/add_lesson_time_field.png)
+
+*The dropdown menu was implemented to make it easy for the user to choose from available time periods*
+
+- Subject;
+
+  ![Add Lesson Page. Form fields. Subjects](documentation/features/add_lesson_page/add_lesson_subject.png)
+
+*The dropdown menu was implemented to make it easy for the user to choose from available subjects*
+
+- Teachers:
+
+  ![Add Lesson Page. Form fields. Teachers](documentation/features/add_lesson_page/add_lesson_teachers_field.png)
+
+*The dropdown menu was implemented to make it easy for the user to choose from a list of teachers*
+
+- Students;
+
+  ![Add Lesson Page. Form fields. Teachers](documentation/features/add_lesson_page/add_lesson_students_field.png)
+
+*The dropdown menu was implemented to make it easy for the user to choose from a list of students*
+
+The field form looks as following:
+
+  ![Add Lesson Page. Filled Form](documentation/features/add_lesson_page/add_lesson_filled.png)
+
+Under the fields there are 2 buttons: "Save" and "Cancel". If the receptionist clicks on the "Save" button, the sale will be added to the database. If the sales manager clicks on the "Cancel" button, he/she will be redirected to the schedule page.
+
+  ![Delete Student Page. Form Buttons](documentation/features/delete_student_page/cancel_delete_buttons.png)
+
 **Edit Lesson Page**
 
 **Delete Lesson Page**
