@@ -1191,6 +1191,8 @@ Under the fields there are 2 buttons: "Save" and "Cancel". If the receptionist c
 
 **Delete Lesson Page**
 
+**Lesson Detail Page**
+
 
 
 
