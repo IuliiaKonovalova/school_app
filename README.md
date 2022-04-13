@@ -1121,6 +1121,24 @@ When the user chooses another day, the schedule table will display classes only 
 
 **Teacher's Personal Schedule Page**
 
+This page is available only by teachers.
+
+  ![Teacher Schedule Page](documentation/features/teacher_schedule_page/teacher_schedule_page.png)
+
+It has a button in the right top corner "Back" to go back to common schedule page.
+
+  ![Teacher Schedule Page. Back Button](documentation/features/teacher_schedule_page/back_button.png)
+
+This schedule will display only the classes of the teacher, which account was entered.
+
+In comparison, here is the common schedule:
+
+  ![Common Schedule Page.](documentation/features/teacher_schedule_page/schedule_look_compare.png)
+
+Here is the teacher's personal schedule:
+
+  ![Teacher Schedule Page.](documentation/features/teacher_schedule_page/schedule_look_compare2.png)
+
 **Add Lesson Page**
 
 **Edit Lesson Page**
