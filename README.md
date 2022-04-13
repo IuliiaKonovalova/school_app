@@ -860,9 +860,28 @@ This page is accessible only by the school personnel (bosses, teachers, sales ma
 
   ![Members page. Sorting bar](documentation/features/members_page/members_page_sorting_bar.png)
 
+When the user clicks on the "All Members" button, the table will be sorted by the name of the member. When the user clicks on the "Parents" button, the table will be sorted by the name of the parent. When the user clicks on the "Teachers" button, the table will be sorted by the name of the teacher. When the user clicks on the "Sales Managers" button, the table will be sorted by the name of the sales manager. When the user clicks on the "Receptionists" button, the table will be sorted by the name of the receptionist.
 
+It has also displays the amount of the sorting results:
 
+  ![Members page. Sorting bar](documentation/features/members_page/members_page_summary.png)
 
+There is also a search bar with the instructions:
+
+  ![Members page. Search bar](documentation/features/members_page/members_page_search_input_results.png)
+
+When the user inputs the name of the member, the search bar will show the amount of the results.
+  
+  ![Members page. Search bar](documentation/features/members_page/members_page_search_input.png)
+
+  
+Then the redo button will be displayed. When the user clicks on the redo button, the search bar will be cleared and the table will be sorted by the name of the member.
+
+  ![Members page. Search bar](documentation/features/members_page/members_page_search_input_results.png)
+
+Underneath, there is a table of the results. It has the links to the pages of each member.
+
+**Student Page**
 
 
 
