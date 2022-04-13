@@ -874,14 +874,28 @@ When the user inputs the name of the member, the search bar will show the amount
   
   ![Members page. Search bar](documentation/features/members_page/members_page_search_input.png)
 
+In the table results the user will see only members, which match the input:
+
+  ![Members page. Search bar Results](documentation/features/members_page/members_page_search_input_results.png)
+
   
 Then the redo button will be displayed. When the user clicks on the redo button, the search bar will be cleared and the table will be sorted by the name of the member.
 
-  ![Members page. Search bar](documentation/features/members_page/members_page_search_input_results.png)
+  ![Members page. Search bar. Undo Button](documentation/features/members_page/undo_button.png)
+
 
 Underneath, there is a table of the results. It has the links to the pages of each member.
 
+At the bottom of the page there us a page navigation with 2 buttons
+
+![Member Page. Page Navigation](documentation/features/members_page/page_navigation1.png)
+![Member Page. Page Navigation](documentation/features/members_page/page_navigation2.png)
+
 **Student Page**
+
+This page is accessible only by the school personnel (bosses, teachers, sales managers, receptionists).
+
+  ![Student Page]()
 
 
 
