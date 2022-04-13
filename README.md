@@ -985,8 +985,19 @@ Underneath the form there is a button "Save" and a button "Cancel". If the sales
 
 **Edit Student Page**
 
+This page is accessible only by the sales manager.
 
+  ![Edit Student Page.](documentation/features/edit_student_page/edit_students_page.png)
 
+ It has a title "Edit Student's Data" and a form with the following fields with pre-filled data:
+
+  ![Edit Student Page. Fields](documentation/features/edit_student_page/edit_students_page_fields.png)
+
+The fields are pre-filled with the data from the data on the student that been previously selected. The boss or the sales manager are able to render this data by selecting a particular field and changing data. 
+
+Under the fields there 2 buttons: "Save" and "Cancel". If the sales manager or the boss clicks on the "Save" button, the form will be validated and if it is valid, the sale will be updated in the database and he/she will be redirected to the Student's Detail page.. If the form is not valid, the user will be redirected to the same page and the form will be filled with the data that was entered before. If the sales manager clicks on the "Cancel" button, he/she will be redirected to the Student's Detail page.
+
+  ![Edit Student Page. Form Buttons](documentation/features/edit_student_page/cancel_save_buttons.png)
 
 
 
