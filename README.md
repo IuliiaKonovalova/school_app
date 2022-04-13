@@ -945,6 +945,46 @@ Students Page looks differently for teachers and receptionists as there is no "a
 
   ![Student Page. Teachers and Receptionists View](documentation/features/students_page/students_page.png)
 
+**Add student Page**
+
+This page is accessible only by the sales manager and the boss.
+
+  ![Add Student Page.](documentation/features/add_student_page/add_student_page.png)
+
+ It has a title "Add Student" and a form with the following fields:
+
+  ![Add Student Page. Fields](documentation/features/add_student_page/add_student_fields.png) 
+
+- First Name (student's first name);
+- Last Name (student's last name);
+- Parents (with the list of all clients);
+
+*The user may search by name*
+
+  ![Add Student Page. Parent Field](documentation/features/add_student_page/add_student_page_parents_field.png)
+
+*The user may also assign several relatives to a student*
+
+  ![Add Student Page. Parent Field. Chosen](documentation/features/add_student_page/add_student_page_parents_field_several.png)
+
+- Birthday (with a date picker functionality);
+
+  ![Add Student Page. Birthday Field](documentation/features/add_student_page/add_student_page_birthday_field.png)
+
+- Address (to store student's address in case of urgent situations);
+- Classes Left (if the parents purchased any special offers packages);
+- Sales Manager (to assign the sales manager in charge of the student, who will be responsible for keeping a close attention to student's attendance)
+
+  ![Add Student Page. Sales Field](documentation/features/add_student_page/add_student_page_sales_field.png)
+
+- Notes (in case if a student has any preferences or allergies)
+
+Underneath the form there is a button "Save" and a button "Cancel". If the sales manager or a boss clicks on the "Save" button, the form will be validated and if it is valid, the sale will be added to the database. If the form is not valid, the user will be redirected to the same page and the form will be filled with the data that was entered before. If the sales manager or a boss clicks on the "Cancel" button, he/she will be redirected to the students page page.
+
+  ![Add Student Page. Form Buttons](documentation/features/add_student_page/cancel_save_buttons.png)
+
+
+
 
 [Back to contents](#contents)
 
