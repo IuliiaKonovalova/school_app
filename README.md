@@ -1077,6 +1077,47 @@ Under the table there is a navigation bar for the table. It has a "Previous" but
 
 **Schedule Page**
 
+This page is accessible to everyone. 
+
+  ![Schedule Page](documentation/features/schedule_page/schedule_page_others_view.png)
+
+But it has different look for teachers:
+
+  ![Schedule Page. Teachers' view](documentation/features/schedule_page/schedule_page_teacher_view.png)
+
+It has a "My Schedule Button". If the teacher clicks this button, he/she will be redirected to the personal schedule page.
+
+  ![Schedule Page. My Schedule Button](documentation/features/schedule_page/my_schedule_button.png)
+
+
+And for the receptionists it will have additional feature:
+
+  ![Schedule Page. Receptionists' view](documentation/features/schedule_page/schedule_page_receptionist.png)
+
+  It has a button "add lesson". Only receptionists are allowed to make any changes to the schedule.
+
+  ![Schedule Page. Add Lesson Button](documentation/features/schedule_page/add_lesson_button.png)
+
+The page has a title "Schedule" and the Line: "Today is ..." for the use to see which day is today. 
+
+  ![Schedule Page. Today](documentation/features/schedule_page/schedule_today_data.png)
+
+There is a datepicker for the user to choose a day, which the user wants to look into. The calendar set automatically on the today schedule.
+If the user want to change the day, he/she may click on the date picker and the calendar will appear.
+
+  ![Schedule Page. Calendar](documentation/features/schedule_page/schedule_calendar.png)
+
+Underneath there is a schedule table where the time period is on the left side and the classes, which were scheduled, on the right side. If the user clicks on the class, he/she will be redirected to the lesson detail page.
+
+  ![Schedule Page. Schedule table](documentation/features/schedule_page/schedule_page_box.png)
+
+When the user enters the schedule page, it displays the schedule for today's classes.
+
+  ![Schedule Page. Schedule table for today](documentation/features/schedule_page/schedule_today.png)
+
+When the user chooses another day, the schedule table will display classes only for that particular day that has been chosen.
+
+  ![Schedule Page. Schedule table for another day](documentation/features/schedule_page/schedule_other_day.png)
 
 **Teacher's Personal Schedule Page**
 
