@@ -583,6 +583,10 @@ body {
   justify-content: center;
 }
 
+.student__data--links:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+
 .profile__data--heading,
 .student__data--heading {
   font-weight: 900;
@@ -2650,6 +2654,8 @@ button.select2-selection__choice__remove {
     align-items: start;
     font-size: 1rem;
   }
+
+
 
   .profile__data--heading {
     margin-right: 0.2em;
