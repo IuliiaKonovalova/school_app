@@ -1078,7 +1078,13 @@ Under the table there is a navigation bar for the table. It has a "Previous" but
 **Schedule Page**
 
 
+**Teacher's Personal Schedule Page**
 
+**Add Lesson Page**
+
+**Edit Lesson Page**
+
+**Delete Lesson Page**
 
 
 
