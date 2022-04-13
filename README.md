@@ -1226,9 +1226,6 @@ Under the warning message there are 2 buttons "Cancel" and "Delete". If the rece
 **Lesson Detail Page**
 
 
-
-
-
 [Back to contents](#contents)
 
 ---
