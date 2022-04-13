@@ -2,52 +2,52 @@
 {% load static %}
 
 {% block extra_js %}
-  {% comment %} Jquery IU library: Datepicker and Select2 {% endcomment %}
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('select').addClass('js-example-basic-single');
-      $('.js-example-basic-single').select2({
-        placeholder: 'Type name to search',
-      });
-      $('#div_id_assigned_to').css('width', '100%');
-      $('.select2').css('width', '100%');
+{% comment %} Jquery IU library: Datepicker and Select2 {% endcomment %}
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('select').addClass('js-example-basic-single');
+    $('.js-example-basic-single').select2({
+      placeholder: 'Type name to search',
     });
-    $(function () {
-      $("#id_date").datepicker();
-    });
-  </script>
+    $('#div_id_assigned_to').css('width', '100%');
+    $('.select2').css('width', '100%');
+  });
+  $(function () {
+    $("#id_date").datepicker();
+  });
+</script>
 {% endblock%}
 
 {% comment %} Extra Title {% endcomment %}
 {% block extra_title %}Students{% endblock %}
 
 {% block content %}
-  {% comment %} Add lesson page with access only by receptionists {% endcomment %}
-  <div class="lesson__new">
-    <div class="lesson__form--container">
-      <h2 class="lesson__form--title">Adding lesson</h2>
-      {% comment %} Add lesson Form {% endcomment %}
-      <form method="POST" class="lesson__form">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <div class="student__buttons">
-          {% comment %} Go back to lesson detail page {% endcomment %}
-          <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to back to lesson page"
-            class="student__buttons--btn student__btn student__back--btn">
-            <div class="student__btn--text">Cancel</div>
-            <i class="far fa-window-close  student__btn--icon"></i>
-          </a>
-          {% comment %} Submit Lesson edition button {% endcomment %}
-          <button type="submit" class="student__buttons--btn student__btn student__confirm--btn">
-            Save<i class="fas fa-save search__btn--icon"></i>
-          </button>
-        </div>
-      </form>
-    </div>
+{% comment %} Add lesson page with access only by receptionists {% endcomment %}
+<div class="lesson__new">
+  <div class="lesson__form--container">
+    <h2 class="lesson__form--title">Edit lesson</h2>
+    {% comment %} Add lesson Form {% endcomment %}
+    <form method="POST" class="lesson__form">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <div class="student__buttons">
+        {% comment %} Go back to lesson detail page {% endcomment %}
+        <a href="{% url 'lesson_detail' pk=lesson.pk %}" aria-label="Go to back to lesson page"
+          class="student__buttons--btn student__btn student__back--btn">
+          <div class="student__btn--text">Cancel</div>
+          <i class="far fa-window-close  student__btn--icon"></i>
+        </a>
+        {% comment %} Submit Lesson edition button {% endcomment %}
+        <button type="submit" class="student__buttons--btn student__btn student__confirm--btn">
+          Save<i class="fas fa-save search__btn--icon"></i>
+        </button>
+      </div>
+    </form>
   </div>
+</div>
 {% endblock %}

@@ -1189,7 +1189,27 @@ Under the fields there are 2 buttons: "Save" and "Cancel". If the receptionist c
 
 **Edit Lesson Page**
 
+This page is accessible only by receptionists as only they have rights to make ony changes in the schedule.
+
+  ![Edit Lesson Page](documentation/features/edit_lesson_page/edit_lesson_page.png)
+
+ It has a title "Edit Lesson" and a form with the following fields with pre-filled data:
+
+  ![Edit Lesson Page. Fields](documentation/features/edit_lesson_page/edit_page_fields.png)
+
+The fields are pre-filled with the data from the data on the lesson that been previously added. The receptionist is able to render this data by selecting a particular field and changing data. 
+
+Under the fields there 2 buttons: "Save" and "Cancel". If the receptionist clicks on the "Save" button, the form will be validated and if it is valid, the lesson will be updated in the database and he/she will be redirected to the Lesson's Detail page. If the form is not valid, the user will be redirected to the same page and the form will be filled with the data that was entered before. If the receptionist clicks on the "Cancel" button, he/she will be redirected to the Lesson's Detail page.
+
+  ![Edit Lesson Page. Form Buttons](documentation/features/edit_lesson_page/cancel_save_buttons.png)
+
+
 **Delete Lesson Page**
+
+This page is accessible only by receptionists as only they have rights to make ony changes in the schedule.
+
+  ![Delete Lesson Page](documentation/features/delete_lesson_page/delete_lesson_page.png)
+
 
 **Lesson Detail Page**
 
