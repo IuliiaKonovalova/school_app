@@ -1307,7 +1307,7 @@ To generate this particular pattern, I used Contour Line Generator with white ba
 
 - Images were downloaded from the [icons8](https://icons8.com/) website only for the home page. However, the original images were changed manually to match the color scheme.
 
-- The main part is allocated to the use of icons from the [font awesome](https://fontawesome.com/) website. The use of icons is essential for the user experience when it comes to the multifuncional websites.
+- The main part is allocated to the use of icons from the [font awesome](https://fontawesome.com/) website. The use of icons is essential for the user experience when it comes to the multifunctional websites.
 
 
 ### Wireframes
@@ -1537,9 +1537,9 @@ Create a local copy of the GitHub repository by following one of the two process
   - Open the terminal window and type:
   - `pip3 install -r requirements.txt`
 
-1. Create a .gitignore file in the root directory of the project where you should add env.py and __pycache__ files to prevent the privacy of your secret data.
+1. Create a `.gitignore` file in the root directory of the project where you should add env.py and __pycache__ files to prevent the privacy of your secret data.
 
-1. Create a .env file. This will contain the following environment variables:
+1. Create a `.env` file. This will contain the following environment variables:
 
     ```python
     import os
@@ -1566,23 +1566,36 @@ Create a local copy of the GitHub repository by following one of the two process
 
 ### Heroku Deployment
 
-1. Set up a local workspace on your computer for Heroku:
+* Set up a local workspace on your computer for Heroku:
     - Create a list of requirements that the project needs to run:
       - type in this in the terminal: `pip3 freeze > requirements.txt`
     - Commit and push the changes to GitHub
     
-1. Go to [www.heroku.com](www.heroku.com) 
-1. Login or create a Heroku account.
-1. Create a new app with any unique name <name app>.
-1. Create a Procfile in your local workplace, which will contain the following:
+* Go to [www.heroku.com](www.heroku.com) 
+* Login or create a Heroku account.
+* Create a new app with any unique name <name app>.
+
+  ![Heroku. Create New App](documentation/deployment/new_heroku_app.png)
+
+* Create a Procfile in your local workplace:
+
+  ![Heroku. Procfile](documentation/deployment/heroku_procfile.png)
+    
+    This file will will contain the following:
     ```python
         web: gunicorn <name app>.wsgi:application
     ```
     - Commit and push the changes to GitHub.
 
-1. Go to resources in Heroku and search for postgresql. Select Hobby dev - Free and click on the provision button to add it to the project.
+* Go to resources in Heroku and search for postgresql. Select Hobby dev - Free and click on the provision button to add it to the project.
 
-1. Go to the settings app in Heroku and go to Config Vars. Click on Reveal Config Vars and add the following config variables:
+  ![Heroku. Postgres](documentation/deployment/heroku_postgres.png)
+
+* Go to the settings app in Heroku and go to Config Vars.
+
+  ![Heroku. Settings](documentation/deployment/settings_tab.png)
+
+Click on Reveal Config Vars and add the following config variables:
 
 | Key      | Value          |
 |-------------|-------------|
@@ -1594,13 +1607,18 @@ Create a local copy of the GitHub repository by following one of the two process
 | SECRET_KEY | ... |
 
 
-1. Copy the value of DATABASE_URL and input it into the .env file.
-1. Create EMAIL_HOST_PASS and EMAIL_HOST_USER with gmail account and add values to these keys.
-1. Migrate changes.
-1. Set debug to False in settings.py
-1. Commit and push the changes to GitHub.
+* Copy the value of DATABASE_URL and input it into the .env file and generate secret key (you may use [Djecrety](https://djecrety.ir/) for secret key generation).
+* Create EMAIL_HOST_PASS and EMAIL_HOST_USER with gmail account and add values to these keys.
+* Migrate changes.
+* Set debug to False in settings.py
+* Commit and push the changes to GitHub.
+* Connect you repository to Heroku.
 
+  ![Heroku. Connect to Heroku](documentation/deployment/heroku_connect_github.png)
 
+* Deploy the app to Heroku by clicking "Deploy Branch" button. If you want to enable auto-deployment, click "Enable Automatic Deployment".
+
+  ![Heroku. Deploy to Heroku](documentation/deployment/heroku_deploy_branch.png) 
 [Back to contents](#contents)
 
 ---
