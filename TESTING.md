@@ -1,5 +1,27 @@
 # Testing
 
+
+## Bugs
+
+### Known bugs:
+
+When the parent, who has 2 or more children, assigns a relation to a child, the relation could be assign only to one child.
+
+![Lessons Testing Coverage](documentation/bugs/roles_bug1.png)
+![Lessons Testing Coverage](documentation/bugs/roles_bug2.png)
+
+However, when the user refresh the page all children are shown with the correct relation.
+
+![Lessons Testing Coverage](documentation/bugs/roles_bug4.png)
+
+### Solved bugs:
+
+There were plenty of bugs curing the development process since this project was a learning platform for me and allowed to improve my skills and knowledge greatly.
+
+However, I tried to solved the majority of them. And on bug that I remember perfectly was related to the extension of the the allauth sign up form. I was able to solve it customizing the allauth sign up form. Moreover, I encounter the problem to make the form work as the migrations were not working. What I have done to migrate the changes is to migrate profile app first and then perform the rest of the migrations.
+
+Another bug that took me a lot of time to solve was to avoid circular import when I was developing sales app as I needed to get not only the client data, but also the children data to add or delete classes from student's profile. The solution to this problem was to implement student_id field that will be used to get the children data and store it in the sales table.
+
 ## Automated testing
 
 ### Django unit testing
