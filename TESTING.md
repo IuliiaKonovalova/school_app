@@ -47,7 +47,24 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | 6           | Click on "Students" | Redirection to Students page | Y |  Available only to school personnel |
 | 7           | Click on "Schedule" | Redirection to Schedule page | Y | Available to everyone |
 | 2           | Click on "Logout" button in the center of the page | Takes user to log out page to confirm logout | Y | Available to everyone |
-
+| Profile     |            |                  |      |             |
+| 1           |  Click "delete" button | Redirect to delete profile page | Y | Available only to bosses  |
+| 2           |  Click "edit" button | Redirect to edit profile page | Y |  Available only when the user opens his/her own profile  |
+| 3           |  Click "password" button | Takes user to change password page to confirm logout | Y |  Available only when the user opens his/her own profile |
+| 4           |  Click "child's name" button | Takes user to change email page to confirm logout | Y | Available only to the parents whose kids are saved in the school system |
+| 5           |  Click "edit" button in the relation section | Opens dropdown menu with options: mother, father, grandmother, grandfather, other | Y | Available only to the parents whose kids are saved in the school system |
+| 6           |  Click on the particular relation | dropdown menu closes and only chosen relation is seen | Y | Available only to the parents whose kids are saved in the school system |
+| 7           |  Click "save" button in the relation section | relation is updated | Y | Available only to the parents whose kids are saved in the school system |
+| 8           |  Click "from date calendar" input classes section | calendar picker appear | Y | Available only to the teacher in his/her own profile and the bosses, when the boss enters teacher's profile |
+| 9           |  Click "to date calendar" input classes section | calendar picker appear | Y | Available only to the teacher in his/her own profile and the bosses, when the boss enters teacher's profile |
+| 10          |  Click "search" button in the classes section when the dates are set | classes are selected | Y | Available only to the teacher in his/her own profile and the bosses, when the boss enters teacher's profile |
+| 11          |  Click "class" button in the classes section | redirected to the lesson detail page | Y | Available only to the teacher in his/her own profile and the bosses, when the boss enters teacher's profile |
+| 12          |  Click "from date calendar" input sales section | calendar picker appear | Y | Available only to the sales managers in his/her own profile and the bosses, when the boss enters sale mangers's profile |
+| 13          |  Click "to date calendar" input sales section | calendar picker appear | Y | Available only to the sales managers in his/her own profile and the bosses, when the boss enters sale mangers's profile |
+| 14          |  Click "search" button in the sales section when the dates are set | sales are selected | Y | Available only to the sales managers in his/her own profile and the bosses, when the boss enters sale mangers's profile |
+| 15          |  Click "sales" button in the sales section | redirected to the sales detail page | Y | Available only to the sales managers in his/her own profile and the bosses, when the boss enters sale mangers's profile |
+| 16          |  Click "student name" button | redirect to the student's profile | Y | Available only to everyone in sales manager profile but parents/potential clients may enter only their own children's profiles|
+ 17           | Click page navigation buttons | additional sales/classes results will be uploaded | Y | For classes accessible only by the school personnel | 
 
 
 
