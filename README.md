@@ -1619,9 +1619,39 @@ Click on Reveal Config Vars and add the following config variables:
 * Deploy the app to Heroku by clicking "Deploy Branch" button. If you want to enable auto-deployment, click "Enable Automatic Deployment".
 
   ![Heroku. Deploy to Heroku](documentation/deployment/heroku_deploy_branch.png) 
-[Back to contents](#contents)
 
+
+The deployment process will start.
+
+  ![Heroku. Deploy to Heroku](documentation/deployment/heroku_deploying.png) 
+
+Click "View build logs" to see the progress of the deployment.
+
+  ![Heroku. Deploy to Heroku](documentation/deployment/heroku_deploying_view.png)
+
+* Set debug to False in settings.py and delete DISABLE_COLLECTSTATIC from config vars.
+* Commit and push the changes to GitHub.
+
+[Back to contents](#contents)
 ---
 
+## Credits
+
+- [GitHub](https://github.com/) for giving the idea of the project's design.
+- [Django](https://www.djangoproject.com/) for the framework.
+- [BGJar](https://www.bgjar.com/): for the free access to background images build tool.
+- [Font awesome](https://fontawesome.com/): for the free access to icons.
+- [Heroku](https://www.heroku.com/): for the free hosting of the website.
+- [jQuery](https://jquery.com/): for providing varieties of tools to make standard HTML code look appealing.
+- [Coolors](https://coolors.co/): for providing a free platform to generate your own palette.
+- [Icons8](https://icons8.com/): for providing free access to amazing icons and illustrations.
 
 
+[Back to contents](#contents)
+---
+
+## Acknowledgments
+
+
+
+[Back to contents](#contents)
