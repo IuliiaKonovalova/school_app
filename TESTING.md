@@ -126,8 +126,53 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | 9                | click on the "next" navigation button | redirect to the next page of members | Y | Available only to school staff |
 | 10               | click on the "previous" navigation button | redirect to the previous page of members | Y | Available only to school staff |
 | Students         |     |      |     |    |
-
-
+| 1                | type name in the "search" input | only students with the name are displayed+undo button will appear in the search input | Y | Available only to school staff |
+| 2                | click on the "undo" button | all students are displayed | Y | Available only to school staff |
+| 3                | click on the "All students" button + "search" button | all students are displayed | Y | Available only to school staff |
+| 4                | click on the "Urgent Call" button + "search" button | only urgent call students are displayed | Y | Available only to school staff |
+| 5                | click on the "student" box | redirect to student's profile | Y | Available only to school staff |
+| 6                | click on the "next" navigation button | redirect to the next page of students | Y | Available only to school staff |
+| 7                | click on the "previous" navigation button | redirect to the previous page of students | Y | Available only to school staff |
+| Add Student      |     |      |     |    |
+| 1                | type student's first name in the "first name" input | student's first name is available for the input | Y | Available only to sales managers and bosses |
+| 2                | type student's last name in the "last name" input | student's last name is available for the input | Y | Available only to sales managers and bosses |
+| 3                | click on the "parents" dropdown menu | dropdown menu with parents' names appear | Y | Available only to sales managers and bosses |
+| 4                | click on the parent's name in the "parents" dropdown menu | parent's name is selected | Y | Available only to sales managers and bosses |
+| 5                | click on the birthday calendar input | calendar picker appear | Y | Available only to sales managers and bosses |
+| 6                | type student's address in the "address" input | student's address is available for the input | Y | Available only to sales managers and bosses |
+| 7                | change the number of classes in the "number of classes" input | number of classes is available for the input | Y | Available only to sales managers and bosses |
+| 8                | click on the "sales manager" dropdown menu | dropdown menu with sales managers' names appear | Y | Available only to sales managers and bosses |
+| 9                | type notes in the "notes" input | notes are available for the input | Y | Available only to sales managers and bosses |
+| 10               | click on the "cancel" button | redirect to the students page | Y | Available only to sales managers and bosses |
+| 11               | click on the "save" button | redirect to the students page+student will be added to the database | Y | Available only to sales managers and bosses |
+| Edit Student     |     |      |     |    |
+| 1                | render student's first name in the "first name" input | student's first name is available for the input | Y | Available only to sales managers and bosses, who conducted this sale |
+| 2                | render student's last name in the "last name" input | student's last name is available for the input | Y | Available only to sales managers and bosses, who conducted this sale |
+| 3                | render the "parents" dropdown menu | dropdown menu with parents' names appear | Y | Available only to sales managers and bosses, who conducted this sale |
+| 4                | render the parent's name in the "parents" dropdown menu | parent's name is selected | Y | Available only to sales managers and bosses, who conducted this sale |
+| 5                | render the birthday calendar input | calendar picker appear | Y | Available only to sales managers and bosses, who conducted this sale |
+| 6                | render student's address in the "address" input | student's address is available for the input | Y | Available only to sales managers and bosses, who conducted this sale |
+| 7                | render the number of classes in the "number of classes" input | number of classes is available for the input | Y | Available only to sales managers and bosses, who conducted this sale |
+| 8                | render the "sales manager" dropdown menu | dropdown menu with sales managers' names appear | Y | Available only to sales managers and bosses, who conducted this sale |
+| 9                | render notes in the "notes" input | notes are available for the input | Y | Available only to sales managers and bosses, who conducted this sale |
+| 10               | click on the "cancel" button | redirect to the student detail page | Y | Available only to sales managers and bosses, who conducted this sale |
+| 11               | click on the "save" button | redirect to the student detail page+student will be updated in the database | Y | Available only to sales managers and bosses, who conducted this sale |
+| Delete Student   |     |      |     |    |
+| 1                | click on the "student's name" box | redirect to student's profile | Y | Available only to sales managers and bosses, who conducted this sale |
+| 2                | click on the "cancel" button | redirect to the student detail page | Y | Available only to sales managers and bosses, who conducted this sale |
+| 3                | click on the "delete" button | redirect to the students page+student will be deleted from the database | Y | Available only to sales managers and bosses, who conducted this sale |
+| Student detail   |     |      |     |    |
+| 1                | click on the "edit" button | redirect to the edit student page | Y | Available only to sales managers and bosses |
+| 2                | click on the "delete" button | redirect to the students page+student will be deleted from the database | Y | Available only to sales managers and bosses |
+| 3                | click on the "parent name" button | redirect to the parent's profile | Y | Available only to sales managers and bosses |
+| 4                | click on the "sales manager name" button | redirect to the sales manager's profile | Y | Available only to sales managers and bosses |
+| 5                | click on "from" calendar input | calendar picker appear | Y | Available only to sales managers and bosses |
+| 6                | click on "to" calendar input | calendar picker appear | Y | Available only to sales managers and bosses |
+| 7                | click on the "Search" button when the search input is filled | only classes with the subject's names and dates are displayed | Y | Available only to school staff and child's parents |
+| 8                | click on the "class" box | redirect to class's profile | Y | Available only to school staff and child's parents |
+| 9                | click on the "next" navigation button | redirect to the next page of classes | Y | Available only to school staff and child's parents |
+| 10               | click on the "previous" navigation button | redirect to the previous page of classes | Y | Available only to school staff and child's parents |
+| Schedule         |     |      |     |    |
 
 
 
