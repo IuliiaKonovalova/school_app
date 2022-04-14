@@ -1299,6 +1299,17 @@ To emphasize the importance of the text, the font weight was set to 900. To make
 
 ### Imagery
 
+- The main background image was generated with the user of the [BGJar](https://www.bgjar.com/) tool. The image was generated with the following settings:
+
+  ![Background](documentation/design/background.svg)
+
+To generate this particular pattern, I used Contour Line Generator with white background and #93D3FD54 as the color of the lines. 
+
+- Images were downloaded from the [icons8](https://icons8.com/) website only for the home page. However, the original images were changed manually to match the color scheme.
+
+- The main part is allocated to the use of icons from the [font awesome](https://fontawesome.com/) website. The use of icons is essential for the user experience when it comes to the multifuncional websites.
+
+
 ### Wireframes
 
 - [Desktop Wireframes](documentation/wireframes/pp4_desktop.pdf)
