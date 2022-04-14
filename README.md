@@ -1225,6 +1225,44 @@ Under the warning message there are 2 buttons "Cancel" and "Delete". If the rece
 
 **Lesson Detail Page**
 
+This page is accessible by each member of the school.
+
+  ![Lesson Detail Page](documentation/features/lesson_detail_page/lesson_detail_page.png)
+
+The lesson table has different look for the users. 
+
+School personnel except receptionists looks as following:
+
+  ![Lesson Detail Page. Personnel View](documentation/features/lesson_detail_page/lesson_detail_personnel.png)
+
+It has a name of the subject as a title:
+
+  ![Lesson Detail Page. Subject](documentation/features/lesson_detail_page/lesson_subject.png)
+
+Under the name of the subject there is table with the data on the lesson:
+
+  ![Lesson Detail Page. Personnel View](documentation/features/lesson_detail_page/lesson_data.png)
+
+This table allows users learn with subject is given, on which day, and in which period of time. This will be beneficial to the users plan their personal schedule.
+Moreover, it has a row which shows who is teaching this subject and a row on the students, which will attend the class.
+
+However, when it comes to the users, who are parents of potential clients, the table look a bit differently:
+
+  ![Lesson Detail Page. Parent View](documentation/features/lesson_detail_page/lesson_detail_parent.png)
+
+As it may be noticed, a parent may access only their own children profile. The rest of the students has no link for this parent.
+
+  ![Lesson Detail Page. Parent View. Students' Links](documentation/features/lesson_detail_page/lesson_detail_parent_links.png)
+
+When it comes to the receptionists, they have additional functionality available, and thus, the lesson table looks differently:
+
+  ![Lesson Detail Page. Receptionist View](documentation/features/lesson_detail_page/lesson_detail_receptionist.png)
+
+It has 2 button in the top right corner of the table: "edit" and "delete".
+
+  ![Lesson Detail Page. Receptionist View. Buttons](documentation/features/lesson_detail_page/lesson_edit_delete_buttons.png)
+
+If the receptionist clicks on the "Delete" button, he/she will be redirected to the Lesson Delete Page. If the user receptionist on the "Edit" button, he/she will be redirected to Lesson Edit Page.
 
 [Back to contents](#contents)
 

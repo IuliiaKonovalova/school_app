@@ -3,10 +3,6 @@ const profileMenu = document.getElementById("dropdown-profile");
 const menu = document.querySelectorAll(".dropdown");
 const loginSignup = document.getElementById("dropdown-enter");
 const dropdown = document.querySelectorAll(".account__options");
-const openProjectTypes = document.getElementById("add-new-project");
-const addNewProject = document.getElementById("add__project");
-const projectOptions = document.getElementById("project__options");
-const addProjectIcon = document.getElementById("add-project-icon");
 const studentSearchInput = document.getElementById('student-search_here');
 const undoSearchStudent = document.getElementById("students-search-undo");
 const memberSearchInput = document.getElementById('members-search-here');
@@ -112,4 +108,15 @@ const searchMembers = (e) => {
       searchMembers();
     });
   }
+};
+
+module.exports = {
+  profileMenu,
+  menu,
+  loginSignup,
+  dropdown,
+  studentSearchInput,
+  undoSearchStudent,
+  memberSearchInput,
+  undoSearchMember,
 };
