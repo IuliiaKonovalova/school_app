@@ -1,4 +1,4 @@
-/* jshint esversion: 8 */
+/* jshint esversion: 11 */
 const profileMenu = document.getElementById("dropdown-profile");
 const menu = document.querySelectorAll(".dropdown");
 const loginSignup = document.getElementById("dropdown-enter");
@@ -46,13 +46,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // If student search input is on the page, listen for input
-  studentSearchInput?.addEventListener("keyup", searchStudent)
+  studentSearchInput?.addEventListener("keyup", searchStudent);
   memberSearchInput?.addEventListener("keyup", searchMembers);
 });
 
 // Search for students
 const searchStudent = (e) => {
-  let students = document.querySelectorAll('.students__student')
+  let students = document.querySelectorAll('.students__student');
   students.forEach(element => {
     element.style.display = "none";
   });
@@ -78,7 +78,7 @@ const searchStudent = (e) => {
       searchStudent();
     });
   }
-}
+};
 
 // Search for members
 const searchMembers = (e) => {
