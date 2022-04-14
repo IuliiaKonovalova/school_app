@@ -1645,12 +1645,16 @@ Click "View build logs" to see the progress of the deployment.
 - [jQuery](https://jquery.com/): for providing varieties of tools to make standard HTML code look appealing.
 - [Coolors](https://coolors.co/): for providing a free platform to generate your own palette.
 - [Icons8](https://icons8.com/): for providing free access to amazing icons and illustrations.
+- [Postgresql](https://www.postgresql.org/): for providing a free database.
+- [Codemy.com](https://www.youtube.com/watch?v=N-PB-HMFmdo): for providing a free video on how to implement pagination in the project.
+
 
 
 [Back to contents](#contents)
 ---
 
 ## Acknowledgments
+
 
 
 
