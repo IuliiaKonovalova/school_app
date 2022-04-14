@@ -1,5 +1,27 @@
 # Testing
 
+## Automated testing
+
+### Django unit testing
+
+As there 4 main apps in the project, we can test them separately.
+I knew at the very beginning that I had to implement automated testing. As was highly concentrated on the developing all functionality first, so I left testing to the end. While testing my work I found several bugs related to the access limitation to a particular pages and functionality for different roles. In the future, I plan to implement testing and code simultaneously in order to increase my productivity.
+
+**Lessons App**
+
+![Lessons Testing Coverage](documentation/test_reports/test_lessons.png)
+
+**Profiles App**
+
+![Profiles Testing Coverage](documentation/test_reports/test_profiles.png)
+
+**Sales App**
+
+![Sales Testing Coverage](documentation/test_reports/test_sales.png)
+
+**Students App**
+
+![Students Testing Coverage](documentation/test_reports/test_students.png)
 
 ## Validation:
 ### HTML Validation:
@@ -14,6 +36,11 @@
 
 - No errors or warnings were found when passing through the official [W3C (Jigsaw)](https://jigsaw.w3.org/css-validator/#validate_by_uri) validator except the warnings about the use of css root variables and webkits for the box-shadow. However, css code works perfectly on various devices. 
 
+### JS Validation:
+
+- [Full JS Validation](documentation/validation/js_validation.png)
+
+- No errors or warning messages were found when passing through the official [JSHint](https://www.jshint.com/) validator. However, the validator has pointed that module variable is not used, but this variable is needed for the automated testing. Needless to say, that as the modern js syntax was used (the Optional Chaining method - `?.`) `/* jshint esversion: 11 */` was added to the top of the file.
 
 ### Python Validation:
 

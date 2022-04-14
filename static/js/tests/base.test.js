@@ -71,4 +71,4 @@ describe("check that timeout is set", () => {
       expect(messages.style.display).toBe('none');
     }, 2500);
   });
-})
+});
