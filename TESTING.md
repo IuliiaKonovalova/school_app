@@ -173,6 +173,46 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | 9                | click on the "next" navigation button | redirect to the next page of classes | Y | Available only to school staff and child's parents |
 | 10               | click on the "previous" navigation button | redirect to the previous page of classes | Y | Available only to school staff and child's parents |
 | Schedule         |     |      |     |    |
+| 1                | click on the "add lesson" button | redirect to the add class page | Y | Available only to receptionists |
+| 2                | click on the "my schedule" button | redirect to the schedule page for a teacher , which in the session | Y | Available only to teachers |
+| 3                | click on the "date" box | calendar picker appear | Y | Available only to teachers |
+| 4                | click on the "subject" box | redirect to lesson's detail | Y | Available only to teachers |
+| Teacher Schedule    |     |      |     |    |
+| 1                | click on the "back" button | redirect to the schedule page | Y | Available only to teacher, who is in session |
+| 2                | click on the "subject" box | redirect to lesson's detail | Y | Available only to teachers |
+| Lesson detail    |     |      |     |    |
+| 1                | click on the "edit" button | redirect to the edit lesson page | Y | Available only to receptionists |
+| 2                | click on the "delete" button | redirect to the schedule page+lesson will be deleted from the database | Y | Available only to receptionists |
+| 3                | click on the "teacher" button | redirect to the teacher's profile | Y | Available only to everyone |
+| 4                | click on the "student" button | redirect to the student's profile | Y | Available only to school staff and parents whose child is |
+| Add Lesson       |     |      |     |    |
+| 1                | click on the "Date" box | calendar picker appear | Y | Available only to receptionists |
+| 2                | click on the "Time Period" dropdown menu | dropdown menu with time periods appear | Y | Available only to receptionists |
+| 3               | click on the time in the dropdown menu | time is selected | Y | Available only to receptionists |
+| 4                | click on the "Subject" dropdown menu | dropdown menu with subjects appear | Y | Available only to receptionists |
+| 5                | click on the subject in the dropdown menu | subject is selected | Y | Available only to receptionists |
+| 6                | click on the "Teacher" dropdown menu | dropdown menu with teachers appear | Y | Available only to receptionists |
+| 7                | click on the teacher in the dropdown menu | teacher is selected | Y | Available only to receptionists |
+| 8                | click on the "Students" dropdown menu | dropdown menu with students appear | Y | Available only to receptionists |
+| 9                | click on the student in the dropdown menu | student is selected | Y | Available only to receptionists |
+| 10               | click on the "save" button | redirect to the schedule page+lesson will be added to the database | Y | Available only to receptionists |
+| 11               | click on the "cancel" button | redirect to the schedule page | Y | Available only to receptionists |
+| Edit Lesson      |     |      |     |    |
+| 1                | render the "Date" box | calendar picker appear | Y | Available only to receptionists |
+| 2                | render the "Time Period" dropdown menu | dropdown menu with time periods appear | Y | Available only to receptionists |
+| 3               | render the time in the dropdown menu | time is selected | Y | Available only to receptionists |
+| 4                | render the "Subject" dropdown menu | dropdown menu with subjects appear | Y | Available only to receptionists |
+| 5                | render the subject in the dropdown menu | subject is selected | Y | Available only to receptionists |
+| 6                | render the "Teacher" dropdown menu | dropdown menu with teachers appear | Y | Available only to receptionists |
+| 7                | render the teacher in the dropdown menu | teacher is selected | Y | Available only to receptionists |
+| 8                | render the "Students" dropdown menu | dropdown menu with students appear | Y | Available only to receptionists |
+| 9                | render the student in the dropdown menu | student is selected | Y | Available only to receptionists |
+| 10               | click on the "save" button | redirect to the schedule page+lesson will be updated in the database | Y | Available only to receptionists |
+| 11               | click on the "cancel" button | redirect to the schedule page | Y | Available only to receptionists |
+| Delete Lesson    |     |      |     |    |
+| 1                | click on the "Lesson" box | redirect to lesson's detail | Y | Available only to receptionists |
+| 2                | click on the "delete" button | redirect to the schedule page+lesson will be deleted from the database | Y | Available only to receptionists |
+| 3                | click on the "cancel" button | redirect to the schedule page | Y | Available only to receptionists |
 
 
 
