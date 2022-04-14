@@ -65,7 +65,20 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | 15          |  Click "sales" button in the sales section | redirected to the sales detail page | Y | Available only to the sales managers in his/her own profile and the bosses, when the boss enters sale mangers's profile |
 | 16          |  Click "student name" button | redirect to the student's profile | Y | Available only to everyone in sales manager profile but parents/potential clients may enter only their own children's profiles|
  17           | Click page navigation buttons | additional sales/classes results will be uploaded | Y | For classes accessible only by the school personnel | 
-
+|Delete Profile |            |                  |      |             |
+| 1           |  Click "user name" link | Redirect to the user profile that is about to be deleted | Y | Available only to bosses  |
+| 2           |  Click "cancel" button | Redirect back to user profile | Y | Available only to bosses  |
+| 3           |  Click "delete" button | Redirect to members page+the user will be deleted from the database | Y | Available only to bosses  |
+| Edit Profile |            |                  |      |             |
+| 1           |  Change the form data for the first name, last name, or phone number | Date in the form will be updated | Y | Available only when the user opens his/her own profile  |
+| 2           |  Click "cancel" button | Redirect back to user profile | Y |  Available only when the user opens his/her own profile |
+| 3           |  Click "save" button | Redirect back to user profile+data will be updated in the database | Y |  Available only when the user opens his/her own profile |
+| Change Password |            |                  |      |             |
+|1                | Enter valid current password | Field will only accept secure passwords | Y |  Available only when the user opens his/her own profile |
+|2                | Enter valid new password | Field will only accept secure passwords | Y |  Available only when the user opens his/her own profile |
+|3                | Enter valid new password confirmation | Field will only accept the same password from the previous field | Y |  Available only when the user opens his/her own profile |
+|4                | Click "cancel" button | Redirect back to user profile | Y |  Available only when the user opens his/her own profile |
+|5                | Click "save" button | Redirect back to user profile+password will be updated | Y |  Available only when the user opens his/her own profile |
 
 
 
