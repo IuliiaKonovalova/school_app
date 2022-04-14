@@ -1270,10 +1270,21 @@ If the receptionist clicks on the "Delete" button, he/she will be redirected to 
 ## Design
 
 The design of the application is based on the Material Design principles.
-The main theme of the application is the simplicity of use. Thus, all the components are designed to be easy to use. The minimalistic approach was used to creating something meaningful without moving out of focus. As this application is a multifunctional one and consists of many components, the decision to implement white spaces was made as it helps to create a more pleasant user experience. 
+The central theme of the application is the simplicity of use. Thus, all the components are designed to be easy to use. The minimalistic approach was used to create something meaningful without moving out of focus. As this application is a multifunctional one and consists of many components, the decision to implement white spaces was made as it helps to create a more pleasant user experience. 
 
 ### Color Scheme
 
+The color scheme of the application is based on the bold colors:
+
+  ![Color Scheme](documentation/design/color_palette.png)
+
+As it may be noticed, the color scheme is based on the Material Design principles as well. The navbar is green with dark blue text. The background is white with light blue waves, which are almost invisible. There is a dark blue button to guide the user on how to find the menu.
+The footer is a dark blue with white text to stand out.
+
+Since the main content has various functions, two different colors were used as the background for the main boxes. The first one is #001D82, which is the color of the navbar text. The decision to use this color for the login/logout/register boxes was made as it shows that the user isn't logged in.
+The #93D3FD is the color of the data boxes. This color is consistent with the color scheme throughout the whole application. In addition to this, the blue color is believed to be the preferred color among people and facilitates trust and security.
+
+All buttons except the navbar button are green with the white text editing and cancel functionality and orange for the submission and deletion function.
 ### Typography
 
 ### Imagery
