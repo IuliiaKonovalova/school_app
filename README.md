@@ -1269,10 +1269,14 @@ If the receptionist clicks on the "Delete" button, he/she will be redirected to 
 ---
 ## Design
 
+The design of the application is based on the Material Design principles.
+The main theme of the application is the simplicity of use. Thus, all the components are designed to be easy to use. The minimalistic approach was used to creating something meaningful without moving out of focus. As this application is a multifunctional one and consists of many components, the decision to implement white spaces was made as it helps to create a more pleasant user experience. 
 
+### Color Scheme
 
+### Typography
 
-
+### Imagery
 
 ### Wireframes
 
