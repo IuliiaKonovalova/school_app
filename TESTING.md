@@ -114,6 +114,19 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | Delete Sale      |     |      |     |    |
 | 1                | click on the "cancel" button | redirect to the sales page | Y | Available only to sales managers, who conducted this sale |
 | 2                | click on the "delete" button | redirect to the sales page+sale will be deleted from the database | Y | Available only to sales managers, who conducted this sale |
+| Members          |     |      |     |    |
+| 1                | click on the "All members" button + "search" button | all members are displayed | Y | Available only to school staff |
+| 2                | click on the "Parents" button + "search" button | only parents are displayed | Y | Available only to school staff |
+| 3                | click on the "Teachers" button + "search" button | only teachers are displayed | Y | Available only to school staff |
+| 4                | click on the "Sales Managers" button + "search" button | only sales managers are displayed | Y | Available only to school staff |
+| 5                | click on the "Receptionists" button + "search" button | only Receptionists are displayed | Y | Available only to school staff |
+| 6                | type name in the "search" input | only members with the name are displayed+undo button will appear in the search input | Y | Available only to school staff |
+| 7                | click on the "undo" button | all members are displayed | Y | Available only to school staff |
+| 8                | click on the "member" box | redirect to member's profile | Y | Available only to school staff |
+| 9                | click on the "next" navigation button | redirect to the next page of members | Y | Available only to school staff |
+| 10               | click on the "previous" navigation button | redirect to the previous page of members | Y | Available only to school staff |
+| Students         |     |      |     |    |
+
 
 
 
