@@ -9,19 +9,19 @@ I knew at the very beginning that I had to implement automated testing. As was h
 
 **Lessons App**
 
-![Lessons Testing Coverage](documentation/test_reports/test_lessons.png)
+![Lessons Testing Coverage](documentation/test_reports/lessons_report_testing.png)
 
 **Profiles App**
 
-![Profiles Testing Coverage](documentation/test_reports/test_profiles.png)
+![Profiles Testing Coverage](documentation/test_reports/profiles_report_testing.png)
 
 **Sales App**
 
-![Sales Testing Coverage](documentation/test_reports/test_sales.png)
+![Sales Testing Coverage](documentation/test_reports/sale_report_testing.png)
 
 **Students App**
 
-![Students Testing Coverage](documentation/test_reports/test_students.png)
+![Students Testing Coverage](documentation/test_reports/students_report_testing.png)
 
 ## Validation:
 ### HTML Validation:
