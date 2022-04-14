@@ -27,6 +27,18 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | 15          | Click "Menu", choose "Logout" | Takes user to log out page to confirm logout | Y |          |
 | 16          | Click "Logout" button  in the center of the page| Redirects user to home page | Y |          |
 | 17          | Click browser back button | You are still logged out | Y |          |
+| Log In      |                        |                  |      |             |
+| 1           | Click on the Get started button | Dropdown menu with 2 options: Login/SignUp | Y |          |
+| 2           | Click on Login button | Redirection to Login page | Y |          |
+| 3           | Click on the SignUp link in the form | Redirection to SignUp page | Y |          |
+| 4           | Enter valid email or username | Field will only accept email address format | Y |          |
+| 5           | Enter valid password | Field will only accept secure passwords | Y |          |
+| 6           | Click on the Sign In button | Takes user to schedule page with pop-up confirming successful sign in. Get started button now missing in main nav, replaced by Menu | Y |          |
+| 7           | Clicks "Forgot Password" instead of "Sign In" | Redirects user to forgot password page | Y |          |
+| 8           | Click "Menu", choose "Logout" | Takes user to log out page to confirm logout | Y |          |
+| 9           | Click "Logout" button  in the center of the page| Redirects user to home page | Y |          |
+| 10          | Click browser back button | You are still logged out | Y |          |
+
 
 
 
