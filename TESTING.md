@@ -10,7 +10,7 @@ When the parent, who has 2 or more children, assigns a relation to a child, the 
 ![Lessons Testing Coverage](documentation/bugs/roles_bug1.png)
 ![Lessons Testing Coverage](documentation/bugs/roles_bug2.png)
 
-However, when the user refresh the page all children are shown with the correct relation.
+However, when the user refreshes the page all children are shown with the correct relation.
 
 ![Lessons Testing Coverage](documentation/bugs/roles_bug4.png)
 
@@ -18,15 +18,15 @@ However, when the user refresh the page all children are shown with the correct 
 
 There were plenty of bugs during the development process since this project was a learning platform for me and allowed me to improve my skills and knowledge significantly.
 
-However, I tried to solve the majority of them. And on the bug that I remember perfectly was related to the extension of the allauth sign up form. I was able to solve it by customizing the allauth sign up form. Moreover, I encountered the problem of making the form work as the migrations were not working. What I have done to migrate the changes is to migrate the profile app first and then perform the rest of the migrations.
+However, I tried to solve the majority of them. And one of the bugs that I remember perfectly was related to the extension of the allauth sign up form. I was able to solve it by customizing the allauth sign up form. Moreover, I encountered the problem of making the form work as the migrations were not working. What I have done to migrate the changes is to migrate the profile app first and then perform the rest of the migrations.
 
 Another bug that took me a lot of time to solve was avoiding circular import when I was developing a sales app, as I needed to get not only the client data but also the children's data to add or delete classes from students' profiles. The solution to this problem was to implement the student_id field that will be used to get the children's data and store it in the sales table.
 ## Automated testing
 
 ### Django unit testing
 
-As there 4 main apps in the project, we can test them separately.
-I knew at the very beginning that I had to implement automated testing. As was highly concentrated on the developing all functionality first, so I left testing to the end. While testing my work I found several bugs related to the access limitation to a particular pages and functionality for different roles. In the future, I plan to implement testing and code simultaneously in order to increase my productivity.
+As there are four main apps in the project, we can test them separately.
+I knew at the very beginning that I had to implement automated testing. As I was highly concentrated on developing all functionality first, so I left testing to the end. While testing my work, I found several bugs related to the access limited to particular pages and functionality for different roles. In the future, I plan to implement testing and code simultaneously in order to increase my productivity.
 
 **Lessons App**
 
@@ -96,6 +96,30 @@ To perform the tests, I created a separate folder outside of the project, where 
 ```
 
 After these changes I was able to run the tests and see the coverage report.
+
+To run the jest tests, I ran the following command:
+
+```
+npm init
+```
+skipped all fields except for the "test command"
+
+```
+test: command: jest
+```
+and confirmed the package.json file.
+
+after that, I run the following command to install jest:
+
+
+```
+npm install --save-dev jest
+```
+To run test, simply type the following command:
+
+```
+npm test
+```
 
 ![Testing Javascript](documentation/test_reports/jest_error_solved.png)
 
