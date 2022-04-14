@@ -16,12 +16,11 @@ However, when the user refresh the page all children are shown with the correct 
 
 ### Solved bugs:
 
-There were plenty of bugs curing the development process since this project was a learning platform for me and allowed to improve my skills and knowledge greatly.
+There were plenty of bugs during the development process since this project was a learning platform for me and allowed me to improve my skills and knowledge significantly.
 
-However, I tried to solved the majority of them. And on bug that I remember perfectly was related to the extension of the the allauth sign up form. I was able to solve it customizing the allauth sign up form. Moreover, I encounter the problem to make the form work as the migrations were not working. What I have done to migrate the changes is to migrate profile app first and then perform the rest of the migrations.
+However, I tried to solve the majority of them. And on the bug that I remember perfectly was related to the extension of the allauth sign up form. I was able to solve it by customizing the allauth sign up form. Moreover, I encountered the problem of making the form work as the migrations were not working. What I have done to migrate the changes is to migrate the profile app first and then perform the rest of the migrations.
 
-Another bug that took me a lot of time to solve was to avoid circular import when I was developing sales app as I needed to get not only the client data, but also the children data to add or delete classes from student's profile. The solution to this problem was to implement student_id field that will be used to get the children data and store it in the sales table.
-
+Another bug that took me a lot of time to solve was avoiding circular import when I was developing a sales app, as I needed to get not only the client data but also the children's data to add or delete classes from students' profiles. The solution to this problem was to implement the student_id field that will be used to get the children's data and store it in the sales table.
 ## Automated testing
 
 ### Django unit testing
