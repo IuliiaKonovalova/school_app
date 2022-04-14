@@ -89,6 +89,32 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | 3                | click on the particular role | dropdown menu closes and only chosen role is seen | Y | Available only to bosses |
 | 4                | click on "accept" button | Redirect to the application detail page+application will be accepted and role will be assigned | Y | Available save to bosses |
 | 5                | click on "Go to other application" button | Redirect to the new applications | Y | Available only to bosses and sales managers |
+| Sales            |     |      |     |    |
+| 1                | click on an "add new sale" button | Redirect to the sales detail page | Y | Available only to sales managers |
+| 2                | click on the "from date calendar" input | calendar picker appear | Y | Available only to sales managers and bosses|
+| 3                | click on the "to date calendar" input | calendar picker appear | Y | Available only to sales managers and bosses|
+| 4                | click on the "search" button | sales are selected | Y | Available only to sales managers and bosses|
+| 5                | click on the "sales manager name" button | redirect to the sales manager's profile | Y | Available only to sales managers and bosses|
+| 6                | click on the "client name" button | redirect to the client's profile | Y | Available only to sales managers and bosses|
+| 7                | click on the "student name" button | redirect to the student's profile | Y | Available only to sales managers and bosses|
+| 8                | click on the "edit" button | redirect to the edit sale page | Y | Available only to sales managers, who conducted this sale |
+| 9                | click on the "cancel" button | redirect to the sales detail page | Y | Available only to sales managers, who conducted this sale |
+| Add Sale         |     |      |     |    |
+| 1                | click on the "Client Name" input | dropdown menu with clients appear | Y | Available only to sales managers |
+| 2                | click on the "Amount" input | number of classes is available for the input | Y | Available only to sales managers |
+| 3                | click on the "Student" input | dropdown menu with students appear | Y | Available only to sales managers |
+| 4                | click on the "Cancel" button | redirect to the sales page | Y | Available only to sales managers |
+| 5                | click on the "Save" button | redirect to the sales page+sale will be added to the database | Y | Available only to sales managers |
+| Edit Sale        |     |      |     |    |
+| 1                | click on the "Client Name" input | dropdown menu with clients appear | Y | Available only to sales managers, who conducted this sale |
+| 2                | click on the "Amount" input | number of classes is available for the input | Y | Available only to sales managers, who conducted this sale |
+| 3                | click on the "Student" input | dropdown menu with students appear | Y | Available only to sales managers, who conducted this sale |
+| 4                | click on the "Cancel" button | redirect to the sales page | Y | Available only to sales managers, who conducted this sale |
+| 5                | click on the "Save" button | redirect to the sales page+sale will be updated in the database | Y | Available only to sales managers, who conducted this sale |
+| Delete Sale      |     |      |     |    |
+| 1                | click on the "cancel" button | redirect to the sales page | Y | Available only to sales managers, who conducted this sale |
+| 2                | click on the "delete" button | redirect to the sales page+sale will be deleted from the database | Y | Available only to sales managers, who conducted this sale |
+
 
 
 
