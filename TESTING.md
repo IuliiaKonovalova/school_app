@@ -38,6 +38,15 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | 8           | Click "Menu", choose "Logout" | Takes user to log out page to confirm logout | Y |          |
 | 9           | Click "Logout" button  in the center of the page| Redirects user to home page | Y |          |
 | 10          | Click browser back button | You are still logged out | Y |          |
+| Menu        |                        |                  |      |             |
+| 1           | Click on the "Menu" button | Dropdown menu with 2-7 options depending on the user's role | Y | Available to everyone |
+| 2           | Click on "Profile" | Redirection to My Profile page | Y | Available to everyone |
+| 3           | Click on "New Applications" | Redirection to New Applications page | Y | Available only to bosses and sales managers |
+| 4           | Click on "Sales" | Redirection to Sales page | Y | Available only to bosses and sales managers |
+| 5           | Click on "Members" | Redirection to Members page | Y | Available only to school personnel |
+| 6           | Click on "Students" | Redirection to Students page | Y |  Available only to school personnel |
+| 7           | Click on "Schedule" | Redirection to Schedule page | Y | Available to everyone |
+| 2           | Click on "Logout" button in the center of the page | Takes user to log out page to confirm logout | Y | Available to everyone |
 
 
 
