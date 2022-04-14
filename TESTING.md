@@ -23,6 +23,62 @@ I knew at the very beginning that I had to implement automated testing. As was h
 
 ![Students Testing Coverage](documentation/test_reports/students_report_testing.png)
 
+To run testing, the database must be set to sqlite3.
+
+![Testing Database](documentation/test_reports/testing_preparation.png)
+
+Thus, you need to comment out the PostgreSQL database settings in the settings.py file and uncomment the sqlite3 database settings.
+
+I set tests folder for each app separately. I also deleted the test.py files from the apps.
+
+![Testing Folders](documentation/test_reports/tests_folder.png)
+
+While developing tests I was running the following command:
+
+```
+python manage.py test <name of the app>
+```
+
+To create the coverage report, I ran the following command:
+
+```
+coverage run --source=<name of the app> manage.py test
+```
+```
+coverage report
+```
+To see the html version of the report, I ran the following command:
+
+```
+coverage html
+```
+```
+    python3 -m http.server
+```
+The link to the server will appear. Click the link to see the report and find out which parts of code has not been covered in testing.
+
+### Jest unit testing
+
+I wasn't able to run proper test for the javascript files. I was able to run the tests for the files in the js folder. However, as I was using modern js and target events in my code, jest was not able to run the tests. 
+
+![Testing Javascript](documentation/test_reports/jest_error.png)
+
+To perform the tests, I created a separate folder outside of the project, where I changed the code to suit the jest standards:
+
+```JavaScript
+  if (studentSearchInput) {
+    studentSearchInput.addEventListener("keyup", searchStudent);
+  }
+  if (memberSearchInput) {
+    memberSearchInput.addEventListener("keyup", searchMembers);
+  }
+```
+
+After these changes I was able to run the tests and see the coverage report.
+
+![Testing Javascript](documentation/test_reports/jest_error_solved.png)
+
+
 ## Validation:
 ### HTML Validation:
 
