@@ -1656,6 +1656,9 @@ Click "View build logs" to see the progress of the deployment.
 ## Acknowledgments
 
 
+- [Tim Nelson](https://github.com/TravelTimN) who was a great supporter of my bold idea of a project. Tim helped me to understand the concept of a database for the school app and greatly motivated me to do my best throughout the whole development stage.
+- [Aleksei Konovalov](https://github.com/lexach91), my husband and coding partner, who assisted me greatly to understand AJAX implementation and helped me to stay sane.
+- My current workplace for providing me with the main idea for the project and incentivizing me to work on it.
 
 
 [Back to contents](#contents)
