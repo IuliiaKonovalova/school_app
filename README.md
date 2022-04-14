@@ -1287,6 +1287,16 @@ The #93D3FD is the color of the data boxes. This color is consistent with the co
 All buttons except the navbar button are green with the white text editing and cancel functionality and orange for the submission and deletion function.
 ### Typography
 
+The main font used in the application is Lato. The use of this font is consistent with the color scheme. Needless to say, the Lato font was chosen due to its readability, which increases user experience.
+
+  ![Typography](documentation/design/lato_400.png)
+
+  ![Typography](documentation/design/lato_700.png)
+
+  ![Typography](documentation/design/lato_900.png)
+
+To emphasize the importance of the text, the font weight was set to 900. To make the accent on the buttons, the font weight was set to 700. For the rest of the text, the font weight was set to 400.
+
 ### Imagery
 
 ### Wireframes
