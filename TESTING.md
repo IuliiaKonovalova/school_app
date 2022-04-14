@@ -1,5 +1,35 @@
 # Testing
 
+## Manual Testing
+
+Testing was done throughout site development, for each feature before it was merged into the master file.
+
+Usability was tested with the below user acceptance testing, sent to new users to ensure testing from different users, on different devices and browsers to ensure issues were caught and where possible fixed during development.
+
+
+|     | User Actions           | Expected Results | Y/N | Comments    |
+|-------------|------------------------|------------------|------|-------------|
+| Sign Up     |                        |                  |      |             |
+| 1           | Click on the Get started button | Dropdown menu with 2 options: Login/SignUp | Y |          |
+| 2           | Click on Sign Up button | Redirection to Sign Up page | Y |          |
+| 3           | Click Get Started button in the hero section | Redirection to Sign Up page | Y |          |
+| 4           | Click on the Login link in the form | Redirection to Login page | Y |          |
+| 5           | Enter valid email | Field will only accept email address format | Y |          |
+| 6           | Enter valid username | Field will only accept no more than 50 characters | Y |          |
+| 7           | Enter valid First Name | Field will only accept no more than 30 characters | Y |          |
+| 8           | Enter valid Last Name | Field will only accept no more than 30 characters | Y |          |
+| 9           | Enter valid phone number | Field will only accept no more than 30 characters | Y |          |
+| 10          | Enter valid password | Field will only accept secure passwords | Y |          |
+| 11          | Enter valid password confirmation | Field will only accept the same password from the previous field | Y |          |
+| 12          | Click on the Sign Up button | Takes user to confirm email page Sends address a confirmation request email | Y |          |
+| 13          | Confirm email | Redirects user to blank Sign In page | Y |          |
+| 14          | Sign In with the same email/username and password | Takes user to schedule page with pop-up confirming successful sign in. Get started button now missing in main nav, replaced by Menu | Y |          |
+| 15          | Click "Menu", choose "Logout" | Takes user to log out page to confirm logout | Y |          |
+| 16          | Click "Logout" button  in the center of the page| Redirects user to home page | Y |          |
+| 17          | Click browser back button | You are still logged out | Y |          |
+
+
+
 
 ## Bugs
 
