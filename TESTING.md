@@ -79,6 +79,17 @@ Usability was tested with the below user acceptance testing, sent to new users t
 |3                | Enter valid new password confirmation | Field will only accept the same password from the previous field | Y |  Available only when the user opens his/her own profile |
 |4                | Click "cancel" button | Redirect back to user profile | Y |  Available only when the user opens his/her own profile |
 |5                | Click "save" button | Redirect back to user profile+password will be updated | Y |  Available only when the user opens his/her own profile |
+| New Applications |     |      |     |    |
+| 1                | click on a new application button | Redirect to the application detail page | Y | Available only to bosses and sales managers |
+| 2                | page navigation "next" | Redirect to the next page of applications | Y | Available only to bosses and sales managers |
+| 3                | page navigation "previous" | Redirect to the previous page of applications | Y | Available only to bosses and sales managers |
+| Application Detail |     |      |     |    |
+| 1                | click on "delete" button | Redirect to the application detail page+application will be accepted | Y | Available only to bosses |
+| 2                | click dropdown menu "potential user" | dropdown menu with user's roles appear | Y | Available only to bosses |
+| 3                | click on the particular role | dropdown menu closes and only chosen role is seen | Y | Available only to bosses |
+| 4                | click on "accept" button | Redirect to the application detail page+application will be accepted and role will be assigned | Y | Available save to bosses |
+| 5                | click on "Go to other application" button | Redirect to the new applications | Y | Available only to bosses and sales managers |
+
 
 
 
