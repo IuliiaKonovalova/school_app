@@ -224,6 +224,19 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | As a First Time Visitor, I want to be able to find the app useful, so that I can use it according to my needs. | The website cover benefits of becoming a member and engages new visitors to become a member of a school | go to features section in the [README.md](README.md) |
 
 
+| Frequent Visitor Goals    | Requirement met | Image |
+| ------------------------- | --------------- | ----- |
+| As a Frequent User, I want to be able to log in to my account, so that I can have a personal account. | Log in from the top right navigation | ![Menu](documentation/features/navbar/get_started_button.png) |
+| As a Frequent User, I want to be able to easily log in and log out, so that I can access my personal account information. | Logout button in the main menu in the top of navbar | ![Menu](documentation/features/navbar/navbar_limited_access.png) |
+| As a Frequent User, I want to be able to easily recover my password in case I forget it, so that I can recover access to my account. | Available on login page | ![Menu](documentation/features/login_page/login_page.png) |
+| As a Frequent User, I can be able to change my password, so that I can be sure that nobody else can access my account. | Available in user’s profile | ![Menu](documentation/features/profile_page/profile_page_admin_box.png) |
+
+| Potential Client Goals    | Requirement met | Image |
+| ------------------------- | --------------- | ----- |
+| As a Potential client, I want to be contacted by sales managers, so that I can make a prudent decision about being a member. | Sales Manager will be able to get contact information from a potential client in new application page in order to contact new user | ![Menu](documentation/features/application_detail_page/application_detail_data.png) |
+
+
+
 
 ## Bugs
 
