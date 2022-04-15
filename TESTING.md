@@ -214,6 +214,14 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | 2                | click on the "delete" button | redirect to the schedule page+lesson will be deleted from the database | Y | Available only to receptionists |
 | 3                | click on the "cancel" button | redirect to the schedule page | Y | Available only to receptionists |
 
+##  Testing User Story
+
+| First Time Visitor Goals | Requirement met | Image |
+| ------------------------- | --------------- | ----- |
+| As a First Time Visitor, I want to be able to easily understand the main purpose of the app, so that I can learn more about this app. | Welcome text on the top of the homepage explaining the main purpose of the website and describing the the services offered | ![Home page](documentation/features/home_page/home_page.png) |
+| As a First Time Visitor, I want to be able to easily navigate through the app, so that I can find the content. | The website for the fist time visitors made out of one page. The user can read all benefits of the school and learn briefly about its services. The page has also several buttons, which lead to the registration page. At the end of the page, the user may find additional contact information and location of the school. | ![Menu](documentation/features/navbar/menu_admin_view.png) |
+| As a First Time Visitor, I want to be able to register my account, so that I can learn the benefits of the app as a user. | Top navigation GET STARTED button + GET STARTED button in the hero section | ![Menu](documentation/features/navbar/navbar_logout.png) |
+| As a First Time Visitor, I want to be able to find the app useful, so that I can use it according to my needs. | The website cover benefits of becoming a member and engages new visitors to become a member of a school | go to features section in the [README.md](README.md) |
 
 
 
