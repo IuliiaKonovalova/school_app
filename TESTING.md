@@ -235,6 +235,29 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | ------------------------- | --------------- | ----- |
 | As a Potential client, I want to be contacted by sales managers, so that I can make a prudent decision about being a member. | Sales Manager will be able to get contact information from a potential client in new application page in order to contact new user | ![Menu](documentation/features/application_detail_page/application_detail_data.png) |
 
+| Bosses' Goals    | Requirement met | Image |
+| ------------------------- | --------------- | ----- |
+| As a Boss, I want to be able to view new applications, so that I can control the flow of potential clients. | Available in new application page | ![Menu](documentation/features/new_applications_page/new_applications_data.png) |
+| As a Boss, I want to be able to delete or approve membership, assign a role to a new member, so that I can keep data up to date. | Available in new application detail page | ![Menu](documentation/features/application_detail_page/application_detail_role.png) |
+| As a Boss, I want to be able to add, edit data on a kid, so that I can have a profile for each student. | Add student button is available on students page, students personal info is seen after clicking on a particular student. Edit button is located in student’s profile page. | ![Menu](documentation/features/student_detail_page/student_detail_page_admin_view.png) |
+| As a Boss, I want to be able to delete a member, so that I can control the access to the application. | Available in user’s profile only for bosses | ![Menu](documentation/features/profile_page/profile_page_other_user.png) |
+| As a Boss I can see the info about kids provided by the company: name, contact info, classes visited, how many classes left, so that refresh the information about a client. | Available on students page, students personal info is seen after clicking on a particular student | ![Menu](documentation/features/student_detail_page/student_detail_page_admin_view.png) |
+| As a Boss, I want to be able to search for a particular member, so that I can easily access information on this member. | Available in members page | ![Menu](documentation/features/members_page/members_page_search_input_results.png) |
+| As a Boss, I want to be able to sort members according to a role, so that I can easily access particular group of members. | Available in members page | ![Menu](documentation/features/members_page/members_page_sorting_bar.png) |
+| As a Boss, I want to be able to search for a particular student, so that I can easily access information on this student. | Available in students page | ![Menu](documentation/features/students_page/students_page_search_input.png) |
+| As a Boss, I want to be able to sort students by the urgent sale, so that I can control the sales in the company and preserve clients. | Available in students page | ![Menu](documentation/features/students_page/students_page_sort.png) |
+| As a Boss, I want to be able to see lessons schedule, so that I can schedule time to talk to a teacher or a parent. | Available in schedule page | ![Menu](documentation/features/schedule_page/schedule_page_box.png) |
+| As a Boss, I want to see see information on students for each lesson, so that I can control students’ attendance, learn clients preferences. | Available in schedule page, after clicking on a lesson | ![Menu](documentation/features/lesson_detail_page/lesson_detail_personnel.png) |
+| As a Boss, I want to be able to see sales' details, so that I can check which sales manager and which parent was involved in a deal. | Available in sales page | ![Menu](documentation/features/sales_page/sales_table_admin_view.png) |
+| As a Boss, I want to be able to delete students from the application, so that I can control the flow of the present students. | Available on students page, student delete button is seen after clicking on a particular student. | ![Menu](documentation/features/student_detail_page/student_detail_page_data_box.png) |
+
+| Teachers' Goals    | Requirement met | Image |
+| ------------------------- | --------------- | ----- |
+
+
+
+
+
 
 
 
