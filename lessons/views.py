@@ -48,7 +48,6 @@ class LessonsView(View):
                     'lessons/lessons_list.html',
                     context
                 )
-        return HttpResponseRedirect(reverse('home'))
 
 
 class TeacherScheduleView(View):
