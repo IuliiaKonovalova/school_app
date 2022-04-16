@@ -493,3 +493,18 @@ npm test
 
 ![Lighthouse Report. Profile Delete Page](documentation/lighthouse_reports/lighthouse_profile_delete.png)
 
+### Students Page
+
+![Lighthouse Report. Students Page](documentation/lighthouse_reports/lighthouse_students.png)
+
+### Student Detail Page
+
+![Lighthouse Report. Student Detail Page](documentation/lighthouse_reports/lighthouse_student_detail.png)
+
+### Student Edit Page
+
+![Lighthouse Report. Student Edit Page](documentation/lighthouse_reports/lighthouse_student_edit.png)
+
+### Student Delete Page
+
+![Lighthouse Report. Student Delete Page](documentation/lighthouse_reports/lighthouse_student_delete.png)
