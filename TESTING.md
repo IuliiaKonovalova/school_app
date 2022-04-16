@@ -508,3 +508,19 @@ npm test
 ### Student Delete Page
 
 ![Lighthouse Report. Student Delete Page](documentation/lighthouse_reports/lighthouse_student_delete.png)
+
+### Sales Page
+
+![Lighthouse Report. Sales Page](documentation/lighthouse_reports/lighthouse_sales.png)
+
+### Sale Edit Page
+
+![Lighthouse Report. Sale Edit Page](documentation/lighthouse_reports/lighthouse_sale_edit.png)
+
+### Sale Delete Page
+
+![Lighthouse Report. Sale Delete Page](documentation/lighthouse_reports/lighthouse_sale_delete.png)
+
+### Sale Add Page
+
+![Lighthouse Report. Sale Add Page](documentation/lighthouse_reports/lighthouse_sale_add.png)
