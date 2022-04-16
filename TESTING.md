@@ -441,3 +441,55 @@ npm test
 
 ## Lighthouse Report
 
+### Home Page
+
+![Lighthouse Report. Home Page](documentation/lighthouse_reports/lighthouse_home.png)
+
+### Login Page
+
+![Lighthouse Report. Login Page](documentation/lighthouse_reports/lighthouse_signin.png)
+
+### Logout Page
+
+![Lighthouse Report. Logout Page](documentation/lighthouse_reports/lighthouse_logout.png)
+
+### Forgot Password Page
+
+![Lighthouse Report. Forgot Password Page](documentation/lighthouse_reports/lighthouse_forgot_password.png)
+
+### Access Limited Page
+
+![Lighthouse Report. Access Limited Page](documentation/lighthouse_reports/access_limited.png)
+
+### New Applications Page
+
+![Lighthouse Report. New Applications Page](documentation/lighthouse_reports/lighthouse_new_applications.png)
+
+### New Application Detail Page
+
+![Lighthouse Report. New Application Detail Page](documentation/lighthouse_reports/lighthouse_application_detail.png)
+
+### Application Detail Page
+
+![Lighthouse Report. Application Detail Page](documentation/lighthouse_reports/lighthouse_application_detail.png)
+
+### Members Page
+
+![Lighthouse Report. Members Page](documentation/lighthouse_reports/lighthouse_members.png)
+
+### Profile Page
+
+![Lighthouse Report. Profile Page](documentation/lighthouse_reports/lighthouse_profile.png)
+
+### Profile Edit Page
+
+![Lighthouse Report. Profile Edit Page](documentation/lighthouse_reports/lighthouse_profile_edit.png)
+
+### Profile Edit Password Page
+
+![Lighthouse Report. Profile Edit Password Page](documentation/lighthouse_reports/lighthouse_profile_password.png)
+
+### Profile Delete Page
+
+![Lighthouse Report. Profile Delete Page](documentation/lighthouse_reports/lighthouse_profile_delete.png)
+
