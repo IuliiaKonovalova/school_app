@@ -267,7 +267,6 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | As a Receptionist, I want to be able to render lessons for a day (day, time, subject, teachers, students), so that I can provide up to date schedule. | Edit and delete lesson buttons are available after clicking on a lesson in schedule page | ![Menu](documentation/features/lesson_detail_page/lesson_detail_receptionist.png) |
 
 
----
 
 
 
