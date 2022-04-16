@@ -280,6 +280,13 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | As a Sales Manager I can edit information on about a sale so that change the data on a sale if a mistake was made or a parent changed his or her mind. | Available on sales page | ![Menu](documentation/features/sales_page/sales_page_edit_delete_limitations.png) |
 | As a Sales Manager I can delete information on about a sale so that render sales data if a mistake was made or a parent changed his or her mind. | Available on sales page | ![Menu](documentation/features/delete_sale_page/delete_sale_page.png) |
 
+| Parents' Goals    | Requirement met | Image |
+| ------------------------- | --------------- | ----- |
+| As a Parent, I want to be able to see personal information on my child/children, so that I can check the personal data. | Available in student detail page | ![Menu](documentation/features/student_detail_page/student_detail_page_others_view.png) |
+| As a Parent, I want to be able to see my child’s attendance (subject, teacher, date), so that I can control my child’s education and my spending. | Available in student detail page | ![Menu](documentation/features/student_detail_page/student_detail_attendance.png) |
+| As a Parent, I want to be able to see lessons schedule, so that I can manage my time and control child’s attendance. | Available in schedule page | ![Menu](documentation/features/schedule_page/schedule_page_box.png) |
+| As a Parent, I want to be able to see information on students for each lesson, so that I can prepare my child for a lesson. | Available in schedule page, after clicking on a lesson | ![Menu](documentation/features/lesson_detail_page/lesson_detail_parent.png) |
+| As a Parent, I want to be able to see names of teachers for each lesson, so that I can know who is/are teaching a lesson. | Available in schedule page, after clicking on a lesson | ![Menu](documentation/features/lesson_detail_page/lesson_detail_parent.png) |
 
 ---
 
