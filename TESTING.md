@@ -266,7 +266,17 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | As a Receptionist, I want to be able to create lessons for a day (day, time, subject, teachers, students), so that I can provide a precise schedule for school members. | Add lesson button is available in schedule page | ![Menu](documentation/features/schedule_page/add_lesson_button.png) |
 | As a Receptionist, I want to be able to render lessons for a day (day, time, subject, teachers, students), so that I can provide up to date schedule. | Edit and delete lesson buttons are available after clicking on a lesson in schedule page | ![Menu](documentation/features/lesson_detail_page/lesson_detail_receptionist.png) |
 
+| Sales Managers' Goals    | Requirement met | Image |
+| ------------------------- | --------------- | ----- |
+| As a Sales Manager, I want to be able to search for a particular student, so that I can easily access information on this student. | Available in students page | ![Menu](documentation/features/students_page/students_page_search_input.png) |
+| As a Sales Manager, I want to be able to see personal information on a kid, so that I can know student’s personal data. |  students personal info is seen after clicking on a particular student. | ![Menu](documentation/features/student_detail_page/student_detail_page_data_box.png) |
+| As a Sales Manager, I want to be able to sort students by the urgent sale, so that I can control the sales in the company and preserve clients. | Available in students page | ![Menu](documentation/features/students_page/students_page_sort.png) |
+| As a Sales Manager, I want to be able to view new applications, so that I can contact a potential client and make profits for a company. | Available in the new applications page | ![Menu](documentation/features/new_applications_page/new_applications_data.png) |
+| As a Sales Manager, I want to be able to add personal notes on each student that I’m in charge of, so that I can increase the company’s sales. | Available in the students page | ![Menu](documentation/features/add_student_page/add_student_page.png) |
+| As a Sales Manager, I want to be able to add or edit information on students, so that I can keep up to date students’ profiles. | Available in the students page | ![Menu](documentation/features/student_detail_page/student_detail_page_data_box.png) |
 
+
+---
 
 
 
