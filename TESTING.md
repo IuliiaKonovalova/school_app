@@ -524,3 +524,23 @@ npm test
 ### Sale Add Page
 
 ![Lighthouse Report. Sale Add Page](documentation/lighthouse_reports/lighthouse_sale_add.png)
+
+### Schedule Page
+
+![Lighthouse Report. Schedule Page](documentation/lighthouse_reports/lighthouse_schedule.png)
+
+### Add Lesson Page
+
+![Lighthouse Report. Add Lesson Page](documentation/lighthouse_reports/lighthouse_add_lesson.png)
+
+### Edit Lesson Page
+
+![Lighthouse Report. Edit Lesson Page](documentation/lighthouse_reports/lighthouse_lesson_edit.png)
+
+### Delete Lesson Page
+
+![Lighthouse Report. Delete Lesson Page](documentation/lighthouse_reports/lighthouse_lesson_delete.png)
+
+### Lesson Detail Page
+
+![Lighthouse Report. Lesson Detail Page](documentation/lighthouse_reports/lighthouse_lesson_detail.png)
