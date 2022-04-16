@@ -274,6 +274,11 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | As a Sales Manager, I want to be able to view new applications, so that I can contact a potential client and make profits for a company. | Available in the new applications page | ![Menu](documentation/features/new_applications_page/new_applications_data.png) |
 | As a Sales Manager, I want to be able to add personal notes on each student that I’m in charge of, so that I can increase the company’s sales. | Available in the students page | ![Menu](documentation/features/add_student_page/add_student_page.png) |
 | As a Sales Manager, I want to be able to add or edit information on students, so that I can keep up to date students’ profiles. | Available in the students page | ![Menu](documentation/features/student_detail_page/student_detail_page_data_box.png) |
+| As a Sales Manager, I want to be able to review my sales, so that I can control my performance. | Available in the sales manager personal profile | ![Menu](documentation/features/profile_page/profile_page_sales_sales.png) |
+| As a Sales Manager, I want to be able to add new classes to a child when parents buy classes, so that I can maintain relationships with clients. | Available in the sales page | ![Menu](documentation/features/sales_page/sales_page_add_sale_button.png) |
+| As a Sales Manager, I want to be able to delete students from the application, so that I can control the flow of the present students. | Available on students page, student delete button is seen after clicking on a particular student. | ![Menu](documentation/features/student_detail_page/student_detail_page_data_box.png) |
+| As a Sales Manager I can edit information on about a sale so that change the data on a sale if a mistake was made or a parent changed his or her mind. | Available on sales page | ![Menu](documentation/features/sales_page/sales_page_edit_delete_limitations.png) |
+| As a Sales Manager I can delete information on about a sale so that render sales data if a mistake was made or a parent changed his or her mind. | Available on sales page | ![Menu](documentation/features/delete_sale_page/delete_sale_page.png) |
 
 
 ---
