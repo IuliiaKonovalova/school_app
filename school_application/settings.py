@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # Debug
-DEBUG = os.environ['DEBUG'] == 'False'
+DEBUG = os.environ['DEBUG'] == 'True'
 
 ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME'), '127.0.0.1']
 
