@@ -235,6 +235,10 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | 2                | click on the "delete" button | redirect to the schedule page+lesson will be deleted from the database | Y | Available only to receptionists |
 | 3                | click on the "cancel" button | redirect to the schedule page | Y | Available only to receptionists |
 
+[Back to contents](#contents)
+
+---
+
 ## Testing User Story
 
 | First Time Visitor Goals | Requirement met | Image |
@@ -309,6 +313,9 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | As a Parent, I want to be able to see information on students for each lesson, so that I can prepare my child for a lesson. | Available in schedule page, after clicking on a lesson | ![Lesson detail for parents](documentation/features/lesson_detail_page/lesson_detail_parent.png) |
 | As a Parent, I want to be able to see names of teachers for each lesson, so that I can know who is/are teaching a lesson. | Available in schedule page, after clicking on a lesson | ![Lesson Detail Parent](documentation/features/lesson_detail_page/lesson_detail_parent.png) |
 
+
+[Back to contents](#contents)
+
 ---
 
 
@@ -332,6 +339,10 @@ There were plenty of bugs during the development process since this project was 
 However, I tried to solve the majority of them. And one of the bugs that I remember perfectly was related to the extension of the allauth sign up form. I was able to solve it by customizing the allauth sign up form. Moreover, I encountered the problem of making the form work as the migrations were not working. What I have done to migrate the changes is to migrate the profile app first and then perform the rest of the migrations.
 
 Another bug that took me a lot of time to solve was avoiding circular import when I was developing a sales app, as I needed to get not only the client data but also the children's data to add or delete classes from students' profiles. The solution to this problem was to implement the student_id field that will be used to get the children's data and store it in the sales table.
+
+[Back to contents](#contents)
+
+---
 ## Automated testing
 
 ### Django unit testing
@@ -434,6 +445,9 @@ npm test
 
 ![Testing Javascript](documentation/test_reports/jest_error_solved.png)
 
+[Back to contents](#contents)
+
+---
 
 ## Validation:
 ### HTML Validation:
@@ -460,6 +474,10 @@ npm test
 
 - No errors were found when the code was passed through Valentin Bryukhanov's [online validation tool](http://pep8online.com/). According to the reports the code is [Pep 8-compliant](https://legacy.python.org/dev/peps/pep-0008/). This checking was done manually by copying python code and pasting it into the validator.
 
+
+[Back to contents](#contents)
+
+---
 ## Lighthouse Report
 
 ### Home Page
@@ -566,12 +584,18 @@ npm test
 
 ![Lighthouse Report. Lesson Detail Page](documentation/lighthouse_reports/lighthouse_lesson_detail.png)
 
+[Back to contents](#contents)
 
 ---
 
 ## Compatibility
 
 
+
+[Back to contents](#contents)
 ---
 
 # Responsiveness
+
+[Back to contents](#contents)
+---
