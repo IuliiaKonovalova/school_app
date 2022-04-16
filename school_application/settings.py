@@ -95,7 +95,7 @@ ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
-LOGIN_URL = '/profiles/login/'
+LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/lessons/'
 
 WSGI_APPLICATION = 'school_application.wsgi.application'

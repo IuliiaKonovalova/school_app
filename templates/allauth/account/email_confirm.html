@@ -14,7 +14,7 @@
         {{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>
     <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
       {% csrf_token %}
-      <button type="submit" class="button account__link">{% trans 'Confirm' %}</button>
+      <button type="submit" class="btn account__btn">{% trans 'Confirm' %}</button>
     </form>
   {% else %}
     {% url 'account_email' as email_url %}
