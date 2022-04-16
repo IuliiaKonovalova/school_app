@@ -253,9 +253,21 @@ Usability was tested with the below user acceptance testing, sent to new users t
 
 | Teachers' Goals    | Requirement met | Image |
 | ------------------------- | --------------- | ----- |
+| As a Teacher, I want to be able to search for a particular student, so that I can easily access information on this student. | Available in students page | ![Menu](documentation/features/students_page/students_page_search_input.png) |
+| As a Teacher, I want to be able to see personal information on a kid, so that I can know student’s personal data. |  students personal info is seen after clicking on a particular student. | ![Menu](documentation/features/student_detail_page/student_detail_page_data_box.png) |
+| As a Teacher, I want to be able to see lessons schedule, so that I can manage my time. | Available in schedule page | ![Menu](documentation/features/teacher_schedule_page/schedule_look_compare2.png) |
+| As a Teacher, I want to be able to see information on students for each lesson, so that I can be prepared for each student. | Available in schedule page, after clicking on a lesson | ![Menu](documentation/features/lesson_detail_page/lesson_detail_personnel.png) |
+
+| Receptionists' Goals    | Requirement met | Image |
+| ------------------------- | --------------- | ----- |
+| As a Receptionist, I want to be able to search for a particular student, so that I can easily access information on this student. | Available in students page | ![Menu](documentation/features/students_page/students_page_search_input.png) |
+| As a Receptionist, I want to be able to see personal information on a kid, so that I can know student’s personal data. |  students personal info is seen after clicking on a particular student. | ![Menu](documentation/features/student_detail_page/student_detail_page_data_box.png) |
+| As a Receptionist, I want to be able to see lessons schedule and student attending lessons, so that I can arrange the flow of the students. | Available in schedule page | ![Menu](documentation/features/schedule_page/schedule_page_box.png) |
+| As a Receptionist, I want to be able to create lessons for a day (day, time, subject, teachers, students), so that I can provide a precise schedule for school members. | Add lesson button is available in schedule page | ![Menu](documentation/features/schedule_page/add_lesson_button.png) |
+| As a Receptionist, I want to be able to render lessons for a day (day, time, subject, teachers, students), so that I can provide up to date schedule. | Edit and delete lesson buttons are available after clicking on a lesson in schedule page | ![Menu](documentation/features/lesson_detail_page/lesson_detail_receptionist.png) |
 
 
-
+---
 
 
 
