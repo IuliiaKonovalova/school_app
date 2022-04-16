@@ -1,5 +1,26 @@
 # Testing
 
+## **Contents**
+
+* [Manual Testing](#manual-testing)
+* [Testing User Story](#testing-user-story)
+* [Bugs](#bugs)
+  * [Known bugs](#known-bugs)
+  * [Solved bugs](#solved-bugs)
+* [Automated testing](#automated-testing)
+  * [Django unit testing](#django-unit-testing)
+  * [Jest unit testing](#jest-unit-testing)
+* [Validation](#validation)
+  * [HTML validation](#html-validation)
+  * [CSS validation](#css-validation)
+  * [JS validation](#js-validation)
+  * [Python Validation](#python-validation)
+* [Lighthouse Report](#lighthouse-report)
+* [Compatibility](#compatibility)
+* [Responsiveness](#responsiveness)
+
+
+
 ## Manual Testing
 
 Testing was done throughout site development, for each feature before it was merged into the master file.
@@ -214,7 +235,7 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | 2                | click on the "delete" button | redirect to the schedule page+lesson will be deleted from the database | Y | Available only to receptionists |
 | 3                | click on the "cancel" button | redirect to the schedule page | Y | Available only to receptionists |
 
-##  Testing User Story
+## Testing User Story
 
 | First Time Visitor Goals | Requirement met | Image |
 | ------------------------- | --------------- | ----- |
@@ -293,7 +314,7 @@ Usability was tested with the below user acceptance testing, sent to new users t
 
 ## Bugs
 
-### Known bugs:
+### Known bugs
 
 When the parent, who has 2 or more children, assigns a relation to a child, the relation could be assign only to one child.
 
@@ -304,7 +325,7 @@ However, when the user refreshes the page all children are shown with the correc
 
 ![Lessons Testing Coverage](documentation/bugs/roles_bug4.png)
 
-### Solved bugs:
+### Solved bugs
 
 There were plenty of bugs during the development process since this project was a learning platform for me and allowed me to improve my skills and knowledge significantly.
 
@@ -544,3 +565,13 @@ npm test
 ### Lesson Detail Page
 
 ![Lighthouse Report. Lesson Detail Page](documentation/lighthouse_reports/lighthouse_lesson_detail.png)
+
+
+---
+
+## Compatibility
+
+
+---
+
+# Responsiveness
