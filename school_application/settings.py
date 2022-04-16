@@ -96,7 +96,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
 LOGIN_URL = '/profiles/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/lessons/'
 
 WSGI_APPLICATION = 'school_application.wsgi.application'
 
