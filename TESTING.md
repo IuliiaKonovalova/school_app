@@ -590,7 +590,12 @@ npm test
 
 ## Compatibility
 
+Testing conducted on the following browsers;
 
+- Brave;
+- Chrome;
+- Microsoft Edge;
+- Firefox;
 
 [Back to contents](#contents)
 ---
