@@ -2846,6 +2846,10 @@ button.select2-selection__choice__remove {
     padding: 1em 1em;
   }
 
+  .account__options {
+    right: 1.3rem;
+  }
+
   /* Styling Home Page */
   .benefits {
     padding-left: 0;
@@ -2972,6 +2976,10 @@ button.select2-selection__choice__remove {
     font-size: 1rem;
   }
 
+  .account .m-0 li {
+    font-size: 0.9rem;
+  }
+
   .account__link {
     font-size: 1.2rem;
   }
@@ -3022,11 +3030,69 @@ button.select2-selection__choice__remove {
   .footer__content--creator {
     font-size: 1rem;
   }
+
+  /* Main Content */
+
+  .profile__title,
+  .student__title,
+  .classes__title {
+    font-size: 1.2rem;
+    margin-top: 1.9em;
+  }
+
+  .profile__form--title,
+  .student__form--title,
+  .sale__form--title {
+    font-size: 1.2rem;
+  }
+
+  .profile__form--subtitle {
+    font-size: 1rem;
+  }
+
+  .profile__form--suggestions div {
+    font-size: 0.9rem;
+  }
+
+  .profile__btn,
+  .student__btn,
+  .links__btn,
+  .label__btn,
+  .search__btn,
+  .sales__btn,
+  .sale__btn,
+  .lesson__btn {
+    font-size: 0.5rem;
+  }
+
+  .profile__form label[for='id_first_name']~div::before,
+  .profile__form label[for='id_last_name']~div::before,
+  .profile__form label[for='id_phone']~div::before,
+  .profile__form label[for='id_old_password']~div::before,
+  .profile__form label[for='id_new_password1']~div::before,
+  .profile__form label[for='id_new_password2']~div::before,
+  .student__form label[for='id_first_name']~div::before,
+  .student__form label[for='id_last_name']~div::before,
+  .student__form label[for='id_parent']~div::before,
+  .student__form label[for='id_birthday']~div::before,
+  .student__form label[for='id_address']~div::before,
+  .student__form label[for='id_classes_left']~div::before,
+  .student__form label[for='id_sales_manager']~div::before,
+  .student__form label[for='id_notes']~div::before,
+  .sale__form label[for='id_sold_to']~div::before,
+  .sale__form label[for='id_amount']~div::before,
+  .sale__form label[for='id_student']~div::before,
+  .lesson__form label[for='id_time']~div::before,
+  .lesson__form label[for='id_subject']~div::before,
+  .lesson__form label[for='id_teachers']~div::before,
+  .lesson__form label[for='id_students']~div::before {
+    font-size: 0.9rem;
+  }
 }
 
 @media all and (max-width: 387px) {
-  .logo__container {
-    /* display: none; */
+  .account__options {
+    padding: 0.5em 1em;
   }
 
   /* Styling Home Page */
