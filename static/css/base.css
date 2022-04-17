@@ -2442,6 +2442,13 @@ button.select2-selection__choice__remove {
   .footer__info--item:last-child {
     margin-top: 1em;
   }
+
+  /* Media for page navigation buttons */
+  .pagination__navigation--btn,
+  .pagination__navigation--fake {
+    padding: 0.2em 0.8em;
+    font-size: 1.3rem;
+  }
 }
 
 @media all and (max-width: 804px) {
@@ -2598,6 +2605,13 @@ button.select2-selection__choice__remove {
   .account input[type="submit"] {
     margin: 0;
     margin-top: 0.5rem;
+  }
+
+  /* Media for page navigation buttons */
+  .pagination__navigation--btn,
+  .pagination__navigation--fake {
+    padding: 0.2em 0.7em;
+    font-size: 1.2rem;
   }
 
 }
@@ -2845,6 +2859,13 @@ button.select2-selection__choice__remove {
   .lesson__form .select2-container--default .select2-selection--single {
     width: 100%;
     min-width: unset;
+  }
+
+  /* Media for page navigation buttons */
+  .pagination__navigation--btn,
+  .pagination__navigation--fake {
+    padding: 0.2em 0.7em;
+    font-size: 1rem;
   }
 }
 
