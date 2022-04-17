@@ -1741,6 +1741,10 @@ td {
   margin-bottom: 0.5em;
 }
 
+.sale__form .select2-container--default .select2-selection--single {
+  padding: 1em 0.5em 1em 0.5em;
+}
+
 .lesson__form .select2-container--default .select2-selection--single {
   margin-top: 0;
 }
@@ -2784,6 +2788,7 @@ button.select2-selection__choice__remove {
 
   .sale input {
     padding: 0.5em;
+    width: 16rem;
   }
 
   .students__btn,
@@ -3070,6 +3075,20 @@ button.select2-selection__choice__remove {
     padding: 0.1em 0.5em 0.15em 0.5em;
   }
 
+  .sale input {
+    padding: 0.5em;
+    width: 11rem;
+  }
+
+  .sale__form .select2-selection__placeholder {
+    display: none;
+  }
+
+  .sale__form .select2-container--default .select2-selection--single {
+    padding: 0;
+    height: 1.8rem;
+  }
+
   .student__form label[for='id_parent']~div::before,
   .student__form label[for='id_sales_manager']~div::before {
     top: 0.45rem;
@@ -3132,7 +3151,8 @@ button.select2-selection__choice__remove {
   }
 
   .student__form .student__form--suggestions div:first-child,
-  .student__form .student__form--suggestions div:last-child {
+  .student__form .student__form--suggestions div:last-child,
+  .sale__form--warning {
     font-size: 0.9rem;
   }
 
@@ -3192,7 +3212,9 @@ button.select2-selection__choice__remove {
     font-size: 0.9rem;
   }
 
-  .student__btn {
+  .student__btn,
+  .sale__back--btn,
+  .sale__confirm--btn {
     font-size: 0.8rem;
   }
 
@@ -3230,6 +3252,12 @@ button.select2-selection__choice__remove {
   .members__sort--instructions {
     font-size: 0.9rem;
   }
+
+  /* Media for schedule Page */
+  .lessons__subtitle {
+    margin-top: 0.5em;
+    font-size: 1rem;
+  }
 }
 
 @media all and (max-width: 387px) {
@@ -3238,6 +3266,16 @@ button.select2-selection__choice__remove {
   }
 
   /* Styling Home Page */
+  .home__hero--title {
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .home__hero--title .logo__image {
+    height: 3rem;
+    width: 3rem;
+  }
+
   .benefits {
     padding-bottom: 8rem;
   }
@@ -3312,5 +3350,28 @@ button.select2-selection__choice__remove {
   .creator__name {
     flex-direction: column;
     font-size: 0.8rem;
+  }
+
+  /* Media for sales table */
+  .sales__form--settings {
+    width: 110%;
+  }
+
+  .sales__form--setting .hasDatepicker {
+    max-width: 3rem;
+  }
+
+  .sales__form--settings .search__btn {
+    font-size: 0.7rem;
+    width: 2.3rem;
+  }
+
+  .sales__results--summary::before {
+    font-size: 0.8rem;
+    /* width: 120%; */
+  }
+
+  .sales__results--container tr td {
+    font-size: 0.7rem;
   }
 }
