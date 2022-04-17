@@ -1732,11 +1732,11 @@ td {
   position: relative;
   border: 1px solid #ffffff8c;
   border-radius: var(--br);
-  padding: 0.4em 1em 0.5em 1em;
+  padding: 0.2em 1em 0.5em 1em;
   min-width: 25rem;
   margin: 0.7em 0;
   background-color: #ffffff;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: #001d82;
   margin-bottom: 0.5em;
 }
@@ -2859,7 +2859,6 @@ button.select2-selection__choice__remove {
 
   .account {
     width: 95%;
-
   }
 
   .student__form .select2-container--default .select2-selection--multiple,
@@ -2867,9 +2866,15 @@ button.select2-selection__choice__remove {
   .role__form .select2-container--default .select2-selection--single,
   .lesson__form .select2-container--default .select2-selection--multiple,
   .lesson__form .select2-container--default .select2-selection--single {
-    width: 100%;
+    width: 16rem;
     min-width: unset;
   }
+
+  .student__form label[for='id_parent']~div::before,
+  .student__form label[for='id_sales_manager']~div::before {
+    top: 0.45rem;
+  }
+
 
   /* Media for page navigation buttons */
   .pagination__navigation--btn,
@@ -3052,9 +3057,31 @@ button.select2-selection__choice__remove {
   .members input:not(:placeholder-shown),
   .sale__form input:not(:placeholder-shown),
   .lesson__form input:not(:placeholder-shown) {
-    font-weight: 600;
     font-size: 0.8rem;
-    letter-spacing: 0.05rem;
+  }
+
+  .student__form .select2-container--default .select2-selection--multiple,
+  .sale__form .select2-container--default .select2-selection--single,
+  .role__form .select2-container--default .select2-selection--single,
+  .lesson__form .select2-container--default .select2-selection--multiple,
+  .lesson__form .select2-container--default .select2-selection--single {
+    width: 11rem;
+    font-size: 0.8rem;
+    padding: 0.1em 0.5em 0.15em 0.5em;
+  }
+
+  .student__form label[for='id_parent']~div::before,
+  .student__form label[for='id_sales_manager']~div::before {
+    top: 0.45rem;
+  }
+
+  .student__form label[for='id_notes']~div::before {
+    top: 0.5rem;
+  }
+
+  .student__form .textarea {
+    min-width: unset;
+    width: 11rem;
   }
 
   .footer__content--logo {
@@ -3104,6 +3131,11 @@ button.select2-selection__choice__remove {
     font-size: 0.9rem;
   }
 
+  .student__form .student__form--suggestions div:first-child,
+  .student__form .student__form--suggestions div:last-child {
+    font-size: 0.9rem;
+  }
+
 
   .profile__btn,
   .student__btn,
@@ -3150,8 +3182,23 @@ button.select2-selection__choice__remove {
     gap: 0.5rem;
   }
 
+  .profile__buttons,
+  .student__buttons,
+  .sale__buttons {
+    width: 120%;
+  }
+
   .profile__form--btn {
     font-size: 0.9rem;
+  }
+
+  .student__btn {
+    font-size: 0.8rem;
+  }
+
+  .student__edit--btn,
+  .student__delete--btn {
+    font-size: 0.5rem;
   }
 
   .application .application__data {
