@@ -2595,6 +2595,11 @@ button.select2-selection__choice__remove {
     font-size: 1.2rem;
   }
 
+  .account input[type="submit"] {
+    margin: 0;
+    margin-top: 0.5rem;
+  }
+
 }
 
 @media all and (max-width: 680px) {
@@ -2827,6 +2832,11 @@ button.select2-selection__choice__remove {
     margin: 0;
     padding: 0;
   }
+
+  .account {
+    width: 95%;
+
+  }
 }
 
 @media all and (max-width: 575px) {
@@ -2929,7 +2939,95 @@ button.select2-selection__choice__remove {
   }
 }
 
+@media all and (max-width: 467px) {
+  .logo__container {
+    font-size: 0.7rem;
+  }
+
+  .logo__container--image {
+    height: 0.71rem;
+    width: 0.7rem;
+  }
+
+  .navbar__item a {
+    font-size: 0.7rem;
+  }
+
+  .navbar__item--dropdown {
+    font-size: 0.7rem;
+    padding: 0.3em 1.2em 0.5em 1.1em;
+  }
+
+  .account {
+    width: 95%;
+    padding: 1em;
+    font-size: unset;
+  }
+
+  .account p {
+    font-size: 0.9rem;
+  }
+
+  .account__notice {
+    font-size: 1rem;
+  }
+
+  .account__link {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+  }
+
+  .account input,
+  .profile__form input,
+  .student__form input,
+  .students input,
+  .members input,
+  .sale input,
+  .lesson__form input {
+    font-size: 0.8rem;
+  }
+
+  .account input::placeholder,
+  .profile__form input::placeholder,
+  .student__form input::placeholder,
+  .students input::placeholder,
+  .members input::placeholder,
+  .sale__form input::placeholder,
+  .lesson__form input::placeholder,
+  .account input:not(:placeholder-shown),
+  .profile__form input:not(:placeholder-shown),
+  .student__form input:not(:placeholder-shown),
+  .students input:not(:placeholder-shown),
+  .members input:not(:placeholder-shown),
+  .sale__form input:not(:placeholder-shown),
+  .lesson__form input:not(:placeholder-shown) {
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.05rem;
+  }
+
+  .footer__content--logo {
+    font-size: 1.2rem;
+  }
+
+  .footer__content--logo .logo__image {
+    height: 1.2rem;
+    width: 1.2rem;
+  }
+
+  .footer__info--text,
+  .footer__content--creator {
+    font-size: 1rem;
+  }
+}
+
 @media all and (max-width: 387px) {
+  .logo__container {
+    /* display: none; */
+  }
 
   /* Styling Home Page */
   .benefits {
@@ -2978,5 +3076,15 @@ button.select2-selection__choice__remove {
   .lesson__details--data {
     grid-template-columns: 1fr 2fr;
     gap: 0.2rem;
+  }
+
+  .footer__info--text,
+  .footer__content--creator {
+    font-size: 0.8rem;
+  }
+
+  .creator__name {
+    flex-direction: column;
+    font-size: 0.8rem;
   }
 }
