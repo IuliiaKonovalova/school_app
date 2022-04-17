@@ -602,5 +602,12 @@ Testing conducted on the following browsers;
 
 # Responsiveness
 
+Testing conducted outside of the Chrome development tool on the following;
+
+- Oppo K7;
+- Oppo K7x;
+- Xiaomi Mi PAD 4;
+
+
 [Back to contents](#contents)
 ---
