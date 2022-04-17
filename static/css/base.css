@@ -2786,7 +2786,11 @@ button.select2-selection__choice__remove {
     padding: 0.5em;
   }
 
-
+  .students__btn,
+  .sales__btn--custom {
+    right: -0.8rem;
+    top: -2.5rem;
+  }
 
   /* Styling Adding Page */
   .profile__form label[for='id_first_name']~div::before,
@@ -3154,6 +3158,7 @@ button.select2-selection__choice__remove {
     font-size: 1rem;
   }
 
+  /* Media for members page */
   .member__role {
     font-size: 0.7rem;
   }
@@ -3162,6 +3167,22 @@ button.select2-selection__choice__remove {
     font-size: 0.9rem;
   }
 
+  /* Media for students page */
+
+  .students__sort {
+    gap: 0.5rem;
+  }
+
+  .students__sort .search__btn {
+    font-size: 0.9rem;
+  }
+
+  .students__search--instructions,
+  .students__sort--instructions,
+  .members__search--instructions,
+  .members__sort--instructions {
+    font-size: 0.9rem;
+  }
 }
 
 @media all and (max-width: 387px) {
@@ -3205,6 +3226,14 @@ button.select2-selection__choice__remove {
   .members__sort button[type='submit'] {
     font-size: 1rem;
     justify-self: center;
+  }
+
+  .students__sort .search__btn {
+    font-size: 0.7rem;
+  }
+
+  .students__sort--name {
+    font-size: 0.8rem;
   }
 
   /* Datepicker */
