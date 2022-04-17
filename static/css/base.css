@@ -2596,6 +2596,10 @@ button.select2-selection__choice__remove {
     margin-bottom: 0.5em;
   }
 
+  .member__role {
+    font-size: 1rem;
+  }
+
   /* Styling Lesson Detail Page */
   .lesson__details--subtitle {
     font-weight: 900;
@@ -2781,6 +2785,8 @@ button.select2-selection__choice__remove {
   .sale input {
     padding: 0.5em;
   }
+
+
 
   /* Styling Adding Page */
   .profile__form label[for='id_first_name']~div::before,
@@ -3148,6 +3154,14 @@ button.select2-selection__choice__remove {
     font-size: 1rem;
   }
 
+  .member__role {
+    font-size: 0.7rem;
+  }
+
+  .members__results .profile__btn--text {
+    font-size: 0.9rem;
+  }
+
 }
 
 @media all and (max-width: 387px) {
@@ -3186,6 +3200,11 @@ button.select2-selection__choice__remove {
   /* Buttons */
   .profile__form--btn {
     font-size: 0.7rem;
+  }
+
+  .members__sort button[type='submit'] {
+    font-size: 1rem;
+    justify-self: center;
   }
 
   /* Datepicker */
