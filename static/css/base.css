@@ -2837,6 +2837,15 @@ button.select2-selection__choice__remove {
     width: 95%;
 
   }
+
+  .student__form .select2-container--default .select2-selection--multiple,
+  .sale__form .select2-container--default .select2-selection--single,
+  .role__form .select2-container--default .select2-selection--single,
+  .lesson__form .select2-container--default .select2-selection--multiple,
+  .lesson__form .select2-container--default .select2-selection--single {
+    width: 100%;
+    min-width: unset;
+  }
 }
 
 @media all and (max-width: 575px) {
@@ -3042,8 +3051,18 @@ button.select2-selection__choice__remove {
 
   .profile__form--title,
   .student__form--title,
-  .sale__form--title {
+  .sale__form--title,
+  .students__title,
+  .members__title,
+  .sales__title,
+  .applications__title,
+  .lessons__title,
+  .role__form--title {
     font-size: 1.2rem;
+  }
+
+  .application__link--text {
+    font-size: 1rem;
   }
 
   .profile__form--subtitle {
@@ -3053,6 +3072,7 @@ button.select2-selection__choice__remove {
   .profile__form--suggestions div {
     font-size: 0.9rem;
   }
+
 
   .profile__btn,
   .student__btn,
@@ -3088,6 +3108,25 @@ button.select2-selection__choice__remove {
   .lesson__form label[for='id_students']~div::before {
     font-size: 0.9rem;
   }
+
+  .applications {
+    width: 95%;
+  }
+
+  .members__results,
+  .applications__results {
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 0.5rem;
+  }
+
+  .profile__form--btn {
+    font-size: 0.9rem;
+  }
+
+  .application .application__data {
+    font-size: 1rem;
+  }
+
 }
 
 @media all and (max-width: 387px) {
@@ -3121,6 +3160,11 @@ button.select2-selection__choice__remove {
   .contact {
     padding-left: 0.8em;
     padding-right: 0.8em;
+  }
+
+  /* Buttons */
+  .profile__form--btn {
+    font-size: 0.7rem;
   }
 
   /* Datepicker */
