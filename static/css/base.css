@@ -3084,7 +3084,8 @@ button.select2-selection__choice__remove {
     display: none;
   }
 
-  .sale__form .select2-container--default .select2-selection--single {
+  .sale__form .select2-container--default .select2-selection--single,
+  .lesson__form .select2-container--default .select2-selection--single {
     padding: 0;
     height: 1.8rem;
   }
@@ -3096,6 +3097,20 @@ button.select2-selection__choice__remove {
 
   .student__form label[for='id_notes']~div::before {
     top: 0.5rem;
+  }
+
+  .lesson__form label[for='id_date']~div::before {
+    top: 0.9rem;
+  }
+
+  .sale__form label[for='id_sold_to']~div::before,
+  .sale__form label[for='id_amount']~div::before,
+  .sale__form label[for='id_student']~div::before,
+  .lesson__form label[for='id_time']~div::before,
+  .lesson__form label[for='id_subject']~div::before,
+  .lesson__form label[for='id_teachers']~div::before,
+  .lesson__form label[for='id_students']~div::before {
+    top: 0.67rem;
   }
 
   .student__form .textarea {
@@ -3134,7 +3149,9 @@ button.select2-selection__choice__remove {
   .sales__title,
   .applications__title,
   .lessons__title,
-  .role__form--title {
+  .role__form--title,
+  .lesson__form--title,
+  .lesson__form__delete--title {
     font-size: 1.2rem;
   }
 
@@ -3152,7 +3169,8 @@ button.select2-selection__choice__remove {
 
   .student__form .student__form--suggestions div:first-child,
   .student__form .student__form--suggestions div:last-child,
-  .sale__form--warning {
+  .sale__form--warning,
+  .lesson__form--suggestions div {
     font-size: 0.9rem;
   }
 
@@ -3188,7 +3206,8 @@ button.select2-selection__choice__remove {
   .lesson__form label[for='id_time']~div::before,
   .lesson__form label[for='id_subject']~div::before,
   .lesson__form label[for='id_teachers']~div::before,
-  .lesson__form label[for='id_students']~div::before {
+  .lesson__form label[for='id_students']~div::before,
+  .lesson__form label[for='id_date']~div::before {
     font-size: 0.9rem;
   }
 
