@@ -2683,8 +2683,6 @@ button.select2-selection__choice__remove {
     font-size: 1rem;
   }
 
-
-
   .profile__data--heading {
     margin-right: 0.2em;
   }
@@ -2696,7 +2694,6 @@ button.select2-selection__choice__remove {
   .profile__buttons,
   .student__buttons,
   .sale__buttons {
-
     width: 100%;
   }
 
@@ -2771,6 +2768,7 @@ button.select2-selection__choice__remove {
 
   .application {
     padding-top: 2em;
+    padding-bottom: 2em;
   }
 
   .application .application__data {
