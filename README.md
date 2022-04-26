@@ -1506,8 +1506,8 @@ Please refer to the [TESTING.md](TESTING.md) file for all test related documenta
 
 ## Deployment
 
-- The program was deployed to [Heroku](https://dashboard.heroku.com).
-- The program can be reached by the [link](https://issue-tracker-by-konovalovs.herokuapp.com/)
+- The app was deployed to [Heroku](https://heroku.com).
+- The app can be reached by the [link](https://issue-tracker-by-konovalovs.herokuapp.com/)
 ### Local deployment
 
 *Note:*
