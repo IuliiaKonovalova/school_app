@@ -211,6 +211,7 @@ body {
   align-items: center;
   color: var(--clr-neutral--900);
   padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .home {
