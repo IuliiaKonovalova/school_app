@@ -3077,7 +3077,7 @@ button.select2-selection__choice__remove {
   .lesson__form .select2-container--default .select2-selection--single {
     width: 11rem;
     font-size: 0.8rem;
-    padding: 0.1em 0.5em 0.15em 0.5em;
+    padding: 0.1em 0.5em 0.15em 0.5em !important;
   }
 
   .sale input {
@@ -3123,6 +3123,7 @@ button.select2-selection__choice__remove {
     width: 11rem;
   }
 
+  /* Footer */
   .footer__content--logo {
     font-size: 1.2rem;
   }
@@ -3214,6 +3215,12 @@ button.select2-selection__choice__remove {
   .lesson__form label[for='id_students']~div::before,
   .lesson__form label[for='id_date']~div::before {
     font-size: 0.9rem;
+  }
+
+  .sale__form label[for='id_sold_to']~div::before,
+  .sale__form label[for='id_amount']~div::before,
+  .sale__form label[for='id_student']~div::before {
+    top: 0.28rem;
   }
 
   .applications {
