@@ -1306,7 +1306,7 @@ td {
   text-align: center;
   background-color: var(--clr-primary--900);
   border-radius: var(--br);
-  padding-bottom: 2em;
+  margin-bottom: 2em;
 }
 
 .lesson__details--header {
