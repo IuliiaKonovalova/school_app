@@ -1666,7 +1666,7 @@ Click "View build logs" to see the progress of the deployment.
 - [Postgresql](https://www.postgresql.org/): for providing a free database.
 - [Codemy.com](https://www.youtube.com/watch?v=N-PB-HMFmdo): for providing a free video on how to implement pagination in the project.
 
-
+*All names are fictional (the majority of the names were taken from "The Simpsons" and "Rick and Morty" cartoons) and any resemblance to actual events or locales or persons, living or dead, is entirely coincidental.*
 
 [Back to contents](#contents)
 ---
