@@ -1733,12 +1733,12 @@ td {
   position: relative;
   border: 1px solid #ffffff8c;
   border-radius: var(--br);
-  padding: 0.2em 1em 0.5em 1em;
+  padding: 0.3em 1em 0.4em 1em !important;
   min-width: 25rem;
   margin: 0.7em 0;
   background-color: #ffffff;
   font-size: 1.25rem;
-  color: #001d82;
+  color: #001d82 !important;
   margin-bottom: 0.5em;
 }
 
