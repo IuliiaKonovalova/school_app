@@ -2992,6 +2992,12 @@ button.select2-selection__choice__remove {
     grid-auto-flow: dense;
     gap: 0.5rem;
   }
+
+  .lesson__details--header {
+    position: relative;
+    width: 100%;
+    padding: 2rem;
+  }
 }
 
 @media all and (max-width: 467px) {

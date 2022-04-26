@@ -1665,6 +1665,8 @@ Click "View build logs" to see the progress of the deployment.
 - [Icons8](https://icons8.com/): for providing free access to amazing icons and illustrations.
 - [Postgresql](https://www.postgresql.org/): for providing a free database.
 - [Codemy.com](https://www.youtube.com/watch?v=N-PB-HMFmdo): for providing a free video on how to implement pagination in the project.
+- [Responsive Viewer](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb/related?hl=en): for providing a free platform to test website responsiveness
+- [GoFullPage](chrome://extensions/?id=fdpohaocaechififmbbbbbknoalclacl): for allowing to create free full web page screenshots
 
 *All names are fictional (the majority of the names were taken from "The Simpsons" and "Rick and Morty" cartoons) and any resemblance to actual events or locales or persons, living or dead, is entirely coincidental.*
 
