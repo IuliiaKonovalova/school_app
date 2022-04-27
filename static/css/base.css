@@ -1434,6 +1434,11 @@ td {
   font-weight: 900;
 }
 
+.error__title {
+  color: var(--clr-neutral--100);
+  margin-bottom: 0.8em;
+}
+
 .profile__form--title,
 .student__form--title,
 .sale__form--title {
