@@ -2,10 +2,15 @@
 {% load static %}
 
 {% comment %} Extra Title {% endcomment %}
-{% block extra_title %}500 Error{% endblock %}
+{% block extra_title %}404 Error{% endblock %}
 
 {% block content %}
 
-<h2>Here is the error 500</h2>
-
+<section class="error">
+  <h2 class="error__title">Page 500</h2>
+  <div class="access__error--image">
+    <img src="{% static 'images/error.svg' %}" alt="Image reflecting setting issues">
+  </div>
+  <p>Something went wrong as there is an internal sever error!</p>
+</section>
 {% endblock %}
