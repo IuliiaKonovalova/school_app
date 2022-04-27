@@ -1406,7 +1406,8 @@ td {
   text-align: center;
 }
 
-.account {
+.account,
+.error {
   margin: 0 auto;
   margin-bottom: 2em;
   padding: 1.5em;
@@ -1422,6 +1423,7 @@ td {
 }
 
 .account__title,
+.error__title,
 .profile__form--title,
 .student__form--title,
 .sale__form--title,
@@ -1465,7 +1467,8 @@ td {
   text-align: center;
 }
 
-.account p {
+.account p,
+.error p {
   margin: 1em auto;
   max-width: 30rem;
   color: #ffffffec;
