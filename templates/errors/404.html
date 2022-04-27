@@ -11,7 +11,7 @@
     <div class="access__error--image">
       <img src="{% static 'images/error.svg' %}" alt="Image reflecting setting issues">
     </div>
-    <p>Something went wrong as this page is not fount!</p>
+    <p>Something went wrong as this page is not found!</p>
     {% if request.user.is_authenticated %}
       <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to Profile page" class="btn account__btn">
         Profile Page
