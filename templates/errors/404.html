@@ -5,12 +5,19 @@
 {% block extra_title %}404 Error{% endblock %}
 
 {% block content %}
-
-<section class="error">
-  <h2 class="error__title">Page 404</h2>
-  <div class="access__error--image">
-    <img src="{% static 'images/error.svg' %}" alt="Image reflecting setting issues">
-  </div>
-  <p>Something went wrong as this page is not fount!</p>
-</section>
+{% comment %} Error 404 content {% endcomment %}
+  <section class="error">
+    <h2 class="error__title">Page 404</h2>
+    <div class="access__error--image">
+      <img src="{% static 'images/error.svg' %}" alt="Image reflecting setting issues">
+    </div>
+    <p>Something went wrong as this page is not fount!</p>
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'user_profile' username=request.user %}" aria-label="Go to Profile page" class="btn account__btn">
+        Profile Page
+      </a>
+    {% else %}
+      <a href="{% url 'home' %}" aria-label="Go to Home page" class="btn account__btn">Home page</a>
+    {% endif %}
+  </section>
 {% endblock %}

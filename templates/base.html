@@ -59,9 +59,9 @@
                 class="account__option">
                 Profile
               </a>
-              {% comment %} Links accessable to school staff only {% endcomment %}
+              {% comment %} Links accessible to school staff only {% endcomment %}
               {% if request.user.role == 0 or request.user.role == 1 or request.user.role == 2 or request.user.role == 3 %}
-                {% comment %} Links accessable to bosses and receptionists {% endcomment %}
+                {% comment %} Links accessible to bosses and receptionists {% endcomment %}
                 {% if request.user.role == 0 or request.user.role == 2 %}
                   <a  href="{% url 'new_applications' username=request.user %}" aria-label="Go to New Applications page"
                     class="account__option">
