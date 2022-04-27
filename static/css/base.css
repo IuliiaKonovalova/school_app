@@ -2870,7 +2870,8 @@ button.select2-selection__choice__remove {
     padding: 0;
   }
 
-  .account {
+  .account,
+  .error {
     width: 95%;
   }
 
