@@ -1284,6 +1284,12 @@ There are also 2 additional error pages:
 
   ![Error Page. 500](documentation/features/error_page/500_error_page.png)
 
+**Favicon**
+
+  ![Favicon](documentation/features/favicon/favicon.png)
+
+  The favicon is a small image that is displayed in the browser's address bar. It is used to identify the website among others and help the user to find it when he/she is searching for it.
+
 [Back to contents](#contents)
 
 ---
@@ -1686,7 +1692,8 @@ Click "View build logs" to see the progress of the deployment.
 - [Postgresql](https://www.postgresql.org/): for providing a free database.
 - [Codemy.com](https://www.youtube.com/watch?v=N-PB-HMFmdo): for providing a free video on how to implement pagination in the project.
 - [Responsive Viewer](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb/related?hl=en): for providing a free platform to test website responsiveness
-- [GoFullPage](chrome://extensions/?id=fdpohaocaechififmbbbbbknoalclacl): for allowing to create free full web page screenshots
+- [GoFullPage](chrome://extensions/?id=fdpohaocaechififmbbbbbknoalclacl): for allowing to create free full web page screenshots;
+- [Favicon Generator. For real.](https://realfavicongenerator.net/): for providing a free platform to generate favicons.
 
 *All names are fictional (the majority of the names were taken from "The Simpsons" and "Rick and Morty" cartoons) and any resemblance to actual events or locales or persons, living or dead, is entirely coincidental.*
 
