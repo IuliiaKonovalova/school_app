@@ -1282,6 +1282,8 @@ There are also 2 additional error pages:
 
   Page 505 is the same as 404 page, but it has a different header ("Page 500") and message ("Something went wrong as there is an internal sever error!").
 
+  ![Error Page. 500](documentation/features/error_page/500_error_page.png)
+
 [Back to contents](#contents)
 
 ---
