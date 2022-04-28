@@ -366,13 +366,12 @@ I knew at the very beginning that I had to implement automated testing. As I was
 
 ![Students Testing Coverage](documentation/test_reports/students_report_testing.png)
 
-To run testing, the database must be set to sqlite3.
+When running the tests, the sqlite database was used.
 
-![Testing Database](documentation/test_reports/testing_preparation.png)
+*Needless to say, that the db.sqlite3 was not used during the development at all and the PostgreSQL database was used instead at the very beginning. And thus, db.sqlite3 **does not consist any sensitive information**. Sqlite3 is a file that is used for **testing purposes only**. It is not used in the production environment.*
 
-Thus, you need to comment out the PostgreSQL database settings in the settings.py file and uncomment the sqlite3 database settings.
 
-I set tests folder for each app separately. I also deleted the test.py files from the apps.
+I set tests folder for each app separately, which consists test_forms.py, test_models.py, test_views.py and test_urls.py each. I also deleted the test.py files from the all apps.
 
 ![Testing Folders](documentation/test_reports/tests_folder.png)
 
