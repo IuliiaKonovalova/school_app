@@ -1264,6 +1264,24 @@ It has 2 button in the top right corner of the table: "edit" and "delete".
 
 If the receptionist clicks on the "Delete" button, he/she will be redirected to the Lesson Delete Page. If the user receptionist on the "Edit" button, he/she will be redirected to Lesson Edit Page.
 
+**Error Pages**
+
+There are also 2 additional error pages:
+
+  ![Error Page. 404](documentation/features/error_page/404_error_page.png)
+
+  it has a box with the the header "Page 404", image and a short message about the error ("Something went wrong as this page is not found").
+
+  If the user is logged in and tries to access a page that doesn't exist, he/she will find a button to his/her profile page.
+
+  ![Error Page. 404. Link to user profile](documentation/features/error_page/404_error_page2.png)
+
+  If the user is logged out and tries to access a page that doesn't exist, he/she will find a button to the home page
+
+  ![Error Page. 404. Link to home page](documentation/features/error_page/404_error_page1.png)
+
+  Page 505 is the same as 404 page, but it has a different header ("Page 500") and message ("Something went wrong as there is an internal sever error!").
+
 [Back to contents](#contents)
 
 ---
