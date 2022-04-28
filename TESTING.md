@@ -593,8 +593,9 @@ Testing conducted on the following browsers;
 
 - Brave;
 - Chrome;
-- Microsoft Edge;
 - Firefox;
+
+[Compatibility Report](documentation/compatibility/compatibility.pdf)
 
 [Back to contents](#contents)
 ---
