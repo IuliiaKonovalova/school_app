@@ -41,7 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function controls messages's display
   setTimeout(function () {
     let messages = document.getElementById('messages-notes');
-    messages.style.display = "none";
+    if (messages) {
+      messages.style.display = "none";
+    }
   }, 2500);
 
 
