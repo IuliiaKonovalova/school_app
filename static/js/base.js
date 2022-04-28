@@ -110,7 +110,7 @@ const searchMembers = (e) => {
   }
 };
 
-module.exports = {
+if (typeof module !== "undefined") module.exports = {
   profileMenu,
   menu,
   loginSignup,
