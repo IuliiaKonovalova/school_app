@@ -39,8 +39,12 @@
 
 ## About
 
-This is [Cool School app](https://school-application-konovalova.herokuapp.com/), which is a school management application. The main goal Ff this app is to help the school to manage the students, teachers, classes, subjects, etc. Moreover, the app is aimed at increasing the efficiency of the school management. The app is developed by [Iuliia Konovalova](https://github.com/IuliiaKonovalova).
+[Cool School app](https://school-application-konovalova.herokuapp.com/) is a school management application. The main goal Ff this app is to help the school manage the students, teachers, classes, subjects, etc. Moreover, the app is aimed at increasing the efficiency of school management. 
+
+The app is developed by [Iuliia Konovalova](https://github.com/IuliiaKonovalova).
+
 Repository: [GitHub Repo](https://github.com/IuliiaKonovalova/school_app)
+
 
 [Back to contents](#contents)
 
@@ -48,16 +52,16 @@ Repository: [GitHub Repo](https://github.com/IuliiaKonovalova/school_app)
 
 ### Strategy
 
-Developed for a real early childhood school, the app is designed to be easy to use and intuitive. The main goal of the app is to help the school to manage the students, teachers, classes, subjects, etc. This is achieved by the use of a simple and intuitive interface. As a final goal, the app is aimed at increasing the efficiency of the school management.
+Developed for a real early childhood school, the app is designed to be easy to use and intuitive. The main goal of the app is to help the school to manage the students, teachers, classes, subjects, etc. This has been achieved by the use of a simple and intuitive interface. As a final goal, the app is aimed at increasing the efficiency of school management.
 
 ### Target Audience
 
 The app was developed for all members of the early childhood school. 
   * Bosses: to control the flow of the school, to manage the students, teachers, classes, subjects, sales, etc.;
-  * Parents: to control their children attendance, to manage their children's payments, to manage their children's schedules, etc.;
-  * Teachers: to control their classes, to manage their classes' schedules, to access students' personal information on time, to manage their classes' attendance, etc.;
-  * Sales Managers: to control sales, to manage the sales, to manage the payments, to manage the schedules, to access students' personal information on time, to manage the attendance, etc.;
-  * Receptionists: to control the schedule of the school, to manage the schedule, to access students' personal information on time, to manage the attendance, etc.;
+  * Parents: to control their children attendance, to manage their children's payments, manage their children's schedules, etc.;
+  * Teachers: to control their classes, to manage their classes' schedules, access students' personal information on time, manage their classes' attendance, etc.;
+  * Sales Managers: to control sales, manage the sales, manage the payments, manage the schedules, access students' personal information on time, manage the attendance, etc.;
+  * Receptionists: to control the schedule of the school, manage the schedule, access students' personal information on time, manage the attendance, etc.;
 
 ### User Stories
 
@@ -83,7 +87,7 @@ The app was developed for all members of the early childhood school.
 
 | Issue ID    | User Story |
 |-------------|-------------|
-|[#9](https://github.com/IuliiaKonovalova/school_app/issues/9)|As a Potential client, I want to be contacted by sales managers, so that I can make a prudent decision about being a member.|
+|[#9](https://github.com/IuliiaKonovalova/school_app/issues/9)|As a Potential client, I want to be contacted by sales managers, so that I can make a prudent decision about becoming a member.|
 
 #### **Boss Goals**
 
@@ -157,8 +161,8 @@ The app was developed for all members of the early childhood school.
 
 - ### Languages:
     
-    + [Python 3.8.5](https://www.python.org/downloads/release/python-385/): the main language used to develop the server side of the website.
-    + [JS](https://www.javascript.com/): the main language used to develop the client side of the website.
+    + [Python 3.8.5](https://www.python.org/downloads/release/python-385/): the primary language used to develop the server-side of the website.
+    + [JS](https://www.javascript.com/): the primary language used to develop interactive components of the website.
     + [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML): the markup language used to create the website.
     + [CSS](https://developer.mozilla.org/en-US/docs/Web/css): the styling language used to style the website.
 
@@ -177,12 +181,12 @@ The app was developed for all members of the early childhood school.
 
     + [Git](https://git-scm.com/): the version control system used to manage the code.
     + [Pip3](https://pypi.org/project/pip/): the package manager used to install the dependencies.
-    + [Gunicorn](https://gunicorn.org/): the web server used to run the website.
+    + [Gunicorn](https://gunicorn.org/): the webserver used to run the website.
     + [Spycopg2](https://www.python.org/dev/peps/pep-0249/): the database driver used to connect to the database.
     + [Django-allauth](https://django-allauth.readthedocs.io/en/latest/): the authentication library used to create the user accounts.
     + [Django-crispy-forms](https://django-cryptography.readthedocs.io/en/latest/): was used to control the rendering behavior of Django forms.
     + [Heroku](https://dashboard.heroku.com/): the hosting service used to host the website.
-    + [GitHub](https://github.com/): used to host the source code of the website.
+    + [GitHub](https://github.com/): used to host the website's source code.
     + [VSCode](https://code.visualstudio.com/): the IDE used to develop the website.
     + [Chrome DevTools](https://developer.chrome.com/docs/devtools/open/): was used to debug the website.
     + [Font Awesome](https://fontawesome.com/): was used to create the icons used in the website.
@@ -246,7 +250,7 @@ Web application has the following pages:
 | new applications page       | Y | N | Y | N | N | N |
 | application detail page     | Y (plus assign role and delete application) | N | Y | N | N | N |
 | delete application page     | Y | N | N | N | N | N |
-| sales page                  | Y | N | Y (plus add sale and edit or delete personal sales only) | N | N | N |
+| sales page                  | Y | N | Y (plus add a sale and edit or delete personal sales only) | N | N | N |
 | add sale page               | N | N | Y | N | N | N |
 | edit sale page              | N | N | Y | N | N | N |
 | delete sale page            | N | N | Y | N | N | N |
@@ -262,7 +266,7 @@ Web application has the following pages:
 | delete lesson page          | N | N | N | Y | N | N |
 | teacher's personal schedule page | N | Y | N | N | N | N |
 
-- Each page has a navbar and footer
+- Each page has a navbar and a footer
 
 **Navbar**
 
@@ -277,11 +281,11 @@ Navbar has the following links:
 
 The simplistic design of the navbar is based on the decision to make the use of the webapp easy for the user.
 
-When the user clicks on the get started button, the menu opens and the user can choose to register or login.
+When the user clicks on the get started button, the menu opens, and the user can choose to register or log in.
 
 - ![Get Started menu](documentation/features/navbar/navbar_logout.png) 
 
-When the user is logged in, the navbar looks as following.
+When the user is logged in, the navbar looks as follows.
 
 - ![Navbar User logged in](documentation/features/navbar/navbar_logged_in.png)
 
@@ -289,7 +293,7 @@ It has only one button "Menu", which opens the menu.
 
 - ![Menu Button](documentation/features/navbar/navbar_menu.png)
 
-If the user is a boss or a sales manager, the menu has the following links:
+If the user is a boss or a sales manager, the menu has a following links:
 
 - ![Menu Boss or Manager View](documentation/features/navbar/menu_admin_view.png)
 
@@ -302,7 +306,7 @@ Menu has the following buttons:
 - Schedule (which leads to the schedule page)
 - Logout (which leads to the logout page)
 
-If the user is a teacher or receptionist, the menu has the following look:
+If the user is a teacher or a receptionist, the menu has a following look:
 
 - ![Menu Teacher or Receptionist View](documentation/features/navbar/menu_receptionists.png)
 
@@ -313,7 +317,7 @@ Menu has the following buttons:
 - Schedule (which leads to the schedule page)
 - Logout (which leads to the logout page)
 
-if the user is a parent or a potential client, the menu has the following look:
+if the user is a parent or a potential client, the menu has a following look:
 
 - ![Menu Parent or Potential Client View](documentation/features/navbar/navbar_limited_access.png)
 
@@ -332,16 +336,16 @@ Footer has the following sections:
 
   ![Logo](documentation/features/footer/footer_logo.png)
 
-- School information in the middle with the school email, phone number and address:
+- School information in the middle with the school email, phone number, and address:
 
   ![School Information](documentation/features/footer/footer_school_data.png)
 
-- Information about the coder in the right side with links to the github and linkedin and email:
+- Information about the coder is on the right side with links to the GitHub and LinkedIn, and email:
 
   ![Coder Information](documentation/features/footer/footer_creator_data.png)
 
 
-For the mobile version of the website, the footer looks as following:
+For the mobile version of the website, the footer looks as follows:
 
   ![Footer Mobile](documentation/features/footer/footer_mobile.png)
 
@@ -350,7 +354,7 @@ For the mobile version of the website, the footer looks as following:
 
 ![Home page](documentation/features/home_page/home_page.png)
 
-Home page has a simple welcome message and a button "get started", which leads to the registration page, from which the user can be redirected to the login page.
+The Home page has a simple welcome message and a button "get started" which leads to the registration page, from which the user can be redirected to the login page.
 
 - ![Home page Hero section](documentation/features/home_page/home_page_logo_get_started.png)
 
@@ -358,7 +362,7 @@ Under the hero section, there is a section, which describes the benefits of sign
 
 - ![Home page Benefits section](documentation/features/home_page/home_page_benefits.png)
 
-This section has 3 cards, each with a title, a description and an image.
+This section has 3 cards, each with a title, a description, and an image.
 
 On the mobile version, the cards are displayed in two rows.
 
@@ -366,20 +370,20 @@ On the mobile version, the cards are displayed in two rows.
 
 After the cards, there are 3 subsections.
 
-1. The first subsection has a text-incentive on the left side and an image on the right side.
+1. The first subsection has a text incentive on the left side and an image on the right side.
 
   ![Home page First subsection](documentation/features/home_page/home_page_incentive.png)
 
-2. The second subsection has a text describing the schools personnel on the right side and an image on the left side.
+2. The second subsection has a text describing the school's personnel on the right side and an image on the left side.
 
   ![Home page Second subsection](documentation/features/home_page/home_page_personnel.png)
 
-3. The third subsection has a text describing the school concern about children health on the left side and an image on the right side.
+3. The third subsection has a text describing the school's concern about children's health on the left side and an image on the right side.
 
   ![Home page Third subsection](documentation/features/home_page/home_page_health.png)
 
 
-After the subsections, there is an immediate contact section, which has an incentive to become a school member right now and a button "get started", which leads to the registration page, from which the user can be redirected to the login page.
+After the subsections, there is an immediate contact section that has an incentive to become a school member right now and a button "get started", which leads to the registration page. The user can be redirected to the login page.
 
   ![Home page Contact section](documentation/features/home_page/home_page_contact_now.png)
 
@@ -387,7 +391,7 @@ After the subsections, there is an immediate contact section, which has an incen
 
   ![Registration page](documentation/features/register_page/signup_page.png)
 
-This page has a dark-blue container with a sign up form which has a header and input fields for the user to fill in.
+This page has a dark-blue container with a sign up form, which has a header and input fields for the user to fill in.
 
 In the header of the form, there is a title "Sign up" and a subtitle "Please Fill out all information", which the seriousness of the company towards the user.
 
@@ -397,24 +401,24 @@ Underneath, there is a subtitle "Already have an account?." and a button "Login"
 
   ![Registration page header](documentation/features/register_page/signup_page_login.png)
 
-Under the forms's header, there are the following fields:
+Under the form's header, there are the following fields:
 
   ![Registration page fields](documentation/features/register_page/signup_page_fields.png)
 
-These fields are are required for the user to be filled out.
+These fields are required for the user to be filled out.
 - Email address (to let sales managers and bosses contact the user)
 - Username (to let the user have a personal profile)
 - First name (to let the user have a personal profile)
 - Last name (to let the user have a personal profile)
 - Phone number (to let sales managers and bosses contact the user)
-- Password (to let the user login)
-- Password confirmation (to let the user login)
+- Password (to let the user log in)
+- Password confirmation (to let the user log in)
 
-If the user typed a wrong email address, the email field will be highlighted.
+If the user types the wrong email address, the email field will be highlighted.
 
   ![Registration page email field](documentation/features/register_page/signup_page_error_email.png)
 
-If the user left an empty field, the field will be highlighted.
+If the user leaves an empty field, the field will be highlighted.
 
   ![Registration page empty field](documentation/features/register_page/signup_page_error_empty_field.png)
 
@@ -430,17 +434,17 @@ If the user typed a not save username, the username field will be highlighted.
 
   ![Login page](documentation/features/login_page/login_page.png)
 
-Login Page has a dark-blue container with a login form which has a header and input fields for the user to fill in. Plus it has a button "Sign In" and "Forgot password?", which leads to the forgot password page.
+Login Page has a dark-blue container with a login form, which has a header and input fields for the user to fill in. Plus it has a button "Sign In" and "Forgot password?", leading to the forgot password page.
 
   ![Login page header](documentation/features/login_page/login_page_header.png)
 
-The header has a title "Log in" and a subtitle "If you have not created an account yet, then please sign up first."
+The header has the title "Log in" and the subtitle "If you have not created an account yet, then please sign up first."
 
 When the user clicks on the button, he is redirected to the registration page.
 
   ![Login page header](documentation/features/login_page/login_page_signup_button.png)
 
-Underneath, there are two fields, which have to be filled out in order to log in:
+Underneath, there are two fields which have to be filled out in order to log in:
 
 - Username or email address
 - Password
@@ -451,11 +455,11 @@ If the user made a mistake in the username or password, the field will be highli
 
   ![Login page error field](documentation/features/login_page/login_page_error.png)
 
-Under the fields, there is a button "Sign in", which leads to the schedule page.
+Under the fields, there is a button "Sign in" which leads to the schedule page.
 
   ![Login page sign in button](documentation/features/login_page/login_page_button.png)
 
-Under this button there is a button "Forgot password?", which leads to the forgot password page.
+Under this button, there is a button "Forgot password?", which leads to the forgot password page.
 
   ![Login page forgot password button](documentation/features/login_page/login_page_forgot_password.png)
 
@@ -463,11 +467,11 @@ Under this button there is a button "Forgot password?", which leads to the forgo
 
   ![Logout page](documentation/features/logout_page/logout_page.png)
 
-This page has a dark-blue container with a logout form which has a header and a button "Logout", which leads to the home page.
+This page has a dark-blue container with a logout form with a header and a button "Logout" leading to the home page.
 
   ![Logout page header](documentation/features/logout_page/logout_page_box.png)
 
-It has a title "Logout" and a subtitle "Are you sure you want to logout?"
+It has the title "Logout" and the subtitle "Are you sure you want to logout?"
 Underneath, there is a button "Sign Out".
 
   ![Logout page buttons](documentation/features/logout_page/logout_page_signout_button.png)
@@ -476,21 +480,21 @@ Underneath, there is a button "Sign Out".
 
   ![Reset password page](documentation/features/reset_password_page/reset_password_page.png)
 
-  It has a dark-blue container with a reset password form which has a header and input fields for the user to fill in and a reset button.
+ It has a dark-blue container with a reset password form with a header and input fields for the user to fill in and a reset button.
 
   ![Reset password page header](documentation/features/reset_password_page/reset_password_page_box.png)
 
-  The header has a title "Reset Password" and a subtitle, which guide the user what actions should be done in order to regain the access to the user's account.
+The header has the title "Reset Password" and a subtitle, which guides the user on what actions should be done in order to regain access to the user's account.
 
   ![Reset password page header](documentation/features/reset_password_page/reset_password_page_box_header.png)
 
-  Underneath, there is a fields, where the user can type in his email address.
+Underneath, there are fields, where the user can type in his email address.
 
   ![Reset password page fields](documentation/features/reset_password_page/reset_password_page_field.png)
 
-  If the user typed a wrong email address, the email field will be highlighted.
+If the user types a wrong email address, the email field will be highlighted.
 
-  Underneath, there is a button "Reset My Password", which leads to the home page. The user will receive an email with a link to reset his password.
+There is a button "Reset My Password," which leads to the home page. The user will receive an email with a link to reset his password.
 
   ![Reset password page button](documentation/features/reset_password_page/reset_password_page_button.png)
   
@@ -506,7 +510,7 @@ It has 2 buttons in top right corner: "Edit" and "Password". The "Edit" button l
 
   ![Profile page buttons](documentation/features/profile_page/edit_password_buttons.png)
 
-If the user is the boss, there is an additional button in the top left corner "Delete".
+If the user is the boss, there is an additional button in the top left corner, "Delete."
 
   ![Profile page buttons](documentation/features/profile_page/profile_page_admin.png)
 
@@ -514,7 +518,7 @@ The button "Delete" leads to the delete profile page.
 
   ![Profile page buttons](documentation/features/profile_page/profile_page_delete_button.png)
 
-This button has presence for all other profiles that the boss may visit; thus only a boss can delete a profile.
+This button has a presence for all other profiles that the boss may visit; thus, only a boss can delete a profile.
 
   ![Profile page buttons](documentation/features/profile_page/profile_page_other_user.png)
 
@@ -522,11 +526,11 @@ As a comparison, the profile page of the user that the boss visited on the previ
 
   ![Profile page buttons](documentation/features/profile_page/profile_page_not_admin.png)
 
-If the user is a parent, the profile has the following look:
+If the user is a parent, the profile has a following look:
 
   ![Profile page parent](documentation/features/profile_page/profile_parent.png)
 
-There is an addition field where the parent may assign their relation to a kid as it will be displayed for the school's members.
+There is an additional field where the parent may assign their relation to a kid as it will be displayed for the school's members.
 
   ![Profile page parent relation field](documentation/features/profile_page/profile_edit_role.png)
 
@@ -542,40 +546,39 @@ Types of the relation:
 
   ![Profile page edit button](documentation/features/profile_page/profile_role_choice.png)
 
-  After making a choice and clicking save button, the relation will be assigned.
+After choosing and clicking the save button, the relation will be assigned.
 
   ![Profile page edit button](documentation/features/profile_page/relation_save.png)
 
-If the user is a teacher, the profile has the following look:
+If the user is a teacher, the profile has a following look:
 
   ![Profile page teacher](documentation/features/profile_page/profile_page_teacher.png)
 
-Underneath the profile box, there is additional data of the classes given to the students.
+There is additional data on the classes given to the students underneath the profile box.
 
   ![Profile page teacher classes](documentation/features/profile_page/profile_page_teacher_classes_box.png)
 
-This box is only visible for the teacher and the bosses.
+This box is only visible to the teacher and the bosses.
 
-In this box there are datepickers, which allows the teacher or the boss to sort classes during the particular time period.
+In this box, there are date pickers, which allow the teacher or the boss to sort classes during a particular period.
 
   ![Profile page teacher classes](documentation/features/profile_page/profile_page_teacher_datepicker.png)
 
-Here the teacher or the boss will be able to pick a data and the summery of the classes will be displayed.
+Here the teacher or the boss will be able to pick data, and the summary of the classes will be displayed.
 
-
-Needless to say, that the pagination functionality has been implemented in case that there are more than 20 classes.
+Needless to say, the pagination functionality has been implemented in case there are more than 20 classes.
 
   ![Profile page teacher classes](documentation/features/profile_page/page_navigation1.png)
 
-The buttons for the page navigation have different appearances to guide the user whether there are more classes or not.
+The buttons for the page navigation have different appearances to guide the user on whether there are more classes or not.
 
   ![Profile page teacher classes](documentation/features/profile_page/page_navigation2.png):
 
-If the user is a Sales Manager, the profile has the following look:
+If the user is a Sales Manager, the profile has a following look:
 
   ![Profile page sales manager](documentation/features/profile_page/profile_page_sales.png)
 
-It has 2 addition sections: Students for which this sales manager is in charge of (visible to all users) and "Sales made" (visible to the sales manager her/himself and the boss)
+It has two addition sections: Students for which this sales manager is in charge (visible to all users) and "Sales made" (visible to the sales manager her/himself and the boss)
 
   ![Profile page sales manager Subsections](documentation/features/profile_page/profile_page_sales_subsections.png)
 
@@ -583,7 +586,7 @@ The "Students" section has a table with the students that this sales manager is 
 
   ![Profile page sales manager students](documentation/features/profile_page/profile_page_sales_students.png)
 
-There the Sales manager or the user can see all students. Moreover, the students whose parents should be contacted urgently has an orange label to make them more distinguishable.
+There the sales manager or the user can see all students. Moreover, the students whose parents should be contacted urgently have an orange label to make them more distinguishable.
 
   ![Profile page sales manager students](documentation/features/profile_page/profile_page_sales_urgent.png)
 
@@ -591,11 +594,11 @@ Underneath the "Students" section, there is a table with the "Sales made" by the
 
   ![Profile page sales manager sales](documentation/features/profile_page/profile_page_sales_sales.png)
 
-It has a header with the total amount of sales made by the sales manager and a link to the sales page, where the whole statistics stored.
+It has a header with the total amount of sales made by the sales manager and a link to the sales page, where the whole statistics are stored.
 
   ![Profile page sales manager sales](documentation/features/profile_page/profile_page_sales_header.png)
 
-Under the header there are recent sales made with limited data (date on which the sale was made and an amount of classes sold). Since the pagination functionality has been implemented, there are only 20 recent sales could be seen and there are 2 buttons for the page navigation at the bottom of the table.
+Under the header, there are recent sales made with limited data (the date on which the sale was made and the number of classes sold). Since the pagination functionality has been implemented, there are only 20 recent sales could be seen, and there are two buttons for the page navigation at the bottom of the table.
 
   ![Profile page sales manager sales](documentation/features/profile_page/page_navigation1.png)
 
@@ -609,11 +612,11 @@ It has a container where the user can edit:
 - Last Name;
 - Phone Number;
 
-There are 3 fields with prefilled data for the user. This data could be changed by the user if he/she wants.
+There are three fields with prefilled data for the user. The user could change this data if he/she wants.
 
   ![Edit profile page](documentation/features/profile_edit_page/profile_edit_fields.png)
 
-Underneath the fields there are to buttons "Go Back" and "Save". If user doesn't want to save changes, he/she can click on "Go Back" button and will be redirected to the profile page. If user wants to save changes, he/she can click on "Save" button and will be redirected to the profile page.
+Underneath the fields, there are two buttons, "Go Back" and "Save." If the user doesn't want to save changes, they can click on the "Go Back" button and will be redirected to the profile page. If the user wants to save changes, they can click on the "Save" button and will be redirected to the profile page.
 
   ![Edit profile page](documentation/features/profile_edit_page/cancel_save_buttons.png)
 
@@ -623,11 +626,11 @@ Underneath the fields there are to buttons "Go Back" and "Save". If user doesn't
 
 Only the bosses have access to this page as only they are able to delete any profile.
 
-This page has a box with warning message and a link to the profile page of the user that is about to be deleted:
-  
+This page has a box with a warning message and a link to the profile page of the user that is about to be deleted:
+
   ![Profile delete page](documentation/features/profile_delete_page/member_delete_link.png)
 
-Under the warning message there are 2 buttons "Cancel" and "Delete". If the user doesn't want to delete the profile, he/she can click on "Cancel" button and will be redirected to the profile page. If the user wants to delete the profile, he/she can click on "Delete" button and will be redirected to the profile page and the school member will be permanently deleted.
+There are two buttons under the warning message, there are two buttons, "Cancel" and "Delete". If the user doesn't want to delete the profile, he/she can click on the "Cancel" button and will be redirected to the profile page. If the user wants to delete the profile, he/she can click on the "Delete" button and will be redirected to the profile page, and the school member will be permanently deleted.
 
   ![Profile delete page](documentation/features/profile_delete_page/cancel_delete_buttons.png)
 
@@ -635,7 +638,7 @@ Under the warning message there are 2 buttons "Cancel" and "Delete". If the user
 
   ![Profile change password page](documentation/features/profile_change_password_page/profile_password_page.png)
 
-It has a header with the title "Change Password" and a subtitle to guide the user what to do next. Underneath, there are 3 fieldto be field:
+It has a header with the title "Change Password" and a subtitle to guide the user on what to do next. Underneath, there are three field to be filled:
 
 - Old Password;
 - New Password;
@@ -643,9 +646,9 @@ It has a header with the title "Change Password" and a subtitle to guide the use
 
   ![Profile change password page](documentation/features/profile_change_password_page/change_password_fields.png)
 
-If there any errors in the fields, the user will see the error message.
+If there are any errors in the fields, the user will see the error message.
 
-Under the fields there are 2 buttons "Go Back" and "Submit". If the user doesn't want to change the password, he/she can click on "Go Back" button and will be redirected to the profile page. If the user wants to change the password, he/she can click on "Change Password" button and will be redirected to the profile page and the password will be change if all conditions were met.
+Under the fields, there are two buttons, "Go Back" and "Submit". If the user doesn't want to change the password, he/she can click on the "Go Back" button and will be redirected to the profile page. If the user wants to change the password, he/she can click on the "Change Password" button and will be redirected to the profile page, and the password will be changed if all conditions are met.
 
   ![Profile change password page](documentation/features/profile_change_password_page/cancel_delete_buttons.png)
 
@@ -663,7 +666,7 @@ It also has a table with the new applications, where each application has a link
 
   ![New applications page](documentation/features/new_applications_page/new_applications_data.png)
 
-Underneath the table, there is navigation buttons. If the user wants to see the next page of the applications, he/she can click on the "Next" button. If the user wants to see the previous page of the applications, he/she can click on the "Previous" button.
+Underneath the table, there are navigation buttons. If the user wants to see the next page of the application, he/she can click on the "Next" button. If the user wants to see the previous page of the applications, he/she can click on the "Previous" button.
 
   ![New applications page](documentation/features/new_applications_page/page_navigation1.png)
   ![New applications page](documentation/features/new_applications_page/page_navigation2.png)
@@ -671,11 +674,11 @@ Underneath the table, there is navigation buttons. If the user wants to see the 
 **Application Detail Page**
 
 This page is accessible to the boss and sales manager.
-For the boss, the page has a following look:
+For the boss, the page has the following look:
 
   ![Application detail page. Boss View](documentation/features/application_detail_page/application_detail_admin_view.png)
 
-It has 2 boxes. The first box consist the information about the applicant including the name, the email, the phone number.
+It has two boxes. The first box consists of the information about the applicant, including the name, the email, and the phone number.
 
   ![Application detail page. Applicant Data Box](documentation/features/application_detail_page/application_detail_data.png)
 
@@ -683,11 +686,11 @@ It also has a "Delete" button in the top right corner of the page. If the boss w
 
   ![Application detail page. Delete Button](documentation/features/application_detail_page/application_detail_delete_button.png)
 
-The second box provides the boss with the assigning role functionality, which will give an access to the applicant to the application according to the role the boss assigns.
+The second box provides the boss with the assigning role functionality, which will give access to the applicant to the application according to the role the boss assigns.
 
   ![Application detail page. Role Assignment Box](documentation/features/application_detail_page/application_detail_role.png)
 
-When the boss click on the dropdown menu, the following choices will be shown:
+When the boss clicks on the dropdown menu, the following choices will be shown:
 
   ![Application detail page. Role Choices](documentation/features/application_detail_page/application_detail_role_choice.png)
 
@@ -695,28 +698,28 @@ After choosing the role the boss wants to assign, he/she can click on the "Save"
 
   ![Application detail page. Save Role Button](documentation/features/application_detail_page/application_detail_save_role_button.png)
 
-When the boss clicks on "save" button, the role will be assigned to the applicant. However, it will not redirect the boss to any page, in order to prevent the boss from accidentally assigning wrong role to an applicant.
+When the boss clicks on "Save" button, the role will be assigned to the applicant. However, it will not redirect the boss to any page in order to prevent the boss from accidentally assigning the wrong role to an applicant.
 
 To go back to the applications page, the boss may click on the link underneath the boxes "Go to other applications". And the user will be redirected to the applications page.
 
   ![Application detail page. Go back to applications](documentation/features/application_detail_page/application_detail_back.png)
 
-For the sales manager, the page has a following look:
+For the sales manager, the page has the following look:
 
   ![Application detail page. Sales Manager View](documentation/features/application_detail_page/application_detail_sale_view.png)
 
-The page has no "Delete" button as it is not accessible to the sales manager. Moreover, the page has no  box with the assigning role to the new applicant as it is accessible only to the boss.
+The page has no "Delete" button as it is not accessible to the sales manager. Moreover, the page has no box with the assigning role to the new applicant as it is accessible only to the boss.
 
 **Application Delete Page**
 
   ![Application delete page](documentation/features/application_delete_page/application_delete_page.png)
 
-This page is only accessible to the boss. Thus, only boss is empowered to delete any applications.
+This page is only accessible to the boss. Thus, only the boss is empowered to delete any applications.
 It has a warning message with the applicant's name.
 
   ![Application delete page](documentation/features/application_delete_page/application_delete_warning.png)
 
-It also has 2 buttons "Go Back" and "Delete". If the boss doesn't want to delete the application, he/she can click on "Go Back" button and will be redirected to the application detail page. If the boss wants to delete the application, he/she can click on "Delete" button and will be redirected to the new applications page page and the application will be permanently deleted.
+It also has 2 buttons, "Go Back" and "Delete". If the boss doesn't want to delete the application, he/she can click on "Go Back" button and will be redirected to the application detail page. If the boss wants to delete the application, he/she can click on "Delete" button. He / she will be redirected to the new applications page, and the application will be permanently deleted.
 
   ![Application delete page](documentation/features/application_delete_page/cancel_delete_buttons.png)
 
@@ -724,15 +727,16 @@ It also has 2 buttons "Go Back" and "Delete". If the boss doesn't want to delete
 
   ![Limited access page](documentation/features/limited_access_page/limited_access_page.png)
 
-  This page is applicable to the users that are not allowed to access the page that they want to enter manually in the address bar. it has a box with a friendly message, pointing that the user has no access to a particular page. It also has a link to the user's profile page.
+This page applies to the users that are not allowed to access the page that they want to enter manually in the address bar. it has a box with a friendly message pointing out that the user has no access to a particular page. It also has a link to the user's profile page.
+
 
   ![Limited access page. Link to Personal Profile](documentation/features/limited_access_page/limit_access_link.png)
 
 **Sales Page**
 
-This page is accessible only by the sales manager and the boss. However, the look of the page is different for the boss and the sales manager as the boss has no access to add, edit or delete sale.
+This page is accessible only by the sales manager and the boss. However, the look of the page is different for the boss and the sales manager as the boss has no access to add, edit or delete salez.
 
-For the sales managers the sales page looks as following:
+For the sales managers, the sales page looks as follows:
 
   ![Sales page. Sales Manager View](documentation/features/sales_page/sales_page_sales_view.png)
 
@@ -740,7 +744,7 @@ It has a button "Add new sale" in the top right corner of the page. If the sales
 
   ![Sales page. Add New Sale Button](documentation/features/sales_page/sales_page_add_sale_button.png)
 
-It has a title "Sales", datepicker sorting bar and a table with the sales.
+It has the title "Sales", datepicker sorting bar, and a table with the sales.
 
 The sorting bar has 2 datepickers, one for the start date and one for the end date. The sales are sorted by the start date. There is a button "Search" on the right side of the sorting bar. after picking dates and clicking on the "Search" button, the sales will be filtered by the dates.
 
@@ -757,32 +761,32 @@ The table has the following columns:
 - Total amount of classes sold;
 - Manager, who conducted the sale (with the link to the personal profile);
 - Client, who bought the classes (with the link to the personal profile);
-- Student, for whom the classes were bought (with the link to the personal profile);
+- Student for whom the classes were bought (with the link to the personal profile);
 - Edit, which will redirect the sales manager to the edit sale page;
 - Delete, which will redirect the sales manager to the delete sale page.
 
   ![Sales page. Table](documentation/features/sales_page/sales_page_edit_delete_limitations.png)
 
-As it is shown in the picture, only the sales manager, who conducted the sale, is able to edit or delete the sale. The user in the picture is Annie Green, and only she is able to edit or delete the sale, which she conducted. She has no access to render or delete the sales made by another Sales Manager, Kate Peterson.
+As it is shown in the picture, only the sales manager, who conducted the sale, is able to edit or delete the sale. The user in the picture is Annie Green, and only she is able to edit or delete the sale which she conducted. She has no access to render or delete the sales made by another Sales Manager, Kate Peterson.
 
-Under the table there is a navigation bar for the table. It has a "Previous" button and a "Next" button. The "Previous" button will redirect the sales manager to the previous page of the table. The "Next" button will redirect the sales manager to the next page of the table.
+Under the table, there is a navigation bar for the table. It has a "Previous" button and a "Next" button. The "Previous" button will redirect the sales manager to the previous page of the table. The "Next" button will redirect the sales manager to the next page of the table.
 
   ![Sales page. Navigation1](documentation/features/sales_page/page_navigation1.png)
   ![Sales page. Navigation2](documentation/features/sales_page/page_navigation2.png)
 
-On the mobile screens the table has only following columns:
+On the mobile screens, the table has only the following columns:
 
 - ID of the sale;
 - Date of the sale;
 - Total amount of classes sold;
 - Edit, which will redirect the sales manager to the edit sale page;
-- Delete, which will redirect the sales manager to the delete sale page.
+- Delete, redirecting the sales manager to the delete sale page.
 
   ![Sales page. Mobile Table](documentation/features/sales_page/sales_page_mobile.png)
 
-  It also has a friendly message, which will suggest to the user open the sales on page to view the whole data on sales on the wider devices.
+It also has a friendly message, which will suggest that the user open the sales on the page to view the complete data on sales on the broader devices.
 
-Additionally, the sales page has a different look for the boss. It has no "Add new sale" button in the top right corner of the page. It has not Edit and Delete columns as only sales managers are able to edit or delete their own sales.
+Additionally, the sales page has a different look for the boss. It has no "Add new sale" button in the top right corner of the page. It has "Edit" and "Delete" columns as only sales managers can edit or delete their sales.
 
   ![Sales page. Boss View](documentation/features/sales_page/sales_page_admin_view.png)
 
@@ -792,12 +796,12 @@ This page is accessible only by the sales manager.
 
   ![Add new sale page.](documentation/features/add_sale_page/add_sale_page.png)
 
- It has a title "Add New Sale" and a form with the following fields:
+ It has the title "Add New Sale" and a form with the following fields:
 
   ![Add new sale page. Fields](documentation/features/add_sale_page/add_sale_page_fields.png) 
 
 - Client Name (with dropdown menu, where all clients are listed);
-- Amount (for the amount of classes that the client is buying);
+- Amount (for the number of classes that the client is buying);
 - Student (with dropdown menu, where all students are listed);
 
 When a Sales Manager clicks on the "Client Name" dropdown menu, it will show all the clients with an option to type a name for a search:
@@ -808,7 +812,7 @@ When a Sales Manager clicks on the "Student" dropdown menu, it will show all the
 
   ![Add new sale page. Dropdown](documentation/features/add_sale_page/add_sale_page_dropdown_students.png)
 
-Underneath the form there is a button "Save" and a button "Cancel". If the sales manager clicks on the "Save" button, the form will be validated and if it is valid, the sale will be added to the database. If the form is not valid, the user will be redirected to the same page and the form will be filled with the data that was entered before. If the sales manager clicks on the "Cancel" button, he/she will be redirected to the sales page.
+Underneath the form, there is a button "Save" and a button "Cancel". If the sales manager clicks on the "Save" button, the form will be validated, and if it is valid, the sale will be added to the database. If the form is not valid, the user will be redirected to the same page, and the form will be filled with the data that was entered before. If the sales manager clicks on the "Cancel" button, he/she will be redirected to the sales page.
 
   ![Add new sale page. Form Buttons](documentation/features/add_sale_page/cancel_back_buttons.png)
 
@@ -818,15 +822,15 @@ This page is accessible only by the sales manager.
 
   ![Edit sale page.](documentation/features/edit_sale_page/edit_sale_page.png)
 
- It has a title "Edit Sale" and a form with the following fields with pre-filled data:
+ It has the title "Edit Sale" and a form with the following fields with pre-filled data:
 
   ![Edit sale page. Fields](documentation/features/edit_sale_page/edit_sale_page_fields.png)
 
-The dropdown menus are pre-filled with the data from the sale that is being edited and the previously chosen client highlighted with the orange background. Same come to the dropdown menus for the students.
+The dropdown menus are pre-filled with the data from the sale that is being edited, and the previously chosen client is highlighted with the orange background. The same comes to the dropdown menus for the students.
 
   ![Edit sale page. Dropdown](documentation/features/edit_sale_page/edit_sale_page_dropdown.png)
 
-Under the fields there 2 buttons: "Save" and "Cancel". If the sales manager clicks on the "Save" button, the form will be validated and if it is valid, the sale will be updated in the database. If the form is not valid, the user will be redirected to the same page and the form will be filled with the data that was entered before. If the sales manager clicks on the "Cancel" button, he/she will be redirected to the sales page.
+Under the fields, there are two buttons: "Save" and "Cancel." If the sales manager clicks on the "Save" button, the form will be validated, and if it is valid, the sale will be updated in the database. If the form is not valid, the user will be redirected to the same page, and the form will be filled with the data that was entered before. If the sales manager clicks on the "Cancel" button, he/she will be redirected to the sales page.
 
   ![Edit sale page. Form Buttons](documentation/features/edit_sale_page/cancel_back_buttons.png)
 
@@ -836,11 +840,11 @@ This page is accessible only by the sales manager.
 
   ![Delete sale page.](documentation/features/delete_sale_page/delete_sale_page.png)
 
- It has a title "Delete Sale" and a warning message with info og the sale that is about to be deleted.
+ It has the title "Delete Sale" and a warning message with info og the sale that is about to be deleted.
 
   ![Delete sale page. Warning Message](documentation/features/delete_sale_page/delete_sale_page_warning.png)
 
-Under the warning message there 2 buttons: "Delete" and "Cancel". If the sales manager clicks on the "Delete" button, the sale will be deleted from the database. If the sales manager clicks on the "Cancel" button, he/she will be redirected to the sales page.
+Under the warning message there are 2 buttons: "Delete" and "Cancel". If the sales manager clicks on the "Delete" button, the sale will be deleted from the database. If the sales manager clicks on the "Cancel" button, he/she will be redirected to the sales page.
 
   ![Delete sale page. Form Buttons](documentation/features/delete_sale_page/cancel_delete_buttons.png)
 
@@ -850,7 +854,7 @@ This page is accessible only by the school personnel (bosses, teachers, sales ma
 
   ![Members page.](documentation/features/members_page/members_page.png)
 
-  It has a title "Members" and sorting bar. The sorting bar has the following choices:
+  It has the title "Members" and a sorting bar. The sorting bar has the following choices:
 
 - All Members;
 - Parents;
@@ -862,7 +866,7 @@ This page is accessible only by the school personnel (bosses, teachers, sales ma
 
 When the user clicks on the "All Members" button, the table will be sorted by the name of the member. When the user clicks on the "Parents" button, the table will be sorted by the name of the parent. When the user clicks on the "Teachers" button, the table will be sorted by the name of the teacher. When the user clicks on the "Sales Managers" button, the table will be sorted by the name of the sales manager. When the user clicks on the "Receptionists" button, the table will be sorted by the name of the receptionist.
 
-It has also displays the amount of the sorting results:
+It also displays the amount of the sorting results:
 
   ![Members page. Sorting bar](documentation/features/members_page/members_page_summary.png)
 
@@ -874,19 +878,19 @@ When the user inputs the name of the member, the search bar will show the amount
   
   ![Members page. Search bar](documentation/features/members_page/members_page_search_input.png)
 
-In the table results the user will see only members, which match the input:
+In the table results, the user will see only members which match the input:
 
   ![Members page. Search bar Results](documentation/features/members_page/members_page_search_input_results.png)
 
   
-Then the redo button will be displayed. When the user clicks on the redo button, the search bar will be cleared and the table will be sorted by the name of the member.
+Then the redo button will be displayed. When the user clicks on the redo button, the search bar will be cleared, and the table will be sorted by the name of the member.
 
   ![Members page. Search bar. Undo Button](documentation/features/members_page/undo_button.png)
 
 
-Underneath, there is a table of the results. It has the links to the pages of each member.
+Underneath, there is a table of the results. It has links to the pages of each member.
 
-Under the table there is a navigation bar for the table. It has a "Previous" button and a "Next" button. The "Previous" button will redirect the sales manager to the previous page of the table. The "Next" button will redirect the sales manager to the next page of the table.
+Under the table, there is a navigation bar for the table. It has a "Previous" button and a "Next" button. The "Previous" button will redirect the sales manager to the previous page of the table. The "Next" button will redirect the sales manager to the next page of the table.
 
   ![Sales page. Navigation1](documentation/features/members_page/page_navigation1.png)
   ![Sales page. Navigation2](documentation/features/members_page/page_navigation2.png)
@@ -898,13 +902,13 @@ This page is accessible only by the school personnel (bosses, teachers, sales ma
 
   ![Student Page](documentation/features/students_page/students_page_admin_view.png)
 
-There is a button "add new student", which visible only to sales managers and bosses as only they are empowered to add any students. 
+There is a button "add new student," which is visible only to sales managers and bosses as only they are empowered to add any students.
 
   ![Student Page. Add New Student Button](documentation/features/students_page/add_student_button.png)
 
-When the sales manager or a boss click on this button, he/she will be redirected to add new student page.
+When the sales manager or a boss clicks on this button, he/she will be redirected to add a new student page.
 
-In the top of the age there is a title "All Students", and under this title there is a search bar with instructions underneath this input bar.
+At the top of the age, there is a title "All Students", and under this title, there is a search bar with instructions underneath this input bar.
 
   ![Student Page. Search Input](documentation/features/students_page/students_page_search_input.png)
 
@@ -912,17 +916,17 @@ Here the user may type the name in order to find a particular student. As the us
 
   ![Student Page. Undo Button](documentation/features/students_page/undo_button.png)
 
-When the user clicks on the undo button or delete the input manually, the undo button disappears.
+When the user clicks on the undo button or deletes the input manually, the undo button disappears.
 
-Under the search bar, there is a sorting bar where the user may sort students according to the urgent call needs. It has to options: All students sort and Urgent Class Sort. Plus, there is search button on the right side. There are also the instructions under the sorting bar.
+Under the search bar, there is a sorting bar where the user may sort students according to the urgent call needs. It has two options: All students sort and Urgent Class Sort. Plus, there is a search button on the right side. There are also the instructions under the sorting bar.
 
   ![Student Page. Sorting Bar](documentation/features/students_page/students_page_sort.png)
 
-If student has fewer than 10 classes left, this student will have an urgent label on the right side of their names.
+If a student has fewer than ten classes left, this student will have an urgent label on the right side of their name.
 
   ![Student Page. Urgent Label](documentation/features/students_page/students_student_urgent_call.png)
 
-After all there is sorting results summary:
+After all, there is sorting results summary:
 
   ![Student Page. Sort Summary](documentation/features/students_page/students_page_summary.png)
 
@@ -930,18 +934,18 @@ The following image will display how the urgent sort works:
 
   ![Student Page. Urgent Sort](documentation/features/students_page/students_sort_urgent_results.png)
 
-The main part of this page is devoted to the students table, where all students are displayed. The users can see students' names, urgent call labels, and a link to students' profiles. If the user clicks on the student, he/she will be redirected to this student's profile.
+The central part of this page is devoted to the student's table, where all students are displayed. The users can see students' names, urgent call labels, and the link to students' profiles. If the user clicks on the student, he/she will be redirected to this student's profile.
 
   ![Student Page. Students Table](documentation/features/students_page/students_page_table.png)
 
-  Under the table, there is a page navigation. 
+  Under the table, there is page navigation. 
 
-Under the table there is a navigation bar for the table. It has a "Previous" button and a "Next" button. The "Previous" button will redirect the sales manager to the previous page of the table. The "Next" button will redirect the sales manager to the next page of the table.
+Under the table, there is a navigation bar for the table. It has a "Previous" button and a "Next" button. The "Previous" button will redirect the sales manager to the previous page of the table. The "Next" button will redirect the sales manager to the next page of the table.
 
   ![Student page. Navigation1](documentation/features/students_page/page_navigation1.png)
   ![Student page. Navigation2](documentation/features/students_page/page_navigation2.png)
 
-Students Page looks differently for teachers and receptionists as there is no "add new student" button in the top right corner:
+The Students Page looks differently for teachers and receptionists as there is no "add new student" button in the top right corner:
 
   ![Student Page. Teachers and Receptionists View](documentation/features/students_page/students_page.png)
 
@@ -951,7 +955,7 @@ This page is accessible only by the sales manager and the boss.
 
   ![Add Student Page.](documentation/features/add_student_page/add_student_page.png)
 
- It has a title "Add Student" and a form with the following fields:
+ It has the title "Add Student" and a form with the following fields:
 
   ![Add Student Page. Fields](documentation/features/add_student_page/add_student_fields.png) 
 
@@ -973,13 +977,13 @@ This page is accessible only by the sales manager and the boss.
 
 - Address (to store student's address in case of urgent situations);
 - Classes Left (if the parents purchased any special offers packages);
-- Sales Manager (to assign the sales manager in charge of the student, who will be responsible for keeping a close attention to student's attendance)
+- Sales Manager (to assign the sales manager in charge of the student, who will be responsible for keeping close attention to a student's attendance)
 
   ![Add Student Page. Sales Field](documentation/features/add_student_page/add_student_page_sales_field.png)
 
-- Notes (in case if a student has any preferences or allergies)
+- Notes (in case, if a student has any preferences or allergies)
 
-Underneath the form there is a button "Save" and a button "Cancel". If the sales manager or a boss clicks on the "Save" button, the form will be validated and if it is valid, the sale will be added to the database. If the form is not valid, the user will be redirected to the same page and the form will be filled with the data that was entered before. If the sales manager or a boss clicks on the "Cancel" button, he/she will be redirected to the students page page.
+Underneath the form, there is a button "Save" and a button "Cancel". If the sales manager or a boss clicks on the "Save" button, the form will be validated and if it is valid, the sale will be added to the database. If the form is not valid, the user will be redirected to the same page, and the form will be filled with the data that was entered before. If the sales manager or a boss clicks on the "Cancel" button, he/she will be redirected to the student's page.
 
   ![Add Student Page. Form Buttons](documentation/features/add_student_page/cancel_save_buttons.png)
 
@@ -989,13 +993,13 @@ This page is accessible only by the sales manager or the boss.
 
   ![Edit Student Page.](documentation/features/edit_student_page/edit_students_page.png)
 
- It has a title "Edit Student's Data" and a form with the following fields with pre-filled data:
+ It has the title "Edit Student's Data" and a form with the following fields with pre-filled data:
 
   ![Edit Student Page. Fields](documentation/features/edit_student_page/edit_students_page_fields.png)
 
-The fields are pre-filled with the data from the data on the student that been previously selected. The boss or the sales manager are able to render this data by selecting a particular field and changing data. 
+The fields are pre-filled with the data from the data on the previously selected student. The boss or the sales manager is able to render this data by selecting a particular field and changing data. 
 
-Under the fields there 2 buttons: "Save" and "Cancel". If the sales manager or the boss clicks on the "Save" button, the form will be validated and if it is valid, the sale will be updated in the database and he/she will be redirected to the Student's Detail page.. If the form is not valid, the user will be redirected to the same page and the form will be filled with the data that was entered before. If the sales manager clicks on the "Cancel" button, he/she will be redirected to the Student's Detail page.
+Under the fields, there 2 buttons: "Save" and "Cancel". If the sales manager or the boss clicks on the "Save" button, the form will be validated, and if it is valid, the sale will be updated in the database, and he/she will be redirected to the Student's Detail page. If the form is not valid, the user will be redirected to the same page, and the form will be filled with the data that was entered before. If the sales manager clicks on the "Cancel" button, he/she will be redirected to the Student's Detail page.
 
   ![Edit Student Page. Form Buttons](documentation/features/edit_student_page/cancel_save_buttons.png)
 
@@ -1005,7 +1009,7 @@ This page is accessible only by the sales manager or the boss.
 
   ![Delete Student Page.](documentation/features/delete_student_page/delete_student_page.png)
 
- It has a title "Delete Student's data" and a warning message with the name of the student.
+ It has the title "Delete Student's data" and a warning message with the name of the student.
 
   ![Delete Student Page. Warning Message](documentation/features/delete_student_page/delete_student_warning.png)
 
@@ -1019,9 +1023,9 @@ Under the warning message there 2 buttons: "Delete" and "Cancel". If the sales m
 
 **Student Detail Page**
 
-This page is accessible by everyone except potential clients. However, parents can see only their own children's profiles. If they will try to enter other students' profiles they will be redirected to the Access Limitation page.
+This page is accessible to everyone except potential clients. However, parents can see only their own children's profiles. If they try to enter other students' profiles, they will be redirected to the Access Limitation page.
 
-The page has the following look for the bosses and sales managers:
+The page has a following look for the bosses and sales managers:
 
   ![Student Detail Page](documentation/features/student_detail_page/student_detail_page_admin_view.png)
 
@@ -1029,11 +1033,11 @@ It has additional editing and deletion functionality for the bosses and sales ma
 
   ![Student Detail Page. Buttons](documentation/features/student_detail_page/edit_delete_buttons.png)
 
-For the rest of the users this page looks as following:
+For the rest of the users, this page looks as follows:
 
   ![Student Detail Page. Others users view](documentation/features/student_detail_page/student_detail_page_others_view.png)
 
-It has a students data box with a name of a student as a title and a role under neath the name (Student). If a parent opens his/her child's profile, there will be additional line, pointing that this student is related to the user 
+It has a student data box with a student's name as a title and a role underneath the name (Student). If a parent opens his/her child's profile, there will be an additional line pointing that this student is related to the user 
 
   ![Student Detail Page. Relation to the parent](documentation/features/student_detail_page/students_detail_relation.png)
 
@@ -1048,7 +1052,7 @@ Then the user may see the student's data:
 
   ![Student Detail Page. Parents](documentation/features/student_detail_page/student_detail_page_parents.png)
 
-  *If the school wants to contact student's relatives, they simply need to click on the parents' link and they will be redirected to parents' profiles where they will their emails and phone numbers data*
+  *If the school wants to contact student's relatives, they simply need to click on the parents' link, and they will be redirected to parents' profiles, where they will see their emails and phone numbers data*
 
 - Notes;
 - Classes left;
@@ -1058,19 +1062,19 @@ Then the user may see the student's data:
 
 - Enrolled date;
 
-Underneath data box, the user will find the information on the student's attendance.
+Underneath the data box, the user will find the information on the student's attendance.
 
   ![Student Detail Page. Attendance](documentation/features/student_detail_page/student_detail_attendance.png)
 
-There is a sorting by date bar and a search button on the right side of the bar. The sorting bar has 2 datepickers, one for the start date and one for the end date. The sales are sorted by the start date. There is a button "Search" on the right side of the sorting bar. after picking dates and clicking on the "Search" button, the classes will be filtered by the dates. Then the user may see the summary of the results found.
+There is sorting by date bar and a search button on the right side of the bar. The sorting bar has 2 datepickers, one for the start date and one for the end date. The sales are sorted by the start date. There is a button "Search" on the right side of the sorting bar. after picking dates and clicking on the "Search" button, the classes will be filtered by the dates. Then the user may see the summary of the results found.
 
   ![Student Detail Page. Attendance Summary](documentation/features/student_detail_page/student_detail_summary.png)
 
-Each class has in the attendance section has a date, name of the subject and a link to view class's details. If the user click on the class, he/she will be redirected to the class details page.
+Each class in the attendance section has a date, the name of the subject, and a link to view the class's details. If the user clicks on the class, he/she will be redirected to the class details page.
 
   ![Student Detail Page. Attendance Classes](documentation/features/student_detail_page/student_detail_page_classes.png)
 
-Under the table there is a navigation bar for the table. It has a "Previous" button and a "Next" button. The "Previous" button will redirect the user to the previous page of the table. The "Next" button will redirect the user to the next page of the table.
+Under the table, there is a navigation bar for the table. It has a "Previous" button and a "Next" button. The "Previous" button will redirect the user to the previous page of the table. The "Next" button will redirect the user to the next page of the table.
 
   ![Student page. Navigation1](documentation/features/student_detail_page/page_navigation1.png)
   ![Student page. Navigation2](documentation/features/student_detail_page/page_navigation2.png)
@@ -1081,7 +1085,7 @@ This page is accessible to everyone.
 
   ![Schedule Page](documentation/features/schedule_page/schedule_page_others_view.png)
 
-But it has different look for teachers:
+But it has a different look for teachers:
 
   ![Schedule Page. Teachers' view](documentation/features/schedule_page/schedule_page_teacher_view.png)
 
@@ -1090,24 +1094,24 @@ It has a "My Schedule Button". If the teacher clicks this button, he/she will be
   ![Schedule Page. My Schedule Button](documentation/features/schedule_page/my_schedule_button.png)
 
 
-And for the receptionists it will have additional feature:
+And for the receptionists it will have an additional feature:
 
   ![Schedule Page. Receptionists' view](documentation/features/schedule_page/schedule_page_receptionist.png)
 
-  It has a button "add lesson". Only receptionists are allowed to make any changes to the schedule.
+  It has the button "add lesson". Only receptionists are allowed to make any changes to the schedule.
 
   ![Schedule Page. Add Lesson Button](documentation/features/schedule_page/add_lesson_button.png)
 
-The page has a title "Schedule" and the Line: "Today is ..." for the use to see which day is today. 
+The page has the title "Schedule" and the Line: "Today is ..." for the user to see which day is today. 
 
   ![Schedule Page. Today](documentation/features/schedule_page/schedule_today_data.png)
 
-There is a datepicker for the user to choose a day, which the user wants to look into. The calendar set automatically on the today schedule.
-If the user want to change the day, he/she may click on the date picker and the calendar will appear.
+There is a datepicker for the user to choose a day that the user wants to look into. The calendar is set automatically on today's schedule.
+If the user wants to change the day, he/she may click on the date picker, and the calendar will appear.
 
   ![Schedule Page. Calendar](documentation/features/schedule_page/schedule_calendar.png)
 
-Underneath there is a schedule table where the time period is on the left side and the classes, which were scheduled, on the right side. If the user clicks on the class, he/she will be redirected to the lesson detail page.
+Underneath, there is a schedule table where the time period is on the left side and the classes which were scheduled on the right side. If the user clicks on the class, he/she will be redirected to the lesson detail page.
 
   ![Schedule Page. Schedule table](documentation/features/schedule_page/schedule_page_box.png)
 
@@ -1121,11 +1125,11 @@ When the user chooses another day, the schedule table will display classes only 
 
 **Teacher's Personal Schedule Page**
 
-This page is available only by teachers.
+This page is available only to teachers.
 
   ![Teacher Schedule Page](documentation/features/teacher_schedule_page/teacher_schedule_page.png)
 
-It has a button in the right top corner "Back" to go back to common schedule page.
+It has a button in the right top corner - "Back" - to go back to the common schedule page.
 
   ![Teacher Schedule Page. Back Button](documentation/features/teacher_schedule_page/back_button.png)
 
@@ -1141,11 +1145,11 @@ Here is the teacher's personal schedule:
 
 **Add Lesson Page**
 
-This page is accessible only by receptionists as only they have rights to make ony changes in the schedule.
+This page is accessible only by receptionists as only they have the rights to make any changes in the schedule.
 
   ![Add Lesson Page](documentation/features/add_lesson_page/add_lesson_page.png)
 
-It has a title "Adding lesson" and the following fields:
+It has the title "Adding lesson" and the following fields:
 
   ![Add Lesson Page. Form fields.](documentation/features/add_lesson_page/add_lesson_fields.png)
 
@@ -1189,28 +1193,28 @@ Under the fields there are 2 buttons: "Save" and "Cancel". If the receptionist c
 
 **Edit Lesson Page**
 
-This page is accessible only by receptionists as only they have rights to make ony changes in the schedule.
+This page is accessible only by receptionists as only they have the rights to make any changes in the schedule.
 
   ![Edit Lesson Page](documentation/features/edit_lesson_page/edit_lesson_page.png)
 
- It has a title "Edit Lesson" and a form with the following fields with pre-filled data:
+ It has the title "Edit Lesson" and a form with the following fields with pre-filled data:
 
   ![Edit Lesson Page. Fields](documentation/features/edit_lesson_page/edit_page_fields.png)
 
-The fields are pre-filled with the data from the data on the lesson that been previously added. The receptionist is able to render this data by selecting a particular field and changing data. 
+The fields are pre-filled with the data from the data on the lesson that had been previously added. The receptionist is able to render this data by selecting a particular field and changing data. 
 
-Under the fields there 2 buttons: "Save" and "Cancel". If the receptionist clicks on the "Save" button, the form will be validated and if it is valid, the lesson will be updated in the database and he/she will be redirected to the Lesson's Detail page. If the form is not valid, the user will be redirected to the same page and the form will be filled with the data that was entered before. If the receptionist clicks on the "Cancel" button, he/she will be redirected to the Lesson's Detail page.
+Under the fields there 2 buttons: "Save" and "Cancel". If the receptionist clicks on the "Save" button, the form will be validated, and if it is valid, the lesson will be updated in the database, and he/she will be redirected to the Lesson's Detail page. If the form is not valid, the user will be redirected to the same page, and the form will be filled with the data that was entered before. If the receptionist clicks on the "Cancel" button, he/she will be redirected to the Lesson's Detail page.
 
   ![Edit Lesson Page. Form Buttons](documentation/features/edit_lesson_page/cancel_save_buttons.png)
 
 
 **Delete Lesson Page**
 
-This page is accessible only by receptionists as only they have rights to make ony changes in the schedule.
+This page is accessible only by receptionists as only they have the rights to make changes in the schedule.
 
   ![Delete Lesson Page](documentation/features/delete_lesson_page/delete_lesson_page.png)
 
-This page has a title "Lesson Deletion" and a warning message of the permanently deletion of the lesson.
+This page has the title "Lesson Deletion" and a warning message about the permanent deletion of the lesson.
 
   ![Delete Lesson Page. Warning](documentation/features/delete_lesson_page/delete_lesson_page_warning.png)
 
@@ -1218,7 +1222,7 @@ Inside this warning message is the link to the lesson that is about to be delete
 
   ![Delete Lesson Page. Lesson Link](documentation/features/delete_lesson_page/delete_lesson_page_link.png)
 
-Under the warning message there are 2 buttons "Cancel" and "Delete". If the receptionist doesn't want to delete the lesson, he/she can click on "Cancel" button and will be redirected to the lesson detail page. If the receptionist wants to delete the lesson, he/she can click on "Delete" button and will be redirected to the schedule page and this lesson will be permanently deleted.
+Under the warning message, there are 2 buttons "Cancel" and "Delete". If the receptionist doesn't want to delete the lesson, he/she can click on "Cancel" button and will be redirected to the lesson detail page. If the receptionist wants to delete the lesson, he/she can click on "Delete" button, and will be redirected to the schedule page and this lesson will be permanently deleted.
 
   ![Profile delete page](documentation/features/delete_lesson_page/cancel_delete_buttons.png)
 
@@ -1229,28 +1233,28 @@ This page is accessible by each member of the school.
 
   ![Lesson Detail Page](documentation/features/lesson_detail_page/lesson_detail_page.png)
 
-The lesson table has different look for the users. 
+The lesson table has a different look for the users. 
 
-School personnel except receptionists looks as following:
+School personnel except receptionists looks as follows:
 
   ![Lesson Detail Page. Personnel View](documentation/features/lesson_detail_page/lesson_detail_personnel.png)
 
-It has a name of the subject as a title:
+It has the name of the subject as a title:
 
   ![Lesson Detail Page. Subject](documentation/features/lesson_detail_page/lesson_subject.png)
 
-Under the name of the subject there is table with the data on the lesson:
+Under the name of the subject, there is a table with the data on the lesson:
 
   ![Lesson Detail Page. Personnel View](documentation/features/lesson_detail_page/lesson_data.png)
 
-This table allows users learn with subject is given, on which day, and in which period of time. This will be beneficial to the users plan their personal schedule.
-Moreover, it has a row which shows who is teaching this subject and a row on the students, which will attend the class.
+This table allows users to learn which subject is given, on which day, and in which period of time. This will be beneficial to the users plan their personal schedules.
+Moreover, it has a row which shows who is teaching this subject and a row on the students which will attend the class.
 
-However, when it comes to the users, who are parents of potential clients, the table look a bit differently:
+However, when it comes to the users, who are parents of potential clients, the table looks a bit differently:
 
   ![Lesson Detail Page. Parent View](documentation/features/lesson_detail_page/lesson_detail_parent.png)
 
-As it may be noticed, a parent may access only their own children profile. The rest of the students has no link for this parent.
+As it may be noticed, a parent may access only their own children's profiles. The rest of the students have no link to this parent.
 
   ![Lesson Detail Page. Parent View. Students' Links](documentation/features/lesson_detail_page/lesson_detail_parent_links.png)
 
@@ -1270,13 +1274,13 @@ There are also 2 additional error pages:
 
   ![Error Page. 404](documentation/features/error_page/404_error_page.png)
 
-  it has a box with the the header "Page 404", image and a short message about the error ("Something went wrong as this page is not found").
+  it has a box with the header "Page 404", an image and a short message about the error ("Something went wrong as this page is not found").
 
-  If the user is logged in and tries to access a page that doesn't exist, he/she will find a button to his/her profile page.
+  If the user is logged in and tries to access a page that doesn't exist, he/she will find a button with the link to his/her profile page.
 
   ![Error Page. 404. Link to user profile](documentation/features/error_page/404_error_page2.png)
 
-  If the user is logged out and tries to access a page that doesn't exist, he/she will find a button to the home page
+  If the user is logged out and tries to access a page that doesn't exist, he/she will find a button with the link to the home page
 
   ![Error Page. 404. Link to home page](documentation/features/error_page/404_error_page1.png)
 
@@ -1321,7 +1325,7 @@ The main font used in the application is Lato. The use of this font is consisten
 
   ![Typography](documentation/design/lato_900.png)
 
-To emphasize the importance of the text, the font weight was set to 900. To make the accent on the buttons, the font weight was set to 700. For the rest of the text, the font weight was set to 400.
+To emphasize the importance of the text, the font-weight was set to 900. To make the accent on the buttons, the font-weight was set to 700. For the rest of the text, the font-weight was set to 400.
 
 ### Imagery
 
@@ -1333,7 +1337,7 @@ To generate this particular pattern, I used Contour Line Generator with white ba
 
 - Images were downloaded from the [icons8](https://icons8.com/) website only for the home page. However, the original images were changed manually to match the color scheme.
 
-- The main part is allocated to the use of icons from the [font awesome](https://fontawesome.com/) website. The use of icons is essential for the user experience when it comes to the multifunctional websites.
+- The main part is allocated to the use of icons from the [font awesome](https://fontawesome.com/) website. The use of icons is essential for the user experience when it comes to multifunctional websites.
 
 
 ### Wireframes
@@ -1348,7 +1352,7 @@ To generate this particular pattern, I used Contour Line Generator with white ba
 
 ## Flowcharts
 
-This application is aimed at users with different roles to fulfill there expectations and provide all functionality.
+This application is aimed at users with different roles to fulfill their expectations and provide all functionality.
 
 The following flowcharts were created to help to understand the application and its functionality.
 
@@ -1407,7 +1411,7 @@ Extends Allauth's User model.
 
 2. **Teacher**
 
-Was created in order to provide more room for manipulation of the database and provide opportunities for the future developments. Users with the role of teacher will be automatically assigned to this table.
+It was created in order to provide more room for manipulation of the database and provide opportunities for future developments. Users with the role of teacher will be automatically assigned to this table.
 
 | Name          | Database Key  | Field Type    | Validation |
 | ------------- | ------------- | ------------- | ---------- |
@@ -1415,7 +1419,7 @@ Was created in order to provide more room for manipulation of the database and p
 
 3. **Receptionist**
 
-Was created in order to provide more room for manipulation of the database and provide opportunities for the future developments.
+It was created in order to provide more room for manipulation of the database and provide opportunities for future developments.
 
 | Name          | Database Key  | Field Type    | Validation |
 | ------------- | ------------- | ------------- | ---------- |
@@ -1423,7 +1427,7 @@ Was created in order to provide more room for manipulation of the database and p
 
 4. **SalesManager**
 
-Was created in order to provide more room for manipulation of the database and provide opportunities for the future developments. Users with the role of sales manager will be automatically assigned to this table.
+It was created in order to provide more room for manipulation of the database and provide opportunities for future developments. Users with the role of sales manager will be automatically assigned to this table.
 
 | Name          | Database Key  | Field Type    | Validation |
 | ------------- | ------------- | ------------- | ---------- |
@@ -1432,7 +1436,7 @@ Was created in order to provide more room for manipulation of the database and p
 
 5. **Parent**
 
-Was created in order to provide more room for manipulation of the database and provide opportunities for the future developments. Users with the role of parent will be automatically assigned to this table.
+It was created in order to provide more room for manipulation of the database and provide opportunities for future developments. Users with the role of the parent will be automatically assigned to this table.
 
 | Name          | Database Key  | Field Type    | Validation |
 | ------------- | ------------- | ------------- | ---------- |
@@ -1467,7 +1471,7 @@ This table does not inherit from the CustomUser model. This is because the stude
 
 7. **Sales**
 
-This table is needed to conduct sales operations. It controls the sales of the products. It is also adds classes to a particular student and adds total classes sold to a sales manager. Separate field "student_id" was added in order to prevent a circular import but allow sales to be in control of classes added to a particular student or reduced (For example, when parents asks for a refund).
+This table is needed to conduct sales operations. It controls the sales of the products. It also adds classes to a particular student and adds total classes sold to a sales manager. A separate field "student_id" was added in order to prevent a circular import but allow sales to be in control of classes added to a particular student or reduced (For example, when parents ask for a refund).
 
 | Name          | Database Key  | Field Type    | Validation |
 | ------------- | ------------- | ------------- | ---------- |
@@ -1479,7 +1483,7 @@ This table is needed to conduct sales operations. It controls the sales of the p
 
 8. **Lesson**
 
-This table is necessary to control the lessons and provide data for schedule.
+This table is necessary to control the lessons and provide data for the schedule.
 
 | Name          | Database Key  | Field Type     | Validation |
 | ------------- | ------------- | -------------- | ---------- |
@@ -1524,7 +1528,7 @@ This table is necessary to control the lessons and provide data for schedule.
 ---
 ## Testing
 
-Please refer to the [TESTING.md](TESTING.md) file for all test related documentation.
+Please refer to the [TESTING.md](TESTING.md) file for all test-related documentation.
 
 [Back to contents](#contents)
 
@@ -1537,7 +1541,7 @@ Please refer to the [TESTING.md](TESTING.md) file for all test related documenta
 ### Local deployment
 
 *Note:*
-  - This project requires install all the requirements:
+  - This project requires to install all the requirements:
   - Open the terminal window and type:
   - `pip3 install -r requirements.txt`
 
@@ -1577,19 +1581,19 @@ Create a local copy of the GitHub repository by following one of the two process
       os.environ['DEBUG'] = 'True'
     ```
 
-    *During the development stage DEBUG is set to True, but it is important to Change it to False.*
+    *During the development stage DEBUG is set to True, but it is vital to change it to False.*
 
-1. Run following commands in a terminal to make migrations: 
+1. Run the following commands in a terminal to make migrations: 
     - `python3 manage.py makemigrations`
     - `python3 manage.py migrate`
 1. Create a superuser to get access to the admin environment.
     - `python3 manage.py createsuperuser`
-    - Enter required information (your username, email and password).
+    - Enter the required information (your username, email and password).
 1. Run the app with the following command in the terminal:
     - `python3 manage.py runserver`
 1. Open the link provided in a browser to see the app.
 
-1. If you need to access admin page:
+1. If you need to access the admin page:
     - Add /admin/ to the link provided.
     - Enter your username and password (for the superuser that you have created before).
     - You will be redirected to the admin page.
@@ -1599,11 +1603,11 @@ Create a local copy of the GitHub repository by following one of the two process
 
 * Set up a local workspace on your computer for Heroku:
     - Create a list of requirements that the project needs to run:
-      - type in this in the terminal: `pip3 freeze > requirements.txt`
+      - type this in the terminal: `pip3 freeze > requirements.txt`
     - Commit and push the changes to GitHub
     
 * Go to [www.heroku.com](www.heroku.com) 
-* Login or create a Heroku account.
+* Log in or create a Heroku account.
 * Create a new app with any unique name <name app>.
 
   ![Heroku. Create New App](documentation/deployment/new_heroku_app.png)
@@ -1638,12 +1642,12 @@ Click on Reveal Config Vars and add the following config variables:
 | SECRET_KEY | ... |
 
 
-* Copy the value of DATABASE_URL and input it into the .env file and generate secret key (you may use [Djecrety](https://djecrety.ir/) for secret key generation).
-* Create EMAIL_HOST_PASS and EMAIL_HOST_USER with gmail account and add values to these keys.
+* Copy the value of DATABASE_URL and input it into the .env file and generate a secret key (you may use [Djecrety](https://djecrety.ir/) for secret key generation).
+* Create EMAIL_HOST_PASS and EMAIL_HOST_USER with a gmail account and add values to these keys.
 * Migrate changes.
 * Set debug to False in settings.py
 * Commit and push the changes to GitHub.
-* Connect you repository to Heroku.
+* Connect your repository to Heroku.
 
   ![Heroku. Connect to Heroku](documentation/deployment/heroku_connect_github.png)
 
@@ -1683,7 +1687,7 @@ Click "View build logs" to see the progress of the deployment.
 
 - [GitHub](https://github.com/) for giving the idea of the project's design.
 - [Django](https://www.djangoproject.com/) for the framework.
-- [BGJar](https://www.bgjar.com/): for the free access to background images build tool.
+- [BGJar](https://www.bgjar.com/): for the free access to the background images build tool.
 - [Font awesome](https://fontawesome.com/): for the free access to icons.
 - [Heroku](https://www.heroku.com/): for the free hosting of the website.
 - [jQuery](https://jquery.com/): for providing varieties of tools to make standard HTML code look appealing.
@@ -1695,7 +1699,7 @@ Click "View build logs" to see the progress of the deployment.
 - [GoFullPage](chrome://extensions/?id=fdpohaocaechififmbbbbbknoalclacl): for allowing to create free full web page screenshots;
 - [Favicon Generator. For real.](https://realfavicongenerator.net/): for providing a free platform to generate favicons.
 
-*All names are fictional (the majority of the names were taken from "The Simpsons" and "Rick and Morty" cartoons) and any resemblance to actual events or locales or persons, living or dead, is entirely coincidental.*
+*All names are fictional (the majority of the names were taken from "The Simpsons" and "Rick and Morty" cartoons), and any resemblance to actual events or locales or persons, living or dead, is entirely coincidental.*
 
 [Back to contents](#contents)
 ---
@@ -1703,8 +1707,8 @@ Click "View build logs" to see the progress of the deployment.
 ## Acknowledgments
 
 
-- [Tim Nelson](https://github.com/TravelTimN) who was a great supporter of my bold idea of a project. Tim helped me to understand the concept of a database for the school app and greatly motivated me to do my best throughout the whole development stage.
-- [Aleksei Konovalov](https://github.com/lexach91), my husband and coding partner, who assisted me greatly to understand AJAX implementation and helped me to stay sane.
+- [Tim Nelson](https://github.com/TravelTimN) was a great supporter of my bold idea of a project. Tim helped me to understand the concept of a database for the school app and greatly motivated me to do my best throughout the whole development stage.
+- [Aleksei Konovalov](https://github.com/lexach91), my husband and coding partner, who assisted me greatly in understanding AJAX implementation and helped me to stay sane.
 - My current workplace for providing me with the main idea for the project and incentivizing me to work on it.
 
 
