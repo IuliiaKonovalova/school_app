@@ -14,7 +14,7 @@ The app is developed by [Iuliia Konovalova](https://github.com/IuliiaKonovalova)
 [Cool School app](https://cool-school.onrender.com) is a school management application. The main goal Ff this app is to help the school manage the students, teachers, classes, subjects, etc. Moreover, the app is aimed at increasing the efficiency of school management. 
 
 
-[Back to contents](#contents)
+
 
 ## User Experience Design
 
@@ -121,7 +121,7 @@ The app was developed for all members of the early childhood school.
 |[#49](https://github.com/IuliiaKonovalova/school_app/issues/49)|As a Parent, I want to be able to see information on students for each lesson, so that I can prepare my child for a lesson.|
 |[#50](https://github.com/IuliiaKonovalova/school_app/issues/50)|As a Parent, I want to be able to see names of teachers for each lesson, so that I can know who is/are teaching a lesson.|
 
-[Back to contents](#contents)
+
 
 ---
 
@@ -166,7 +166,7 @@ The app was developed for all members of the early childhood school.
     + [JShint](https://jshint.com/): was used to validate JS code for the website.
     + [PEP8](https://pep8.org/): was used to validate Python code for the website.
 
-[Back to contents](#contents)
+
 
 ---
 
@@ -174,7 +174,7 @@ The app was developed for all members of the early childhood school.
 
 Please refer to the [FEATURES.md](FEATURES.md) file for all test-related documentation.
 
-[Back to contents](#contents)
+
 
 ---
 
@@ -227,7 +227,7 @@ To generate this particular pattern, I used Contour Line Generator with white ba
 - [Tablet Wireframes](documentation/wireframes/pp4_tablet.pdf)
 - [Mobile Wireframes](documentation/wireframes/pp4_mobile.pdf)
 
-[Back to contents](#contents)
+
 
 ---
 
@@ -245,7 +245,7 @@ The flowcharts were created using [Draw.io](https://www.lucidchart.com/).
 - [Flowchart for Teachers](documentation/flowcharts/flowchart_teachers.pdf)
 - [Flowchart for Receptionist](documentation/flowcharts/flowchart_receptionist.pdf)
 
-[Back to contents](#contents)
+
 
 ---
 
@@ -404,14 +404,14 @@ This table is necessary to control the lessons and provide data for the schedule
 ```
 
 
-[Back to contents](#contents)
+
 
 ---
 ## Testing
 
 Please refer to the [TESTING.md](TESTING.md) file for all test-related documentation.
 
-[Back to contents](#contents)
+
 
 ---
 
@@ -561,7 +561,7 @@ Click "View build logs" to see the progress of the deployment.
 * Set debug to False locally + delete DISABLE_COLLECTSTATIC from config vars in Heroku dashboard.
 * Commit and push the changes to GitHub.
 
-[Back to contents](#contents)
+
 ---
 
 ## Credits
@@ -582,7 +582,7 @@ Click "View build logs" to see the progress of the deployment.
 
 *All names are fictional (the majority of the names were taken from "The Simpsons" and "Rick and Morty" cartoons), and any resemblance to actual events or locales or persons, living or dead, is entirely coincidental.*
 
-[Back to contents](#contents)
+
 ---
 
 ## Acknowledgments
@@ -593,4 +593,3 @@ Click "View build logs" to see the progress of the deployment.
 - My current workplace for providing me with the main idea for the project and incentivizing me to work on it.
 
 
-[Back to contents](#contents)
