@@ -36,7 +36,6 @@ class SalesView(View):
             return render(
                 request,
                 'sales/sales_list.html',
-                {'sales': sales}
                 )
         else:
             return render(
