@@ -39,7 +39,7 @@
 
 ## About
 
-[Cool School app](https://school-application-konovalova.herokuapp.com/) is a school management application. The main goal Ff this app is to help the school manage the students, teachers, classes, subjects, etc. Moreover, the app is aimed at increasing the efficiency of school management. 
+[Cool School app](https://cool-school.onrender.com) is a school management application. The main goal Ff this app is to help the school manage the students, teachers, classes, subjects, etc. Moreover, the app is aimed at increasing the efficiency of school management. 
 
 The app is developed by [Iuliia Konovalova](https://github.com/IuliiaKonovalova).
 
