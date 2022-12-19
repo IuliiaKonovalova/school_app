@@ -16,21 +16,27 @@ class SalesView(View):
         if request.user.is_authenticated and (
             request.user.role == 0 or request.user.role == 2
         ):
-            p = Paginator(Sales.objects.all(), 10)
-            page = request.GET.get('page')
-            sales = p.get_page(page)
-            for sale in sales:
-                student = Student.objects.get(id=sale.student_id)
-                sale.student_name = (
-                    student.first_name +
-                    ' ' +
-                    student.last_name
-                )
-                sales_number = Sales.objects.all().count()
+            if Sales.objects.all().count() > 0:
+                p = Paginator(Sales.objects.all(), 10)
+                page = request.GET.get('page')
+                sales = p.get_page(page)
+                for sale in sales:
+                    student = Student.objects.get(id=sale.student_id)
+                    sale.student_name = (
+                        student.first_name +
+                        ' ' +
+                        student.last_name
+                    )
+                    sales_number = Sales.objects.all().count()
+                return render(
+                    request,
+                    'sales/sales_list.html',
+                    {'sales': sales, 'sales_number': sales_number}
+                    )
             return render(
                 request,
                 'sales/sales_list.html',
-                {'sales': sales, 'sales_number': sales_number}
+                {'sales': sales}
                 )
         else:
             return render(
