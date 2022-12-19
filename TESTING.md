@@ -1,26 +1,5 @@
 # Testing
 
-## **Contents**
-
-* [Manual Testing](#manual-testing)
-* [Testing User Story](#testing-user-story)
-* [Bugs](#bugs)
-  * [Known bugs](#known-bugs)
-  * [Solved bugs](#solved-bugs)
-* [Automated testing](#automated-testing)
-  * [Django unit testing](#django-unit-testing)
-  * [Jest unit testing](#jest-unit-testing)
-* [Validation](#validation)
-  * [HTML validation](#html-validation)
-  * [CSS validation](#css-validation)
-  * [JS validation](#js-validation)
-  * [Python Validation](#python-validation)
-* [Lighthouse Report](#lighthouse-report)
-* [Compatibility](#compatibility)
-* [Responsiveness](#responsiveness)
-
-
-
 ## Manual Testing
 
 Testing was done throughout site development, for each feature before it was merged into the master file.
