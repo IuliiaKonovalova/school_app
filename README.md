@@ -608,7 +608,107 @@ Click "View build logs" to see the progress of the deployment.
 
 #### Create a new app on Render
 
+Link to the deployed application on Render: [Cool School](https://cool-school.onrender.com/)
 
+1. Create a new Render account if you don't already have one here [Render](https://render.com/).
+
+2. Create a new application on the following page here [New Render App](https://dashboard.render.com/), choose **Webserver**:
+
+    - ![New Render App](documentation/deployment/render_new_web_service.png)
+
+3. Select the GitHub option and connect the application to the repository you created.
+
+    - ![GitHub Option](documentation/deployment/render_configure_github_account.png)
+
+4. Search for the repository you created and click "Connect."
+
+    - ![Connect to GitHub](documentation/deployment/render_connect_repository.png)
+
+    - ![Connect to GitHub](documentation/deployment/render_connect_repository_connect.png)
+
+5. Create name for the application
+
+    - ![Create Application Name](documentation/deployment/render_create_name.png)
+
+6. Select the region where you want to deploy the application.
+
+    - ![Select Region](documentation/deployment/render_select_region.png)
+
+7. Select branch to deploy.
+
+    - ![Select Branch](documentation/deployment/render_select_branch.png)
+
+8. Select environment.
+
+    - ![Select Environment Variables](documentation/deployment/render_select_environment.png)
+
+9. Render build command: `./build.sh`
+
+    - ![Render Build Command](documentation/deployment/render_build_command.png)
+
+10. Render start command: `gunicorn <NAME OF YOUR APP>.wsgi:application` + You can delete `Procfile` from your repository.
+
+    - ![Render Start Command](documentation/deployment/render_start_command.png)
+
+11. Select Free plan.
+
+    - ![Select Free Plan](documentation/deployment/render_payment_info.png)
+
+12. Click on "Advanced" settings.
+
+    - ![Advanced Settings](documentation/deployment/render_advanced_settings.png)
+
+13. Add the following environment variables:
+
+    - Key: WEB_CONCURRENCY Value: 4
+    - Key: DATABASE_URL Value: *************
+    - Key: SECRET_KEY Value: *************
+    - Key: DEBUG Value: False
+    - Key: EMAIL_HOST_USER Value: *************
+    - Key: EMAIL_HOST_PASSWORD Value: *************
+
+    *DATABASE_URL value is takes from ElephantSQL dashboard, SECRET_KEY value is takes from your local env.py file, DEBUG value is set to False, EMAIL_HOST_USER and EMAIL_HOST_PASSWORD values are takes from your Gmail account.*
+
+
+14. Open VS Code and create a new file called `build.sh` in the root directory of your project.
+
+    - ![Create Build.sh](documentation/deployment/render_create_build_sh.png)
+
+15. Copy the following code into the `build.sh` file:
+
+    ```bash
+      set -o errexit
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+      python manage.py makemigrations && python manage.py migrate
+    ```
+
+    -*pip install -r requirements.txt installs the packages detailed in your requirements.txt file.*
+    - *python manage.py collectstatic collects all static files to allow them to be served in the production environment.*
+    - *The –noinput flag allows the command to run with no additional input from the deploying developer.*
+    - *python manage.py makemigrations && python manage.py migrate are run to ensure all migrations are made to your production database.*
+
+16. Save the file `build.sh`.
+
+17. Go to `settings.py` file and add the following code to add Render.com to allowed hosts:
+
+    ```python
+        RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+        if RENDER_EXTERNAL_HOSTNAME:
+          ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+    ```
+
+   *If you have heroku in your allowed hosts, delete it*
+
+18. Save the file `settings.py`.
+
+19. Commit and push the changes to GitHub.
+
+20. Go back to Render and click "Create Web Service."
+
+    - ![Save Web Service](documentation/deployment/render_create_web_service.png)
+
+15. Wait for the completion of the deployment.
 ---
 
 ## Credits
