@@ -702,13 +702,28 @@ Link to the deployed application on Render: [Cool School](https://cool-school.on
 
 18. Save the file `settings.py`.
 
-19. Commit and push the changes to GitHub.
+19. Go to `env.py` and change to DATEBASE_URL value to the one you got from ElephantSQL.
 
-20. Go back to Render and click "Create Web Service."
+    ```python
+        os.environ["DATABASE_URL"] = '*************'
+    ```
+
+20. Create a superuser for your database.
+
+    ```bash
+        python manage.py createsuperuser
+    ```
+
+21. Commit and push the changes to GitHub.
+
+22. Go back to Render and click "Create Web Service."
 
     - ![Save Web Service](documentation/deployment/render_create_web_service.png)
 
-15. Wait for the completion of the deployment.
+23. Wait for the completion of the deployment.
+
+24. Go to admin panel and change the settings for the admin by assigning a role of `Boss` to allow the full control of the website including role assignment.
+
 ---
 
 ## Credits
