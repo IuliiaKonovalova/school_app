@@ -1,41 +1,5 @@
 # Cool School
 
-## **Contents**
-
-* [About](#About)
-* [User Experience Design](#User-Experience-Design)
-  * [Strategy](#Strategy)
-  * [Target Audience](#Target-Audience)
-  * [User Stories](#User-Stories)
-    * [First Time Visitor Goals](#First-Time-Visitor-Goals)
-    * [Frequent Visitor Goals](#Frequent-Visitor-Goals)
-    * [Potential Client Goals](#Potential-Client-Goals)
-    * [Boss Goals](#Boss-Goals)
-    * [Teachers' Goals](#Teachers-Goals)
-    * [Receptionists' Goals](#Receptionists-Goals)
-    * [Sales Managers' Goals](#Sales-Managers-Goals)
-    * [Parents' Goals](#Parents-Goals)
-* [Technologies used](#Technologies-used)
-* [Features](#Features)
-* [Design](#Design)
-  * [Color Scheme](#Colour-Scheme)
-  * [Typography](#Typography)
-  * [Imagery](#Imagery)
-  * [Wireframes](#Wireframes)
-* [Flowcharts](#Flowcharts)
-* [Information Architecture](#Information-Architecture)
-  * [Database](#Database)
-  * [Entity-Relationship Diagram](#Entity-Relationship-Diagram)
-  * [Data Modeling](#Data-Modeling)
-* [Testing](#Testing)
-
-* [Deployment](#Deployment)
-  * [Local deployment](#Local-deployment)
-  * [Heroku Deployment](#Heroku-Deployment)
-
-* [Credits](#Credits)
-
-* [Acknowledgments](#Acknowledgments)
 
 ## About
 
