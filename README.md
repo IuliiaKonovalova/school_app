@@ -153,7 +153,8 @@ The app was developed for all members of the early childhood school.
     + [Spycopg2](https://www.python.org/dev/peps/pep-0249/): the database driver used to connect to the database.
     + [Django-allauth](https://django-allauth.readthedocs.io/en/latest/): the authentication library used to create the user accounts.
     + [Django-crispy-forms](https://django-cryptography.readthedocs.io/en/latest/): was used to control the rendering behavior of Django forms.
-    + [Heroku](https://dashboard.heroku.com/): the hosting service used to host the website.
+    + [Render](https://render.com/): the cloud platform used to host the website.
+    + [ElephantSQL](https://www.elephantsql.com/): the cloud database used to store all the data.
     + [GitHub](https://github.com/): used to host the website's source code.
     + [VSCode](https://code.visualstudio.com/): the IDE used to develop the website.
     + [Chrome DevTools](https://developer.chrome.com/docs/devtools/open/): was used to debug the website.
@@ -431,6 +432,8 @@ Please refer to the [DEPLOYMENT.md](DEPLOYMENT.md) file for all deployment-relat
 
 - [GitHub](https://github.com/) for giving the idea of the project's design.
 - [Django](https://www.djangoproject.com/) for the framework.
+- [Render](https://render.com/): for the free hosting of the website.
+- [ElephantSQL](https://www.elephantsql.com/): for the free hosting of the database.
 - [BGJar](https://www.bgjar.com/): for the free access to the background images build tool.
 - [Font awesome](https://fontawesome.com/): for the free access to icons.
 - [Heroku](https://www.heroku.com/): for the free hosting of the website.
