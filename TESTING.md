@@ -235,7 +235,7 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | 2                | click on the "delete" button | redirect to the schedule page+lesson will be deleted from the database | Y | Available only to receptionists |
 | 3                | click on the "cancel" button | redirect to the schedule page | Y | Available only to receptionists |
 
-[Back to contents](#contents)
+
 
 ---
 
@@ -314,7 +314,7 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | As a Parent, I want to be able to see names of teachers for each lesson, so that I can know who is/are teaching a lesson. | Available in schedule page, after clicking on a lesson | ![Lesson Detail Parent](documentation/features/lesson_detail_page/lesson_detail_parent.png) |
 
 
-[Back to contents](#contents)
+
 
 ---
 
@@ -340,7 +340,7 @@ However, I tried to solve the majority of them. And one of the bugs that I remem
 
 Another bug that took me a lot of time to solve was avoiding circular import when I was developing a sales app, as I needed to get not only the client data but also the children's data to add or delete classes from students' profiles. The solution to this problem was to implement the student_id field that will be used to get the children's data and store it in the sales table.
 
-[Back to contents](#contents)
+
 
 ---
 ## Automated testing
@@ -444,7 +444,7 @@ npm test
 
 ![Testing Javascript](documentation/test_reports/jest_error_solved.png)
 
-[Back to contents](#contents)
+
 
 ---
 
@@ -474,7 +474,7 @@ npm test
 - No errors were found when the code was passed through Valentin Bryukhanov's [online validation tool](http://pep8online.com/). According to the reports, the code is [Pep 8-compliant](https://legacy.python.org/dev/peps/pep-0008/). This checking was done manually by copying python code and pasting it into the validator.
 
 
-[Back to contents](#contents)
+
 
 ---
 ## Lighthouse Report
@@ -583,7 +583,7 @@ npm test
 
 ![Lighthouse Report. Lesson Detail Page](documentation/lighthouse_reports/lighthouse_lesson_detail.png)
 
-[Back to contents](#contents)
+
 
 ---
 
@@ -597,7 +597,7 @@ Testing was conducted on the following browsers;
 
 [Compatibility Report](documentation/compatibility/compatibility.pdf)
 
-[Back to contents](#contents)
+
 ---
 
 # Responsiveness
@@ -607,5 +607,5 @@ The responsiveness was checked manually by using devtools (Chrome) throughout th
 [Responsiveness Report](documentation/responsiveness/responsiveness.pdf)
 
 
-[Back to contents](#contents)
+
 ---
