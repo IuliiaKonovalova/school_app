@@ -417,8 +417,13 @@ Please refer to the [TESTING.md](TESTING.md) file for all test-related documenta
 
 ## Deployment
 
-- The app was deployed to [Heroku](https://heroku.com).
-- The app can be reached by the [link](https://issue-tracker-by-konovalovs.herokuapp.com/)
+- The app was deployed to [Render](https://render.com/).
+- The database was deployed to [ElephantSQL](https://www.elephantsql.com/).
+
+- The app can be reached by the [link](https://cool-school.onrender.com).
+
+
+
 ### Local deployment
 
 *Note:*
@@ -479,6 +484,8 @@ Create a local copy of the GitHub repository by following one of the two process
     - Enter your username and password (for the superuser that you have created before).
     - You will be redirected to the admin page.
 
+
+**The app was initially deployed to Heroku then moved to Render since Heroku has removed its free tier services from November 29 2022**
 
 ### Heroku Deployment
 
@@ -560,6 +567,46 @@ Click "View build logs" to see the progress of the deployment.
 
 * Set debug to False locally + delete DISABLE_COLLECTSTATIC from config vars in Heroku dashboard.
 * Commit and push the changes to GitHub.
+
+### Render Deployment
+
+#### Create Database on ElephantSQL
+
+1. Go to [ElephantSQL](https://www.elephantsql.com/) and create a new account.
+
+2. Create a new instance of the database.
+
+    - ![ElephantSQL. Create a new instance](documentation/deployment/elephantsql_create_new_instance.png)
+
+3. Select a name for your database and select the free plan.
+
+    - ![ElephantSQL. Select a name for your database](documentation/deployment/elephantsql_name.png)
+
+4. Click "Select Region"
+
+    - ![ElephantSQL. Select a region](documentation/deployment/elephantsql_select_region.png)
+
+5. Select a region close to you.
+
+    - ![ElephantSQL. Select a region](documentation/deployment/elephantsql_select_region_near_you.png)
+
+6. Click "Review"
+
+    - ![ElephantSQL. Review](documentation/deployment/elephantsql_click_review.png)
+
+7. Click "Create Instance"
+
+    - ![ElephantSQL. Create Instance](documentation/deployment/elephantsql_click_create_instance.png)
+
+8. Click on the name of your database to open the dashboard.
+
+    - ![ElephantSQL. Open dashboard](documentation/deployment/elephantsql_click_db_name.png)
+
+9. You will see the dashboard of your database. You will need the URL of your database to connect it to your Django project.
+
+    - ![ElephantSQL. DB](documentation/deployment/elephantsql_db_url.png)
+
+#### Create a new app on Render
 
 
 ---
